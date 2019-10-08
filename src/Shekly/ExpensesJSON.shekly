@@ -1,0 +1,1661 @@
+{
+  "name" : "Budżet domowy 2019",
+  "expenses" : [
+    {
+      "amount" : 42.270000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 586656000
+    },
+    {
+      "amount" : 99.950000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 587088000
+    },
+    {
+      "amount" : 46.009999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 587001600
+    },
+    {
+      "amount" : 59.390000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 586915200
+    },
+    {
+      "amount" : 127.73,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 586483200
+    },
+    {
+      "amount" : 19.68,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 587174400
+    },
+    {
+      "amount" : 120.11,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 587433600
+    },
+    {
+      "amount" : 23.039999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 586396800
+    },
+    {
+      "amount" : 33,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 587174400
+    },
+    {
+      "amount" : 43,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 586569600
+    },
+    {
+      "amount" : 42,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 586396800
+    },
+    {
+      "amount" : 21,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 587347200
+    },
+    {
+      "amount" : 13.98,
+      "subcategory" : "Artykuły biurowe",
+      "category" : "Dom",
+      "date" : 587088000
+    },
+    {
+      "amount" : 9.9800000000000004,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 587001600
+    },
+    {
+      "amount" : 19.940000000000001,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 587088000
+    },
+    {
+      "amount" : 6.4900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 587433600
+    },
+    {
+      "amount" : 8.0999999999999996,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 587088000
+    },
+    {
+      "amount" : 70.290000000000006,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582422400
+    },
+    {
+      "amount" : 132.25999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 103.7,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583113600
+    },
+    {
+      "amount" : 127.89,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 159.77000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 581817600
+    },
+    {
+      "amount" : 53.700000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583459200
+    },
+    {
+      "amount" : 78.25,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582595200
+    },
+    {
+      "amount" : 54.770000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582336000
+    },
+    {
+      "amount" : 52.469999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582854400
+    },
+    {
+      "amount" : 54.770000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 582249600
+    },
+    {
+      "amount" : 212.52000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583372800
+    },
+    {
+      "amount" : 30.5,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 583286400
+    },
+    {
+      "amount" : 15.800000000000001,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 26.969999999999999,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 582249600
+    },
+    {
+      "amount" : 37.5,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 582681600
+    },
+    {
+      "amount" : 15.42,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 55.560000000000002,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 1.0900000000000001,
+      "subcategory" : "Artykuły biurowe",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 28.789999999999999,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 55.909999999999997,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 11.640000000000001,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 26.91,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 4.3799999999999999,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 5.5899999999999999,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 5.9900000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 5,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 581385600
+    },
+    {
+      "amount" : 75.230000000000004,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 581644800
+    },
+    {
+      "amount" : 14.48,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 582076800
+    },
+    {
+      "amount" : 70.079999999999998,
+      "subcategory" : "Wyposażenie dodatkowe (opony)",
+      "category" : "Transport",
+      "date" : 581644800
+    },
+    {
+      "amount" : 29.670000000000002,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 581644800
+    },
+    {
+      "amount" : 5.7599999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 570758400
+    },
+    {
+      "amount" : 115.84999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 52.899999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 62.280000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 571363200
+    },
+    {
+      "amount" : 81.670000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 42.899999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572054400
+    },
+    {
+      "amount" : 12.82,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572486400
+    },
+    {
+      "amount" : 31.84,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572227200
+    },
+    {
+      "amount" : 26.510000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572140800
+    },
+    {
+      "amount" : 53.810000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 86.709999999999994,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 571968000
+    },
+    {
+      "amount" : 43.740000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572832000
+    },
+    {
+      "amount" : 18.75,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 571017600
+    },
+    {
+      "amount" : 13.56,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 572918400
+    },
+    {
+      "amount" : 23.629999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573004800
+    },
+    {
+      "amount" : 19,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 570758400
+    },
+    {
+      "amount" : 4.6900000000000004,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 8.4900000000000002,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 11.52,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 571968000
+    },
+    {
+      "amount" : 7.29,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 573004800
+    },
+    {
+      "amount" : 2.9900000000000002,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 571017600
+    },
+    {
+      "amount" : 7.4800000000000004,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 571363200
+    },
+    {
+      "amount" : 41.990000000000002,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 55.990000000000002,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 572140800
+    },
+    {
+      "amount" : 49.990000000000002,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 3,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 572227200
+    },
+    {
+      "amount" : 6.9900000000000002,
+      "subcategory" : "Artykuły biurowe",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 18.98,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 572140800
+    },
+    {
+      "amount" : 11.960000000000001,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 572832000
+    },
+    {
+      "amount" : 4.9900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 573004800
+    },
+    {
+      "amount" : 5.4900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 571968000
+    },
+    {
+      "amount" : 5.9900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 11.07,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 11.07,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 1.29,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 3.29,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 3,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 572227200
+    },
+    {
+      "amount" : 3.1499999999999999,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 4.3899999999999997,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 572832000
+    },
+    {
+      "amount" : 6.54,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 571363200
+    },
+    {
+      "amount" : 5.5899999999999999,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 4.3899999999999997,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 6.0999999999999996,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 1.25,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 572832000
+    },
+    {
+      "amount" : 4.9000000000000004,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 2.4500000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571881600
+    },
+    {
+      "amount" : 3.4199999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 3.04,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571017600
+    },
+    {
+      "amount" : 2.4500000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573004800
+    },
+    {
+      "amount" : 3.9199999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 572313600
+    },
+    {
+      "amount" : 3.9199999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571363200
+    },
+    {
+      "amount" : 3.9199999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 572140800
+    },
+    {
+      "amount" : 3.04,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 570672000
+    },
+    {
+      "amount" : 2.5,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 572918400
+    },
+    {
+      "amount" : 3.4300000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 571968000
+    },
+    {
+      "amount" : 9.9800000000000004,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 570931200
+    },
+    {
+      "amount" : 6,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 572227200
+    },
+    {
+      "amount" : 21.379999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 571708800
+    },
+    {
+      "amount" : 4.9900000000000002,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 572313600
+    },
+    {
+      "amount" : 8.9800000000000004,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 571190400
+    },
+    {
+      "amount" : 48.969999999999999,
+      "subcategory" : "Inne",
+      "category" : "Mieszkanie",
+      "date" : 571881600
+    },
+    {
+      "amount" : 2.2999999999999998,
+      "subcategory" : "Inne",
+      "category" : "Transport",
+      "date" : 571881600
+    },
+    {
+      "amount" : 22.48,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 570931200
+    },
+    {
+      "amount" : 12.99,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 571190400
+    },
+    {
+      "amount" : 8.5,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 570672000
+    },
+    {
+      "amount" : 5.4900000000000002,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 571881600
+    },
+    {
+      "amount" : 49.990000000000002,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 571622400
+    },
+    {
+      "amount" : 12.960000000000001,
+      "subcategory" : "Środki czystości (chemia)",
+      "category" : "Higiena",
+      "date" : 571708800
+    },
+    {
+      "amount" : 13.48,
+      "subcategory" : "Środki czystości (chemia)",
+      "category" : "Higiena",
+      "date" : 570931200
+    },
+    {
+      "amount" : 307.64999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580003200
+    },
+    {
+      "amount" : 75.420000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578966400
+    },
+    {
+      "amount" : 77.909999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579139200
+    },
+    {
+      "amount" : 5.29,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579484800
+    },
+    {
+      "amount" : 59.340000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579398400
+    },
+    {
+      "amount" : 105,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578707200
+    },
+    {
+      "amount" : 53.159999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578793600
+    },
+    {
+      "amount" : 40.460000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579830400
+    },
+    {
+      "amount" : 33.409999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580608000
+    },
+    {
+      "amount" : 22.690000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578880000
+    },
+    {
+      "amount" : 58.93,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578620800
+    },
+    {
+      "amount" : 323.50999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579052800
+    },
+    {
+      "amount" : 16.600000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579571200
+    },
+    {
+      "amount" : 19.98,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579657600
+    },
+    {
+      "amount" : 46.299999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580176000
+    },
+    {
+      "amount" : 31.5,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580521600
+    },
+    {
+      "amount" : 47.140000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580780800
+    },
+    {
+      "amount" : 111.16,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578448000
+    },
+    {
+      "amount" : 84.579999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 579225600
+    },
+    {
+      "amount" : 31.16,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 580348800
+    },
+    {
+      "amount" : 4,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 578793600
+    },
+    {
+      "amount" : 27.5,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 580608000
+    },
+    {
+      "amount" : 38.5,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 579139200
+    },
+    {
+      "amount" : 40.960000000000001,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 580003200
+    },
+    {
+      "amount" : 9.9000000000000004,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 578448000
+    },
+    {
+      "amount" : 206.09999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 580003200
+    },
+    {
+      "amount" : 5,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 578966400
+    },
+    {
+      "amount" : 76.969999999999999,
+      "subcategory" : "Wyposażenie",
+      "category" : "Mieszkanie",
+      "date" : 580780800
+    },
+    {
+      "amount" : 32.850000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575683200
+    },
+    {
+      "amount" : 15.369999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575510400
+    },
+    {
+      "amount" : 107.09999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573523200
+    },
+    {
+      "amount" : 25.760000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573955200
+    },
+    {
+      "amount" : 1.9099999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574128000
+    },
+    {
+      "amount" : 54.479999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574473600
+    },
+    {
+      "amount" : 23.140000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575337600
+    },
+    {
+      "amount" : 4.9900000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574819200
+    },
+    {
+      "amount" : 15.289999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574041600
+    },
+    {
+      "amount" : 28.370000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575424000
+    },
+    {
+      "amount" : 4.9900000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573350400
+    },
+    {
+      "amount" : 8.4800000000000004,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573696000
+    },
+    {
+      "amount" : 95.430000000000007,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574300800
+    },
+    {
+      "amount" : 40.82,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574732800
+    },
+    {
+      "amount" : 56.020000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 17.359999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575164800
+    },
+    {
+      "amount" : 2,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575596800
+    },
+    {
+      "amount" : 59.450000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 574905600
+    },
+    {
+      "amount" : 27.329999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 573782400
+    },
+    {
+      "amount" : 37.5,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 574387200
+    },
+    {
+      "amount" : 91.299999999999997,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 40,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 575683200
+    },
+    {
+      "amount" : 4.3799999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 574732800
+    },
+    {
+      "amount" : 22.32,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 5.1699999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 574473600
+    },
+    {
+      "amount" : 4.96,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 575337600
+    },
+    {
+      "amount" : 3.3799999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 575683200
+    },
+    {
+      "amount" : 4.96,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 574992000
+    },
+    {
+      "amount" : 5.1699999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 575424000
+    },
+    {
+      "amount" : 12.880000000000001,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 574905600
+    },
+    {
+      "amount" : 1.99,
+      "subcategory" : "Artykuły biurowe",
+      "category" : "Dom",
+      "date" : 573523200
+    },
+    {
+      "amount" : 17.079999999999998,
+      "subcategory" : "Artykuły biurowe",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 18.129999999999999,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 574387200
+    },
+    {
+      "amount" : 24.960000000000001,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 573523200
+    },
+    {
+      "amount" : 4.9900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 574992000
+    },
+    {
+      "amount" : 18.359999999999999,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 7.1799999999999997,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 573782400
+    },
+    {
+      "amount" : 4.4900000000000002,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 574300800
+    },
+    {
+      "amount" : 7.7800000000000002,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 573955200
+    },
+    {
+      "amount" : 9.4399999999999995,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 575683200
+    },
+    {
+      "amount" : 4.9800000000000004,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 575337600
+    },
+    {
+      "amount" : 6.4900000000000002,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 574732800
+    },
+    {
+      "amount" : 4.3899999999999997,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 573782400
+    },
+    {
+      "amount" : 3.4900000000000002,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 574387200
+    },
+    {
+      "amount" : 5.71,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 573091200
+    },
+    {
+      "amount" : 2.9900000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 575164800
+    },
+    {
+      "amount" : 2.4500000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 3.9199999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573436800
+    },
+    {
+      "amount" : 3.4900000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573782400
+    },
+    {
+      "amount" : 2.29,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574473600
+    },
+    {
+      "amount" : 2.79,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573955200
+    },
+    {
+      "amount" : 4.4000000000000004,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573523200
+    },
+    {
+      "amount" : 2.8999999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574905600
+    },
+    {
+      "amount" : 2.9900000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 575337600
+    },
+    {
+      "amount" : 2.79,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574387200
+    },
+    {
+      "amount" : 2.8900000000000001,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574732800
+    },
+    {
+      "amount" : 2.29,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574300800
+    },
+    {
+      "amount" : 2.9900000000000002,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574992000
+    },
+    {
+      "amount" : 2.79,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574041600
+    },
+    {
+      "amount" : 4.1399999999999997,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573350400
+    },
+    {
+      "amount" : 3.3399999999999999,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 573696000
+    },
+    {
+      "amount" : 2.79,
+      "subcategory" : "Pieczywo",
+      "category" : "Dom",
+      "date" : 574128000
+    },
+    {
+      "amount" : 9.9900000000000002,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 575683200
+    },
+    {
+      "amount" : 25.440000000000001,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 573177600
+    },
+    {
+      "amount" : 197.09999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 573955200
+    },
+    {
+      "amount" : 109.06999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 575337600
+    },
+    {
+      "amount" : 71.439999999999998,
+      "subcategory" : "Konserwacja i naprawy",
+      "category" : "Mieszkanie",
+      "date" : 573782400
+    },
+    {
+      "amount" : 74.799999999999997,
+      "subcategory" : "Inne",
+      "category" : "Mieszkanie",
+      "date" : 575164800
+    },
+    {
+      "amount" : 218.58000000000001,
+      "subcategory" : "Paliwo do auta",
+      "category" : "Transport",
+      "date" : 575510400
+    },
+    {
+      "amount" : 34.969999999999999,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 573177600
+    },
+    {
+      "amount" : 12.99,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 573696000
+    },
+    {
+      "amount" : 5.9900000000000002,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 574387200
+    },
+    {
+      "amount" : 28.469999999999999,
+      "subcategory" : "Środki czystości (chemia)",
+      "category" : "Higiena",
+      "date" : 574819200
+    },
+    {
+      "amount" : 66.280000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576201600
+    },
+    {
+      "amount" : 55,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576720000
+    },
+    {
+      "amount" : 45.310000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578275200
+    },
+    {
+      "amount" : 42.950000000000003,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 577238400
+    },
+    {
+      "amount" : 28,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576460800
+    },
+    {
+      "amount" : 15.33,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 575942400
+    },
+    {
+      "amount" : 82.769999999999996,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 577756800
+    },
+    {
+      "amount" : 14.82,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576028800
+    },
+    {
+      "amount" : 55.18,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 577929600
+    },
+    {
+      "amount" : 56.299999999999997,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576806400
+    },
+    {
+      "amount" : 16.949999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578188800
+    },
+    {
+      "amount" : 88.790000000000006,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 578016000
+    },
+    {
+      "amount" : 69.129999999999995,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 577670400
+    },
+    {
+      "amount" : 23.48,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 576547200
+    },
+    {
+      "amount" : 18,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 576547200
+    },
+    {
+      "amount" : 32,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 575942400
+    },
+    {
+      "amount" : 42,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 576892800
+    },
+    {
+      "amount" : 35,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 576028800
+    },
+    {
+      "amount" : 40,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577411200
+    },
+    {
+      "amount" : 12.800000000000001,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577670400
+    },
+    {
+      "amount" : 28.449999999999999,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 576201600
+    },
+    {
+      "amount" : 32,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 576806400
+    },
+    {
+      "amount" : 6,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577065600
+    },
+    {
+      "amount" : 23.800000000000001,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577929600
+    },
+    {
+      "amount" : 26,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577497600
+    },
+    {
+      "amount" : 10.1,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577756800
+    },
+    {
+      "amount" : 61,
+      "subcategory" : "Jedzenie miasto",
+      "category" : "Dom",
+      "date" : 577324800
+    },
+    {
+      "amount" : 3.3799999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 578016000
+    },
+    {
+      "amount" : 5.1699999999999999,
+      "subcategory" : "Słodycze",
+      "category" : "Dom",
+      "date" : 576547200
+    },
+    {
+      "amount" : 5.79,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 576201600
+    },
+    {
+      "amount" : 9.9399999999999995,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 576547200
+    },
+    {
+      "amount" : 14.25,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 576201600
+    },
+    {
+      "amount" : 22.890000000000001,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 578016000
+    },
+    {
+      "amount" : 4.3499999999999996,
+      "subcategory" : "Napoje",
+      "category" : "Dom",
+      "date" : 575942400
+    },
+    {
+      "amount" : 5,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 575942400
+    },
+    {
+      "amount" : 70,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 577324800
+    },
+    {
+      "amount" : 227.56,
+      "subcategory" : "Paliwo do auta",
+      "category" : "Transport",
+      "date" : 575856000
+    },
+    {
+      "amount" : 16.199999999999999,
+      "subcategory" : "Inne",
+      "category" : "Transport",
+      "date" : 577584000
+    },
+    {
+      "amount" : 16.199999999999999,
+      "subcategory" : "Inne",
+      "category" : "Transport",
+      "date" : 577324800
+    },
+    {
+      "amount" : 5.4900000000000002,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 576547200
+    },
+    {
+      "amount" : 66.310000000000002,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583977600
+    },
+    {
+      "amount" : 69.900000000000006,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583891200
+    },
+    {
+      "amount" : 62.57,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 584582400
+    },
+    {
+      "amount" : 727.49000000000001,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 586224000
+    },
+    {
+      "amount" : 96.689999999999998,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 583804800
+    },
+    {
+      "amount" : 14.6,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 584841600
+    },
+    {
+      "amount" : 113.05,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 584323200
+    },
+    {
+      "amount" : 31,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 584236800
+    },
+    {
+      "amount" : 21.539999999999999,
+      "subcategory" : "Jedzenie dom",
+      "category" : "Dom",
+      "date" : 584496000
+    },
+    {
+      "amount" : 10.09,
+      "subcategory" : "Alkohol",
+      "category" : "Dom",
+      "date" : 583977600
+    },
+    {
+      "amount" : 24.289999999999999,
+      "subcategory" : "Środki czystości",
+      "category" : "Dom",
+      "date" : 583977600
+    },
+    {
+      "amount" : 15.52,
+      "subcategory" : "Woda pitna",
+      "category" : "Dom",
+      "date" : 583977600
+    },
+    {
+      "amount" : 201.94999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 584755200
+    },
+    {
+      "amount" : 5,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 583718400
+    },
+    {
+      "amount" : 27.93,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 584409600
+    },
+    {
+      "amount" : 158.69999999999999,
+      "subcategory" : "Inne",
+      "category" : "Dom",
+      "date" : 583977600
+    },
+    {
+      "amount" : 53.600000000000001,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 584409600
+    },
+    {
+      "amount" : 45.130000000000003,
+      "subcategory" : "Kosmetyki",
+      "category" : "Higiena",
+      "date" : 583977600
+    },
+    {
+      "amount" : 6.1799999999999997,
+      "subcategory" : "Środki czystości (chemia)",
+      "category" : "Higiena",
+      "date" : 583977600
+    }
+  ]
+}

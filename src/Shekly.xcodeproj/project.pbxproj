@@ -1,0 +1,2849 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1ECE369FDAF051804ECF9C39 /* Pods_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E57BCB57E04A76C64BDD8D24 /* Pods_Database.framework */; };
+		4DCE82F51E78408C2B51CD4B /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF3197B2B39F49C59FC8393 /* Pods_Domain.framework */; };
+		7460351F421A2BBC4D5B1656 /* Pods_Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B6B23F9FD5D911F4F96757 /* Pods_Shared.framework */; };
+		8CD81BBCBFEB11E74E810847 /* Pods_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99303CCB63CE9E199B0C513 /* Pods_UI.framework */; };
+		8F17E07D222B0BA700C363CA /* GradientMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F17E07C222B0BA700C363CA /* GradientMaskView.swift */; };
+		8F17E07F222B0CA300C363CA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F17E07E222B0CA300C363CA /* GradientView.swift */; };
+		8F1E01BB2207206B00EC1A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E01BA2207206B00EC1A36 /* AppDelegate.swift */; };
+		8F1E01C52207206C00EC1A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E01C42207206C00EC1A36 /* Assets.xcassets */; };
+		8F1E01D8220722C500EC1A36 /* UI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01D6220722C500EC1A36 /* UI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E01DB220722C500EC1A36 /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01D4220722C400EC1A36 /* UI.framework */; };
+		8F1E01DC220722C500EC1A36 /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01D4220722C400EC1A36 /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F1E01EA2207231200EC1A36 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01E82207231200EC1A36 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E01ED2207231200EC1A36 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; };
+		8F1E01EE2207231200EC1A36 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F1E01FB2207234F00EC1A36 /* Shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01F92207234F00EC1A36 /* Shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E01FE2207234F00EC1A36 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; };
+		8F1E01FF2207234F00EC1A36 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F1E020C220727AB00EC1A36 /* Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E020A220727AB00EC1A36 /* Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E020F220727AB00EC1A36 /* Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E0208220727AB00EC1A36 /* Database.framework */; };
+		8F1E0210220727AB00EC1A36 /* Database.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E0208220727AB00EC1A36 /* Database.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F1E02162207282500EC1A36 /* SheklyDatabasePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E02142207282100EC1A36 /* SheklyDatabasePersistance.swift */; };
+		8F1E02172207282D00EC1A36 /* Shekly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */; };
+		8F1E0219220728FA00EC1A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E0218220728FA00EC1A36 /* LaunchScreen.storyboard */; };
+		8F1E021D2207292C00EC1A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E021C2207292C00EC1A36 /* Assets.xcassets */; };
+		8F1E022222072A0100EC1A36 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E022122072A0100EC1A36 /* MainCoordinator.swift */; };
+		8F1E022C22072A2C00EC1A36 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E022A22072A2C00EC1A36 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E022F22072A2C00EC1A36 /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; };
+		8F1E023022072A2C00EC1A36 /* User.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F1E024822072B7B00EC1A36 /* AuthorizationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E024222072AC700EC1A36 /* AuthorizationResult.swift */; };
+		8F1E024922072B7B00EC1A36 /* UserProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023822072AA800EC1A36 /* UserProviderError.swift */; };
+		8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023D22072AA900EC1A36 /* StoredUserModel.swift */; };
+		8F1E024B22072B7B00EC1A36 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023A22072AA900EC1A36 /* UserProvider.swift */; };
+		8F1E024C22072B7B00EC1A36 /* UserManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023B22072AA900EC1A36 /* UserManaging.swift */; };
+		8F1E024D22072B7B00EC1A36 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023E22072AA900EC1A36 /* UserFactory.swift */; };
+		8F1E025522072BDD00EC1A36 /* Loger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025122072BDD00EC1A36 /* Loger.swift */; };
+		8F1E025722072C0600EC1A36 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; };
+		8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025822072C3300EC1A36 /* DomainFactory.swift */; };
+		8F1E025C22072C7400EC1A36 /* SheklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025B22072C7400EC1A36 /* SheklyViewController.swift */; };
+		8F1E026022072CA300EC1A36 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025E22072CA300EC1A36 /* ViewModel.swift */; };
+		8F1E026122072CA300EC1A36 /* SheklyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */; };
+		8F1E026322072CFF00EC1A36 /* SheklyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E026222072CFF00EC1A36 /* SheklyNavigationController.swift */; };
+		8F1E026722072F5100EC1A36 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E026622072F5100EC1A36 /* WalletViewController.swift */; };
+		8F1E026A220730EB00EC1A36 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E0269220730EB00EC1A36 /* Wallet.storyboard */; };
+		8F1E026E2207317100EC1A36 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E026D2207317100EC1A36 /* R.generated.swift */; };
+		8F1E02722207354A00EC1A36 /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; };
+		8F1E02732207359E00EC1A36 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; };
+		8F1E02742207359E00EC1A36 /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; };
+		8F1EAD6722258B770095AA10 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6622258B770095AA10 /* Category.storyboard */; };
+		8F1EAD6922258BE20095AA10 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */; };
+		8F1EAD6B22258C010095AA10 /* TableTopGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6A22258C010095AA10 /* TableTopGradientView.swift */; };
+		8F1EAD6D222591290095AA10 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */; };
+		8F1EAD752225931C0095AA10 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */; };
+		8F1EAD7A222597A30095AA10 /* CategoryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */; };
+		8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */; };
+		8F1EAD7E222599680095AA10 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */; };
+		8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */; };
+		8F22962A220DEF9500DE5AF7 /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */; };
+		8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */; };
+		8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */; };
+		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
+		8F22964B220DF95B00DE5AF7 /* EntityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */; };
+		8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */; };
+		8F28749C2263282C00EC4933 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */; };
+		8F28A35C220C60B800FD48DC /* SHTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35B220C60B800FD48DC /* SHTokenView.swift */; };
+		8F28A35E220C723700FD48DC /* SheklyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35D220C723700FD48DC /* SheklyButton.swift */; };
+		8F28A360220C726C00FD48DC /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35F220C726C00FD48DC /* KeyboardLayoutConstraint.swift */; };
+		8F2FA33E222AA84300D3E1BB /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA33D222AA84300D3E1BB /* ShareViewController.swift */; };
+		8F2FA341222AA84300D3E1BB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2FA33F222AA84300D3E1BB /* MainInterface.storyboard */; };
+		8F2FA345222AA84300D3E1BB /* SheklyShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F2FA34C222AF50F00D3E1BB /* Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E0208220727AB00EC1A36 /* Database.framework */; };
+		8F2FA34E222AF55900D3E1BB /* SheklyJSONImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA34D222AF55900D3E1BB /* SheklyJSONImporter.swift */; };
+		8F2FA351222AF74600D3E1BB /* ExpenseJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA350222AF74600D3E1BB /* ExpenseJSONModel.swift */; };
+		8F2FA355222AF89A00D3E1BB /* SheklyJSONDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA352222AF7AE00D3E1BB /* SheklyJSONDataController.swift */; };
+		8F2FA357222AFF1900D3E1BB /* SheklyPresistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA356222AFF1900D3E1BB /* SheklyPresistentContainer.swift */; };
+		8F359BC82240068D00C2603E /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F359BC72240068D00C2603E /* UIView+Corners.swift */; };
+		8F359BCA224007A300C2603E /* SheklyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F359BC9224007A300C2603E /* SheklyTabBarController.swift */; };
+		8F359BCF2240183000C2603E /* UITabBarItem+Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F359BCE2240183000C2603E /* UITabBarItem+Bootstrap.swift */; };
+		8F359BD12240187800C2603E /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F359BD02240187800C2603E /* Bootstrap.swift */; };
+		8F359BD52240214800C2603E /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F359BD42240214800C2603E /* NewEntryViewController.swift */; };
+		8F3C1EB12257A63E008C29EE /* UIViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C1EB02257A63E008C29EE /* UIViewController+KeyboardDismiss.swift */; };
+		8F3C1EB52257BF31008C29EE /* NewEntryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C1EB32257BF31008C29EE /* NewEntryCollectionCell.swift */; };
+		8F3C1EB62257BF31008C29EE /* NewEntryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F3C1EB42257BF31008C29EE /* NewEntryCollectionCell.xib */; };
+		8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */; };
+		8F3CCB572215F39400420C5A /* CategoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F3CCB562215F39400420C5A /* CategoryListCell.xib */; };
+		8F3CCB592215F3AD00420C5A /* CategoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CCB582215F3AD00420C5A /* CategoryListCell.swift */; };
+		8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3CCB5B2215F3E500420C5A /* SheklyCategoryModel.swift */; };
+		8F4138C8222B0F5D0035002F /* CategorySubcategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4138C7222B0F5D0035002F /* CategorySubcategoriesCell.xib */; };
+		8F4138CA222B10100035002F /* CategorySubcategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4138C9222B10100035002F /* CategorySubcategoriesCell.swift */; };
+		8F4138CC222B10440035002F /* CategorySubcategoriesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4138CB222B10440035002F /* CategorySubcategoriesCellViewModel.swift */; };
+		8F4138CE222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4138CD222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift */; };
+		8F4682E5221458560041F23B /* DatabaseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4682E4221458560041F23B /* DatabaseEntity+CoreDataClass.swift */; };
+		8F46830A221465E40041F23B /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; };
+		8F46830B221466960041F23B /* Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E0208220727AB00EC1A36 /* Database.framework */; };
+		8F46830F221482140041F23B /* DatabaseEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46830E221482140041F23B /* DatabaseEntry.swift */; };
+		8F468311221492BB0041F23B /* WalletEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F468310221492BB0041F23B /* WalletEntryModel.swift */; };
+		8F468313221498730041F23B /* DatabaseModelProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F468312221498730041F23B /* DatabaseModelProperties.swift */; };
+		8F46831522149E4C0041F23B /* SheklyWalletEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46831422149E4C0041F23B /* SheklyWalletEntryModel.swift */; };
+		8F50673F224673C100723C0B /* Wallet+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50673E224673C100723C0B /* Wallet+CoreDataClass.swift */; };
+		8F5067412246755300723C0B /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5067402246755200723C0B /* WalletModel.swift */; };
+		8F50674322467AD100723C0B /* WalletJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50674222467AD100723C0B /* WalletJSONModel.swift */; };
+		8F50674D22467EAE00723C0B /* SheklyWalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */; };
+		8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */; };
+		8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83CA722260C6ED003464AB /* DatePicker.storyboard */; };
+		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
+		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
+		8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96D5E92247D036008172D3 /* NewEntry.storyboard */; };
+		8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B752241322A00A2C44A /* WalletHeaderView.swift */; };
+		8F996B792241590900A2C44A /* SheklyMonthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F996B782241590900A2C44A /* SheklyMonthCell.xib */; };
+		8F996B7B2241592000A2C44A /* SheklyMonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B7A2241592000A2C44A /* SheklyMonthCell.swift */; };
+		8F9BAFB72256473E0017F431 /* ReloadableViewController+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BAFB62256473E0017F431 /* ReloadableViewController+Reload.swift */; };
+		8F9BAFB82256475E0017F431 /* ReloadablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BAFB42256458E0017F431 /* ReloadablePresenter.swift */; };
+		8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */; };
+		8F9F6A412208AAAC00AE7A0E /* SheklyTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A402208AAAC00AE7A0E /* SheklyTokenType.swift */; };
+		8F9F6A432208AC5200AE7A0E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A422208AC5200AE7A0E /* Colors.swift */; };
+		8FAE1CC92305832500D14BD3 /* ExpensesJSON.shekly in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE1CC82305832500D14BD3 /* ExpensesJSON.shekly */; };
+		8FAE76932209C8B6007D83B1 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */; };
+		8FAE769D2209CA0A007D83B1 /* SHTokenField.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FAE769B2209CA0A007D83B1 /* SHTokenField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FAE76A02209CA0A007D83B1 /* SHTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAE76992209CA0A007D83B1 /* SHTokenField.framework */; };
+		8FAE76A12209CA0A007D83B1 /* SHTokenField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAE76992209CA0A007D83B1 /* SHTokenField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8FAE76A52209CA3D007D83B1 /* SHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E02702207341500EC1A36 /* SHTextField.swift */; };
+		8FAE76A72209CA3D007D83B1 /* SHTokenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E027A22074AFC00EC1A36 /* SHTokenTextField.swift */; };
+		8FAE76A82209CA3D007D83B1 /* SHTokenFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E027C22074C5D00EC1A36 /* SHTokenFieldDataSource.swift */; };
+		8FAE76A92209CA3D007D83B1 /* SHTokenFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E027E22074D5200EC1A36 /* SHTokenFieldDelegate.swift */; };
+		8FAE76AB2209CA3D007D83B1 /* SHTextFieldAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE768E2209B063007D83B1 /* SHTextFieldAction.swift */; };
+		8FAE76AC2209CA3D007D83B1 /* SHTextFieldActionPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE76902209B26E007D83B1 /* SHTextFieldActionPolicy.swift */; };
+		8FAE76AD2209CA54007D83B1 /* SHTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAE76992209CA0A007D83B1 /* SHTokenField.framework */; };
+		8FAE76AE2209CA68007D83B1 /* SHTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FAE76992209CA0A007D83B1 /* SHTokenField.framework */; };
+		8FAE76B12209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE76B02209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift */; };
+		8FAE76B52209D08D007D83B1 /* SHTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE76B42209D08D007D83B1 /* SHTokenField.swift */; };
+		8FBE155F220B5E9C0095603A /* SHInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBE155E220B5E9C0095603A /* SHInputAccessoryView.swift */; };
+		8FD1EE42224406AF000DEEC8 /* SheklyWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1EE40224406AF000DEEC8 /* SheklyWalletCell.swift */; };
+		8FD1EE43224406AF000DEEC8 /* SheklyWalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD1EE41224406AF000DEEC8 /* SheklyWalletCell.xib */; };
+		8FD1EE47224407D7000DEEC8 /* SheklyWalletCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1EE46224407D7000DEEC8 /* SheklyWalletCollectionView.swift */; };
+		8FD40F372245248300FE3716 /* Differ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD40F362245248300FE3716 /* Differ.swift */; };
+		8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E40221574AF005206C3 /* LocaleProvider.swift */; };
+		8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E442215757F005206C3 /* SharedFactory.swift */; };
+		8FDC4E4922157626005206C3 /* SheklyTokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */; };
+		8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B22157B66005206C3 /* NumberParser.swift */; };
+		8FDC4E4F2215A346005206C3 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */; };
+		8FDC4E512215A397005206C3 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E502215A397005206C3 /* WalletCoordinator.swift */; };
+		8FDC4E5A2215A65A005206C3 /* PlanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */; };
+		8FDC4E5C2215A726005206C3 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B2215A726005206C3 /* Plan.storyboard */; };
+		8FDC4E5E2215A73C005206C3 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */; };
+		8FDC4E612215AA40005206C3 /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E602215AA40005206C3 /* PlanViewModel.swift */; };
+		8FDCD0F52242ABF400B235EC /* SheklyMonthCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCD0F42242ABF400B235EC /* SheklyMonthCollectionView.swift */; };
+		8FDCD0F72242B5C200B235EC /* UIView+AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */; };
+		8FDF2390221441E300F46591 /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF238F221441E300F46591 /* DatabaseFactory.swift */; };
+		8FDF23932214449C00F46591 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF23922214449C00F46591 /* CategoryModel.swift */; };
+		8FDF23952214457900F46591 /* SubcategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF23942214457900F46591 /* SubcategoryModel.swift */; };
+		8FDF239B2214552000F46591 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF239A2214552000F46591 /* DatabaseModel.swift */; };
+		8FEAD6F2225682AE0022325E /* SheklyWalletEntryEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F0225682AE0022325E /* SheklyWalletEntryEmptyCell.swift */; };
+		8FEAD6F3225682AE0022325E /* SheklyWalletEntryEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F1225682AE0022325E /* SheklyWalletEntryEmptyCell.xib */; };
+		8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F4225685160022325E /* SheklyEntryModel.swift */; };
+		8FEAD6F72256873D0022325E /* WalletEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F8F883E2214A3290028375D /* WalletEntryCell.xib */; };
+		8FEAD6F922568A520022325E /* SheklyEntryEmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F822568A520022325E /* SheklyEntryEmptyModel.swift */; };
+		8FEAD6FC22568BC40022325E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6FB22568BC40022325E /* Array.swift */; };
+		8FF3E487225A259E00A88238 /* WalletEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E486225A259E00A88238 /* WalletEntryType.swift */; };
+		8FF3E489225A268A00A88238 /* WalletEntryType+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E488225A268A00A88238 /* WalletEntryType+Properties.swift */; };
+		8FF3E48D225A5D9300A88238 /* WalletList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3E48C225A5D9300A88238 /* WalletList.storyboard */; };
+		8FF3E48F225A5DAC00A88238 /* WalletListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E48E225A5DAC00A88238 /* WalletListViewController.swift */; };
+		8FF3E491225A5E2D00A88238 /* WalletListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E490225A5E2D00A88238 /* WalletListCell.swift */; };
+		8FF3E494225A5F5E00A88238 /* WalletListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E493225A5F5E00A88238 /* WalletListViewModel.swift */; };
+		8FF3E496225A61E700A88238 /* UIViewController+Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3E495225A61E700A88238 /* UIViewController+Popover.swift */; };
+		C85536AB81D30E7B75D2936B /* Pods_Shekly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 745E68E8C80981FF782B0507 /* Pods_Shekly.framework */; };
+		D96CB1103E2AB4E2A6AD6BE2 /* Pods_SHTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7387EAE0728878B16D0B265C /* Pods_SHTokenField.framework */; };
+		EF3299C12B3716C49D35C442 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A854315A90B897706CE7E537 /* Pods_User.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F1E01D9220722C500EC1A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E01D3220722C400EC1A36;
+			remoteInfo = UI;
+		};
+		8F1E01EB2207231200EC1A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E01E52207231200EC1A36;
+			remoteInfo = Domain;
+		};
+		8F1E01FC2207234F00EC1A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E01F62207234F00EC1A36;
+			remoteInfo = Shared;
+		};
+		8F1E020D220727AB00EC1A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E0207220727AB00EC1A36;
+			remoteInfo = Database;
+		};
+		8F1E022D22072A2C00EC1A36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E022722072A2C00EC1A36;
+			remoteInfo = User;
+		};
+		8F2FA343222AA84300D3E1BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F2FA33A222AA84300D3E1BB;
+			remoteInfo = SheklyShare;
+		};
+		8FAE769E2209CA0A007D83B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FAE76982209CA0A007D83B1;
+			remoteInfo = SHTokenField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F1E01E0220722C500EC1A36 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8F1E01EE2207231200EC1A36 /* Domain.framework in Embed Frameworks */,
+				8F1E01FF2207234F00EC1A36 /* Shared.framework in Embed Frameworks */,
+				8F1E023022072A2C00EC1A36 /* User.framework in Embed Frameworks */,
+				8F1E01DC220722C500EC1A36 /* UI.framework in Embed Frameworks */,
+				8FAE76A12209CA0A007D83B1 /* SHTokenField.framework in Embed Frameworks */,
+				8F1E0210220727AB00EC1A36 /* Database.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F2FA349222AA84300D3E1BB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F2FA345222AA84300D3E1BB /* SheklyShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0A54208630ED6E80CACA529C /* Pods-SHTokenField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHTokenField.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHTokenField/Pods-SHTokenField.debug.xcconfig"; sourceTree = "<group>"; };
+		18AE12492F7A1820D810ED6D /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
+		277C6CE4C3FA4F0E58F9B930 /* Pods-UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.release.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.release.xcconfig"; sourceTree = "<group>"; };
+		7387EAE0728878B16D0B265C /* Pods_SHTokenField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHTokenField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		745E68E8C80981FF782B0507 /* Pods_Shekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B6B23F9FD5D911F4F96757 /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F17E07C222B0BA700C363CA /* GradientMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientMaskView.swift; sourceTree = "<group>"; };
+		8F17E07E222B0CA300C363CA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8F1E01B72207206B00EC1A36 /* Shekly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shekly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E01BA2207206B00EC1A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8F1E01C22207206B00EC1A36 /* Shekly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shekly.xcdatamodel; sourceTree = "<group>"; };
+		8F1E01C42207206C00EC1A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F1E01C92207206C00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E01D4220722C400EC1A36 /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E01D6220722C500EC1A36 /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
+		8F1E01D7220722C500EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E01E62207231200EC1A36 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E01E82207231200EC1A36 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
+		8F1E01E92207231200EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E01F72207234F00EC1A36 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E01F92207234F00EC1A36 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
+		8F1E01FA2207234F00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E0208220727AB00EC1A36 /* Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E020A220727AB00EC1A36 /* Database.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		8F1E020B220727AB00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E02142207282100EC1A36 /* SheklyDatabasePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyDatabasePersistance.swift; sourceTree = "<group>"; };
+		8F1E0218220728FA00EC1A36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F1E021C2207292C00EC1A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F1E022122072A0100EC1A36 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8F1E022822072A2C00EC1A36 /* User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1E022A22072A2C00EC1A36 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8F1E022B22072A2C00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1E023822072AA800EC1A36 /* UserProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProviderError.swift; sourceTree = "<group>"; };
+		8F1E023A22072AA900EC1A36 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		8F1E023B22072AA900EC1A36 /* UserManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManaging.swift; sourceTree = "<group>"; };
+		8F1E023D22072AA900EC1A36 /* StoredUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredUserModel.swift; sourceTree = "<group>"; };
+		8F1E023E22072AA900EC1A36 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		8F1E024222072AC700EC1A36 /* AuthorizationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResult.swift; sourceTree = "<group>"; };
+		8F1E025122072BDD00EC1A36 /* Loger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loger.swift; sourceTree = "<group>"; };
+		8F1E025822072C3300EC1A36 /* DomainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainFactory.swift; sourceTree = "<group>"; };
+		8F1E025B22072C7400EC1A36 /* SheklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyViewController.swift; sourceTree = "<group>"; };
+		8F1E025E22072CA300EC1A36 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyViewModel.swift; sourceTree = "<group>"; };
+		8F1E026222072CFF00EC1A36 /* SheklyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyNavigationController.swift; sourceTree = "<group>"; };
+		8F1E026622072F5100EC1A36 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		8F1E0269220730EB00EC1A36 /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		8F1E026D2207317100EC1A36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		8F1E02702207341500EC1A36 /* SHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextField.swift; sourceTree = "<group>"; };
+		8F1E027A22074AFC00EC1A36 /* SHTokenTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenTextField.swift; sourceTree = "<group>"; };
+		8F1E027C22074C5D00EC1A36 /* SHTokenFieldDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenFieldDataSource.swift; sourceTree = "<group>"; };
+		8F1E027E22074D5200EC1A36 /* SHTokenFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenFieldDelegate.swift; sourceTree = "<group>"; };
+		8F1EAD6622258B770095AA10 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
+		8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		8F1EAD6A22258C010095AA10 /* TableTopGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopGradientView.swift; sourceTree = "<group>"; };
+		8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryHeaderCell.xib; sourceTree = "<group>"; };
+		8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
+		8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
+		8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
+		8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Subcategory+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/WalletEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityGroup.swift; sourceTree = "<group>"; };
+		8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyDataController.swift; sourceTree = "<group>"; };
+		8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
+		8F28A35B220C60B800FD48DC /* SHTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenView.swift; sourceTree = "<group>"; };
+		8F28A35D220C723700FD48DC /* SheklyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyButton.swift; sourceTree = "<group>"; };
+		8F28A35F220C726C00FD48DC /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SheklyShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2FA33D222AA84300D3E1BB /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		8F2FA340222AA84300D3E1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8F2FA342222AA84300D3E1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F2FA34A222AA89A00D3E1BB /* Shekly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shekly.entitlements; sourceTree = "<group>"; };
+		8F2FA34B222AA8AE00D3E1BB /* SheklyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SheklyShare.entitlements; sourceTree = "<group>"; };
+		8F2FA34D222AF55900D3E1BB /* SheklyJSONImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyJSONImporter.swift; sourceTree = "<group>"; };
+		8F2FA350222AF74600D3E1BB /* ExpenseJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseJSONModel.swift; sourceTree = "<group>"; };
+		8F2FA352222AF7AE00D3E1BB /* SheklyJSONDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyJSONDataController.swift; sourceTree = "<group>"; };
+		8F2FA356222AFF1900D3E1BB /* SheklyPresistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyPresistentContainer.swift; sourceTree = "<group>"; };
+		8F359BC72240068D00C2603E /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
+		8F359BC9224007A300C2603E /* SheklyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyTabBarController.swift; sourceTree = "<group>"; };
+		8F359BCE2240183000C2603E /* UITabBarItem+Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarItem+Bootstrap.swift"; sourceTree = "<group>"; };
+		8F359BD02240187800C2603E /* Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
+		8F359BD42240214800C2603E /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
+		8F3C1EB02257A63E008C29EE /* UIViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
+		8F3C1EB32257BF31008C29EE /* NewEntryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryCollectionCell.swift; sourceTree = "<group>"; };
+		8F3C1EB42257BF31008C29EE /* NewEntryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewEntryCollectionCell.xib; sourceTree = "<group>"; };
+		8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewModel.swift; sourceTree = "<group>"; };
+		8F3CCB4C2215B0E600420C5A /* Shekly+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Shekly+CoreDataModel.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Shekly+CoreDataModel.swift"; sourceTree = "<group>"; };
+		8F3CCB4D2215B0E600420C5A /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8F3CCB4E2215B0E600420C5A /* Subcategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Subcategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8F3CCB502215B0E700420C5A /* DatabaseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DatabaseEntity+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/DatabaseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8F3CCB562215F39400420C5A /* CategoryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCell.xib; sourceTree = "<group>"; };
+		8F3CCB582215F3AD00420C5A /* CategoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCell.swift; sourceTree = "<group>"; };
+		8F3CCB5B2215F3E500420C5A /* SheklyCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyCategoryModel.swift; sourceTree = "<group>"; };
+		8F4138C7222B0F5D0035002F /* CategorySubcategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySubcategoriesCell.xib; sourceTree = "<group>"; };
+		8F4138C9222B10100035002F /* CategorySubcategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySubcategoriesCell.swift; sourceTree = "<group>"; };
+		8F4138CB222B10440035002F /* CategorySubcategoriesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySubcategoriesCellViewModel.swift; sourceTree = "<group>"; };
+		8F4138CD222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SheklyEntryModel+CategoryCellViewModel.swift"; sourceTree = "<group>"; };
+		8F4682E4221458560041F23B /* DatabaseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8F46830E221482140041F23B /* DatabaseEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseEntry.swift; sourceTree = "<group>"; };
+		8F468310221492BB0041F23B /* WalletEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryModel.swift; sourceTree = "<group>"; };
+		8F468312221498730041F23B /* DatabaseModelProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModelProperties.swift; sourceTree = "<group>"; };
+		8F46831422149E4C0041F23B /* SheklyWalletEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletEntryModel.swift; sourceTree = "<group>"; };
+		8F50673E224673C100723C0B /* Wallet+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wallet+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8F5067402246755200723C0B /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
+		8F50674222467AD100723C0B /* WalletJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletJSONModel.swift; sourceTree = "<group>"; };
+		8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletModel.swift; sourceTree = "<group>"; };
+		8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyCurrencyFormatter.swift; sourceTree = "<group>"; };
+		8F83CA722260C6ED003464AB /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
+		8F83CA742260C703003464AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
+		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
+		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
+		8F996B752241322A00A2C44A /* WalletHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHeaderView.swift; sourceTree = "<group>"; };
+		8F996B782241590900A2C44A /* SheklyMonthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheklyMonthCell.xib; sourceTree = "<group>"; };
+		8F996B7A2241592000A2C44A /* SheklyMonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyMonthCell.swift; sourceTree = "<group>"; };
+		8F9BAFB42256458E0017F431 /* ReloadablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadablePresenter.swift; sourceTree = "<group>"; };
+		8F9BAFB62256473E0017F431 /* ReloadableViewController+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReloadableViewController+Reload.swift"; sourceTree = "<group>"; };
+		8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTokenModel.swift; sourceTree = "<group>"; };
+		8F9F6A402208AAAC00AE7A0E /* SheklyTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyTokenType.swift; sourceTree = "<group>"; };
+		8F9F6A422208AC5200AE7A0E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8FAE1CC82305832500D14BD3 /* ExpensesJSON.shekly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExpensesJSON.shekly; sourceTree = "<group>"; };
+		8FAE768E2209B063007D83B1 /* SHTextFieldAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextFieldAction.swift; sourceTree = "<group>"; };
+		8FAE76902209B26E007D83B1 /* SHTextFieldActionPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextFieldActionPolicy.swift; sourceTree = "<group>"; };
+		8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		8FAE76992209CA0A007D83B1 /* SHTokenField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SHTokenField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FAE769B2209CA0A007D83B1 /* SHTokenField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHTokenField.h; sourceTree = "<group>"; };
+		8FAE769C2209CA0A007D83B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FAE76B02209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTokenFieldInputHelper.swift; sourceTree = "<group>"; };
+		8FAE76B42209D08D007D83B1 /* SHTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHTokenField.swift; sourceTree = "<group>"; };
+		8FBE155E220B5E9C0095603A /* SHInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHInputAccessoryView.swift; sourceTree = "<group>"; };
+		8FD1EE40224406AF000DEEC8 /* SheklyWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletCell.swift; sourceTree = "<group>"; };
+		8FD1EE41224406AF000DEEC8 /* SheklyWalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheklyWalletCell.xib; sourceTree = "<group>"; };
+		8FD1EE46224407D7000DEEC8 /* SheklyWalletCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletCollectionView.swift; sourceTree = "<group>"; };
+		8FD40F362245248300FE3716 /* Differ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Differ.swift; sourceTree = "<group>"; };
+		8FDC4E40221574AF005206C3 /* LocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleProvider.swift; sourceTree = "<group>"; };
+		8FDC4E442215757F005206C3 /* SharedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFactory.swift; sourceTree = "<group>"; };
+		8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyTokenFormatter.swift; sourceTree = "<group>"; };
+		8FDC4E4B22157B66005206C3 /* NumberParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParser.swift; sourceTree = "<group>"; };
+		8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
+		8FDC4E502215A397005206C3 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
+		8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCoordinator.swift; sourceTree = "<group>"; };
+		8FDC4E5B2215A726005206C3 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
+		8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		8FDC4E602215AA40005206C3 /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
+		8FDCD0F42242ABF400B235EC /* SheklyMonthCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyMonthCollectionView.swift; sourceTree = "<group>"; };
+		8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubview.swift"; sourceTree = "<group>"; };
+		8FDF238F221441E300F46591 /* DatabaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
+		8FDF23922214449C00F46591 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		8FDF23942214457900F46591 /* SubcategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryModel.swift; sourceTree = "<group>"; };
+		8FDF239A2214552000F46591 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		8FEAD6F0225682AE0022325E /* SheklyWalletEntryEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletEntryEmptyCell.swift; sourceTree = "<group>"; };
+		8FEAD6F1225682AE0022325E /* SheklyWalletEntryEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheklyWalletEntryEmptyCell.xib; sourceTree = "<group>"; };
+		8FEAD6F4225685160022325E /* SheklyEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyEntryModel.swift; sourceTree = "<group>"; };
+		8FEAD6F822568A520022325E /* SheklyEntryEmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyEntryEmptyModel.swift; sourceTree = "<group>"; };
+		8FEAD6FB22568BC40022325E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		8FF3E483225A21A200A88238 /* WalletEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/WalletEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8FF3E486225A259E00A88238 /* WalletEntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryType.swift; sourceTree = "<group>"; };
+		8FF3E488225A268A00A88238 /* WalletEntryType+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletEntryType+Properties.swift"; sourceTree = "<group>"; };
+		8FF3E48C225A5D9300A88238 /* WalletList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletList.storyboard; sourceTree = "<group>"; };
+		8FF3E48E225A5DAC00A88238 /* WalletListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewController.swift; sourceTree = "<group>"; };
+		8FF3E490225A5E2D00A88238 /* WalletListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListCell.swift; sourceTree = "<group>"; };
+		8FF3E493225A5F5E00A88238 /* WalletListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewModel.swift; sourceTree = "<group>"; };
+		8FF3E495225A61E700A88238 /* UIViewController+Popover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Popover.swift"; sourceTree = "<group>"; };
+		9EB24B9A74F975550687B3EE /* Pods-SHTokenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHTokenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-SHTokenField/Pods-SHTokenField.release.xcconfig"; sourceTree = "<group>"; };
+		A854315A90B897706CE7E537 /* Pods_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0817C0C88D65A49EB782817 /* Pods-Database.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Database.release.xcconfig"; path = "Pods/Target Support Files/Pods-Database/Pods-Database.release.xcconfig"; sourceTree = "<group>"; };
+		B19BE8FB4260725E7AEEFBC8 /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
+		CF07670F2158CB3716C8CCDF /* Pods-Shekly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shekly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shekly/Pods-Shekly.release.xcconfig"; sourceTree = "<group>"; };
+		D631990DA5B04BCF8431895F /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
+		D900E6F572E3D47A78D7A469 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
+		DA93DC82ADC8D6C00A2EBDD1 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
+		E57BCB57E04A76C64BDD8D24 /* Pods_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99303CCB63CE9E199B0C513 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5E8048970EE77A63508F2C /* Pods-Database.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Database.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Database/Pods-Database.debug.xcconfig"; sourceTree = "<group>"; };
+		EEF3197B2B39F49C59FC8393 /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBA7254A8E401962692ACB90 /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
+		FC1A7F39181588953AB173F3 /* Pods-User.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.debug.xcconfig"; path = "Pods/Target Support Files/Pods-User/Pods-User.debug.xcconfig"; sourceTree = "<group>"; };
+		FEC13B2E3F771753A8690F74 /* Pods-Shekly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shekly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shekly/Pods-Shekly.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F1E01B42207206B00EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01ED2207231200EC1A36 /* Domain.framework in Frameworks */,
+				8F1E020F220727AB00EC1A36 /* Database.framework in Frameworks */,
+				8F1E01DB220722C500EC1A36 /* UI.framework in Frameworks */,
+				8F1E022F22072A2C00EC1A36 /* User.framework in Frameworks */,
+				8FAE76A02209CA0A007D83B1 /* SHTokenField.framework in Frameworks */,
+				8F1E01FE2207234F00EC1A36 /* Shared.framework in Frameworks */,
+				C85536AB81D30E7B75D2936B /* Pods_Shekly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01D1220722C400EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FAE76AD2209CA54007D83B1 /* SHTokenField.framework in Frameworks */,
+				8F1E02732207359E00EC1A36 /* Domain.framework in Frameworks */,
+				8F1E02742207359E00EC1A36 /* User.framework in Frameworks */,
+				8CD81BBCBFEB11E74E810847 /* Pods_UI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01E32207231200EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F46830B221466960041F23B /* Database.framework in Frameworks */,
+				8FAE76AE2209CA68007D83B1 /* SHTokenField.framework in Frameworks */,
+				8F1E02722207354A00EC1A36 /* User.framework in Frameworks */,
+				4DCE82F51E78408C2B51CD4B /* Pods_Domain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01F42207234F00EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7460351F421A2BBC4D5B1656 /* Pods_Shared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E0205220727AB00EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F46830A221465E40041F23B /* Shared.framework in Frameworks */,
+				1ECE369FDAF051804ECF9C39 /* Pods_Database.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E022522072A2C00EC1A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E025722072C0600EC1A36 /* Shared.framework in Frameworks */,
+				EF3299C12B3716C49D35C442 /* Pods_User.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F2FA338222AA84300D3E1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2FA34C222AF50F00D3E1BB /* Database.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FAE76962209CA0A007D83B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96CB1103E2AB4E2A6AD6BE2 /* Pods_SHTokenField.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0793ACB5B424B269DBE77268 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D900E6F572E3D47A78D7A469 /* Pods-Domain.debug.xcconfig */,
+				DA93DC82ADC8D6C00A2EBDD1 /* Pods-Domain.release.xcconfig */,
+				0A54208630ED6E80CACA529C /* Pods-SHTokenField.debug.xcconfig */,
+				9EB24B9A74F975550687B3EE /* Pods-SHTokenField.release.xcconfig */,
+				18AE12492F7A1820D810ED6D /* Pods-Shared.debug.xcconfig */,
+				D631990DA5B04BCF8431895F /* Pods-Shared.release.xcconfig */,
+				FEC13B2E3F771753A8690F74 /* Pods-Shekly.debug.xcconfig */,
+				CF07670F2158CB3716C8CCDF /* Pods-Shekly.release.xcconfig */,
+				FBA7254A8E401962692ACB90 /* Pods-UI.debug.xcconfig */,
+				277C6CE4C3FA4F0E58F9B930 /* Pods-UI.release.xcconfig */,
+				FC1A7F39181588953AB173F3 /* Pods-User.debug.xcconfig */,
+				B19BE8FB4260725E7AEEFBC8 /* Pods-User.release.xcconfig */,
+				EB5E8048970EE77A63508F2C /* Pods-Database.debug.xcconfig */,
+				B0817C0C88D65A49EB782817 /* Pods-Database.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3E48A5EE8F502CB417401FB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEF3197B2B39F49C59FC8393 /* Pods_Domain.framework */,
+				7387EAE0728878B16D0B265C /* Pods_SHTokenField.framework */,
+				86B6B23F9FD5D911F4F96757 /* Pods_Shared.framework */,
+				745E68E8C80981FF782B0507 /* Pods_Shekly.framework */,
+				E99303CCB63CE9E199B0C513 /* Pods_UI.framework */,
+				A854315A90B897706CE7E537 /* Pods_User.framework */,
+				E57BCB57E04A76C64BDD8D24 /* Pods_Database.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F1E01AE2207206B00EC1A36 = {
+			isa = PBXGroup;
+			children = (
+				8F1E01B92207206B00EC1A36 /* Shekly */,
+				8F1E01D5220722C500EC1A36 /* UI */,
+				8F1E01E72207231200EC1A36 /* Domain */,
+				8F1E0209220727AB00EC1A36 /* Database */,
+				8F1E022922072A2C00EC1A36 /* User */,
+				8F1E01F82207234F00EC1A36 /* Shared */,
+				8FAE769A2209CA0A007D83B1 /* SHTokenField */,
+				8F2FA33C222AA84300D3E1BB /* SheklyShare */,
+				8F1E01B82207206B00EC1A36 /* Products */,
+				0793ACB5B424B269DBE77268 /* Pods */,
+				3E48A5EE8F502CB417401FB5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8F1E01B82207206B00EC1A36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E01B72207206B00EC1A36 /* Shekly.app */,
+				8F1E01D4220722C400EC1A36 /* UI.framework */,
+				8F1E01E62207231200EC1A36 /* Domain.framework */,
+				8F1E01F72207234F00EC1A36 /* Shared.framework */,
+				8F1E0208220727AB00EC1A36 /* Database.framework */,
+				8F1E022822072A2C00EC1A36 /* User.framework */,
+				8FAE76992209CA0A007D83B1 /* SHTokenField.framework */,
+				8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F1E01B92207206B00EC1A36 /* Shekly */ = {
+			isa = PBXGroup;
+			children = (
+				8F2FA34A222AA89A00D3E1BB /* Shekly.entitlements */,
+				8F1E0218220728FA00EC1A36 /* LaunchScreen.storyboard */,
+				8F1E01BA2207206B00EC1A36 /* AppDelegate.swift */,
+				8F1E01C42207206C00EC1A36 /* Assets.xcassets */,
+				8F1E01C92207206C00EC1A36 /* Info.plist */,
+				8FAE1CC82305832500D14BD3 /* ExpensesJSON.shekly */,
+			);
+			path = Shekly;
+			sourceTree = "<group>";
+		};
+		8F1E01D5220722C500EC1A36 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8F359BD22240212D00C2603E /* New Entry */,
+				8F1EAD60222589920095AA10 /* Category */,
+				8FDC4E522215A615005206C3 /* Plan */,
+				8F1E026422072F1300EC1A36 /* Wallet */,
+				8F1E021B2207291D00EC1A36 /* Shared */,
+				8F1E01D6220722C500EC1A36 /* UI.h */,
+				8F1E01D7220722C500EC1A36 /* Info.plist */,
+				8F1E026D2207317100EC1A36 /* R.generated.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8F1E01E72207231200EC1A36 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8F28749A2263280400EC4933 /* DatePicker */,
+				8F3C1EB72257C9DC008C29EE /* NewEntry */,
+				8F1EAD6E222592D00095AA10 /* Category */,
+				8FDC4E5F2215AA32005206C3 /* Plan */,
+				8F9F6A3B2208812300AE7A0E /* Wallet */,
+				8FF3E492225A5EED00A88238 /* WalletList */,
+				8F1E025D22072CA300EC1A36 /* Shared */,
+				8F1E025822072C3300EC1A36 /* DomainFactory.swift */,
+				8F1E01E82207231200EC1A36 /* Domain.h */,
+				8F1E01E92207231200EC1A36 /* Info.plist */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8F1E01F82207234F00EC1A36 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E4A22157B56005206C3 /* Helpers */,
+				8FDC4E42221574BE005206C3 /* Providers */,
+				8F1E024E22072BDD00EC1A36 /* Common */,
+				8F1E01F92207234F00EC1A36 /* Shared.h */,
+				8FDC4E442215757F005206C3 /* SharedFactory.swift */,
+				8F1E01FA2207234F00EC1A36 /* Info.plist */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8F1E0209220727AB00EC1A36 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E485225A259400A88238 /* Enums */,
+				8F2FA354222AF7B800D3E1BB /* Controllers */,
+				8F2FA34F222AF73500D3E1BB /* JSONImporter */,
+				8FDF23912214449000F46591 /* Models */,
+				8F229649220DF94D00DE5AF7 /* Groups */,
+				8F22962B220DF0DE00DE5AF7 /* Entities */,
+				8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */,
+				8F1E020A220727AB00EC1A36 /* Database.h */,
+				8F1E020B220727AB00EC1A36 /* Info.plist */,
+				8FDF238F221441E300F46591 /* DatabaseFactory.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		8F1E021A2207290900EC1A36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E021C2207292C00EC1A36 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8F1E021B2207291D00EC1A36 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8F9BAFB3225644AC0017F431 /* Helpers */,
+				8F359BCD2240180300C2603E /* Bootstraps */,
+				8F1E027822074AD600EC1A36 /* Components */,
+				8F1E025A22072C6200EC1A36 /* Controllers */,
+				8F1E0220220729F500EC1A36 /* Coordinators */,
+				8F1E021F2207294500EC1A36 /* Extensions */,
+				8F1E021A2207290900EC1A36 /* Resources */,
+				8F1E021E2207294000EC1A36 /* Views */,
+				8F996B77224158D500A2C44A /* Xibs */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8F1E021E2207294000EC1A36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F17E07C222B0BA700C363CA /* GradientMaskView.swift */,
+				8F17E07E222B0CA300C363CA /* GradientView.swift */,
+				8F28A35F220C726C00FD48DC /* KeyboardLayoutConstraint.swift */,
+				8F28A35D220C723700FD48DC /* SheklyButton.swift */,
+				8F1EAD6A22258C010095AA10 /* TableTopGradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F1E021F2207294500EC1A36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */,
+				8F359BC72240068D00C2603E /* UIView+Corners.swift */,
+				8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */,
+				8F9BAFB62256473E0017F431 /* ReloadableViewController+Reload.swift */,
+				8F3C1EB02257A63E008C29EE /* UIViewController+KeyboardDismiss.swift */,
+				8FF3E495225A61E700A88238 /* UIViewController+Popover.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8F1E0220220729F500EC1A36 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E022122072A0100EC1A36 /* MainCoordinator.swift */,
+				8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8F1E022922072A2C00EC1A36 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E023F22072AAA00EC1A36 /* Enums */,
+				8F1E023722072AA800EC1A36 /* Errors */,
+				8F1E023C22072AA900EC1A36 /* Models */,
+				8F1E023922072AA900EC1A36 /* Providers */,
+				8F1E023E22072AA900EC1A36 /* UserFactory.swift */,
+				8F1E022A22072A2C00EC1A36 /* User.h */,
+				8F1E022B22072A2C00EC1A36 /* Info.plist */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8F1E023722072AA800EC1A36 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E023822072AA800EC1A36 /* UserProviderError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		8F1E023922072AA900EC1A36 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E023A22072AA900EC1A36 /* UserProvider.swift */,
+				8F1E023B22072AA900EC1A36 /* UserManaging.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		8F1E023C22072AA900EC1A36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E023D22072AA900EC1A36 /* StoredUserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F1E023F22072AAA00EC1A36 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E024222072AC700EC1A36 /* AuthorizationResult.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		8F1E024E22072BDD00EC1A36 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E025122072BDD00EC1A36 /* Loger.swift */,
+				8F9F6A422208AC5200AE7A0E /* Colors.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8F1E025A22072C6200EC1A36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E025B22072C7400EC1A36 /* SheklyViewController.swift */,
+				8F1E026222072CFF00EC1A36 /* SheklyNavigationController.swift */,
+				8F359BC9224007A300C2603E /* SheklyTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F1E025D22072CA300EC1A36 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6FA22568BB30022325E /* Extensions */,
+				8F1EAD72222592FD0095AA10 /* ViewModels */,
+				8FDC4E4722157616005206C3 /* Helpers */,
+				8F9F6A3F2208AA9E00AE7A0E /* Enums */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8F1E026422072F1300EC1A36 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E026522072F3F00EC1A36 /* Controllers */,
+				8FDC4E582215A640005206C3 /* Coordinators */,
+				8F1E0268220730DB00EC1A36 /* Storyboards */,
+				8F1E026F220733EE00EC1A36 /* Views */,
+				8F1E02802207559A00EC1A36 /* Xibs */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		8F1E026522072F3F00EC1A36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E026622072F5100EC1A36 /* WalletViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F1E0268220730DB00EC1A36 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E0269220730EB00EC1A36 /* Wallet.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8F1E026F220733EE00EC1A36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F996B752241322A00A2C44A /* WalletHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F1E027822074AD600EC1A36 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8FD1EE44224407AA000DEEC8 /* SheklyMonthCollectionView */,
+				8FD1EE45224407BF000DEEC8 /* SheklyWalletCollectionView */,
+				8FF3E48B225A5D8400A88238 /* DatePicker */,
+				8FF3E48A225A5D7600A88238 /* WalletList */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8F1E027922074ADB00EC1A36 /* TokenField */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E02702207341500EC1A36 /* SHTextField.swift */,
+				8FAE768E2209B063007D83B1 /* SHTextFieldAction.swift */,
+				8FAE76902209B26E007D83B1 /* SHTextFieldActionPolicy.swift */,
+				8FAE76B42209D08D007D83B1 /* SHTokenField.swift */,
+				8F1E027C22074C5D00EC1A36 /* SHTokenFieldDataSource.swift */,
+				8F1E027E22074D5200EC1A36 /* SHTokenFieldDelegate.swift */,
+				8F1E027A22074AFC00EC1A36 /* SHTokenTextField.swift */,
+				8FBE155E220B5E9C0095603A /* SHInputAccessoryView.swift */,
+				8F28A35B220C60B800FD48DC /* SHTokenView.swift */,
+			);
+			path = TokenField;
+			sourceTree = "<group>";
+		};
+		8F1E02802207559A00EC1A36 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6F6225686500022325E /* WalletEntryCell */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8F1EAD60222589920095AA10 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD61222589B30095AA10 /* Controllers */,
+				8F1EAD63222589C30095AA10 /* Coordinators */,
+				8F1EAD62222589B90095AA10 /* Storyboards */,
+				8F1EAD64222589D30095AA10 /* Views */,
+				8F1EAD65222589D80095AA10 /* Xibs */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		8F1EAD61222589B30095AA10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F1EAD62222589B90095AA10 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD6622258B770095AA10 /* Category.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8F1EAD63222589C30095AA10 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8F1EAD64222589D30095AA10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */,
+				8F4138C9222B10100035002F /* CategorySubcategoriesCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F1EAD65222589D80095AA10 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */,
+				8F4138C7222B0F5D0035002F /* CategorySubcategoriesCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8F1EAD6E222592D00095AA10 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD70222592EE0095AA10 /* ViewModels */,
+				8F1EAD6F222592E00095AA10 /* Models */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		8F1EAD6F222592E00095AA10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CCB5B2215F3E500420C5A /* SheklyCategoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F1EAD70222592EE0095AA10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */,
+				8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */,
+				8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */,
+				8F4138CB222B10440035002F /* CategorySubcategoriesCellViewModel.swift */,
+				8F4138CD222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F1EAD71222592F30095AA10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F1EAD72222592FD0095AA10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E025E22072CA300EC1A36 /* ViewModel.swift */,
+				8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F1EAD732225930B0095AA10 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E602215AA40005206C3 /* PlanViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F22962B220DF0DE00DE5AF7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8F229644220DF8D700DE5AF7 /* Properties */,
+				8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */,
+				8F4682E4221458560041F23B /* DatabaseEntity+CoreDataClass.swift */,
+				8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */,
+				8F50673E224673C100723C0B /* Wallet+CoreDataClass.swift */,
+				8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8F229644220DF8D700DE5AF7 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CCB4D2215B0E600420C5A /* Category+CoreDataProperties.swift */,
+				8F3CCB502215B0E700420C5A /* DatabaseEntity+CoreDataProperties.swift */,
+				8F3CCB4C2215B0E600420C5A /* Shekly+CoreDataModel.swift */,
+				8F3CCB4E2215B0E600420C5A /* Subcategory+CoreDataProperties.swift */,
+				8FF3E483225A21A200A88238 /* WalletEntry+CoreDataProperties.swift */,
+			);
+			path = Properties;
+			sourceTree = "<group>";
+		};
+		8F229649220DF94D00DE5AF7 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		8F28749A2263280400EC4933 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		8F2FA33C222AA84300D3E1BB /* SheklyShare */ = {
+			isa = PBXGroup;
+			children = (
+				8F2FA34B222AA8AE00D3E1BB /* SheklyShare.entitlements */,
+				8F2FA33D222AA84300D3E1BB /* ShareViewController.swift */,
+				8F2FA33F222AA84300D3E1BB /* MainInterface.storyboard */,
+				8F2FA342222AA84300D3E1BB /* Info.plist */,
+			);
+			path = SheklyShare;
+			sourceTree = "<group>";
+		};
+		8F2FA34F222AF73500D3E1BB /* JSONImporter */ = {
+			isa = PBXGroup;
+			children = (
+				8F2FA34D222AF55900D3E1BB /* SheklyJSONImporter.swift */,
+				8F2FA350222AF74600D3E1BB /* ExpenseJSONModel.swift */,
+				8F50674222467AD100723C0B /* WalletJSONModel.swift */,
+			);
+			path = JSONImporter;
+			sourceTree = "<group>";
+		};
+		8F2FA354222AF7B800D3E1BB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */,
+				8F2FA352222AF7AE00D3E1BB /* SheklyJSONDataController.swift */,
+				8F1E02142207282100EC1A36 /* SheklyDatabasePersistance.swift */,
+				8F2FA356222AFF1900D3E1BB /* SheklyPresistentContainer.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F359BCD2240180300C2603E /* Bootstraps */ = {
+			isa = PBXGroup;
+			children = (
+				8F359BD02240187800C2603E /* Bootstrap.swift */,
+				8F359BCE2240183000C2603E /* UITabBarItem+Bootstrap.swift */,
+			);
+			path = Bootstraps;
+			sourceTree = "<group>";
+		};
+		8F359BD22240212D00C2603E /* New Entry */ = {
+			isa = PBXGroup;
+			children = (
+				8F359BD32240213700C2603E /* Controllers */,
+				8F96D5E82247CD12008172D3 /* Storyboards */,
+				8F96D5EB2247D0F8008172D3 /* Views */,
+				8F96D5EC2247D103008172D3 /* Xibs */,
+			);
+			path = "New Entry";
+			sourceTree = "<group>";
+		};
+		8F359BD32240213700C2603E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F359BD42240214800C2603E /* NewEntryViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				8F3C1EB32257BF31008C29EE /* NewEntryCollectionCell.swift */,
+				8F3C1EB42257BF31008C29EE /* NewEntryCollectionCell.xib */,
+			);
+			path = NewEntryCollectionCell;
+			sourceTree = "<group>";
+		};
+		8F3C1EB72257C9DC008C29EE /* NewEntry */ = {
+			isa = PBXGroup;
+			children = (
+				8F3C1EB92257CA2F008C29EE /* Models */,
+				8F3C1EB82257CA20008C29EE /* ViewModels */,
+			);
+			path = NewEntry;
+			sourceTree = "<group>";
+		};
+		8F3C1EB82257CA20008C29EE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F3C1EB92257CA2F008C29EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F96D5E82247CD12008172D3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8F96D5E92247D036008172D3 /* NewEntry.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8F96D5EB2247D0F8008172D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F96D5EC2247D103008172D3 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8F996B77224158D500A2C44A /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6EF2256820E0022325E /* SheklyWalletEntryEmptyCell */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8F9BAFB3225644AC0017F431 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8F9F6A3B2208812300AE7A0E /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD71222592F30095AA10 /* ViewModels */,
+				8FAE76AF2209CDE3007D83B1 /* Helpers */,
+				8F9F6A3C2208813000AE7A0E /* Models */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		8F9F6A3C2208813000AE7A0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6F4225685160022325E /* SheklyEntryModel.swift */,
+				8F46831422149E4C0041F23B /* SheklyWalletEntryModel.swift */,
+				8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */,
+				8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */,
+				8FEAD6F822568A520022325E /* SheklyEntryEmptyModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F9F6A3F2208AA9E00AE7A0E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F6A402208AAAC00AE7A0E /* SheklyTokenType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		8FAE769A2209CA0A007D83B1 /* SHTokenField */ = {
+			isa = PBXGroup;
+			children = (
+				8F1E027922074ADB00EC1A36 /* TokenField */,
+				8FAE769B2209CA0A007D83B1 /* SHTokenField.h */,
+				8FAE769C2209CA0A007D83B1 /* Info.plist */,
+			);
+			path = SHTokenField;
+			sourceTree = "<group>";
+		};
+		8FAE76AF2209CDE3007D83B1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8FAE76B02209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FD1EE3E22440670000DEEC8 /* SheklyMonthCell */ = {
+			isa = PBXGroup;
+			children = (
+				8F996B7A2241592000A2C44A /* SheklyMonthCell.swift */,
+				8F996B782241590900A2C44A /* SheklyMonthCell.xib */,
+			);
+			path = SheklyMonthCell;
+			sourceTree = "<group>";
+		};
+		8FD1EE3F22440681000DEEC8 /* SheklyWalletCell */ = {
+			isa = PBXGroup;
+			children = (
+				8FD1EE40224406AF000DEEC8 /* SheklyWalletCell.swift */,
+				8FD1EE41224406AF000DEEC8 /* SheklyWalletCell.xib */,
+			);
+			path = SheklyWalletCell;
+			sourceTree = "<group>";
+		};
+		8FD1EE44224407AA000DEEC8 /* SheklyMonthCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8FD1EE3E22440670000DEEC8 /* SheklyMonthCell */,
+				8FDCD0F42242ABF400B235EC /* SheklyMonthCollectionView.swift */,
+			);
+			path = SheklyMonthCollectionView;
+			sourceTree = "<group>";
+		};
+		8FD1EE45224407BF000DEEC8 /* SheklyWalletCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8FD1EE3F22440681000DEEC8 /* SheklyWalletCell */,
+				8FD1EE46224407D7000DEEC8 /* SheklyWalletCollectionView.swift */,
+			);
+			path = SheklyWalletCollectionView;
+			sourceTree = "<group>";
+		};
+		8FD40F38224555EC00FE3716 /* Differ */ = {
+			isa = PBXGroup;
+			children = (
+				8FD40F362245248300FE3716 /* Differ.swift */,
+			);
+			path = Differ;
+			sourceTree = "<group>";
+		};
+		8FDC4E42221574BE005206C3 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E40221574AF005206C3 /* LocaleProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		8FDC4E4722157616005206C3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8FD40F38224555EC00FE3716 /* Differ */,
+				8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */,
+				8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */,
+				8F9BAFB42256458E0017F431 /* ReloadablePresenter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FDC4E4A22157B56005206C3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E4B22157B66005206C3 /* NumberParser.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FDC4E522215A615005206C3 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E542215A627005206C3 /* Controllers */,
+				8FDC4E532215A61D005206C3 /* Coordinators */,
+				8FDC4E562215A631005206C3 /* Storyboards */,
+				8FDC4E552215A62C005206C3 /* Views */,
+				8FDC4E572215A636005206C3 /* Xibs */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		8FDC4E532215A61D005206C3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8FDC4E542215A627005206C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8FDC4E552215A62C005206C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CCB582215F3AD00420C5A /* CategoryListCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8FDC4E562215A631005206C3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E5B2215A726005206C3 /* Plan.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8FDC4E572215A636005206C3 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8F3CCB562215F39400420C5A /* CategoryListCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		8FDC4E582215A640005206C3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8FDC4E502215A397005206C3 /* WalletCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8FDC4E5F2215AA32005206C3 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD732225930B0095AA10 /* ViewModels */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		8FDF23912214449000F46591 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FDF23922214449C00F46591 /* CategoryModel.swift */,
+				8F46830E221482140041F23B /* DatabaseEntry.swift */,
+				8FDF239A2214552000F46591 /* DatabaseModel.swift */,
+				8F468312221498730041F23B /* DatabaseModelProperties.swift */,
+				8FDF23942214457900F46591 /* SubcategoryModel.swift */,
+				8F468310221492BB0041F23B /* WalletEntryModel.swift */,
+				8F5067402246755200723C0B /* WalletModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8FEAD6EF2256820E0022325E /* SheklyWalletEntryEmptyCell */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6F0225682AE0022325E /* SheklyWalletEntryEmptyCell.swift */,
+				8FEAD6F1225682AE0022325E /* SheklyWalletEntryEmptyCell.xib */,
+			);
+			path = SheklyWalletEntryEmptyCell;
+			sourceTree = "<group>";
+		};
+		8FEAD6F6225686500022325E /* WalletEntryCell */ = {
+			isa = PBXGroup;
+			children = (
+				8F8F88402214A3710028375D /* WalletEntryCell.swift */,
+				8F8F883E2214A3290028375D /* WalletEntryCell.xib */,
+			);
+			path = WalletEntryCell;
+			sourceTree = "<group>";
+		};
+		8FEAD6FA22568BB30022325E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8FEAD6FB22568BC40022325E /* Array.swift */,
+				8FF3E488225A268A00A88238 /* WalletEntryType+Properties.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8FF3E485225A259400A88238 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E486225A259E00A88238 /* WalletEntryType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		8FF3E48A225A5D7600A88238 /* WalletList */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E48E225A5DAC00A88238 /* WalletListViewController.swift */,
+				8FF3E48C225A5D9300A88238 /* WalletList.storyboard */,
+				8FF3E490225A5E2D00A88238 /* WalletListCell.swift */,
+			);
+			path = WalletList;
+			sourceTree = "<group>";
+		};
+		8FF3E48B225A5D8400A88238 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8F83CA742260C703003464AB /* DatePickerViewController.swift */,
+				8F83CA722260C6ED003464AB /* DatePicker.storyboard */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		8FF3E492225A5EED00A88238 /* WalletList */ = {
+			isa = PBXGroup;
+			children = (
+				8FF3E493225A5F5E00A88238 /* WalletListViewModel.swift */,
+			);
+			path = WalletList;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8F1E01CF220722C400EC1A36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01D8220722C500EC1A36 /* UI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01E12207231200EC1A36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01EA2207231200EC1A36 /* Domain.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01F22207234F00EC1A36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01FB2207234F00EC1A36 /* Shared.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E0203220727AB00EC1A36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E020C220727AB00EC1A36 /* Database.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E022322072A2C00EC1A36 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E022C22072A2C00EC1A36 /* User.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FAE76942209CA0A007D83B1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FAE769D2209CA0A007D83B1 /* SHTokenField.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8F1E01B62207206B00EC1A36 /* Shekly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E01CC2207206C00EC1A36 /* Build configuration list for PBXNativeTarget "Shekly" */;
+			buildPhases = (
+				BAD203F62957BC78388BFF5A /* [CP] Check Pods Manifest.lock */,
+				8F1E01B32207206B00EC1A36 /* Sources */,
+				8F1E01B42207206B00EC1A36 /* Frameworks */,
+				8F1E01B52207206B00EC1A36 /* Resources */,
+				8F1E01E0220722C500EC1A36 /* Embed Frameworks */,
+				9740DC0DB022A37043B33165 /* [CP] Embed Pods Frameworks */,
+				8F2FA349222AA84300D3E1BB /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F1E01DA220722C500EC1A36 /* PBXTargetDependency */,
+				8F1E01EC2207231200EC1A36 /* PBXTargetDependency */,
+				8F1E01FD2207234F00EC1A36 /* PBXTargetDependency */,
+				8F1E020E220727AB00EC1A36 /* PBXTargetDependency */,
+				8F1E022E22072A2C00EC1A36 /* PBXTargetDependency */,
+				8FAE769F2209CA0A007D83B1 /* PBXTargetDependency */,
+				8F2FA344222AA84300D3E1BB /* PBXTargetDependency */,
+			);
+			name = Shekly;
+			productName = Shekly;
+			productReference = 8F1E01B72207206B00EC1A36 /* Shekly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F1E01D3220722C400EC1A36 /* UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E01DF220722C500EC1A36 /* Build configuration list for PBXNativeTarget "UI" */;
+			buildPhases = (
+				997ADDF85950039B7B5769BB /* [CP] Check Pods Manifest.lock */,
+				8F1E026C2207314100EC1A36 /* R.swift */,
+				8F1E01CF220722C400EC1A36 /* Headers */,
+				8F1E01D0220722C400EC1A36 /* Sources */,
+				8F1E01D1220722C400EC1A36 /* Frameworks */,
+				8F1E01D2220722C400EC1A36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UI;
+			productName = UI;
+			productReference = 8F1E01D4220722C400EC1A36 /* UI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F1E01E52207231200EC1A36 /* Domain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E01EF2207231200EC1A36 /* Build configuration list for PBXNativeTarget "Domain" */;
+			buildPhases = (
+				5A28184BB58B5C809DABF9E8 /* [CP] Check Pods Manifest.lock */,
+				8F1E01E12207231200EC1A36 /* Headers */,
+				8F1E01E22207231200EC1A36 /* Sources */,
+				8F1E01E32207231200EC1A36 /* Frameworks */,
+				8F1E01E42207231200EC1A36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Domain;
+			productName = Domain;
+			productReference = 8F1E01E62207231200EC1A36 /* Domain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F1E01F62207234F00EC1A36 /* Shared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E02002207234F00EC1A36 /* Build configuration list for PBXNativeTarget "Shared" */;
+			buildPhases = (
+				C48352C815730965974D16FA /* [CP] Check Pods Manifest.lock */,
+				8F1E01F22207234F00EC1A36 /* Headers */,
+				8F1E01F32207234F00EC1A36 /* Sources */,
+				8F1E01F42207234F00EC1A36 /* Frameworks */,
+				8F1E01F52207234F00EC1A36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shared;
+			productName = Shared;
+			productReference = 8F1E01F72207234F00EC1A36 /* Shared.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F1E0207220727AB00EC1A36 /* Database */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E0211220727AB00EC1A36 /* Build configuration list for PBXNativeTarget "Database" */;
+			buildPhases = (
+				EE11E94BDCB86951514B5524 /* [CP] Check Pods Manifest.lock */,
+				8F1E0203220727AB00EC1A36 /* Headers */,
+				8F1E0204220727AB00EC1A36 /* Sources */,
+				8F1E0205220727AB00EC1A36 /* Frameworks */,
+				8F1E0206220727AB00EC1A36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Database;
+			productName = Database;
+			productReference = 8F1E0208220727AB00EC1A36 /* Database.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F1E022722072A2C00EC1A36 /* User */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F1E023122072A2C00EC1A36 /* Build configuration list for PBXNativeTarget "User" */;
+			buildPhases = (
+				A837F4135DC2716422C0883B /* [CP] Check Pods Manifest.lock */,
+				8F1E022322072A2C00EC1A36 /* Headers */,
+				8F1E022422072A2C00EC1A36 /* Sources */,
+				8F1E022522072A2C00EC1A36 /* Frameworks */,
+				8F1E022622072A2C00EC1A36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = User;
+			productName = User;
+			productReference = 8F1E022822072A2C00EC1A36 /* User.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F2FA33A222AA84300D3E1BB /* SheklyShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F2FA346222AA84300D3E1BB /* Build configuration list for PBXNativeTarget "SheklyShare" */;
+			buildPhases = (
+				8F2FA337222AA84300D3E1BB /* Sources */,
+				8F2FA338222AA84300D3E1BB /* Frameworks */,
+				8F2FA339222AA84300D3E1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SheklyShare;
+			productName = SheklyShare;
+			productReference = 8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8FAE76982209CA0A007D83B1 /* SHTokenField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FAE76A22209CA0A007D83B1 /* Build configuration list for PBXNativeTarget "SHTokenField" */;
+			buildPhases = (
+				802E47ABA53BDF3370A6573D /* [CP] Check Pods Manifest.lock */,
+				8FAE76942209CA0A007D83B1 /* Headers */,
+				8FAE76952209CA0A007D83B1 /* Sources */,
+				8FAE76962209CA0A007D83B1 /* Frameworks */,
+				8FAE76972209CA0A007D83B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHTokenField;
+			productName = SHTokenField;
+			productReference = 8FAE76992209CA0A007D83B1 /* SHTokenField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F1E01AF2207206B00EC1A36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Patryk Mieszała";
+				TargetAttributes = {
+					8F1E01B62207206B00EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					8F1E01D3220722C400EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					8F1E01E52207231200EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					8F1E01F62207234F00EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					8F1E0207220727AB00EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					8F1E022722072A2C00EC1A36 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					8F2FA33A222AA84300D3E1BB = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					8FAE76982209CA0A007D83B1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 8F1E01B22207206B00EC1A36 /* Build configuration list for PBXProject "Shekly" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F1E01AE2207206B00EC1A36;
+			productRefGroup = 8F1E01B82207206B00EC1A36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F1E01B62207206B00EC1A36 /* Shekly */,
+				8F1E01D3220722C400EC1A36 /* UI */,
+				8F1E01E52207231200EC1A36 /* Domain */,
+				8F1E01F62207234F00EC1A36 /* Shared */,
+				8F1E0207220727AB00EC1A36 /* Database */,
+				8F1E022722072A2C00EC1A36 /* User */,
+				8FAE76982209CA0A007D83B1 /* SHTokenField */,
+				8F2FA33A222AA84300D3E1BB /* SheklyShare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F1E01B52207206B00EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01C52207206C00EC1A36 /* Assets.xcassets in Resources */,
+				8F1E0219220728FA00EC1A36 /* LaunchScreen.storyboard in Resources */,
+				8FAE1CC92305832500D14BD3 /* ExpensesJSON.shekly in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01D2220722C400EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEAD6F72256873D0022325E /* WalletEntryCell.xib in Resources */,
+				8FF3E48D225A5D9300A88238 /* WalletList.storyboard in Resources */,
+				8FD1EE43224406AF000DEEC8 /* SheklyWalletCell.xib in Resources */,
+				8F4138C8222B0F5D0035002F /* CategorySubcategoriesCell.xib in Resources */,
+				8F1EAD6722258B770095AA10 /* Category.storyboard in Resources */,
+				8F1E021D2207292C00EC1A36 /* Assets.xcassets in Resources */,
+				8F3CCB572215F39400420C5A /* CategoryListCell.xib in Resources */,
+				8F1EAD7A222597A30095AA10 /* CategoryHeaderCell.xib in Resources */,
+				8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */,
+				8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */,
+				8F1E026A220730EB00EC1A36 /* Wallet.storyboard in Resources */,
+				8F3C1EB62257BF31008C29EE /* NewEntryCollectionCell.xib in Resources */,
+				8FEAD6F3225682AE0022325E /* SheklyWalletEntryEmptyCell.xib in Resources */,
+				8F996B792241590900A2C44A /* SheklyMonthCell.xib in Resources */,
+				8FDC4E5C2215A726005206C3 /* Plan.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01E42207231200EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01F52207234F00EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E0206220727AB00EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E022622072A2C00EC1A36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F2FA339222AA84300D3E1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2FA341222AA84300D3E1BB /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FAE76972209CA0A007D83B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A28184BB58B5C809DABF9E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Domain-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		802E47ABA53BDF3370A6573D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SHTokenField-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F1E026C2207314100EC1A36 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputPaths = (
+				"$SRCROOT/UI/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/UI/R.generated.swift\"\n";
+		};
+		9740DC0DB022A37043B33165 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shekly/Pods-Shekly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shekly/Pods-Shekly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Shekly/Pods-Shekly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		997ADDF85950039B7B5769BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A837F4135DC2716422C0883B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-User-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAD203F62957BC78388BFF5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shekly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C48352C815730965974D16FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shared-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE11E94BDCB86951514B5524 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Database-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F1E01B32207206B00EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E01BB2207206B00EC1A36 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01D0220722C400EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDCD0F52242ABF400B235EC /* SheklyMonthCollectionView.swift in Sources */,
+				8F1E025C22072C7400EC1A36 /* SheklyViewController.swift in Sources */,
+				8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */,
+				8F28A35E220C723700FD48DC /* SheklyButton.swift in Sources */,
+				8F9BAFB72256473E0017F431 /* ReloadableViewController+Reload.swift in Sources */,
+				8FD1EE42224406AF000DEEC8 /* SheklyWalletCell.swift in Sources */,
+				8FF3E491225A5E2D00A88238 /* WalletListCell.swift in Sources */,
+				8F3C1EB12257A63E008C29EE /* UIViewController+KeyboardDismiss.swift in Sources */,
+				8FDCD0F72242B5C200B235EC /* UIView+AddSubview.swift in Sources */,
+				8F17E07F222B0CA300C363CA /* GradientView.swift in Sources */,
+				8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */,
+				8F1EAD6922258BE20095AA10 /* CategoryViewController.swift in Sources */,
+				8F1EAD6B22258C010095AA10 /* TableTopGradientView.swift in Sources */,
+				8F1EAD6D222591290095AA10 /* CategoryCoordinator.swift in Sources */,
+				8FF3E496225A61E700A88238 /* UIViewController+Popover.swift in Sources */,
+				8F22962A220DEF9500DE5AF7 /* UIView+Rx.swift in Sources */,
+				8F1E026322072CFF00EC1A36 /* SheklyNavigationController.swift in Sources */,
+				8FDC4E512215A397005206C3 /* WalletCoordinator.swift in Sources */,
+				8F1E026E2207317100EC1A36 /* R.generated.swift in Sources */,
+				8F996B7B2241592000A2C44A /* SheklyMonthCell.swift in Sources */,
+				8F359BCA224007A300C2603E /* SheklyTabBarController.swift in Sources */,
+				8FF3E48F225A5DAC00A88238 /* WalletListViewController.swift in Sources */,
+				8F3C1EB52257BF31008C29EE /* NewEntryCollectionCell.swift in Sources */,
+				8FDC4E5A2215A65A005206C3 /* PlanCoordinator.swift in Sources */,
+				8F17E07D222B0BA700C363CA /* GradientMaskView.swift in Sources */,
+				8FDC4E4F2215A346005206C3 /* TabCoordinator.swift in Sources */,
+				8F359BC82240068D00C2603E /* UIView+Corners.swift in Sources */,
+				8F28A360220C726C00FD48DC /* KeyboardLayoutConstraint.swift in Sources */,
+				8F4138CA222B10100035002F /* CategorySubcategoriesCell.swift in Sources */,
+				8F1E022222072A0100EC1A36 /* MainCoordinator.swift in Sources */,
+				8F359BD12240187800C2603E /* Bootstrap.swift in Sources */,
+				8FEAD6F2225682AE0022325E /* SheklyWalletEntryEmptyCell.swift in Sources */,
+				8FD1EE47224407D7000DEEC8 /* SheklyWalletCollectionView.swift in Sources */,
+				8F3CCB592215F3AD00420C5A /* CategoryListCell.swift in Sources */,
+				8F359BCF2240183000C2603E /* UITabBarItem+Bootstrap.swift in Sources */,
+				8F1E026722072F5100EC1A36 /* WalletViewController.swift in Sources */,
+				8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */,
+				8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */,
+				8F359BD52240214800C2603E /* NewEntryViewController.swift in Sources */,
+				8FDC4E5E2215A73C005206C3 /* PlanViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01E22207231200EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */,
+				8F1E026122072CA300EC1A36 /* SheklyViewModel.swift in Sources */,
+				8F4138CC222B10440035002F /* CategorySubcategoriesCellViewModel.swift in Sources */,
+				8FF3E494225A5F5E00A88238 /* WalletListViewModel.swift in Sources */,
+				8F9BAFB82256475E0017F431 /* ReloadablePresenter.swift in Sources */,
+				8FEAD6F922568A520022325E /* SheklyEntryEmptyModel.swift in Sources */,
+				8FF3E489225A268A00A88238 /* WalletEntryType+Properties.swift in Sources */,
+				8F50674D22467EAE00723C0B /* SheklyWalletModel.swift in Sources */,
+				8FEAD6FC22568BC40022325E /* Array.swift in Sources */,
+				8F28749C2263282C00EC4933 /* DatePickerViewModel.swift in Sources */,
+				8F1E026022072CA300EC1A36 /* ViewModel.swift in Sources */,
+				8FDC4E612215AA40005206C3 /* PlanViewModel.swift in Sources */,
+				8FD40F372245248300FE3716 /* Differ.swift in Sources */,
+				8F9F6A412208AAAC00AE7A0E /* SheklyTokenType.swift in Sources */,
+				8F1EAD752225931C0095AA10 /* CategoryViewModel.swift in Sources */,
+				8FAE76932209C8B6007D83B1 /* WalletViewModel.swift in Sources */,
+				8F4138CE222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift in Sources */,
+				8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */,
+				8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */,
+				8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */,
+				8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */,
+				8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */,
+				8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */,
+				8FAE76B12209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift in Sources */,
+				8F46831522149E4C0041F23B /* SheklyWalletEntryModel.swift in Sources */,
+				8F1EAD7E222599680095AA10 /* CategoryCellViewModel.swift in Sources */,
+				8FDC4E4922157626005206C3 /* SheklyTokenFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E01F32207234F00EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
+				8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */,
+				8F1E025522072BDD00EC1A36 /* Loger.swift in Sources */,
+				8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */,
+				8F9F6A432208AC5200AE7A0E /* Colors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E0204220727AB00EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDF239B2214552000F46591 /* DatabaseModel.swift in Sources */,
+				8F5067412246755300723C0B /* WalletModel.swift in Sources */,
+				8F50674322467AD100723C0B /* WalletJSONModel.swift in Sources */,
+				8F1E02162207282500EC1A36 /* SheklyDatabasePersistance.swift in Sources */,
+				8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */,
+				8F2FA355222AF89A00D3E1BB /* SheklyJSONDataController.swift in Sources */,
+				8F46830F221482140041F23B /* DatabaseEntry.swift in Sources */,
+				8F2FA357222AFF1900D3E1BB /* SheklyPresistentContainer.swift in Sources */,
+				8F50673F224673C100723C0B /* Wallet+CoreDataClass.swift in Sources */,
+				8F4682E5221458560041F23B /* DatabaseEntity+CoreDataClass.swift in Sources */,
+				8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */,
+				8F468313221498730041F23B /* DatabaseModelProperties.swift in Sources */,
+				8F2FA351222AF74600D3E1BB /* ExpenseJSONModel.swift in Sources */,
+				8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */,
+				8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */,
+				8F468311221492BB0041F23B /* WalletEntryModel.swift in Sources */,
+				8FDF2390221441E300F46591 /* DatabaseFactory.swift in Sources */,
+				8FF3E487225A259E00A88238 /* WalletEntryType.swift in Sources */,
+				8F22964B220DF95B00DE5AF7 /* EntityGroup.swift in Sources */,
+				8FDF23932214449C00F46591 /* CategoryModel.swift in Sources */,
+				8FDF23952214457900F46591 /* SubcategoryModel.swift in Sources */,
+				8F1E02172207282D00EC1A36 /* Shekly.xcdatamodeld in Sources */,
+				8F2FA34E222AF55900D3E1BB /* SheklyJSONImporter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1E022422072A2C00EC1A36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F1E024C22072B7B00EC1A36 /* UserManaging.swift in Sources */,
+				8F1E024D22072B7B00EC1A36 /* UserFactory.swift in Sources */,
+				8F1E024922072B7B00EC1A36 /* UserProviderError.swift in Sources */,
+				8F1E024822072B7B00EC1A36 /* AuthorizationResult.swift in Sources */,
+				8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */,
+				8F1E024B22072B7B00EC1A36 /* UserProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F2FA337222AA84300D3E1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2FA33E222AA84300D3E1BB /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FAE76952209CA0A007D83B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FAE76B52209D08D007D83B1 /* SHTokenField.swift in Sources */,
+				8FAE76A92209CA3D007D83B1 /* SHTokenFieldDelegate.swift in Sources */,
+				8FAE76AC2209CA3D007D83B1 /* SHTextFieldActionPolicy.swift in Sources */,
+				8FAE76A72209CA3D007D83B1 /* SHTokenTextField.swift in Sources */,
+				8FAE76A82209CA3D007D83B1 /* SHTokenFieldDataSource.swift in Sources */,
+				8FAE76AB2209CA3D007D83B1 /* SHTextFieldAction.swift in Sources */,
+				8FAE76A52209CA3D007D83B1 /* SHTextField.swift in Sources */,
+				8FBE155F220B5E9C0095603A /* SHInputAccessoryView.swift in Sources */,
+				8F28A35C220C60B800FD48DC /* SHTokenView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F1E01DA220722C500EC1A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E01D3220722C400EC1A36 /* UI */;
+			targetProxy = 8F1E01D9220722C500EC1A36 /* PBXContainerItemProxy */;
+		};
+		8F1E01EC2207231200EC1A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E01E52207231200EC1A36 /* Domain */;
+			targetProxy = 8F1E01EB2207231200EC1A36 /* PBXContainerItemProxy */;
+		};
+		8F1E01FD2207234F00EC1A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E01F62207234F00EC1A36 /* Shared */;
+			targetProxy = 8F1E01FC2207234F00EC1A36 /* PBXContainerItemProxy */;
+		};
+		8F1E020E220727AB00EC1A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E0207220727AB00EC1A36 /* Database */;
+			targetProxy = 8F1E020D220727AB00EC1A36 /* PBXContainerItemProxy */;
+		};
+		8F1E022E22072A2C00EC1A36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E022722072A2C00EC1A36 /* User */;
+			targetProxy = 8F1E022D22072A2C00EC1A36 /* PBXContainerItemProxy */;
+		};
+		8F2FA344222AA84300D3E1BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F2FA33A222AA84300D3E1BB /* SheklyShare */;
+			targetProxy = 8F2FA343222AA84300D3E1BB /* PBXContainerItemProxy */;
+		};
+		8FAE769F2209CA0A007D83B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FAE76982209CA0A007D83B1 /* SHTokenField */;
+			targetProxy = 8FAE769E2209CA0A007D83B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8F2FA33F222AA84300D3E1BB /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F2FA340222AA84300D3E1BB /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8F1E01CA2207206C00EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8F1E01CB2207206C00EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F1E01CD2207206C00EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEC13B2E3F771753A8690F74 /* Pods-Shekly.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shekly/Shekly.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WB5LCV9PU6;
+				INFOPLIST_FILE = Shekly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.Shekly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F1E01CE2207206C00EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF07670F2158CB3716C8CCDF /* Pods-Shekly.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shekly/Shekly.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WB5LCV9PU6;
+				INFOPLIST_FILE = Shekly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.Shekly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8F1E01DD220722C500EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBA7254A8E401962692ACB90 /* Pods-UI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.ui;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F1E01DE220722C500EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 277C6CE4C3FA4F0E58F9B930 /* Pods-UI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.ui;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F1E01F02207231200EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D900E6F572E3D47A78D7A469 /* Pods-Domain.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Domain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.domain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F1E01F12207231200EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA93DC82ADC8D6C00A2EBDD1 /* Pods-Domain.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Domain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.domain;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F1E02012207234F00EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18AE12492F7A1820D810ED6D /* Pods-Shared.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shared/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F1E02022207234F00EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D631990DA5B04BCF8431895F /* Pods-Shared.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shared/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F1E0212220727AB00EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB5E8048970EE77A63508F2C /* Pods-Database.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Database/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.database;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F1E0213220727AB00EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0817C0C88D65A49EB782817 /* Pods-Database.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Database/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.database;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F1E023222072A2C00EC1A36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC1A7F39181588953AB173F3 /* Pods-User.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = User/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.user;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F1E023322072A2C00EC1A36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B19BE8FB4260725E7AEEFBC8 /* Pods-User.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = User/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.shekly.user;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F2FA347222AA84300D3E1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SheklyShare/SheklyShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WB5LCV9PU6;
+				INFOPLIST_FILE = SheklyShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.Shekly.SheklyShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F2FA348222AA84300D3E1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SheklyShare/SheklyShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WB5LCV9PU6;
+				INFOPLIST_FILE = SheklyShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.Shekly.SheklyShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8FAE76A32209CA0A007D83B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A54208630ED6E80CACA529C /* Pods-SHTokenField.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SHTokenField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.SHTokenField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8FAE76A42209CA0A007D83B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EB24B9A74F975550687B3EE /* Pods-SHTokenField.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SHTokenField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.SHTokenField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F1E01B22207206B00EC1A36 /* Build configuration list for PBXProject "Shekly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E01CA2207206C00EC1A36 /* Debug */,
+				8F1E01CB2207206C00EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E01CC2207206C00EC1A36 /* Build configuration list for PBXNativeTarget "Shekly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E01CD2207206C00EC1A36 /* Debug */,
+				8F1E01CE2207206C00EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E01DF220722C500EC1A36 /* Build configuration list for PBXNativeTarget "UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E01DD220722C500EC1A36 /* Debug */,
+				8F1E01DE220722C500EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E01EF2207231200EC1A36 /* Build configuration list for PBXNativeTarget "Domain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E01F02207231200EC1A36 /* Debug */,
+				8F1E01F12207231200EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E02002207234F00EC1A36 /* Build configuration list for PBXNativeTarget "Shared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E02012207234F00EC1A36 /* Debug */,
+				8F1E02022207234F00EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E0211220727AB00EC1A36 /* Build configuration list for PBXNativeTarget "Database" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E0212220727AB00EC1A36 /* Debug */,
+				8F1E0213220727AB00EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F1E023122072A2C00EC1A36 /* Build configuration list for PBXNativeTarget "User" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F1E023222072A2C00EC1A36 /* Debug */,
+				8F1E023322072A2C00EC1A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F2FA346222AA84300D3E1BB /* Build configuration list for PBXNativeTarget "SheklyShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F2FA347222AA84300D3E1BB /* Debug */,
+				8F2FA348222AA84300D3E1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FAE76A22209CA0A007D83B1 /* Build configuration list for PBXNativeTarget "SHTokenField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FAE76A32209CA0A007D83B1 /* Debug */,
+				8FAE76A42209CA0A007D83B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8F1E01C22207206B00EC1A36 /* Shekly.xcdatamodel */,
+			);
+			currentVersion = 8F1E01C22207206B00EC1A36 /* Shekly.xcdatamodel */;
+			path = Shekly.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8F1E01AF2207206B00EC1A36 /* Project object */;
+}

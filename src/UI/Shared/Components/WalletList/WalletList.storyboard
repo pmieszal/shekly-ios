@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wallet List View Controller-->
+        <scene sceneID="UPe-Aa-Pix">
+            <objects>
+                <viewController storyboardIdentifier="WalletListViewController" id="Uc6-YP-S1w" customClass="WalletListViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bzn-CV-Nes">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WN5-kQ-9D4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WalletListCell" id="1Ze-W3-M7U" customClass="WalletListCell" customModule="UI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ze-W3-M7U" id="e4i-jG-nRU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Px-bW-ag8">
+                                                    <rect key="frame" x="20" y="11" width="335" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="0Px-bW-ag8" firstAttribute="leading" secondItem="e4i-jG-nRU" secondAttribute="leading" constant="20" id="2sN-pB-0os"/>
+                                                <constraint firstAttribute="trailing" secondItem="0Px-bW-ag8" secondAttribute="trailing" constant="20" id="PmH-1I-M54"/>
+                                                <constraint firstItem="0Px-bW-ag8" firstAttribute="top" secondItem="e4i-jG-nRU" secondAttribute="top" constant="11" id="gM2-bz-pTD"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Px-bW-ag8" secondAttribute="bottom" constant="11" id="tNZ-MX-udk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="ibNameLabel" destination="0Px-bW-ag8" id="HfB-KC-c0K"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WN5-kQ-9D4" firstAttribute="leading" secondItem="XHt-lx-AuB" secondAttribute="leading" id="TK6-gv-KKI"/>
+                            <constraint firstItem="WN5-kQ-9D4" firstAttribute="top" secondItem="XHt-lx-AuB" secondAttribute="top" id="X0O-Bp-xhE"/>
+                            <constraint firstItem="XHt-lx-AuB" firstAttribute="bottom" secondItem="WN5-kQ-9D4" secondAttribute="bottom" id="YJW-xL-9mW"/>
+                            <constraint firstItem="XHt-lx-AuB" firstAttribute="trailing" secondItem="WN5-kQ-9D4" secondAttribute="trailing" id="p29-R7-tXL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XHt-lx-AuB"/>
+                    </view>
+                    <connections>
+                        <outlet property="ibTableView" destination="WN5-kQ-9D4" id="dTK-38-aTG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MP6-r2-Tlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="171"/>
+        </scene>
+    </scenes>
+</document>
