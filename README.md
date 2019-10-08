@@ -25,6 +25,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [ ] move entirely to CleanSwift
 - [ ] get rid of Rx
 - [ ] propably get rid of generic SheklyViewController, since it really affects code readability (can't implement protocols in extensions)
+- [ ] use Swinject for DI instead of current factories
 
 ## Author
 
