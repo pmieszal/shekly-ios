@@ -44,7 +44,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             return savedModel
         }
         catch let error {
-            log.error(error, terminator: "")
+            log.error(error)
             
             return model
         }
@@ -62,7 +62,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             return true
         }
         catch let error {
-            log.error(error, terminator: "")
+            log.error(error)
             
             return false
         }
@@ -83,7 +83,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             return result.first
         }
         catch let error {
-            log.error(error, terminator: "")
+            log.error(error)
             
             return nil
         }
@@ -103,7 +103,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             return mapped
         }
         catch let error {
-            log.error(error, terminator: "")
+            log.error(error)
             
             return []
         }

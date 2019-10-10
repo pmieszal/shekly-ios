@@ -7,16 +7,10 @@
 //
 
 import SwiftDate
-import RxMVVMC
 
 import Database
 
 public class SheklyWalletEntryModel: SheklyEntryModel {
-    
-    public override var hashValue: Int {
-        return entry.id?.hashValue !! "Id can't be nil"
-    }
-    
     let entry: WalletEntryModel
     
     init(entry: WalletEntryModel, formatter: SheklyCurrencyFormatter) {
@@ -38,5 +32,14 @@ public class SheklyWalletEntryModel: SheklyEntryModel {
         let dateString: String? =  date?.toString(DateToStringStyles.date(DateFormatter.Style.long))
         
         super.init(categoryAndComment: categoryAndComment, subcategory: subcategory, amount: amount, amountColor: entry.type.textColor, dateString: dateString)
+    }
+    
+    public override func hash(into hasher: inout Hasher) {
+        guard let id = entry.id else {
+            assertionFailure("Id can't be nil")
+            return
+        }
+        
+        hasher.combine(id)
     }
 }

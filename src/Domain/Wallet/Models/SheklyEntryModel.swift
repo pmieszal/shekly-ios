@@ -9,9 +9,6 @@
 import Foundation
 
 public class SheklyEntryModel: Hashable {
-    public var hashValue: Int {
-        return NSUUID().uuidString.hashValue
-    }
     public let categoryAndComment: String?
     public let subcategory: String?
     public let amount: String?
@@ -24,6 +21,10 @@ public class SheklyEntryModel: Hashable {
         self.amount = amount
         self.amountColor = amountColor
         self.dateString = dateString
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(NSUUID())
     }
 }
 

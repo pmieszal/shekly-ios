@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import SHTokenField
@@ -87,13 +86,17 @@ class WalletViewController: SheklyViewController<WalletViewModel>, UITableViewDa
         
         switch model {
         case let model as SheklyWalletEntryModel:
-            let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) !! "Cell can't be nil"
+            guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
+                fatalError("Cell can't be nil")
+            }
             cell.model = model
             
             return cell
             
         case is SheklyEntryEmptyModel:
-            let cell: SheklyWalletEntryEmptyCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell, for: indexPath) !! "Cell can't be nil"
+            guard let cell: SheklyWalletEntryEmptyCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell, for: indexPath) else {
+                fatalError("Cell can't be nil")
+            }
             
             return cell
         default:

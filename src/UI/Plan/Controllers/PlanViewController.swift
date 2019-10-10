@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
-import RxMVVMC
 
 import Domain
 import Shared
@@ -39,12 +37,14 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
             .categories
             .drive(ibTableView.rx.items) { tableView, row, model in
                 let indexPath = IndexPath(row: row, section: 0)
-                let cell: CategoryListCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryListCell, for: indexPath) !! "Cell can't be nil"
+                guard let cell: CategoryListCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryListCell, for: indexPath) else {
+                    fatalError("Cell can't be nil")
+                }
                 cell.model = model
                 
                 return cell
             }
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         ibTableView
             .rx
@@ -53,7 +53,7 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
             .emit(onNext: { [weak viewModel] (categoryModel: SheklyCategoryModel) in
                 viewModel?.didSelect(categoryModel: categoryModel)
             })
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 

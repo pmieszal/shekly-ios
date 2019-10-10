@@ -12,10 +12,6 @@ public class DatabaseModel<TDatabaseEntity: DatabaseEntity>: DatabaseEntry {
     
     typealias TEntity = TDatabaseEntity
     
-    public var hashValue: Int {
-        return id?.hashValue ?? 0
-    }
-    
     public let id: String?
     public let created: Date?
     
@@ -31,6 +27,10 @@ public class DatabaseModel<TDatabaseEntity: DatabaseEntity>: DatabaseEntry {
     required init(entity: TDatabaseEntity) {
         self.id = entity.id
         self.created = entity.created
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id?.hashValue ?? 0)
     }
     
     func set(withEntity entity: TEntity) {

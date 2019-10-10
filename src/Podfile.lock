@@ -1,86 +1,56 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Charts (3.2.1):
-    - Charts/Core (= 3.2.1)
-  - Charts/Core (3.2.1)
-  - Differentiator (3.1.0)
-  - DynamicColor (4.0.2)
-  - R.swift (5.0.2):
+  - Alamofire (5.0.0-rc.2)
+  - DynamicColor (4.2.0)
+  - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
-  - R.swift.Library (5.0.0)
-  - RxCocoa (4.3.1):
-    - RxSwift (~> 4.0)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxMVVMC (1.0.0):
-    - Alamofire (~> 4.0)
-    - RxCocoa (~> 4.0)
-    - RxMVVMC/Core (= 1.0.0)
-    - RxOptional (~> 3.0)
-    - RxSwift (~> 4.0)
-  - RxMVVMC/Core (1.0.0):
-    - Alamofire (~> 4.0)
-    - RxCocoa (~> 4.0)
-    - RxOptional (~> 3.0)
-    - RxSwift (~> 4.0)
-  - RxOptional (3.5.0):
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
-  - SwiftDate (6.0.1)
+  - R.swift.Library (5.0.1)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxOptional (4.0.0):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SwiftDate (6.1.0)
+  - SwiftyBeaver (1.8.2)
 
 DEPENDENCIES:
-  - Alamofire (= 4.7.3)
-  - Charts (= 3.2.1)
-  - DynamicColor (= 4.0.2)
-  - R.swift (= 5.0.2)
-  - RxCocoa (= 4.3.1)
-  - RxDataSources (= 3.1.0)
-  - RxMVVMC (from `https://bitbucket.org/PatrykMieszala/RxMVVMC`, tag `1.0.0`)
-  - RxOptional (= 3.5.0)
-  - RxSwift (= 4.3.1)
-  - SwiftDate (= 6.0.1)
+  - Alamofire (= 5.0.0-rc.2)
+  - DynamicColor (= 4.2.0)
+  - R.swift (= 5.0.3)
+  - RxCocoa (= 5.0.0)
+  - RxOptional (= 4.0.0)
+  - RxSwift (= 5.0.0)
+  - SwiftDate (= 6.1.0)
+  - SwiftyBeaver (= 1.8.2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - Charts
-    - Differentiator
     - DynamicColor
     - R.swift
     - R.swift.Library
     - RxCocoa
-    - RxDataSources
     - RxOptional
+    - RxRelay
     - RxSwift
     - SwiftDate
-
-EXTERNAL SOURCES:
-  RxMVVMC:
-    :git: https://bitbucket.org/PatrykMieszala/RxMVVMC
-    :tag: 1.0.0
-
-CHECKOUT OPTIONS:
-  RxMVVMC:
-    :git: https://bitbucket.org/PatrykMieszala/RxMVVMC
-    :tag: 1.0.0
+    - SwiftyBeaver
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
-  R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
-  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxMVVMC: ad137807c68f8f7c02649c08bad46dd828c9ea1b
-  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  SwiftDate: 2b3ef6b8fc30c22391033d1acad5622a51660016
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxOptional: 9904e2219d59260c3c171273d475b2126de187e8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
+  SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
 
-PODFILE CHECKSUM: 5a7447b178eeefcf25e2c67c026a980b0019a66e
+PODFILE CHECKSUM: 22ebd43c2a0a03274a8cc6b309c55910f27ad9df
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

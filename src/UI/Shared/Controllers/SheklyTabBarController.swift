@@ -61,7 +61,7 @@ class SheklyTabBarController: UITabBarController {
 extension SheklyTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let index = self.viewControllers?.index(of: viewController) else {
+        guard let index = self.viewControllers?.firstIndex(of: viewController) else {
             return false
         }
         

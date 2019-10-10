@@ -114,40 +114,40 @@ private extension SheklyMonthCollectionView {
         collectionView
             .rx
             .setDelegate(self)
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         collectionView
             .rx
             .setDataSource(self)
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         let willDisplayCell = collectionView
             .rx
             .willDisplayCell
             .asObservable()
-            .debounce(0.01, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(10), scheduler: MainScheduler.instance)
             .take(1)
         
         willDisplayCell
-            .subscribeNext { [weak self] (event) in
+            .subscribe(onNext: { [weak self] (event) in
                 guard let self = self else { return }
                 
-                if let index = self.dates.index(where: { $0.isInside(date: Date(), granularity: .month) }) {
+                if let index = self.dates.firstIndex(where: { $0.isInside(date: Date(), granularity: .month) }) {
                     let indexPath = IndexPath(item: index, section: 0)
                     
                     self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
                 }
-            }
-            .dispose(in: disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         willDisplayCell
-            .delay(0.01, scheduler: MainScheduler.instance)
-            .subscribeNext { [weak self] (event) in
+            .delay(.milliseconds(10), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (event) in
                 guard let self = self else { return }
                 
                 self.scrollViewDidScroll(self.collectionView)
-            }
-            .dispose(in: disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         let didEndScrollingAnimation: Signal<Void> = collectionView
             .rx
@@ -171,7 +171,7 @@ private extension SheklyMonthCollectionView {
             .emit(onNext: { [weak self] (date) in
                 self?.delegate?.monthCollectionViewDidScroll(toDate: date)
             })
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 

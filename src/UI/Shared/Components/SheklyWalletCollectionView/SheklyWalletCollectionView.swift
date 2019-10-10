@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxOptional
 
 import Domain
 import Shared
@@ -108,12 +109,12 @@ private extension SheklyWalletCollectionView {
         collectionView
             .rx
             .setDelegate(self)
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         collectionView
             .rx
             .setDataSource(self)
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         let didEndScrollingAnimation = collectionView
             .rx
@@ -143,7 +144,7 @@ private extension SheklyWalletCollectionView {
                 let indexPath = IndexPath(row: index, section: 0)
                 self?.delegate?.walletCollectionViewDidScroll(toItemAt: indexPath)
             })
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 

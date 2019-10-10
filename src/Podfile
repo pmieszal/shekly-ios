@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '13.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
@@ -7,24 +7,21 @@ inhibit_all_warnings!
 project 'Shekly'
 
 def rx
-  pod 'RxSwift', '4.3.1'
-  pod 'RxCocoa', '4.3.1'
-  pod 'RxOptional', '3.5.0'
-  pod 'RxDataSources', '3.1.0'
-
-  pod 'RxMVVMC', :git => 'https://bitbucket.org/PatrykMieszala/RxMVVMC', :tag => '1.0.0'
+  pod 'RxSwift', '5.0.0'
+  pod 'RxCocoa', '5.0.0'
+  pod 'RxOptional', '4.0.0'
 end
 
 def networking
-  pod 'Alamofire', '4.7.3'
+  pod 'Alamofire', '5.0.0-rc.2'
 end
 
 def utilities
-  pod 'R.swift', '5.0.2'
+  pod 'SwiftyBeaver', '1.8.2'
+  pod 'R.swift', '5.0.3'
 
-  pod 'Charts', '3.2.1'
-  pod 'SwiftDate', '6.0.1'
-  pod 'DynamicColor', '4.0.2'
+  pod 'SwiftDate', '6.1.0'
+  pod 'DynamicColor', '4.2.0'
 end
 
 target 'Shekly' do

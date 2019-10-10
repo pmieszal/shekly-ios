@@ -306,7 +306,7 @@ private extension SHTokenField {
     @objc func didTapOnTokenView(gesture: UITapGestureRecognizer) {
         guard
             let tokenView = gesture.view as? SHTokenView,
-            let index = self.stackView.arrangedSubviews.index(of: tokenView)
+            let index = self.stackView.arrangedSubviews.firstIndex(of: tokenView)
             else { return }
         
         self.delegate?.tokenField(tokenField: self, didTapOn: tokenView, atIndex: index)
@@ -315,7 +315,7 @@ private extension SHTokenField {
     @objc func didTapOnSuggestionTokenView(gesture: UITapGestureRecognizer) {
         guard
             let tokenView = gesture.view as? SHTokenView,
-            let index = self.shInputAccessoryView.stackView.arrangedSubviews.index(of: tokenView)
+            let index = self.shInputAccessoryView.stackView.arrangedSubviews.firstIndex(of: tokenView)
             else { return }
         
         self.delegate?.tokenField(tokenField: self, didTapOnSuggestion: tokenView, atIndex: index)

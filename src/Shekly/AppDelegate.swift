@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxMVVMC
 
 import UI
 import Shared
@@ -22,15 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainCoordinator: MainCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        RxMVVMSettings.logEnabled = true
-        RxMVVMSettings.logger = { entry in
-            if entry.logLevel > .verbose {
-                log.debug(entry.value, terminator: entry.terminator, file: entry.file, function: entry.function, line: entry.line)
-            } else {
-                log.verbose(entry.value, terminator: entry.terminator, file: entry.file, function: entry.function, line: entry.line)
-            }
-        }
         
         Bootstrap.tabBarItemAppearance()
         

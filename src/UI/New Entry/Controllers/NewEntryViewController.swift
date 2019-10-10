@@ -354,9 +354,9 @@ private extension NewEntryViewController {
         ibCancelButton
             .rx
             .tap
-            .subscribeNext { [weak self] in
+            .subscribe(onNext: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
-            }
-            .dispose(in: disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 }

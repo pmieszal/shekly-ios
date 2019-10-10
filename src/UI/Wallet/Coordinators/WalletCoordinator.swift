@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import User
@@ -30,10 +29,11 @@ public final class WalletCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        
         let nvc = SheklyNavigationController()
         
-        let wallet = R.storyboard.wallet.walletViewController() !! "VC can't be nil"
+        guard let wallet = R.storyboard.wallet.walletViewController() else {
+            fatalError("VC can't be nil")
+        }
         
         wallet
             .set(viewModel: self.viewModelFactory.getWalletViewModel(presenter: wallet, disposeBag: wallet.disposeBag))

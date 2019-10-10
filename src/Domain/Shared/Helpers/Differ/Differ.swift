@@ -34,8 +34,8 @@ class Differ {
         var movedIndexPaths: [(from: IndexPath, to: IndexPath)] = []
         
         for updatedItem in updated {
-            guard let oldItemIndex = oldState.index(of: updatedItem.element),
-                let newItemIndex = newState.index(of: updatedItem.element)
+            guard let oldItemIndex = oldState.firstIndex(of: updatedItem.element),
+                let newItemIndex = newState.firstIndex(of: updatedItem.element)
                 else {
                     break
             }
@@ -91,8 +91,8 @@ class Differ {
         var movedIndexPaths: [(from: IndexPath, to: IndexPath)] = []
         
         for updatedItem in updated {
-            guard let oldItemIndex = oldState[updatedItem.section].index(of: updatedItem.element),
-                let newItemIndex = newState[updatedItem.section].index(of: updatedItem.element)
+            guard let oldItemIndex = oldState[updatedItem.section].firstIndex(of: updatedItem.element),
+                let newItemIndex = newState[updatedItem.section].firstIndex(of: updatedItem.element)
                 else {
                     break
             }
@@ -113,16 +113,16 @@ class Differ {
 
 struct State<T: Hashable>: Equatable, Hashable {
     
-    var hashValue: Int {
-        return element.hashValue
-    }
-    
     let row: Int
     let section: Int
     let element: T
     
     static func == (lhs: State<T>, rhs: State<T>) -> Bool {
         return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(element.hashValue)
     }
 }
 

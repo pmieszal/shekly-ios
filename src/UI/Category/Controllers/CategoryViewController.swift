@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
-import RxMVVMC
 
 import Domain
 import Shared
@@ -47,19 +45,25 @@ class CategoryViewController: SheklyViewController<CategoryViewModel>, UIScrollV
                 
                 switch viewModel {
                 case let viewModel as CategoryHeaderCellViewModel:
-                    let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) !! "Cell can't be nil"
+                    guard let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) else {
+                        fatalError("Cell can't be nil")
+                    }
                     cell.viewModel = viewModel
                     
                     return cell
                     
                 case let viewModel as CategorySubcategoriesCellViewModel:
-                    let cell: CategorySubcategoriesCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell, for: indexPath) !! "Cell can't be nil"
+                    guard let cell: CategorySubcategoriesCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell, for: indexPath) else {
+                        fatalError("Cell can't be nil")
+                    }
                     cell.viewModel = viewModel
                     
                     return cell
                     
                 case let model as SheklyEntryModel:
-                    let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) !! "Cell can't be nil"
+                    guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
+                        fatalError("Cell can't be nil")
+                    }
                     cell.model = model
                     
                     return cell
@@ -68,13 +72,13 @@ class CategoryViewController: SheklyViewController<CategoryViewModel>, UIScrollV
                     fatalError("This can't happen")
                 }
             }
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleCells: [UITableViewCell] = self.ibTableView.visibleCells
         
-        guard let headerIndex: Int = visibleCells.index(where: { $0 is CategoryHeaderCell }) else {
+        guard let headerIndex: Int = visibleCells.firstIndex(where: { $0 is CategoryHeaderCell }) else {
             return
         }
         
@@ -111,7 +115,7 @@ private extension CategoryViewController {
         self.ibTableView
             .rx
             .setDelegate(self)
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         self.ibHeaderView.layer.shadowColor = UIColor.black.cgColor
         self.ibHeaderView.layer.shadowOffset = CGSize(width: 0, height: 0)

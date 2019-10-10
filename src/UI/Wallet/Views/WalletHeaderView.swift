@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxMVVMC
 import RxSwift
 import RxCocoa
 

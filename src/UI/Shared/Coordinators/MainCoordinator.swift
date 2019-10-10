@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import User
@@ -32,12 +31,13 @@ public final class MainCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        
         let nvc = SheklyNavigationController()
         nvc.setNavigationBarHidden(true, animated: false)
         
         let tabCoordinator = TabCoordinator(parent: self, userFactory: userFactory, viewModelFactory: viewModelFactory)
-        let tab = tabCoordinator.start() !! "VC can't be nil"
+        guard let tab = tabCoordinator.start() else {
+            fatalError("VC can't be nil")
+        }
         
         nvc.setViewControllers([tab], animated: false)
         

@@ -11,6 +11,21 @@ import RxCocoa
 import SwiftDate
 import Shared
 
+extension Encodable {
+    func toJSONString() -> String {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        guard let data = try? encoder.encode(self),
+            let jsonString = String(data: data, encoding: .utf8)
+            else {
+                fatalError("Fix your data")
+        }
+        
+        return jsonString
+    }
+}
+
 class UserProvider: UserManaging {
     
     private struct Keys {
@@ -26,7 +41,7 @@ class UserProvider: UserManaging {
                 let data = try JSONEncoder().encode(user)
                 UserDefaults.standard.set(data, forKey: Keys.user)
                 log.info("Saving stored user")
-                log.debug(user.toJSONString() ?? "Error when decoding to string")
+                log.debug(user.toJSONString())
             }
             catch let error {
                 log.error(error)

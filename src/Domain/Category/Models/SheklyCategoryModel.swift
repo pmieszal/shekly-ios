@@ -6,19 +6,10 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxDataSources
 import SwiftDate
-import RxMVVMC
-
 import Database
 
-public class SheklyCategoryModel: IdentifiableType, Equatable {
-    
-    public typealias Identity = String
-    
-    public var identity: String {
-        return category.id !! "Id can't be nil"
-    }
+public class SheklyCategoryModel: Hashable, Equatable {
     
     public let categoryText: String
     public let subcategoriesText: String
@@ -35,8 +26,16 @@ public class SheklyCategoryModel: IdentifiableType, Equatable {
         self.entriesText = "Entries: " + String(category.entriesIds.count)
         self.amountText = WalletTokenModel(amount: category.amount, formatter: formatter).label
     }
+    
+    public func hash(into hasher: inout Hasher) {
+        guard let id = category.id else {
+            fatalError("Id can't be nil")
+        }
+        
+        hasher.combine(id)
+    }
 }
 
 public func ==(lhs: SheklyCategoryModel, rhs: SheklyCategoryModel) -> Bool {
-    return lhs.identity == rhs.identity
+    return lhs.hashValue == rhs.hashValue
 }

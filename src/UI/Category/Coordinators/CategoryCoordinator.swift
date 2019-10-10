@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import User
@@ -34,8 +33,9 @@ public final class CategoryCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        
-        let category = R.storyboard.category.categoryViewController() !! "VC can't be nil"
+        guard let category = R.storyboard.category.categoryViewController() else {
+            fatalError("VC can't be nil")
+        }
         let viewModel: CategoryViewModel = self.viewModelFactory.getCategoryViewModel(category: self.categoryModel, disposeBag: category.disposeBag)
         
         category.set(viewModel: viewModel)

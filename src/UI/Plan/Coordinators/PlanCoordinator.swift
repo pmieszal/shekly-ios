@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import User
@@ -30,10 +29,11 @@ public final class PlanCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        
         let nvc = SheklyNavigationController()
         
-        let plan = R.storyboard.plan.planViewController() !! "VC can't be nil"
+        guard let plan = R.storyboard.plan.planViewController() else {
+            fatalError("VC can't be nil")
+        }
         
         //TODO: get rid of callbacks, user presenter + router
         let planViewModel: PlanViewModel = viewModelFactory

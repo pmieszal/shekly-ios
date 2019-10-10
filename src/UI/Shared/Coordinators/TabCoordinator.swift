@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxMVVMC
 
 import Domain
 import User
@@ -32,7 +31,6 @@ public final class TabCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        
         let tabController: SheklyTabBarController = SheklyTabBarController()
         
         //TODO: get rid of callbacks, user presenter + router
@@ -42,16 +40,20 @@ public final class TabCoordinator: RxCoordinator {
             .emit(onNext: { [weak self] in
                 self?.navigateToNewEntry()
             })
-            .dispose(in: disposeBag)
+            .disposed(by: disposeBag)
         
         let walletCoordinator = WalletCoordinator(parent: self, userFactory: userFactory, viewModelFactory: viewModelFactory)
-        let wallet = walletCoordinator.start() !! "VC can't be nil"
+        guard let wallet = walletCoordinator.start() else {
+            fatalError("VC can't be nil")
+        }
         wallet.tabBarItem.title = "Portfel"
         wallet.tabBarItem.image = R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysOriginal)
         wallet.tabBarItem.selectedImage = R.image.tabBarWalletIcon()
         
         let planCoordinator = PlanCoordinator(parent: self, userFactory: userFactory, viewModelFactory: viewModelFactory)
-        let plan = planCoordinator.start() !! "VC can't be nil"
+        guard let plan = planCoordinator.start() else {
+            fatalError("VC can't be nil")
+        }
         plan.tabBarItem.title = "Plan"
         plan.tabBarItem.image = R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysOriginal)
         plan.tabBarItem.selectedImage = R.image.tabBarPlanIcon()
@@ -85,7 +87,9 @@ public final class TabCoordinator: RxCoordinator {
 private extension TabCoordinator {
     
     func navigateToNewEntry() {
-        let newEntryVC: NewEntryViewController = R.storyboard.newEntry.newEntryViewController() !! "VC can't be nil"
+        guard let newEntryVC: NewEntryViewController = R.storyboard.newEntry.newEntryViewController() else {
+            fatalError("VC can't be nil")
+        }
         newEntryVC.set(viewModel: self.viewModelFactory.getNewEntryViewModel(presenter: newEntryVC, disposeBag: newEntryVC.disposeBag))
         newEntryVC.router = self
         
