@@ -6,17 +6,12 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-
+import Combine
 import Shared
 
 public protocol UserManaging: class {
     var token: String? { get }
     var selectedWalletId: String? { get }
     
-    var shouldShowLogin: Signal<Void> { get }
-    
-    func logout()
     func set(wallet id: String?)
 }

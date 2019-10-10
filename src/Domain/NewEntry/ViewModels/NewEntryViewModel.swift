@@ -6,7 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
 import SwiftDate
 
 import User

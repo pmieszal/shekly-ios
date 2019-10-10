@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Shared
 import Domain
 
@@ -90,11 +87,9 @@ class SheklyViewController<TViewModel: ViewModel>: UIViewController {
 }
 
 struct AlertControllerInput {
-    
     let title: String?
     let message: String?
     let style: UIAlertController.Style
-    
 }
 
 extension Array where Element == UIAlertAction {

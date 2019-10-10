@@ -6,10 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-import RxCocoa
-
 import Domain
 import User
 
@@ -39,8 +35,7 @@ public final class PlanCoordinator: RxCoordinator {
         let planViewModel: PlanViewModel = viewModelFactory
             .getPlanViewModel(categorySelectionHandler: { [weak self] categoryModel in
                 self?.goTo(category: categoryModel)
-            },
-                                    disposeBag: plan.disposeBag)
+            })
         
         plan.set(viewModel: planViewModel)
         

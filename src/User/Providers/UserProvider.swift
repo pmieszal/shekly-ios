@@ -6,8 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
+import Combine
 import SwiftDate
 import Shared
 
@@ -57,19 +56,9 @@ class UserProvider: UserManaging {
         return user.selectedWalletId
     }
     
-    let shouldShowLogin: Signal<Void>
-    private let shouldShowLoginRelay: PublishRelay<Void> = .init()
-    
     static let shared: UserManaging = UserProvider()
     
-    private init() {
-        self.shouldShowLogin = self.shouldShowLoginRelay.asSignal()
-    }
-    
-    func logout() {
-        self.user = StoredUserModel()
-        self.shouldShowLoginRelay.accept(())
-    }
+    private init() { }
     
     func set(wallet id: String?) {
         self.user.selectedWalletId = id

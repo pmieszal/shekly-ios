@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Domain
 import User
 
@@ -49,7 +46,5 @@ public final class MainCoordinator: RxCoordinator {
     }
 }
 
-private extension MainCoordinator {
-    
-}
+private extension MainCoordinator { }
 

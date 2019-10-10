@@ -6,7 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import RxCocoa
 
@@ -61,14 +60,14 @@ public final class TabCoordinator: RxCoordinator {
         class TempViewController: SheklyViewController<SheklyViewModel> { }
         
         let stats = TempViewController()
-        stats.set(viewModel: self.viewModelFactory.getEmptyViewModel(disposeBag: stats.disposeBag))
+        stats.set(viewModel: self.viewModelFactory.getEmptyViewModel())
         stats.view.backgroundColor = Colors.brandColor
         stats.tabBarItem.title = "Statystyki"
         stats.tabBarItem.image = R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
         stats.tabBarItem.selectedImage = R.image.tabBarStatsIcon()
         
         let more = TempViewController()
-        more.set(viewModel: self.viewModelFactory.getEmptyViewModel(disposeBag: more.disposeBag))
+        more.set(viewModel: self.viewModelFactory.getEmptyViewModel())
         more.view.backgroundColor = Colors.brandColor
         more.tabBarItem.title = "Więcej"
         more.tabBarItem.image = R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)
@@ -90,7 +89,7 @@ private extension TabCoordinator {
         guard let newEntryVC: NewEntryViewController = R.storyboard.newEntry.newEntryViewController() else {
             fatalError("VC can't be nil")
         }
-        newEntryVC.set(viewModel: self.viewModelFactory.getNewEntryViewModel(presenter: newEntryVC, disposeBag: newEntryVC.disposeBag))
+        newEntryVC.set(viewModel: self.viewModelFactory.getNewEntryViewModel(presenter: newEntryVC))
         newEntryVC.router = self
         
         self.newEntryVC = newEntryVC
@@ -103,7 +102,7 @@ extension TabCoordinator: NewEntryRouter {
         guard let delegate = self.newEntryVC?.viewModel else { return }
         
         let walletList = R.storyboard.walletList.walletListViewController()!
-        let viewModel = viewModelFactory.getWalletListViewModel(presenter: walletList, delegate: delegate, disposeBag: disposeBag)
+        let viewModel = viewModelFactory.getWalletListViewModel(presenter: walletList, delegate: delegate)
         walletList.set(viewModel: viewModel)
         
         newEntryVC?.presentAsPopover(vc: walletList, sourceView: sourceButton, preferredContentSize: CGSize(width: 200, height: 300))

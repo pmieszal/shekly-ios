@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Domain
 import User
 
@@ -36,7 +33,7 @@ public final class WalletCoordinator: RxCoordinator {
         }
         
         wallet
-            .set(viewModel: self.viewModelFactory.getWalletViewModel(presenter: wallet, disposeBag: wallet.disposeBag))
+            .set(viewModel: self.viewModelFactory.getWalletViewModel(presenter: wallet))
         
         nvc.setViewControllers([wallet], animated: false)
         nvc.setNavigationBarHidden(true, animated: false)

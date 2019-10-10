@@ -6,13 +6,4 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-
-import User
-import Database
-import Shared
-
-public protocol CategoryCellViewModel {
-    
-}
+public protocol CategoryCellViewModel { }

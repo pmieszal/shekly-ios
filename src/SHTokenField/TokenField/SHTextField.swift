@@ -8,8 +8,6 @@
 
 import UIKit
 import DynamicColor
-import RxSwift
-import RxCocoa
 
 class SHTextField: UITextField {
     

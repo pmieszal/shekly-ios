@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 open class SHTokenField: UIView, UITextFieldDelegate {
     

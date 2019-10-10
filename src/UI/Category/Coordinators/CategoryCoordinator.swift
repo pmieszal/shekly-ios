@@ -36,7 +36,7 @@ public final class CategoryCoordinator: RxCoordinator {
         guard let category = R.storyboard.category.categoryViewController() else {
             fatalError("VC can't be nil")
         }
-        let viewModel: CategoryViewModel = self.viewModelFactory.getCategoryViewModel(category: self.categoryModel, disposeBag: category.disposeBag)
+        let viewModel: CategoryViewModel = self.viewModelFactory.getCategoryViewModel(category: self.categoryModel)
         
         category.set(viewModel: viewModel)
         

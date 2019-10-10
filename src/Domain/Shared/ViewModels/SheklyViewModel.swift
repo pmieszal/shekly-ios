@@ -6,9 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import User
-
 public class SheklyViewModel: ViewModel {
     
     public func viewDidLoad() { }
