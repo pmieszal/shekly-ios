@@ -13,7 +13,7 @@ import RxCocoa
 import Domain
 import Shared
 
-class CategoryViewController: SheklyViewController<CategoryViewModel>, UIScrollViewDelegate {
+class CategoryViewController: SheklyViewController<CategoryViewModel> {
     
     @IBOutlet private weak var ibHeaderView: UIView!
     @IBOutlet private weak var ibCategoryLabel: UILabel!
@@ -74,7 +74,9 @@ class CategoryViewController: SheklyViewController<CategoryViewModel>, UIScrollV
             }
             .disposed(by: disposeBag)
     }
-    
+}
+
+extension CategoryViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleCells: [UITableViewCell] = self.ibTableView.visibleCells
         

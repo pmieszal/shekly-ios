@@ -14,31 +14,39 @@ import Domain
 import SHTokenField
 import Shared
 
-class WalletViewController: SheklyViewController<WalletViewModel>, UITableViewDataSource, UITableViewDelegate, WalletPresenter, WalletCollectionViewDataSource, WalletCollectionViewDelegate, SheklyMonthCollectionViewDelegate, ReloadableViewController {
+class WalletViewController: SheklyViewController<WalletViewModel> {
     
     @IBOutlet private weak var ibTableView: UITableView!
     @IBOutlet private weak var ibHeaderView: WalletHeaderView!
-    
-    var reloadableView: ReloadableView? {
-        return ibTableView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setup()
     }
+}
+
+extension WalletViewController: ReloadableViewController {
     
+    var reloadableView: ReloadableView? {
+        return ibTableView
+    }
+}
+
+extension WalletViewController: WalletPresenter {
     func reloadWallets() {
         ibHeaderView.reloadWalletCollectionView()
     }
-    
-    //MARK: SheklyMonthCollectionViewDelegate
+}
+
+extension WalletViewController: SheklyMonthCollectionViewDelegate {
     func monthCollectionViewDidScroll(toDate date: Date) {
         viewModel.monthCollectionViewDidScroll(toDate: date)
     }
-    
-    //MARK: WalletCollectionViewDataSource
+}
+
+
+extension WalletViewController: WalletCollectionViewDataSource {
     func numberOfWalletItems() -> Int {
         return viewModel.numberOfWalletItems()
     }
@@ -46,8 +54,9 @@ class WalletViewController: SheklyViewController<WalletViewModel>, UITableViewDa
     func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
         return viewModel.walletCollectionView(modelForItemAt: indexPath)
     }
-    
-    //MARK: WalletCollectionViewDelegate
+}
+
+extension WalletViewController: WalletCollectionViewDelegate {
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
         viewModel.walletCollectionViewDidScroll(toItemAt: indexPath)
     }
@@ -70,8 +79,9 @@ class WalletViewController: SheklyViewController<WalletViewModel>, UITableViewDa
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-    //MARK: UITableViewDataSource
+}
+
+extension WalletViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -105,8 +115,9 @@ class WalletViewController: SheklyViewController<WalletViewModel>, UITableViewDa
             return UITableViewCell()
         }
     }
-    
-    //MARK: UITableViewDelegate
+}
+
+extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] (action, view, completion) in
             

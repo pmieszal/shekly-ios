@@ -58,7 +58,6 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
 }
 
 private extension PlanViewController {
-    
     func setup() {
         self.ibTableView.register(R.nib.categoryListCell)
         self.ibTableView.tableFooterView = UIView()

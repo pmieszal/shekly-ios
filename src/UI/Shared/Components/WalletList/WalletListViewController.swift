@@ -9,7 +9,7 @@
 import UIKit
 import Domain
 
-class WalletListViewController: SheklyViewController<WalletListViewModel>, WalletListPresenter, UITableViewDataSource, UITableViewDelegate {
+class WalletListViewController: SheklyViewController<WalletListViewModel> {
 
     @IBOutlet private weak var ibTableView: UITableView!
     
@@ -20,11 +20,15 @@ class WalletListViewController: SheklyViewController<WalletListViewModel>, Walle
         ibTableView.dataSource = self
         ibTableView.delegate = self
     }
-    
+}
+
+extension WalletListViewController: WalletListPresenter {
     func reloadList() {
         ibTableView.reloadData()
     }
-    
+}
+
+extension WalletListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -39,7 +43,9 @@ class WalletListViewController: SheklyViewController<WalletListViewModel>, Walle
         
         return cell
     }
-    
+}
+
+extension WalletListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelect(itemAt: indexPath)
         self.dismiss(animated: true, completion: nil)

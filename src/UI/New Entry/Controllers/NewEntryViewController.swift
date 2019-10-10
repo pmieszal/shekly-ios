@@ -17,7 +17,7 @@ protocol NewEntryRouter: class {
     func presentDatePickerPopover(sourceButton: UIButton)
 }
 
-class NewEntryViewController: SheklyViewController<NewEntryViewModel>, ReloadableViewController, NewEntryPresenter, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, UITextViewDelegate {
+class NewEntryViewController: SheklyViewController<NewEntryViewModel> {
     
     private struct Constants {
         static let cellWidthOffset: CGFloat = 30
@@ -45,18 +45,21 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
     
     var router: NewEntryRouter?
     
-    var reloadableView: ReloadableView? {
-        return nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
         ibAmountTextField.becomeFirstResponder()
     }
-    
-    //MARK: - NewEntryPresenter
+}
+
+extension NewEntryViewController: ReloadableViewController {
+    var reloadableView: ReloadableView? {
+        return nil
+    }
+}
+
+extension NewEntryViewController: NewEntryPresenter {
     func show(walletName: String?) {
         ibWalletButton.setTitle(walletName, for: .normal)
     }
@@ -93,8 +96,9 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
     func dismiss() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    //MARK: - UICollectionViewDataSource
+}
+
+extension NewEntryViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -143,8 +147,9 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
         
         return cell
     }
-    
-    //MARK: - UICollectionViewDelegate
+}
+
+extension NewEntryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case ibCategoryCollectionView1:
@@ -187,8 +192,9 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
     }
-    
-    //MARK: - UICollectionViewDelegateFlowLayout
+}
+
+extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let title: String
         
@@ -271,7 +277,9 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
             assertionFailure("Not implemented")
         }
     }
-    
+}
+
+extension NewEntryViewController: UITextFieldDelegate {
     //MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -282,15 +290,11 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel>, Reloadabl
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return viewModel.amountTextField(textField, shouldChangeCharactersIn: range, replacementString: string)
     }
-    
-    //MARK: - UITextViewDelegate
+}
+
+extension NewEntryViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         viewModel.commentTextViewDidChange(textView.text)
-    }
-    
-    @objc
-    private func didChangeSegmentedControl() {
-        viewModel.didSelectSegmentedControl(itemAtIndex: ibEntryTypeSegmentedControl.selectedSegmentIndex)
     }
 }
 
@@ -358,5 +362,10 @@ private extension NewEntryViewController {
                 self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc
+    func didChangeSegmentedControl() {
+        viewModel.didSelectSegmentedControl(itemAtIndex: ibEntryTypeSegmentedControl.selectedSegmentIndex)
     }
 }
