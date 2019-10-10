@@ -6,9 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-
 import User
 import Database
 import Shared
@@ -16,13 +13,11 @@ import Shared
 public class CategoryViewModel: SheklyViewModel {
     
     //MARK: - Public properties
-    public let feed: Driver<[CategoryCellViewModel]>
+    public private(set) var feed: [CategoryCellViewModel] = []
     
     public let categoryName: String
     
     //MARK: - Internal properties
-    let feedRelay: BehaviorRelay<[CategoryCellViewModel]> = .init(value: [])
-    
     let sheklyCategoryModel: SheklyCategoryModel
     let dataController: SheklyDataController
     let currencyFormatter: SheklyCurrencyFormatter
@@ -37,18 +32,14 @@ public class CategoryViewModel: SheklyViewModel {
         self.dataController = dataController
         self.currencyFormatter = currencyFormatter
         
-        self.feed = self.feedRelay.asDriver()
-        
         self.categoryName = category.categoryText
-        
-        super.init()
     }
     
     //MARK: - Public methods
     public override func viewWillAppear() {
         super.viewWillAppear()
         
-        self.reloadFeed()
+        reloadFeed()
     }
 }
 
@@ -56,18 +47,18 @@ public class CategoryViewModel: SheklyViewModel {
 extension CategoryViewModel {
     
     func reloadFeed() {
-        let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: self.sheklyCategoryModel.category, formatter: self.currencyFormatter)
+        let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: sheklyCategoryModel.category, formatter: currencyFormatter)
         
-        let subcategories: [SubcategoryModel] = self.dataController.getSubcategories(forCategory: self.sheklyCategoryModel.category)
-        let subcategoriesVM: CategorySubcategoriesCellViewModel = CategorySubcategoriesCellViewModel(subcategories: subcategories, formatter: self.currencyFormatter)
+        let subcategories: [SubcategoryModel] = dataController.getSubcategories(forCategory: sheklyCategoryModel.category)
+        let subcategoriesVM: CategorySubcategoriesCellViewModel = CategorySubcategoriesCellViewModel(subcategories: subcategories, formatter: currencyFormatter)
         
-        let entries: [WalletEntryModel] = self.dataController.getWalletEntries(forCategory: self.sheklyCategoryModel.category)
+        let entries: [WalletEntryModel] = dataController.getWalletEntries(forCategory: sheklyCategoryModel.category)
         let entriesVMs: [CategoryCellViewModel] = entries
-            .map { [unowned self] entry in
-                return SheklyWalletEntryModel(entry: entry, formatter: self.currencyFormatter)
+            .map { entry in
+                return SheklyWalletEntryModel(entry: entry, formatter: currencyFormatter)
         }
         
         let feed: [CategoryCellViewModel] = [headerVM, subcategoriesVM] + entriesVMs
-        self.feedRelay.accept(feed)
+        self.feed = feed
     }
 }

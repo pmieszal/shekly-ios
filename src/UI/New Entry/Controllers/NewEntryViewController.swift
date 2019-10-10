@@ -188,10 +188,6 @@ extension NewEntryViewController: UICollectionViewDelegate {
             assertionFailure("Not implemented")
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-    }
 }
 
 extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
@@ -355,17 +351,16 @@ private extension NewEntryViewController {
                 for: .normal
         )
         
-        ibCancelButton
-            .rx
-            .tap
-            .subscribe(onNext: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
+        ibCancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
     }
     
     @objc
     func didChangeSegmentedControl() {
         viewModel.didSelectSegmentedControl(itemAtIndex: ibEntryTypeSegmentedControl.selectedSegmentIndex)
+    }
+    
+    @objc
+    func didTapCancelButton() {
+        dismiss()
     }
 }

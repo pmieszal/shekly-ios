@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Domain
 import Shared
 
@@ -37,46 +34,49 @@ class CategoryViewController: SheklyViewController<CategoryViewModel> {
         
         self.ibCategoryLabel.text = viewModel.categoryName
         self.ibHeaderView.alpha = 0
-        
-        viewModel
-            .feed
-            .drive(ibTableView.rx.items) { tableView, row, viewModel in
-                let indexPath = IndexPath(row: row, section: 0)
-                
-                switch viewModel {
-                case let viewModel as CategoryHeaderCellViewModel:
-                    guard let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) else {
-                        fatalError("Cell can't be nil")
-                    }
-                    cell.viewModel = viewModel
-                    
-                    return cell
-                    
-                case let viewModel as CategorySubcategoriesCellViewModel:
-                    guard let cell: CategorySubcategoriesCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell, for: indexPath) else {
-                        fatalError("Cell can't be nil")
-                    }
-                    cell.viewModel = viewModel
-                    
-                    return cell
-                    
-                case let model as SheklyEntryModel:
-                    guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
-                        fatalError("Cell can't be nil")
-                    }
-                    cell.model = model
-                    
-                    return cell
-                    
-                default:
-                    fatalError("This can't happen")
-                }
-            }
-            .disposed(by: disposeBag)
     }
 }
 
-extension CategoryViewController: UIScrollViewDelegate {
+extension CategoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.feed.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let viewModel = self.viewModel.feed[indexPath.row] //TODO: introduce safe subscript
+        
+        switch viewModel {
+        case let viewModel as CategoryHeaderCellViewModel:
+            guard let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) else {
+                fatalError("Cell can't be nil")
+            }
+            cell.viewModel = viewModel
+            
+            return cell
+            
+        case let viewModel as CategorySubcategoriesCellViewModel:
+            guard let cell: CategorySubcategoriesCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell, for: indexPath) else {
+                fatalError("Cell can't be nil")
+            }
+            cell.viewModel = viewModel
+            
+            return cell
+            
+        case let model as SheklyEntryModel:
+            guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
+                fatalError("Cell can't be nil")
+            }
+            cell.model = model
+            
+            return cell
+            
+        default:
+            fatalError("This can't happen")
+        }
+    }
+}
+
+extension CategoryViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleCells: [UITableViewCell] = self.ibTableView.visibleCells
         
@@ -114,10 +114,8 @@ private extension CategoryViewController {
         self.ibTableView.contentInset.top = 20
         self.ibTableView.contentInset.bottom = 20
         
-        self.ibTableView
-            .rx
-            .setDelegate(self)
-            .disposed(by: disposeBag)
+        self.ibTableView.dataSource = self
+        self.ibTableView.delegate = self
         
         self.ibHeaderView.layer.shadowColor = UIColor.black.cgColor
         self.ibHeaderView.layer.shadowOffset = CGSize(width: 0, height: 0)

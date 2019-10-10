@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Shared
 
 class SheklyTabBarController: UITabBarController {
     
-    fileprivate lazy var addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let addButton = UIButton()
         
         addButton.backgroundColor = .white
@@ -31,37 +28,47 @@ class SheklyTabBarController: UITabBarController {
     }()
     
     private lazy var addButtonCenterYConstraint: NSLayoutConstraint = {
-        return self.addButton.centerYAnchor.constraint(equalTo: self.tabBar.centerYAnchor)
+        return addButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor)
     }()
+    
+    var router: TabCoordinator?
+    
+    init(router: TabCoordinator) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
-        self.setupAddButton()
+        setup()
+        setupAddButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.addButtonCenterYConstraint.constant = -5 - self.view.safeAreaInsets.bottom/2
+        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom/2
         
-        self.tabBar.bringSubviewToFront(addButton)
+        tabBar.bringSubviewToFront(addButton)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        self.addButtonCenterYConstraint.constant = -5 - self.view.safeAreaInsets.bottom/2
+        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom/2
         
-        self.tabBar.bringSubviewToFront(addButton)
+        tabBar.bringSubviewToFront(addButton)
     }
 }
 
 extension SheklyTabBarController: UITabBarControllerDelegate {
-    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let index = self.viewControllers?.firstIndex(of: viewController) else {
+        guard let index = viewControllers?.firstIndex(of: viewController) else {
             return false
         }
         
@@ -72,25 +79,18 @@ extension SheklyTabBarController: UITabBarControllerDelegate {
 private extension SheklyTabBarController {
     
     func setup() {
-        self.tabBar.tintColor = .white
-        self.tabBar.barTintColor = Colors.brandColor
-        self.tabBar.barStyle = .black
+        tabBar.tintColor = .white
+        tabBar.barTintColor = Colors.brandColor
+        tabBar.barStyle = .black
         
-        self.delegate = self
+        delegate = self
     }
     
     func setupAddButton() {
+        tabBar.addSubview(addButton)
         
-        self.tabBar.addSubview(self.addButton)
-        
-        self.addButton.centerXAnchor.constraint(equalTo: self.tabBar.centerXAnchor).isActive = true
-        self.addButtonCenterYConstraint.isActive = true
-    }
-}
-
-extension Reactive where Base: SheklyTabBarController {
-    
-    var onAddEntryTap: Signal<Void> {
-        return base.addButton.rx.tap.asSignal()
+        addButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor).isActive = true
+        addButtonCenterYConstraint.isActive = true
+        addButton.addTarget(router, action: #selector(router?.navigateToNewEntry), for: .touchUpInside)
     }
 }

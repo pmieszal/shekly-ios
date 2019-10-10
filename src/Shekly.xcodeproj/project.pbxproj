@@ -64,7 +64,6 @@
 		8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */; };
 		8F1EAD7E222599680095AA10 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */; };
 		8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */; };
-		8F22962A220DEF9500DE5AF7 /* UIView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */; };
 		8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */; };
 		8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */; };
 		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
@@ -327,7 +326,6 @@
 		8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
 		8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCellViewModel.swift; sourceTree = "<group>"; };
-		8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rx.swift"; sourceTree = "<group>"; };
 		8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Subcategory+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/WalletEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -706,7 +704,6 @@
 		8F1E021F2207294500EC1A36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8F229629220DEF9500DE5AF7 /* UIView+Rx.swift */,
 				8F359BC72240068D00C2603E /* UIView+Corners.swift */,
 				8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */,
 				8F9BAFB62256473E0017F431 /* ReloadableViewController+Reload.swift */,
@@ -2001,7 +1998,6 @@
 				8F1EAD6B22258C010095AA10 /* TableTopGradientView.swift in Sources */,
 				8F1EAD6D222591290095AA10 /* CategoryCoordinator.swift in Sources */,
 				8FF3E496225A61E700A88238 /* UIViewController+Popover.swift in Sources */,
-				8F22962A220DEF9500DE5AF7 /* UIView+Rx.swift in Sources */,
 				8F1E026322072CFF00EC1A36 /* SheklyNavigationController.swift in Sources */,
 				8FDC4E512215A397005206C3 /* WalletCoordinator.swift in Sources */,
 				8F1E026E2207317100EC1A36 /* R.generated.swift in Sources */,

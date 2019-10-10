@@ -6,9 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-
 import Domain
 import User
 import Shared
@@ -30,16 +27,7 @@ public final class TabCoordinator: RxCoordinator {
     
     @discardableResult
     override public func start() -> UIViewController? {
-        let tabController: SheklyTabBarController = SheklyTabBarController()
-        
-        //TODO: get rid of callbacks, user presenter + router
-        tabController
-            .rx
-            .onAddEntryTap
-            .emit(onNext: { [weak self] in
-                self?.navigateToNewEntry()
-            })
-            .disposed(by: disposeBag)
+        let tabController: SheklyTabBarController = SheklyTabBarController(router: self)
         
         let walletCoordinator = WalletCoordinator(parent: self, userFactory: userFactory, viewModelFactory: viewModelFactory)
         guard let wallet = walletCoordinator.start() else {
@@ -83,8 +71,8 @@ public final class TabCoordinator: RxCoordinator {
     }
 }
 
-private extension TabCoordinator {
-    
+extension TabCoordinator {
+    @objc
     func navigateToNewEntry() {
         guard let newEntryVC: NewEntryViewController = R.storyboard.newEntry.newEntryViewController() else {
             fatalError("VC can't be nil")

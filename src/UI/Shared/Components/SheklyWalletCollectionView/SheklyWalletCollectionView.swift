@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import RxOptional
-
 import Domain
 import Shared
 
@@ -73,78 +69,29 @@ class SheklyWalletCollectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.setup()
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.setup()
+        setup()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setup()
+        setup()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
+        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
 
     func reload() {
-        self.collectionView.reloadData()
-    }
-}
-
-private extension SheklyWalletCollectionView {
-    
-    func setup() {
-        self.backgroundColor = Colors.brandColor
-        
-        collectionView.register(R.nib.sheklyWalletCell)
-        
-        collectionView
-            .rx
-            .setDelegate(self)
-            .disposed(by: disposeBag)
-        
-        collectionView
-            .rx
-            .setDataSource(self)
-            .disposed(by: disposeBag)
-        
-        let didEndScrollingAnimation = collectionView
-            .rx
-            .didEndScrollingAnimation
-            .asSignal()
-        
-        let didEndDecelerating = collectionView
-            .rx
-            .didEndDecelerating
-            .asSignal()
-        
-        Signal
-            .merge(didEndScrollingAnimation, didEndDecelerating)
-            .map { [weak self] _ -> Int? in
-                guard let self = self else { return nil }
-                
-                let offset = self.collectionView.contentOffset
-                let width = self.collectionView.bounds.width
-                let index = Int(offset.x / width)
-                
-                return index
-            }
-            .filterNil()
-            .emit(onNext: { [weak self] (index) in
-                self?.pageControl.currentPage = index
-                
-                let indexPath = IndexPath(row: index, section: 0)
-                self?.delegate?.walletCollectionViewDidScroll(toItemAt: indexPath)
-            })
-            .disposed(by: disposeBag)
+        collectionView.reloadData()
     }
 }
 
@@ -182,5 +129,39 @@ extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return collectionView.bounds.size
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let index = getCurrentCollectionIndex()
+        pageControl.currentPage = index
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        delegate?.walletCollectionViewDidScroll(toItemAt: indexPath)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = getCurrentCollectionIndex()
+        pageControl.currentPage = index
+        
+        let indexPath = IndexPath(row: index, section: 0)
+        delegate?.walletCollectionViewDidScroll(toItemAt: indexPath)
+    }
+}
+
+private extension SheklyWalletCollectionView {
+    func setup() {
+        self.backgroundColor = Colors.brandColor
+        
+        collectionView.register(R.nib.sheklyWalletCell)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func getCurrentCollectionIndex() -> Int {
+        let offset = collectionView.contentOffset
+        let width = collectionView.bounds.width
+        let index = Int(offset.x / width)
+        
+        return index
     }
 }

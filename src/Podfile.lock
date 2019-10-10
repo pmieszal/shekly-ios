@@ -1,56 +1,32 @@
 PODS:
-  - Alamofire (5.0.0-rc.2)
   - DynamicColor (4.2.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
-  - RxCocoa (5.0.0):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxOptional (4.0.0):
-    - RxCocoa (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.0.0):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.0)
   - SwiftDate (6.1.0)
   - SwiftyBeaver (1.8.2)
 
 DEPENDENCIES:
-  - Alamofire (= 5.0.0-rc.2)
   - DynamicColor (= 4.2.0)
   - R.swift (= 5.0.3)
-  - RxCocoa (= 5.0.0)
-  - RxOptional (= 4.0.0)
-  - RxSwift (= 5.0.0)
   - SwiftDate (= 6.1.0)
   - SwiftyBeaver (= 1.8.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
     - DynamicColor
     - R.swift
     - R.swift.Library
-    - RxCocoa
-    - RxOptional
-    - RxRelay
-    - RxSwift
     - SwiftDate
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
-  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
-  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
-  RxOptional: 9904e2219d59260c3c171273d475b2126de187e8
-  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
 
-PODFILE CHECKSUM: 22ebd43c2a0a03274a8cc6b309c55910f27ad9df
+PODFILE CHECKSUM: 9772bbd5181d479e279c8b167cca82341cf861be
 
 COCOAPODS: 1.8.3

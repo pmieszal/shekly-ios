@@ -6,9 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
-
 import User
 import Database
 import Shared
@@ -18,11 +15,9 @@ public final class PlanViewModel: SheklyViewModel {
     public typealias CategorySelectionHandler = (SheklyCategoryModel) -> Void
     
     //MARK: - Public properties
-    public let categories: Driver<[SheklyCategoryModel]>
+    public private(set) var categories: [SheklyCategoryModel] = []
     
     //MARK: - Internal properties
-    let categoriesRelay: BehaviorRelay<[SheklyCategoryModel]> = .init(value: [])
-    
     let dataController: SheklyDataController
     let tokenFormatter: SheklyTokenFormatter
     let userProvider: UserManaging
@@ -47,19 +42,15 @@ public final class PlanViewModel: SheklyViewModel {
         self.dataController = dataController
         self.tokenFormatter = tokenFormatter
         self.userProvider = userProvider
-        
-        self.categories = self.categoriesRelay.asDriver()
-        
-        super.init()
     }
     
     //MARK: - Public methods
     public override func viewWillAppear() {
-        self.reload()
+        reload()
     }
     
-    public func didSelect(categoryModel: SheklyCategoryModel) {
-        self.categorySelectionHandler(categoryModel)
+    public func didSelectCategory(at indexPath: IndexPath) {
+        categorySelectionHandler(categories[indexPath.row])
     }
 }
 
@@ -67,13 +58,13 @@ public final class PlanViewModel: SheklyViewModel {
 extension PlanViewModel {
 
     func reload() {
-        guard let wallet = self.selectedWallet else { return }
+        guard let wallet = selectedWallet else { return }
         
         let categories: [CategoryModel] = self.dataController.getCategories(forWallet: wallet)
         
         let models: [SheklyCategoryModel] = categories
             .map { SheklyCategoryModel(category: $0, formatter: tokenFormatter) }
         
-        self.categoriesRelay.accept(models)
+        self.categories = models
     }
 }

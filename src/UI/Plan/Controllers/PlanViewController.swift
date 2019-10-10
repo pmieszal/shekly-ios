@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-
 import Domain
 import Shared
 
@@ -21,47 +18,46 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+}
 
-    override func bind(viewModel: PlanViewModel) {
-        super.bind(viewModel: viewModel)
+extension PlanViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: CategoryListCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryListCell, for: indexPath) else {
+            fatalError("Cell can't be nil")
+        }
         
-        viewModel
-            .categories
-            .drive(ibTableView.rx.items) { tableView, row, model in
-                let indexPath = IndexPath(row: row, section: 0)
-                guard let cell: CategoryListCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryListCell, for: indexPath) else {
-                    fatalError("Cell can't be nil")
-                }
-                cell.model = model
-                
-                return cell
-            }
-            .disposed(by: disposeBag)
+        let model = viewModel.categories[indexPath.row]
+        cell.model = model
         
-        ibTableView
-            .rx
-            .modelSelected(SheklyCategoryModel.self)
-            .asSignal()
-            .emit(onNext: { [weak viewModel] (categoryModel: SheklyCategoryModel) in
-                viewModel?.didSelect(categoryModel: categoryModel)
-            })
-            .disposed(by: disposeBag)
+        return cell
+    }
+}
+
+extension PlanViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectCategory(at: indexPath)
     }
 }
 
 private extension PlanViewController {
     func setup() {
-        self.ibTableView.register(R.nib.categoryListCell)
-        self.ibTableView.tableFooterView = UIView()
-        self.ibTableView.contentInset.top = 20
-        self.ibTableView.contentInset.bottom = 20
+        ibTableView.register(R.nib.categoryListCell)
+        ibTableView.tableFooterView = UIView()
+        ibTableView.contentInset.top = 20
+        ibTableView.contentInset.bottom = 20
+        ibTableView.dataSource = self
+        ibTableView.delegate = self
     }
 }
