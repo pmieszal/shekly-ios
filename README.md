@@ -22,6 +22,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 
 ## TODO
 
+- [x] upgrade to Swift 5
 - [ ] move entirely to CleanSwift
 - [ ] get rid of Rx
 - [ ] propably get rid of generic SheklyViewController, since it really affects code readability (can't implement protocols in extensions)
