@@ -10,6 +10,7 @@ import User
 import Database
 import Shared
 
+//TODO: get rid of this
 public struct DomainFactory {
     let userFactory: UserFactory
     let databaseFactory: DatabaseFactory

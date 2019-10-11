@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: get rid of this
 public struct SharedFactory {
     
     public init() { }
