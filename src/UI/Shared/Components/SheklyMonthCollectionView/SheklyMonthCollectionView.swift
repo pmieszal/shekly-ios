@@ -20,18 +20,18 @@ class SheklyMonthCollectionView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         
-        self.addSubview(collectionView)
+        addSubview(collectionView)
         
-        collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         return collectionView
     }()
@@ -91,7 +91,7 @@ extension SheklyMonthCollectionView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.date = self.dates[indexPath.row]
+        cell.date = dates[indexPath.row]
         
         return cell
     }
@@ -124,11 +124,7 @@ extension SheklyMonthCollectionView: UICollectionViewDelegate {
                 DispatchQueue
                     .main
                     .asyncAfter(deadline: .now() + 0.01) { [weak self] in
-                        guard let self = self else {
-                            return
-                        }
-                        
-                        self.scrollViewDidScroll(self.collectionView)
+                        self?.scrollViewDidScroll(collectionView)
                 }
         }
     }
@@ -147,13 +143,13 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
         
         visibleCells
             .forEach { (cell) in
-                let center = self.convert(cell.center, from: scrollView)
+                let center = convert(cell.center, from: scrollView)
                 cell.updateLayout(forCenter: center, parentSize: scrollView.frame.size)
         }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let indexPath = self.decideCollectionViewPosition() else {
+        guard let indexPath = decideCollectionViewPosition() else {
             return
         }
         
@@ -162,7 +158,7 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        guard let indexPath = self.decideCollectionViewPosition() else {
+        guard let indexPath = decideCollectionViewPosition() else {
             return
         }
         
@@ -172,7 +168,7 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate == false {
-            self.decideCollectionViewPosition()
+            decideCollectionViewPosition()
         }
     }
 }
@@ -192,11 +188,11 @@ private extension SheklyMonthCollectionView {
         let sorted = visibleCells
             .sorted { left, right -> Bool in
                 
-                let centerLeft = self.convert(left.center, from: collectionView)
-                let centerRight = self.convert(right.center, from: collectionView)
+                let centerLeft = convert(left.center, from: collectionView)
+                let centerRight = convert(right.center, from: collectionView)
                 
-                let leftDiff = abs(self.center.x - centerLeft.x)
-                let rightDiff = abs(self.center.x - centerRight.x)
+                let leftDiff = abs(center.x - centerLeft.x)
+                let rightDiff = abs(center.x - centerRight.x)
                 
                 return leftDiff < rightDiff
         }

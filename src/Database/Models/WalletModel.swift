@@ -17,28 +17,28 @@ public class WalletModel: DatabaseModel<Wallet> {
     
     public init(name: String, properties: DatabaseModelProperties?) {
         self.name = name
-        self.categoryIds = []
-        self.subcategoryIds = []
-        self.entriesIds = []
+        categoryIds = []
+        subcategoryIds = []
+        entriesIds = []
         
         super.init(properties: properties)
     }
     
     required init(entity: Wallet) {
-        self.name = entity.name
-        self.categoryIds = entity.categoriesSet.compactMap { $0.id }
-        self.subcategoryIds = entity.subcategoriesSet.compactMap { $0.id }
-        self.entriesIds = entity.entriesSet.compactMap { $0.id }
+        name = entity.name
+        categoryIds = entity.categoriesSet.compactMap { $0.id }
+        subcategoryIds = entity.subcategoriesSet.compactMap { $0.id }
+        entriesIds = entity.entriesSet.compactMap { $0.id }
         
         super.init(entity: entity)
     }
     
     init?(wallet: Wallet?) {
         guard let wallet = wallet else { return nil }
-        self.name = wallet.name
-        self.categoryIds = wallet.categoriesSet.compactMap { $0.id }
-        self.subcategoryIds = wallet.subcategoriesSet.compactMap { $0.id }
-        self.entriesIds = wallet.entriesSet.compactMap { $0.id }
+        name = wallet.name
+        categoryIds = wallet.categoriesSet.compactMap { $0.id }
+        subcategoryIds = wallet.subcategoriesSet.compactMap { $0.id }
+        entriesIds = wallet.entriesSet.compactMap { $0.id }
         
         super.init(entity: wallet)
     }

@@ -23,19 +23,19 @@ protocol ReloadableView: AnyObject {
 extension UITableView: ReloadableView {}
 extension UICollectionView: ReloadableView {
     func deleteRows(at indexPaths: [IndexPath], with: UITableView.RowAnimation) {
-        self.deleteItems(at: indexPaths)
+        deleteItems(at: indexPaths)
     }
     
     func insertRows(at indexPaths: [IndexPath], with: UITableView.RowAnimation) {
-        self.insertItems(at: indexPaths)
+        insertItems(at: indexPaths)
     }
     
     func reloadRows(at indexPaths: [IndexPath], with: UITableView.RowAnimation) {
-        self.reloadItems(at: indexPaths)
+        reloadItems(at: indexPaths)
     }
     
     func moveRow(at indexPath: IndexPath, to newIndexPath: IndexPath) {
-        self.moveItem(at: indexPath, to: newIndexPath)
+        moveItem(at: indexPath, to: newIndexPath)
     }
 }
 

@@ -22,7 +22,7 @@ extension UIViewController {
         popover?.permittedArrowDirections = .up
         popover?.canOverlapSourceViewRect = false
         
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 }
 

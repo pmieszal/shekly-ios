@@ -26,13 +26,12 @@ class ShareViewController: SLComposeServiceViewController {
         
         for attachment in extensionItem.attachments! {
             attachment
-                .loadItem(forTypeIdentifier: contentTypeURL, options: nil) { (results, error) in
-                    
+                .loadItem(forTypeIdentifier: contentTypeURL, options: nil) { [weak self] (results, error) in
                     if let url = results as? URL {
-                        self.fileUrl = url
+                        self?.fileUrl = url
                     }
                     
-                    self.didSelectPost()
+                    self?.didSelectPost()
                 }
         }
     }
@@ -47,13 +46,13 @@ class ShareViewController: SLComposeServiceViewController {
     
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         
-        if let fileUrl = self.fileUrl {
+        if let fileUrl = fileUrl {
             importer.importData(fromJSONUrl: fileUrl) { [weak self] in
                 self?.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
             }
         }
         else {
-            self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
+            extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
         }
     }
 

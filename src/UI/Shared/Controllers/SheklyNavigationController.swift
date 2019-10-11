@@ -14,18 +14,18 @@ class SheklyNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        setup()
     }
     
     private func setup() {
-        self.navigationBar.tintColor = Colors.brandColor
-        self.navigationBar.titleTextAttributes = [
+        navigationBar.tintColor = Colors.brandColor
+        navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: Colors.brandColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
         ]
 
-        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.isTranslucent = true
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
     }
 }

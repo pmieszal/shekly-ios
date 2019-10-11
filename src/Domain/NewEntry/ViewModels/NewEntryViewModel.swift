@@ -29,8 +29,6 @@ public class NewEntryViewModel: SheklyViewModel {
     
     var amountStringRaw: String = ""
     var amountString: String {
-        let amountStringRaw: String = self.amountStringRaw
-        
         guard amountStringRaw.isEmpty == false else { return amountStringRaw }
         
         if amountStringRaw.count < 2 {
@@ -48,7 +46,6 @@ public class NewEntryViewModel: SheklyViewModel {
         return normalPart + "." + decimalPart
     }
     var amountWithCurrency: String? {
-        let amountString: String = self.amountString
         let amount: String = amountString.isEmpty ? "0" : amountString
         
         guard let formattedAmount = currencyFormatter.getCurrencyString(fromString: amount) else { return nil }
@@ -56,7 +53,7 @@ public class NewEntryViewModel: SheklyViewModel {
         return entryType.textPrefix + " " + formattedAmount
     }
     var amountNumber: NSNumber? {
-        return self.currencyFormatter.numberParser.getNumber(fromString: amountString)
+        return currencyFormatter.numberParser.getNumber(fromString: amountString)
     }
     
     var date: Date = Date()
@@ -100,41 +97,41 @@ public class NewEntryViewModel: SheklyViewModel {
         
         super.init()
         
-        self.reloadAmount()
+        reloadAmount()
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.reloadSaveButton()
-        self.presenter?.show(walletName: wallet?.name)
-        self.presenter?.show(date: dateString)
+        reloadSaveButton()
+        presenter?.show(walletName: wallet?.name)
+        presenter?.show(date: dateString)
     }
     
     public override func viewDidAppear() {
         super.viewDidAppear()
         
-        self.reloadCategories()
+        reloadCategories()
     }
     
     public func didSelectSegmentedControl(itemAtIndex index: Int) {
         guard let entryType = WalletEntryType(rawValue: Int16(index)) else { return }
         
         self.entryType = entryType
-        self.reloadAmount()
+        reloadAmount()
     }
     
     public func amountTextField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if range.length > 0, self.amountStringRaw.isEmpty == false {
-            self.amountStringRaw.removeLast()
+        if range.length > 0, amountStringRaw.isEmpty == false {
+            amountStringRaw.removeLast()
         }
         else if range.length == 0 {
-            self.amountStringRaw.append(string)
+            amountStringRaw.append(string)
         }
         
-        self.reloadAmount()
-        self.reloadSaveButton()
+        reloadAmount()
+        reloadSaveButton()
         
         return false
     }
@@ -148,13 +145,13 @@ public class NewEntryViewModel: SheklyViewModel {
     }
     
     public func didSelectCategory(at indexPath: IndexPath) {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: self.categories)
+        let sectionedList = NewEntryViewModel.getSectionedList(from: categories)
         let category = sectionedList[indexPath.section][indexPath.row]
-        self.selectedCategory = category
-        self.selectedSubcategory = nil
+        selectedCategory = category
+        selectedSubcategory = nil
         
-        self.reloadSubcategories(forCategory: category)
-        self.reloadSaveButton()
+        reloadSubcategories(forCategory: category)
+        reloadSaveButton()
     }
     
     public func numberOfItemsInSubcategories(section: Int) -> Int {
@@ -166,22 +163,22 @@ public class NewEntryViewModel: SheklyViewModel {
     }
     
     public func didSelectSubcategory(at indexPath: IndexPath) {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: self.subcategories)
+        let sectionedList = NewEntryViewModel.getSectionedList(from: subcategories)
         let subcategory = sectionedList[indexPath.section][indexPath.row]
         
-        self.selectedSubcategory = subcategory
-        self.reloadSaveButton()
+        selectedSubcategory = subcategory
+        reloadSaveButton()
     }
     
     public func commentTextViewDidChange(_ text: String) {
-        self.comment = text
+        comment = text
     }
     
     @objc
     public func save() {
         guard
-            let wallet = self.wallet,
-            let amount = self.amountNumber?.doubleValue,
+            let wallet = wallet,
+            let amount = amountNumber?.doubleValue,
             amount > 0,
             let selectedCategory = self.selectedCategory,
             let selectedSubcategory = self.selectedSubcategory
@@ -189,24 +186,24 @@ public class NewEntryViewModel: SheklyViewModel {
                 return
         }
         
-        let entry = WalletEntryModel(amount: amount, date: date, text: comment, type: self.entryType, wallet: wallet, category: selectedCategory, subcategory: selectedSubcategory, properties: nil)
+        let entry = WalletEntryModel(amount: amount, date: date, text: comment, type: entryType, wallet: wallet, category: selectedCategory, subcategory: selectedSubcategory, properties: nil)
         
-        self.dataController.save(entry: entry)
-        self.presenter?.dismiss()
+        dataController.save(entry: entry)
+        presenter?.dismiss()
     }
 }
 
 extension NewEntryViewModel: WalletListDelegate {
     public func didSelect(wallet: WalletModel) {
         self.wallet = wallet
-        self.presenter?.show(walletName: wallet.name)
+        presenter?.show(walletName: wallet.name)
     }
 }
 
 extension NewEntryViewModel: DatePickerDelegate {
     public func didPick(date: Date) {
         self.date = date
-        self.presenter?.show(date: dateString)
+        presenter?.show(date: dateString)
     }
 }
 
@@ -215,17 +212,17 @@ extension NewEntryViewModel {
     func reloadCategories() {
         guard let wallet = self.wallet else { return }
         
-        let categories = self.dataController.getCategories(forWallet: wallet)
+        let categories = dataController.getCategories(forWallet: wallet)
         
         let oldState = self.categories
         self.categories = categories
         
         let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
         let newSections = NewEntryViewModel.getSectionedList(from: categories)
-        let changeSet1 = self.differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-        let changeSet2 = self.differ.getDiff(oldState: oldSections[1], newState: newSections[1])
+        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
+        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
         
-        self.presenter?.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
+        presenter?.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
     func reloadSubcategories(forCategory category: CategoryModel) {
@@ -236,28 +233,27 @@ extension NewEntryViewModel {
         
         let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
         let newSections = NewEntryViewModel.getSectionedList(from: subcategories)
-        let changeSet1 = self.differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-        let changeSet2 = self.differ.getDiff(oldState: oldSections[1], newState: newSections[1])
+        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
+        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
         
-        self.presenter?.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
+        presenter?.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
     func reloadAmount() {
-        self.presenter?.show(amount: amountWithCurrency ?? "", color: entryType.textColor)
+        presenter?.show(amount: amountWithCurrency ?? "", color: entryType.textColor)
     }
     
     func reloadSaveButton() {
-        guard let amount = self.amountNumber?.doubleValue,
+        guard let amount = amountNumber?.doubleValue,
             amount > 0,
-            self.selectedCategory != nil,
-            self.selectedSubcategory != nil
+            selectedCategory != nil,
+            selectedSubcategory != nil
             else {
-                self.presenter?.setSaveButton(enabled: false)
-                
+                presenter?.setSaveButton(enabled: false)
                 return
         }
         
-        self.presenter?.setSaveButton(enabled: true)
+        presenter?.setSaveButton(enabled: true)
     }
     
     class func getNumberOfItems<T>(section: Int, list: [T]) -> Int {

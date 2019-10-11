@@ -17,24 +17,24 @@ public class SubcategoryModel: DatabaseModel<Subcategory> {
     
     public init(name: String?, category: CategoryModel?, properties: DatabaseModelProperties?) {
         self.name = name
-        self.walletId = category?.walletId
-        self.categoryId = category?.id
-        self.entriesIds = []
+        walletId = category?.walletId
+        categoryId = category?.id
+        entriesIds = []
         
         super.init(properties: properties)
     }
     
     required init(entity: Subcategory) {
-        self.name = entity.name
-        self.walletId = entity.wallet?.id
-        self.categoryId = entity.category?.id
-        self.entriesIds = entity.entriesSet.compactMap { $0.id }
+        name = entity.name
+        walletId = entity.wallet?.id
+        categoryId = entity.category?.id
+        entriesIds = entity.entriesSet.compactMap { $0.id }
         
         super.init(entity: entity)
     }
     
     override func manageConnectionsAndSave(forEntity entity: Subcategory, inContext context: NSManagedObjectContext) throws -> Subcategory {
-        guard let categoryId = self.categoryId, let walletId = self.walletId else {
+        guard let categoryId = categoryId, let walletId = walletId else {
             fatalError("Every Subcategory have to have category/wallet id!")
         }
         

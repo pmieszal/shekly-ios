@@ -78,7 +78,7 @@ class EntityGroup<TModel: DatabaseEntry> {
         let request = Entity.fetchRequest(forId: id)
         
         do {
-            let result: [Entity] = try self.store.viewContext.fetch(request) as! [Entity]
+            let result: [Entity] = try store.viewContext.fetch(request) as! [Entity]
             
             return result.first
         }
@@ -91,7 +91,7 @@ class EntityGroup<TModel: DatabaseEntry> {
     
     func execute(request: NSFetchRequest<Entity>) -> [Model] {
         do {
-            let result: [Entity] = try self.store.viewContext.fetch(request)
+            let result: [Entity] = try store.viewContext.fetch(request)
             
             let mapped: [Model] = result
                 .map { entity -> Model in

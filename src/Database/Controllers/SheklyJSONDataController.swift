@@ -14,7 +14,7 @@ public class SheklyJSONDataController: SheklyDataController {
         let entries = wallet.expenses
         
         let walletModelToSave = WalletModel(name: wallet.name, properties: nil)
-        let walletModel = self.save(wallet: walletModelToSave)
+        let walletModel = save(wallet: walletModelToSave)
         
         for entry in entries {
             
@@ -23,7 +23,7 @@ public class SheklyJSONDataController: SheklyDataController {
             let amount: Double = entry.amount
             let date: Date = entry.date
             
-            let categories: [CategoryModel] = self.getCategories(forWallet: walletModel)
+            let categories: [CategoryModel] = getCategories(forWallet: walletModel)
             
             let categoryOptional: CategoryModel? = categories.filter { $0.name == categoryName }.first
             let category: CategoryModel
@@ -35,7 +35,7 @@ public class SheklyJSONDataController: SheklyDataController {
                 category = CategoryModel(name: categoryName, walletId: walletModel.id, properties: nil)
             }
             
-            let subcategories: [SubcategoryModel] = self.getSubcategories(forCategory: category)
+            let subcategories: [SubcategoryModel] = getSubcategories(forCategory: category)
             
             let subcategoryOptional: SubcategoryModel? = subcategories.filter { $0.name == subcategoryName }.first
             let subcategory: SubcategoryModel

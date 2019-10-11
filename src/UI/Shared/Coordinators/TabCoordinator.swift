@@ -81,13 +81,13 @@ extension TabCoordinator {
         newEntryVC.router = self
         
         self.newEntryVC = newEntryVC
-        self.tabController.present(newEntryVC, animated: true, completion: nil)
+        tabController.present(newEntryVC, animated: true, completion: nil)
     }
 }
 
 extension TabCoordinator: NewEntryRouter {
     func presentWalletListPopover(sourceButton: UIButton) {
-        guard let delegate = self.newEntryVC?.viewModel else { return }
+        guard let delegate = newEntryVC?.viewModel else { return }
         
         let walletList = R.storyboard.walletList.walletListViewController()!
         let viewModel = viewModelFactory.getWalletListViewModel(presenter: walletList, delegate: delegate)
@@ -97,7 +97,7 @@ extension TabCoordinator: NewEntryRouter {
     }
     
     func presentDatePickerPopover(sourceButton: UIButton) {
-        guard let delegate = self.newEntryVC?.viewModel else { return }
+        guard let delegate = newEntryVC?.viewModel else { return }
         
         let datePicker = R.storyboard.datePicker.datePickerViewController()!
         let viewModel = viewModelFactory.getDatePickerViewModel(delegate: delegate)

@@ -20,20 +20,20 @@ class CategoryViewController: SheklyViewController<CategoryViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        setup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func bind(viewModel: CategoryViewModel) {
         super.bind(viewModel: viewModel)
         
-        self.ibCategoryLabel.text = viewModel.categoryName
-        self.ibHeaderView.alpha = 0
+        ibCategoryLabel.text = viewModel.categoryName
+        ibHeaderView.alpha = 0
     }
 }
 
@@ -43,9 +43,9 @@ extension CategoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let viewModel = self.viewModel.feed[indexPath.row] //TODO: introduce safe subscript
+        let cellModel = viewModel.feed[indexPath.row] //TODO: introduce safe subscript
         
-        switch viewModel {
+        switch cellModel {
         case let viewModel as CategoryHeaderCellViewModel:
             guard let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) else {
                 fatalError("Cell can't be nil")
@@ -78,27 +78,27 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let visibleCells: [UITableViewCell] = self.ibTableView.visibleCells
+        let visibleCells: [UITableViewCell] = ibTableView.visibleCells
         
         guard let headerIndex: Int = visibleCells.firstIndex(where: { $0 is CategoryHeaderCell }) else {
             return
         }
         
         let headerCell: UITableViewCell = visibleCells[headerIndex]
-        let headerCellPositionFrame: CGRect = self.view.convert(headerCell.frame, from: self.ibTableView)
+        let headerCellPositionFrame: CGRect = view.convert(headerCell.frame, from: ibTableView)
         let headerCellY: CGFloat = abs(headerCellPositionFrame.origin.y)
         
-        let headerHeight: CGFloat = self.ibHeaderView.frame.size.height
+        let headerHeight: CGFloat = ibHeaderView.frame.size.height
         
         let diff: CGFloat = headerCellY - headerHeight
         
         if diff > 0 {
             let alpha: CGFloat = min(diff / 10, 1)
             
-            self.ibHeaderView.alpha = alpha
+            ibHeaderView.alpha = alpha
         }
         else {
-            self.ibHeaderView.alpha = 0
+            ibHeaderView.alpha = 0
         }
     }
 }
@@ -106,20 +106,20 @@ extension CategoryViewController: UITableViewDelegate {
 private extension CategoryViewController {
     
     func setup() {
-        self.ibTableView.register(R.nib.categoryHeaderCell)
-        self.ibTableView.register(R.nib.categorySubcategoriesCell)
-        self.ibTableView.register(R.nib.walletEntryCell)
+        ibTableView.register(R.nib.categoryHeaderCell)
+        ibTableView.register(R.nib.categorySubcategoriesCell)
+        ibTableView.register(R.nib.walletEntryCell)
         
-        self.ibTableView.tableFooterView = UIView()
-        self.ibTableView.contentInset.top = 20
-        self.ibTableView.contentInset.bottom = 20
+        ibTableView.tableFooterView = UIView()
+        ibTableView.contentInset.top = 20
+        ibTableView.contentInset.bottom = 20
         
-        self.ibTableView.dataSource = self
-        self.ibTableView.delegate = self
+        ibTableView.dataSource = self
+        ibTableView.delegate = self
         
-        self.ibHeaderView.layer.shadowColor = UIColor.black.cgColor
-        self.ibHeaderView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.ibHeaderView.layer.shadowRadius = 2
-        self.ibHeaderView.layer.shadowOpacity = 0.3
+        ibHeaderView.layer.shadowColor = UIColor.black.cgColor
+        ibHeaderView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        ibHeaderView.layer.shadowRadius = 2
+        ibHeaderView.layer.shadowOpacity = 0.3
     }
 }

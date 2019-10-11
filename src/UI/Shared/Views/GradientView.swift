@@ -27,25 +27,25 @@ class GradientView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setup()
+        setup()
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        self.setup()
+        setup()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.setup()
+        setup()
     }
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        self.setup()
+        setup()
     }
     
     func setup() {

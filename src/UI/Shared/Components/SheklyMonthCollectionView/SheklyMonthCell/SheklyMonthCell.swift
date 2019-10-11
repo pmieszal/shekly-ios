@@ -39,7 +39,7 @@ class SheklyMonthCell: UICollectionViewCell {
         let parentCenterX: CGFloat = parentSize.width / 2
         let diffX: CGFloat = abs(centerX - parentCenterX)
         
-        let width: CGFloat = self.frame.width / 2
+        let width: CGFloat = frame.width / 2
         let scale: CGFloat = width/diffX
         let scaleNormalized: CGFloat = max(min(scale, 1), 0.7)
         

@@ -17,7 +17,7 @@ class CategoryHeaderCell: UITableViewCell {
     
     var viewModel: CategoryHeaderCellViewModel! {
         didSet {
-            self.initialize()
+            initialize()
         }
     }
     
@@ -25,5 +25,4 @@ class CategoryHeaderCell: UITableViewCell {
         ibNameLabel.text = viewModel.name
         ibAmountLabel.text = viewModel.amountText
     }
-    
 }

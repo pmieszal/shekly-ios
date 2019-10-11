@@ -27,29 +27,29 @@ public class CategoryModel: DatabaseModel<Category> {
     }
     
     required init(entity: Category) {
-        self.name = entity.name
-        self.walletId = entity.wallet?.id
-        self.subcategoryIds = entity.subcategoriesSet.compactMap { $0.id }
-        self.entriesIds = entity.entriesSet.compactMap { $0.id }
-        self.amount = entity.entriesSet.reduce(0) { $0 + $1.amount }
+        name = entity.name
+        walletId = entity.wallet?.id
+        subcategoryIds = entity.subcategoriesSet.compactMap { $0.id }
+        entriesIds = entity.entriesSet.compactMap { $0.id }
+        amount = entity.entriesSet.reduce(0) { $0 + $1.amount }
         
         super.init(entity: entity)
     }
     
     init?(category: Category?) {
         guard let category = category else { return nil }
-        self.name = category.name
-        self.walletId = category.wallet?.id
-        self.subcategoryIds = category.subcategoriesSet.compactMap { $0.id }
-        self.entriesIds = category.entriesSet.compactMap { $0.id }
-        self.amount = category.entriesSet.reduce(0) { $0 + $1.amount }
+        name = category.name
+        walletId = category.wallet?.id
+        subcategoryIds = category.subcategoriesSet.compactMap { $0.id }
+        entriesIds = category.entriesSet.compactMap { $0.id }
+        amount = category.entriesSet.reduce(0) { $0 + $1.amount }
         
         super.init(entity: category)
     }
     
     override func manageConnectionsAndSave(forEntity entity: Category, inContext context: NSManagedObjectContext) throws -> Category {
         
-        guard let walletId = self.walletId else {
+        guard let walletId = walletId else {
             fatalError("Every category have to have wallet id!")
         }
         

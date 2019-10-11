@@ -48,7 +48,7 @@ class NewEntryViewController: SheklyViewController<NewEntryViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setup()
+        setup()
         ibAmountTextField.becomeFirstResponder()
     }
 }
@@ -78,23 +78,23 @@ extension NewEntryViewController: NewEntryPresenter {
     }
     
     func reloadCategories(changeSet1: ChangeSet, changeSet2: ChangeSet) {
-        self.reload(changeSet: changeSet1, reloadableView: ibCategoryCollectionView1)
-        self.reload(changeSet: changeSet2, reloadableView: ibCategoryCollectionView2)
+        reload(changeSet: changeSet1, reloadableView: ibCategoryCollectionView1)
+        reload(changeSet: changeSet2, reloadableView: ibCategoryCollectionView2)
     }
     
     func reloadSubcategories(changeSet1: ChangeSet, changeSet2: ChangeSet) {
         UIView
-            .animate(withDuration: 0.2) {
-                self.ibSubcategoryHeader.isHidden = false
-                self.ibSubcategoriesContainer.isHidden = false
+            .animate(withDuration: 0.2) { [weak self] in
+                self?.ibSubcategoryHeader.isHidden = false
+                self?.ibSubcategoriesContainer.isHidden = false
         }
         
-        self.reload(changeSet: changeSet1, reloadableView: ibSubcategoryCollectionView1)
-        self.reload(changeSet: changeSet2, reloadableView: ibSubcategoryCollectionView2)
+        reload(changeSet: changeSet1, reloadableView: ibSubcategoryCollectionView1)
+        reload(changeSet: changeSet2, reloadableView: ibSubcategoryCollectionView2)
     }
     
     func dismiss() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -296,7 +296,7 @@ extension NewEntryViewController: UITextViewDelegate {
 
 private extension NewEntryViewController {
     func setup() {
-        self.view.backgroundColor = Colors.brandColor
+        view.backgroundColor = Colors.brandColor
         
         ibSubcategoryHeader.isHidden = true
         ibSubcategoriesContainer.isHidden = true

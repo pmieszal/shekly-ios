@@ -57,42 +57,42 @@ public final class WalletViewModel: SheklyViewModel {
     
     //MARK: - Public methods
     public override func viewDidAppear() {
-        self.reloadEntries()
-        self.reloadWallets()
+        reloadEntries()
+        reloadWallets()
     }
     
     public func monthCollectionViewDidScroll(toDate date: Date) {
-        self.selectedMonthDate = date
-        self.reloadEntries()
+        selectedMonthDate = date
+        reloadEntries()
     }
     
     public func numberOfWalletItems() -> Int {
-        return self.wallets.count
+        return wallets.count
     }
     
     public func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
-        return self.wallets[indexPath.row]
+        return wallets[indexPath.row]
     }
     
     public func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
-        let wallet = self.wallets[indexPath.row]
+        let wallet = wallets[indexPath.row]
         
         guard wallet.isEmpty == false else { return }
         
-        self.selectedWallet = wallet
-        self.userProvider.set(wallet: wallet.id)
-        self.reloadEntries()
+        selectedWallet = wallet
+        userProvider.set(wallet: wallet.id)
+        reloadEntries()
     }
     
     public func numberOfEntries() -> Int {
-        let count = self.entries.count
+        let count = entries.count
         guard count > 0 else { return 1 }
         
         return count
     }
     
     public func entryModel(forIndexPath indexPath: IndexPath) -> SheklyEntryModel {
-        let model: SheklyEntryModel? = self.entries[safe: indexPath.row]
+        let model: SheklyEntryModel? = entries[safe: indexPath.row]
         
         return model ?? SheklyEntryEmptyModel()
     }
@@ -103,18 +103,18 @@ public final class WalletViewModel: SheklyViewModel {
         
         let success = dataController.delete(entry: entry)
         
-        self.reloadEntries()
+        reloadEntries()
         
         return success
     }
     
     public func addWallet(named name: String) {
         let wallet: WalletModel = WalletModel(name: name, properties: nil)
-        let savedWallet: WalletModel = self.dataController.save(wallet: wallet)
+        let savedWallet: WalletModel = dataController.save(wallet: wallet)
         
-        self.selectedWallet = SheklyWalletModel(wallet: savedWallet)
-        self.reloadWallets()
-        self.reloadEntries()
+        selectedWallet = SheklyWalletModel(wallet: savedWallet)
+        reloadWallets()
+        reloadEntries()
     }
 }
 
@@ -122,18 +122,18 @@ public final class WalletViewModel: SheklyViewModel {
 extension WalletViewModel {
     
     func reloadWallets() {
-        let wallets: [SheklyWalletModel] = self.dataController.getWallets().map(SheklyWalletModel.init)
+        let wallets: [SheklyWalletModel] = dataController.getWallets().map(SheklyWalletModel.init)
         let emptyModel = SheklyWalletModel(wallet: nil)
         
         self.wallets = wallets + [emptyModel]
         
-        self.presenter?.reloadWallets()
+        presenter?.reloadWallets()
     }
     
     func reloadEntries() {
-        guard let wallet = self.selectedWallet?.wallet, let date = self.selectedMonthDate else { return }
+        guard let wallet = selectedWallet?.wallet, let date = selectedMonthDate else { return }
         
-        let entries: [WalletEntryModel] = self.dataController.getWalletEntries(forWallet: wallet, date: date)
+        let entries: [WalletEntryModel] = dataController.getWalletEntries(forWallet: wallet, date: date)
         let entryModels: [SheklyWalletEntryModel] = entries
             .sorted()
             .map { entry -> SheklyWalletEntryModel in
@@ -160,9 +160,9 @@ extension WalletViewModel {
         
         self.entries = entryModels
         
-        let changeSet: ChangeSet = self.differ.getDiff(oldState: oldState, newState: models)
+        let changeSet: ChangeSet = differ.getDiff(oldState: oldState, newState: models)
         
-        self.presenter?.reload(changeSet: changeSet)
+        presenter?.reload(changeSet: changeSet)
     }
 }
 

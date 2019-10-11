@@ -24,7 +24,7 @@ class SheklyCurrencyFormatter {
         guard let number = numberParser.getNumber(fromString: string) else { return nil }
         
         let nf = NumberFormatter()
-        nf.locale = self.localeProvider.locale
+        nf.locale = localeProvider.locale
         nf.numberStyle = .currency
         nf.maximumFractionDigits = 2
         nf.minimumFractionDigits = 2
@@ -34,7 +34,7 @@ class SheklyCurrencyFormatter {
     
     func getCurrencyString(fromNumber number: NSNumber) -> String? {
         let nf = NumberFormatter()
-        nf.locale = self.localeProvider.locale
+        nf.locale = localeProvider.locale
         nf.numberStyle = .currency
         nf.maximumFractionDigits = 2
         nf.minimumFractionDigits = 2
@@ -43,6 +43,6 @@ class SheklyCurrencyFormatter {
     }
     
     func getCurrencyString(fromNumber number: Double) -> String? {
-        return self.getCurrencyString(fromNumber: number as NSNumber)
+        return getCurrencyString(fromNumber: number as NSNumber)
     }
 }

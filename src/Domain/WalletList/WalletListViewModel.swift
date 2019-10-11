@@ -40,7 +40,7 @@ public class WalletListViewModel: SheklyViewModel {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.presenter?.reloadList()
+        presenter?.reloadList()
     }
     
     public func numberOfSections() -> Int {

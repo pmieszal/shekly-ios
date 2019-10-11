@@ -16,7 +16,7 @@ public class CategoryHeaderCellViewModel: CategoryCellViewModel {
     public let amountText: String?
     
     init(category: CategoryModel, formatter: SheklyCurrencyFormatter) {
-        self.name = category.name
-        self.amountText = formatter.getCurrencyString(fromNumber: category.amount)
+        name = category.name
+        amountText = formatter.getCurrencyString(fromNumber: category.amount)
     }
 }

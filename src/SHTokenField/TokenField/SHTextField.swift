@@ -12,31 +12,31 @@ import DynamicColor
 class SHTextField: UITextField {
     
     lazy var height: NSLayoutConstraint = {
-        return self.heightAnchor.constraint(equalToConstant: 35)
+        return heightAnchor.constraint(equalToConstant: 35)
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.setup()
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.setup()
+        setup()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setup()
+        setup()
     }
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        self.setup()
+        setup()
     }
     
     //MARK: - Padding
@@ -56,15 +56,15 @@ class SHTextField: UITextField {
     
     //MARK: - Setup
     func setup() {
-        self.setupInput()
-        self.setupAtts()
+        setupInput()
+        setupAtts()
     }
     
     func setupInput() {
-        self.borderStyle = .none
-        self.keyboardType = .twitter
-        self.autocapitalizationType = .none
-        self.autocorrectionType = .no
+        borderStyle = .none
+        keyboardType = .twitter
+        autocapitalizationType = .none
+        autocorrectionType = .no
     }
     
     func setupAtts() {
@@ -73,7 +73,7 @@ class SHTextField: UITextField {
             NSAttributedString.Key.foregroundColor: UIColor(hex: 0x000080)
         ]
         
-        self.defaultTextAttributes = textAtts
+        defaultTextAttributes = textAtts
         
         let placeholderAtts: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .ultraLight),
@@ -82,6 +82,6 @@ class SHTextField: UITextField {
         
         let attPlaceholder = NSAttributedString(string: "#shekly", attributes: placeholderAtts)
         
-        self.attributedPlaceholder = attPlaceholder
+        attributedPlaceholder = attPlaceholder
     }
 }

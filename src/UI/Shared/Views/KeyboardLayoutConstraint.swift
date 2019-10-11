@@ -16,7 +16,7 @@ class KeyboardLayoutConstraint: NSLayoutConstraint {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.offset = constant
+        offset = constant
         
         NotificationCenter
             .default
@@ -43,21 +43,19 @@ class KeyboardLayoutConstraint: NSLayoutConstraint {
             if let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let frame = frameValue.cgRectValue
                 
-                self.keyboardVisibleHeight = frame.size.height
+                keyboardVisibleHeight = frame.size.height
             }
             
-            self.updateConstant()
-            
+            updateConstant()
         }
-        
     }
     
     @objc func keyboardWillHideNotification(_ notification: Notification) {
-        self.keyboardVisibleHeight = 0
-        self.updateConstant()
+        keyboardVisibleHeight = 0
+        updateConstant()
     }
     
     func updateConstant() {
-        self.constant = offset + keyboardVisibleHeight
+        constant = offset + keyboardVisibleHeight
     }
 }

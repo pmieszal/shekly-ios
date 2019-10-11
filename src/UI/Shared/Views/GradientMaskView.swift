@@ -13,30 +13,30 @@ class GradientMaskView: UIView {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        self.setup()
+        setup()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.setup()
+        setup()
     }
     
     func setup() {
         let colors: [CGColor] = [UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor, UIColor.clear.cgColor]
         let locations: [NSNumber] = [0.0, 0.4, 0.7, 1]
         
-        self.setupGradient(colors: colors, locations: locations)
+        setupGradient(colors: colors, locations: locations)
     }
     
     func setupGradient(colors: [CGColor], locations: [NSNumber]) {
         let gradient = CAGradientLayer()
         
-        gradient.frame = self.bounds
+        gradient.frame = bounds
         gradient.colors = colors
         gradient.locations = locations
         
-        self.layer.mask = gradient
+        layer.mask = gradient
     }
 }
 

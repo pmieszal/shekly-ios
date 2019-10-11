@@ -48,6 +48,6 @@ extension WalletListViewController: UITableViewDataSource {
 extension WalletListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelect(itemAt: indexPath)
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

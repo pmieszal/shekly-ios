@@ -15,9 +15,9 @@ public class WalletEntry: DatabaseEntity {
     override func set<TModel>(withModel model: TModel) where TModel : DatabaseEntry {
         let entry = model as! WalletEntryModel
         
-        self.amount = entry.amount
-        self.date = entry.date
-        self.text = entry.text
-        self.type = entry.type.rawValue
+        amount = entry.amount
+        date = entry.date
+        text = entry.text
+        type = entry.type.rawValue
     }
 }

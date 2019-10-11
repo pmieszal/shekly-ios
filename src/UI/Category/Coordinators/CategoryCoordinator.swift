@@ -33,11 +33,11 @@ public final class CategoryCoordinator: RxCoordinator {
         guard let category = R.storyboard.category.categoryViewController() else {
             fatalError("VC can't be nil")
         }
-        let viewModel: CategoryViewModel = self.viewModelFactory.getCategoryViewModel(category: self.categoryModel)
+        let viewModel: CategoryViewModel = viewModelFactory.getCategoryViewModel(category: self.categoryModel)
         
         category.set(viewModel: viewModel)
         
-        self.navigationController.pushViewController(category, animated: true)
+        navigationController.pushViewController(category, animated: true)
         
         return category
     }

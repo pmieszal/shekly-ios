@@ -12,20 +12,20 @@ class SheklyButton: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
-            self.layer.cornerRadius = cornerRadius
-            self.clipsToBounds = cornerRadius > 0
+            layer.cornerRadius = cornerRadius
+            clipsToBounds = cornerRadius > 0
         }
     }
     
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
-            self.layer.borderWidth = borderWidth
+            layer.borderWidth = borderWidth
         }
     }
     
     @IBInspectable var borderColor: UIColor? {
         didSet {
-            self.layer.borderColor = borderColor?.cgColor
+            layer.borderColor = borderColor?.cgColor
         }
     }
     
@@ -33,8 +33,8 @@ class SheklyButton: UIButton {
         didSet {
             guard rounded == true else { return }
             
-            self.layer.cornerRadius = self.frame.height / 2
-            self.clipsToBounds = true
+            layer.cornerRadius = frame.height / 2
+            clipsToBounds = true
         }
     }
     
@@ -42,8 +42,8 @@ class SheklyButton: UIButton {
         super.layoutSubviews()
         
         if rounded == true {
-            self.layer.cornerRadius = self.frame.height / 2
-            self.clipsToBounds = true
+            layer.cornerRadius = frame.height / 2
+            clipsToBounds = true
         }
     }
 }

@@ -61,8 +61,7 @@ class UserProvider: UserManaging {
     private init() { }
     
     func set(wallet id: String?) {
-        self.user.selectedWalletId = id
-        
+        user.selectedWalletId = id
         save()
     }
 }
@@ -70,7 +69,6 @@ class UserProvider: UserManaging {
 private extension UserProvider {
     func save() {
         let tmp = user
-        
-        self.user = tmp
+        user = tmp
     }
 }

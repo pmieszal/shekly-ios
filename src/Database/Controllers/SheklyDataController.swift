@@ -22,15 +22,15 @@ public class SheklyDataController {
     init(store: SheklyDatabaseStore) {
         self.store = store
         
-        self.walletGroup = EntityGroup(store: store)
-        self.categoryGroup = EntityGroup(store: store)
-        self.subcategoryGroup = EntityGroup(store: store)
-        self.entryGroup = EntityGroup(store: store)
+        walletGroup = EntityGroup(store: store)
+        categoryGroup = EntityGroup(store: store)
+        subcategoryGroup = EntityGroup(store: store)
+        entryGroup = EntityGroup(store: store)
     }
     
     //MARK: - Public functions
     public func getWallets() -> [WalletModel] {
-        return self.walletGroup.list()
+        return walletGroup.list()
     }
     
     public func getCategories(forWallet wallet: WalletModel) -> [CategoryModel] {
@@ -39,7 +39,7 @@ public class SheklyDataController {
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "wallet.id", walletId)
         
-        let categories: [CategoryModel] = self.categoryGroup.execute(request: request)
+        let categories: [CategoryModel] = categoryGroup.execute(request: request)
         
         return categories
     }
@@ -50,7 +50,7 @@ public class SheklyDataController {
         let request: NSFetchRequest<Subcategory> = Subcategory.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "category.id", categoryId)
         
-        let subcategories = self.subcategoryGroup.execute(request: request)
+        let subcategories = subcategoryGroup.execute(request: request)
         
         return subcategories
     }
@@ -61,7 +61,7 @@ public class SheklyDataController {
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", [#keyPath(WalletEntry.wallet.id), walletId])
         
-        let entries: [WalletEntryModel] = self.entryGroup.execute(request: request)
+        let entries: [WalletEntryModel] = entryGroup.execute(request: request)
         
         return entries
     }
@@ -75,7 +75,7 @@ public class SheklyDataController {
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@ AND %K BETWEEN {%@, %@}", argumentArray: [#keyPath(WalletEntry.wallet.id), walletId, #keyPath(WalletEntry.date), from, to])
         
-        let entries: [WalletEntryModel] = self.entryGroup.execute(request: request)
+        let entries: [WalletEntryModel] = entryGroup.execute(request: request)
         
         return entries
     }
@@ -86,41 +86,41 @@ public class SheklyDataController {
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "category.id", categoryId)
         
-        let entries: [WalletEntryModel] = self.entryGroup.execute(request: request)
+        let entries: [WalletEntryModel] = entryGroup.execute(request: request)
         
         return entries
     }
     
     public func save(wallet: WalletModel) -> WalletModel {
-        return self.walletGroup.save(model: wallet)
+        return walletGroup.save(model: wallet)
     }
     
     public func save(entry: WalletEntryModel) {
-        let wallet = self.save(wallet: entry.wallet)
+        let wallet = save(wallet: entry.wallet)
         
         let categoryRecreated = CategoryModel(name: entry.category.name, walletId: wallet.id, properties: entry.category.properties)
-        let category = self.save(category: categoryRecreated)
+        let category = save(category: categoryRecreated)
         
         let subcategoryRecreated = SubcategoryModel(name: entry.subcategory.name, category: category, properties: entry.subcategory.properties)
-        let subcategory = self.save(subcategory: subcategoryRecreated)
+        let subcategory = save(subcategory: subcategoryRecreated)
         
         let entryRecreated = WalletEntryModel(entry: entry, wallet: wallet, category: category, subcategory: subcategory)
         
-        self.entryGroup.save(model: entryRecreated)
+        entryGroup.save(model: entryRecreated)
     }
     
     public func delete(entry: WalletEntryModel) -> Bool {
-        let success = self.entryGroup.delete(model: entry)
+        let success = entryGroup.delete(model: entry)
         
         return success
     }
     
     //MARK: - Internal functions
     func save(category: CategoryModel) -> CategoryModel {
-        return self.categoryGroup.save(model: category)
+        return categoryGroup.save(model: category)
     }
     
     func save(subcategory: SubcategoryModel) -> SubcategoryModel {
-        return self.subcategoryGroup.save(model: subcategory)
+        return subcategoryGroup.save(model: subcategory)
     }
 }

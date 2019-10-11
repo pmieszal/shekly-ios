@@ -13,21 +13,21 @@ import CoreData
 public class Wallet: DatabaseEntity {
     
     var categoriesSet: Set<Category> {
-        return self.categories as! Set<Category>
+        return categories as! Set<Category>
     }
     
     var subcategoriesSet: Set<Subcategory> {
-        return self.subcategories as! Set<Subcategory>
+        return subcategories as! Set<Subcategory>
     }
     
     var entriesSet: Set<WalletEntry> {
-        return self.entries as! Set<WalletEntry>
+        return entries as! Set<WalletEntry>
     }
     
     override func set<TModel>(withModel model: TModel) where TModel : DatabaseEntry {
         let wallet = model as! WalletModel
         
-        self.name = wallet.name
+        name = wallet.name
     }
 }
 

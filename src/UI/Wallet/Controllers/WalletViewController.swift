@@ -19,7 +19,7 @@ class WalletViewController: SheklyViewController<WalletViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setup()
+        setup()
     }
 }
 
@@ -74,7 +74,7 @@ extension WalletViewController: WalletCollectionViewDelegate {
         alert.addAction(addAction)
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -120,7 +120,6 @@ extension WalletViewController: UITableViewDelegate {
             
             let alertInput = AlertControllerInput(title: "Czy na pewno chcesz usunąć wpis?", message: nil, style: .actionSheet)
             let actions: [UIAlertAction] = .defaultDeleteActions(okHandler: { [unowned self] (_) in
-                
                 let success = self.viewModel.deleteEntry(atIndexPath: indexPath)
                 
                 completion(success)
@@ -140,22 +139,22 @@ extension WalletViewController: UITableViewDelegate {
 private extension WalletViewController {
     
     func setup() {
-        self.ibHeaderView.walletDataSource = self
-        self.ibHeaderView.walletDelegate = self
-        self.ibHeaderView.monthCollectionDelegate = self
-        self.ibHeaderView.layer.shadowColor = Colors.brandColor.cgColor
-        self.ibHeaderView.layer.shadowOpacity = 0.5
-        self.ibHeaderView.layer.shadowRadius = 2
-        self.ibHeaderView.layer.shadowOffset.height = 2
+        ibHeaderView.walletDataSource = self
+        ibHeaderView.walletDelegate = self
+        ibHeaderView.monthCollectionDelegate = self
+        ibHeaderView.layer.shadowColor = Colors.brandColor.cgColor
+        ibHeaderView.layer.shadowOpacity = 0.5
+        ibHeaderView.layer.shadowRadius = 2
+        ibHeaderView.layer.shadowOffset.height = 2
         
-        self.ibTableView.delegate = self
-        self.ibTableView.dataSource = self
-        self.ibTableView.register(R.nib.walletEntryCell)
-        self.ibTableView.register(R.nib.sheklyWalletEntryEmptyCell)
+        ibTableView.delegate = self
+        ibTableView.dataSource = self
+        ibTableView.register(R.nib.walletEntryCell)
+        ibTableView.register(R.nib.sheklyWalletEntryEmptyCell)
         
-        self.ibTableView.tableFooterView = UIView()
-        self.ibTableView.contentInset.top = 4
-        self.ibTableView.contentInset.bottom = 4
-        self.ibTableView.contentOffset.y = -4
+        ibTableView.tableFooterView = UIView()
+        ibTableView.contentInset.top = 4
+        ibTableView.contentInset.bottom = 4
+        ibTableView.contentOffset.y = -4
     }
 }

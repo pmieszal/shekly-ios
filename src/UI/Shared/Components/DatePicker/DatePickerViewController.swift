@@ -22,6 +22,6 @@ class DatePickerViewController: SheklyViewController<DatePickerViewModel> {
     @objc
     private func didTapOKButton() {
         viewModel.didPick(date: ibDatePicker.date)
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

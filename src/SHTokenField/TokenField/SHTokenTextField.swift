@@ -13,12 +13,12 @@ class SHTokenTextField: SHTextField {
     var deleteBackwardCallback: (() -> ())?
     
     override func deleteBackward() {
-        let textBeforeDelete = self.text
+        let textBeforeDelete = text
         super.deleteBackward()
         
         guard textBeforeDelete?.isEmpty == true else { return }
         
-        self.deleteBackwardCallback?()
+        deleteBackwardCallback?()
     }
     
     override func setupAtts() {
@@ -27,7 +27,7 @@ class SHTokenTextField: SHTextField {
             NSAttributedString.Key.foregroundColor: UIColor(hex: 0x000080)
         ]
         
-        self.defaultTextAttributes = textAtts
+        defaultTextAttributes = textAtts
         
         let placeholderAtts: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .ultraLight),
@@ -36,6 +36,6 @@ class SHTokenTextField: SHTextField {
         
         let attPlaceholder = NSAttributedString(string: "#shekly", attributes: placeholderAtts)
         
-        self.attributedPlaceholder = attPlaceholder
+        attributedPlaceholder = attPlaceholder
     }
 }

@@ -27,26 +27,26 @@ class SheklyWalletCell: UICollectionViewCell {
     
     var model: SheklyWalletModel! {
         didSet {
-            self.initialize()
+            initialize()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layoutAddButton()
+        layoutAddButton()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.layoutAddButton()
+        layoutAddButton()
     }
     
     override func layoutIfNeeded() {
         super.layoutSubviews()
         
-        self.layoutAddButton()
+        layoutAddButton()
     }
     
     func setAddButton(target: Any?, action: Selector, for event: UIControl.Event) {

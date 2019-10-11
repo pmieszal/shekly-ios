@@ -42,23 +42,23 @@ public class WalletEntryModel: DatabaseModel<WalletEntry> {
     }
     
     required init(entity: WalletEntry) {
-        self.amount = entity.amount
-        self.date = entity.date
-        self.text = entity.text
-        self.type = WalletEntryType(rawValue: entity.type)!
+        amount = entity.amount
+        date = entity.date
+        text = entity.text
+        type = WalletEntryType(rawValue: entity.type)!
         
-        self.wallet = WalletModel(entity: entity.wallet!)
-        self.category = CategoryModel(entity: entity.category!)
-        self.subcategory = SubcategoryModel(entity: entity.subcategory!)
+        wallet = WalletModel(entity: entity.wallet!)
+        category = CategoryModel(entity: entity.category!)
+        subcategory = SubcategoryModel(entity: entity.subcategory!)
         
         super.init(entity: entity)
     }
     
     init(entry: WalletEntryModel, wallet: WalletModel, category: CategoryModel, subcategory: SubcategoryModel) {
-        self.amount = entry.amount
-        self.date = entry.date
-        self.text = entry.text
-        self.type = entry.type
+        amount = entry.amount
+        date = entry.date
+        text = entry.text
+        type = entry.type
         
         self.wallet = wallet
         self.category = category
@@ -68,9 +68,9 @@ public class WalletEntryModel: DatabaseModel<WalletEntry> {
     }
     
     override func manageConnectionsAndSave(forEntity entity: WalletEntry, inContext context: NSManagedObjectContext) throws -> WalletEntry {
-        guard let categoryId = self.category.id,
-            let subcategoryId = self.subcategory.id,
-            let walletId = self.wallet.id
+        guard let categoryId = category.id,
+            let subcategoryId = subcategory.id,
+            let walletId = wallet.id
             else {
             fatalError("Every WalletEntry have to have category and subcategory ids!")
         }
@@ -90,7 +90,7 @@ public class WalletEntryModel: DatabaseModel<WalletEntry> {
         category.addToEntries(entity)
         subcategory.addToEntries(entity)
         
-        entity.date = self.date
+        entity.date = date
         
         try context.save()
         

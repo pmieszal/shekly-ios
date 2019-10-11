@@ -30,20 +30,18 @@ class SHInputAccessoryView: UIView {
     }()
     
     func setup() {
-        
-        let scrollView = self.scrollView
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         
-        self.addSubview(scrollView)
+        addSubview(scrollView)
         
-        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        let suggestions = self.stackView
+        let suggestions = stackView
         suggestions.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.addSubview(suggestions)

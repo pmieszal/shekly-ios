@@ -16,11 +16,11 @@ extension UIView {
         ) {
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(view)
+        addSubview(view)
         
-        view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: insets.left).isActive = true
-        self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).isActive = true
-        view.topAnchor.constraint(equalTo: self.topAnchor, constant: insets.top).isActive = true
-        self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
+        view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets.left).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
     }
 }

@@ -37,12 +37,13 @@ class SheklyViewController<TViewModel: ViewModel>: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self._viewModel == nil {
-            self._viewModel = factory?()
-            self.factory = nil //Delete factory to prevent memory leaks.
+        
+        if _viewModel == nil {
+            _viewModel = factory?()
+            factory = nil //Delete factory to prevent memory leaks.
         }
         
-        self.bind(viewModel: viewModel)
+        bind(viewModel: viewModel)
         viewModel.viewDidLoad()
     }
     
@@ -80,7 +81,7 @@ class SheklyViewController<TViewModel: ViewModel>: UIViewController {
                 alert.addAction(action)
         }
         
-        self.present(alert, animated: true, completion: completion)
+        present(alert, animated: true, completion: completion)
         
         return alert
     }

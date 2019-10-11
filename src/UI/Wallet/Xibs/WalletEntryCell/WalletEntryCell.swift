@@ -20,7 +20,7 @@ class WalletEntryCell: UITableViewCell {
     
     var model: SheklyEntryModel! {
         didSet {
-            self.initialize()
+            initialize()
         }
     }
     

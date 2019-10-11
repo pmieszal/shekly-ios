@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sharedFactory = SharedFactory()
         let viewModelFactory = DomainFactory(userFactory: userFactory, databaseFactory: databaseFactory, sharedFactory: sharedFactory)
         
-        self.mainCoordinator = MainCoordinator(window: window, userFactory: userFactory, viewModelFactory: viewModelFactory)
-        self.mainCoordinator?.start()
+        mainCoordinator = MainCoordinator(window: window, userFactory: userFactory, viewModelFactory: viewModelFactory)
+        mainCoordinator?.start()
         self.window = window
         
         //Temporary hack for database init on fresh install

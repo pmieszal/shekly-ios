@@ -15,11 +15,11 @@ class WalletHeaderView: UIView {
         let view = SheklyWalletCollectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(view)
+        addSubview(view)
         
-        view.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
         return view
     }()
@@ -28,11 +28,11 @@ class WalletHeaderView: UIView {
         let view = SheklyMonthCollectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(view)
+        addSubview(view)
         
-        view.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         view.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
         return view
@@ -70,24 +70,24 @@ class WalletHeaderView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setup()
+        setup()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
+        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
     
     func reloadWalletCollectionView() {
-        self.walletCollectionView.reload()
+        walletCollectionView.reload()
     }
 }
 
 private extension WalletHeaderView {
     
     func setup() {
-        self.backgroundColor = Colors.brand2Color
+        backgroundColor = Colors.brand2Color
         
         walletCollectionView.bottomAnchor.constraint(equalTo: monthView.topAnchor).isActive = true
         monthView.topAnchor.constraint(equalTo: walletCollectionView.bottomAnchor).isActive = true

@@ -19,7 +19,7 @@ class CategoryListCell: UITableViewCell {
     
     var model: SheklyCategoryModel! {
         didSet {
-            self.initialize()
+            initialize()
         }
     }
     

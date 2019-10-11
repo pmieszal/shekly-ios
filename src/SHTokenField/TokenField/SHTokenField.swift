@@ -12,19 +12,19 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     
     open var contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
-            self.scrollView.contentInset = contentInset
+            scrollView.contentInset = contentInset
         }
     }
     
     open var suggestionsContentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
-            self.shInputAccessoryView.scrollView.contentInset = suggestionsContentInset
+            shInputAccessoryView.scrollView.contentInset = suggestionsContentInset
         }
     }
     
     open var suggestionsViewHeight: CGFloat = 44 {
         didSet {
-            self.shInputAccessoryView.frame.size.height = suggestionsViewHeight
+            shInputAccessoryView.frame.size.height = suggestionsViewHeight
         }
     }
     
@@ -35,7 +35,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
         let scrollView: UIScrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentInset = self.contentInset
+        scrollView.contentInset = contentInset
         
         return scrollView
     }()
@@ -69,21 +69,21 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     open override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setup()
+        setup()
     }
     
     public func reload() {
-        self.stackView
+        stackView
             .arrangedSubviews
             .forEach { view in
-                guard view != self.textField else { return }
+                guard view != textField else { return }
                 
-                self.stackView.removeArrangedSubview(view)
+                stackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
         }
         
-        guard let dataSource = self.dataSource else {
-            self.stackView.addArrangedSubview(textField)
+        guard let dataSource = dataSource else {
+            stackView.addArrangedSubview(textField)
             
             return
         }
@@ -95,19 +95,19 @@ open class SHTokenField: UIView, UITextFieldDelegate {
             view.setContentHuggingPriority(.required, for: .horizontal)
             view.setTapGesture(target: self, action: #selector(didTapOnTokenView(gesture:)))
             
-            self.stackView.addArrangedSubview(view)
+            stackView.addArrangedSubview(view)
         }
         
-        self.textField.text = ""
-        self.textField.keyboardType = .twitter
-        self.textField.resignFirstResponder()
-        self.textField.becomeFirstResponder()
-        self.stackView.insertArrangedSubview(self.textField, at: numberOfTokens)
-        self.scrollToTextFieldRect(animated: true)
+        textField.text = ""
+        textField.keyboardType = .twitter
+        textField.resignFirstResponder()
+        textField.becomeFirstResponder()
+        stackView.insertArrangedSubview(textField, at: numberOfTokens)
+        scrollToTextFieldRect(animated: true)
     }
     
     public func reloadSuggestions() {
-        let suggestionsStackView = self.shInputAccessoryView.stackView
+        let suggestionsStackView = shInputAccessoryView.stackView
         
         suggestionsStackView
             .arrangedSubviews
@@ -116,7 +116,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
                 view.removeFromSuperview()
         }
         
-        guard let dataSource = self.dataSource else {
+        guard let dataSource = dataSource else {
             return
         }
         
@@ -133,7 +133,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     
     //MARK: - UITextFieldDelegate
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.scrollToTextFieldRect(animated: false)
+        scrollToTextFieldRect(animated: false)
         
         if textField.text?.count == 0, string == " " {
             return false
@@ -146,7 +146,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
             keyboardType: textField.keyboardType
         )
         
-        self.delegate?.tokenField(
+        delegate?.tokenField(
             tokenField: self,
             decideTokenPolicyForTextFieldAction: action,
             decisionHandler: { [weak self] (policy) in
@@ -157,7 +157,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.addToken()
+        addToken()
         
         return false
     }
@@ -167,14 +167,14 @@ open class SHTokenField: UIView, UITextFieldDelegate {
 private extension SHTokenField {
     
     func setup() {
-        self.backgroundColor = .clear
+        backgroundColor = .clear
         
-        self.setupScrollView()
-        self.setupStackView()
-        self.setUnderline()
-        self.setupSuggestions()
+        setupScrollView()
+        setupStackView()
+        setUnderline()
+        setupSuggestions()
         
-        self.textField.deleteBackwardCallback = { [weak self] in
+        textField.deleteBackwardCallback = { [weak self] in
             guard let self = self,
                 self.textField.text?.isEmpty == true,
                 let index: Int = self.dataSource?.numberOfTokensInTokenField(tokenField: self),
@@ -199,72 +199,73 @@ private extension SHTokenField {
             }
         }
         
-        self.textField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         
-        self.stackView.addArrangedSubview(self.textField)
+        stackView.addArrangedSubview(textField)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapOnField(gesture:)))
-        self.addGestureRecognizer(tap)
+        addGestureRecognizer(tap)
     }
     
     func setupSuggestions() {
         
-        let inputAccessoryView = self.shInputAccessoryView
+        let inputAccessoryView = shInputAccessoryView
         inputAccessoryView.translatesAutoresizingMaskIntoConstraints = false
         inputAccessoryView.backgroundColor = .white
         
         let width: CGFloat = UIScreen.main.bounds.width
-        inputAccessoryView.frame = CGRect(x: 0, y: 0, width: width, height: self.suggestionsViewHeight)
+        inputAccessoryView.frame = CGRect(x: 0, y: 0, width: width, height: suggestionsViewHeight)
         inputAccessoryView.setup()
         
-        self.textField.inputAccessoryView = inputAccessoryView
+        textField.inputAccessoryView = inputAccessoryView
     }
     
     func setupScrollView() {
-        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(self.scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(scrollView)
         
-        self.scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        self.scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
     func setupStackView() {
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.scrollView.addSubview(self.stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
         
-        self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
-        self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
-        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
-        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
-        self.stackView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
     }
     
     func setUnderline() {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = UIColor(hex: 0x19198c)
-        self.addSubview(line)
+        addSubview(line)
         
         line.heightAnchor.constraint(equalToConstant: 1.5).isActive = true
-        line.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        line.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5).isActive = true
+        line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5).isActive = true
     }
     
     func scrollToTextFieldRect(animated: Bool) {
         DispatchQueue
             .main
             .asyncAfter(deadline: .now() + 0.01) { [weak self] in
-                guard let self = self else { return }
-                
+                guard let self = self else {
+                    return
+                }
                 self.scrollView.scrollRectToVisible(self.textField.frame, animated: animated)
         }
     }
     
     func addToken() {
-        let shouldAdd: Bool = self.delegate?.tokenField(tokenField: self, shouldAddTokenNamed: self.textField.text ?? "") ?? false
+        let shouldAdd: Bool = delegate?.tokenField(tokenField: self, shouldAddTokenNamed: textField.text ?? "") ?? false
         
         if shouldAdd == true {
             DispatchQueue
@@ -278,44 +279,44 @@ private extension SHTokenField {
     func resolveToken(policy: SHTextFieldActionPolicy) {
         switch policy {
         case .setTwitterKeyboardType:
-            self.textField.keyboardType = .twitter
-            self.textField.resignFirstResponder()
-            self.textField.becomeFirstResponder()
+            textField.keyboardType = .twitter
+            textField.resignFirstResponder()
+            textField.becomeFirstResponder()
             
         case .setDefaultKeyboardType:
-            self.textField.keyboardType = .default
-            self.textField.returnKeyType = .done
-            self.textField.resignFirstResponder()
-            self.textField.becomeFirstResponder()
+            textField.keyboardType = .default
+            textField.returnKeyType = .done
+            textField.resignFirstResponder()
+            textField.becomeFirstResponder()
             
         case .addToken:
-            self.addToken()
+            addToken()
         }
     }
     
     @objc func didTapOnField(gesture: UITapGestureRecognizer) {
-        self.textField.becomeFirstResponder()
+        textField.becomeFirstResponder()
     }
     
     @objc func textFieldDidChange() {
-        self.delegate?.tokenField(tokenField: self, textDidChange: self.textField.text)
+        delegate?.tokenField(tokenField: self, textDidChange: textField.text)
     }
     
     @objc func didTapOnTokenView(gesture: UITapGestureRecognizer) {
         guard
             let tokenView = gesture.view as? SHTokenView,
-            let index = self.stackView.arrangedSubviews.firstIndex(of: tokenView)
+            let index = stackView.arrangedSubviews.firstIndex(of: tokenView)
             else { return }
         
-        self.delegate?.tokenField(tokenField: self, didTapOn: tokenView, atIndex: index)
+        delegate?.tokenField(tokenField: self, didTapOn: tokenView, atIndex: index)
     }
     
     @objc func didTapOnSuggestionTokenView(gesture: UITapGestureRecognizer) {
         guard
             let tokenView = gesture.view as? SHTokenView,
-            let index = self.shInputAccessoryView.stackView.arrangedSubviews.firstIndex(of: tokenView)
+            let index = shInputAccessoryView.stackView.arrangedSubviews.firstIndex(of: tokenView)
             else { return }
         
-        self.delegate?.tokenField(tokenField: self, didTapOnSuggestion: tokenView, atIndex: index)
+        delegate?.tokenField(tokenField: self, didTapOnSuggestion: tokenView, atIndex: index)
     }
 }

@@ -60,7 +60,7 @@ extension PlanViewModel {
     func reload() {
         guard let wallet = selectedWallet else { return }
         
-        let categories: [CategoryModel] = self.dataController.getCategories(forWallet: wallet)
+        let categories: [CategoryModel] = dataController.getCategories(forWallet: wallet)
         
         let models: [SheklyCategoryModel] = categories
             .map { SheklyCategoryModel(category: $0, formatter: tokenFormatter) }

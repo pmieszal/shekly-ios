@@ -15,7 +15,7 @@ class CategorySubcategoriesCell: UITableViewCell {
 
     var viewModel: CategorySubcategoriesCellViewModel! {
         didSet {
-            self.initialize()
+            initialize()
         }
     }
     
@@ -26,12 +26,5 @@ class CategorySubcategoriesCell: UITableViewCell {
                 ibStackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
         }
-        
-//        for token in viewModel.subcategoriesTokens {
-//            let view = R.nib.walletTokenView.firstView(owner: nil)!
-//            view.model = token
-//            
-//            ibStackView.addArrangedSubview(view)
-//        }
     }
 }

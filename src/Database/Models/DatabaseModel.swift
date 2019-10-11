@@ -20,13 +20,13 @@ public class DatabaseModel<TDatabaseEntity: DatabaseEntity>: DatabaseEntry {
     }
     
     init(properties: DatabaseModelProperties?) {
-        self.id = properties?.id
-        self.created = properties?.created
+        id = properties?.id
+        created = properties?.created
     }
     
     required init(entity: TDatabaseEntity) {
-        self.id = entity.id
-        self.created = entity.created
+        id = entity.id
+        created = entity.created
     }
     
     public func hash(into hasher: inout Hasher) {

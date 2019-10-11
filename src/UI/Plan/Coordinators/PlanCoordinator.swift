@@ -42,7 +42,7 @@ public final class PlanCoordinator: RxCoordinator {
         nvc.setViewControllers([plan], animated: false)
         nvc.setNavigationBarHidden(true, animated: false)
         
-        self.navigationController = nvc
+        navigationController = nvc
         
         return nvc
     }
@@ -51,7 +51,7 @@ public final class PlanCoordinator: RxCoordinator {
 private extension PlanCoordinator {
     
     func goTo(category model: SheklyCategoryModel) {
-        let coordinator = CategoryCoordinator(parent: self, categoryModel: model, navigationController: self.navigationController, userFactory: userFactory, viewModelFactory: viewModelFactory)
+        let coordinator = CategoryCoordinator(parent: self, categoryModel: model, navigationController: navigationController, userFactory: userFactory, viewModelFactory: viewModelFactory)
         
         coordinator.start()
     }

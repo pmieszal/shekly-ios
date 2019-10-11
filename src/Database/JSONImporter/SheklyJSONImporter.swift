@@ -26,9 +26,9 @@ public class SheklyJSONImporter {
     public func importData(fromJSONUrl url: URL, completionHandler: () -> ()) {
         do {
             let jsonData: Data = try Data(contentsOf: url)
-            let wallet: WalletJSONModel = try self.decoder.decode(WalletJSONModel.self, from: jsonData)
+            let wallet: WalletJSONModel = try decoder.decode(WalletJSONModel.self, from: jsonData)
             
-            self.dataController.save(wallet: wallet, completionHandler: completionHandler)
+            dataController.save(wallet: wallet, completionHandler: completionHandler)
         }
         catch let error {
             print(error)

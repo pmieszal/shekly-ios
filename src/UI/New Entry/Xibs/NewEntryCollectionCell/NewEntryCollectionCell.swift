@@ -29,7 +29,7 @@ class NewEntryCollectionCell: UICollectionViewCell {
         }
         set {
             super.isSelected = newValue
-            self.set(selected: newValue)
+            set(selected: newValue)
         }
     }
     

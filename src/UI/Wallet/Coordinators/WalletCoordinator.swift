@@ -38,7 +38,7 @@ public final class WalletCoordinator: RxCoordinator {
         nvc.setViewControllers([wallet], animated: false)
         nvc.setNavigationBarHidden(true, animated: false)
         
-        self.navigationController = nvc
+        navigationController = nvc
         
         return nvc
     }

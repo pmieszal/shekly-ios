@@ -38,9 +38,9 @@ public final class MainCoordinator: RxCoordinator {
         
         nvc.setViewControllers([tab], animated: false)
         
-        self.window.rootViewController = nvc
-        self.window.makeKeyAndVisible()
-        self.navigationController = nvc
+        window.rootViewController = nvc
+        window.makeKeyAndVisible()
+        navigationController = nvc
         
         return nvc
     }

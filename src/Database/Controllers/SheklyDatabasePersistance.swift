@@ -19,7 +19,7 @@ class SheklyDatabasePersistance: SheklyDatabaseStore {
     
     // MARK: - Core Data stack
     var viewContext: NSManagedObjectContext {
-        let context = self.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         
         return persistentContainer.viewContext

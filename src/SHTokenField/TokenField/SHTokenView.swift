@@ -25,6 +25,6 @@ open class SHTokenView: UIView {
     func setTapGesture(target: Any?, action: Selector?) {
         let tap = UITapGestureRecognizer(target: target, action: action)
         
-        self.addGestureRecognizer(tap)
+        addGestureRecognizer(tap)
     }
 }

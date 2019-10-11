@@ -29,19 +29,19 @@ class SheklyWalletCollectionView: UIView {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
-        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         
-        self.addSubview(collectionView)
+        addSubview(collectionView)
         
-        collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -32).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -32).isActive = true
         
         return collectionView
     }()
@@ -51,10 +51,10 @@ class SheklyWalletCollectionView: UIView {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.isUserInteractionEnabled = false
         
-        self.addSubview(pageControl)
+        addSubview(pageControl)
         
-        pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 3).isActive = true
+        pageControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 3).isActive = true
         
         return pageControl
     }()
@@ -103,7 +103,7 @@ extension SheklyWalletCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let number = dataSource?.numberOfWalletItems() ?? 0
-        self.pageControl.numberOfPages = number
+        pageControl.numberOfPages = number
         
         return number
     }
@@ -111,7 +111,7 @@ extension SheklyWalletCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell: SheklyWalletCell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyWalletCell, for: indexPath),
-            let model = self.dataSource?.walletCollectionView(modelForItemAt: indexPath)
+            let model = dataSource?.walletCollectionView(modelForItemAt: indexPath)
             else {
                 
             return UICollectionViewCell()
@@ -150,7 +150,7 @@ extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
 
 private extension SheklyWalletCollectionView {
     func setup() {
-        self.backgroundColor = Colors.brandColor
+        backgroundColor = Colors.brandColor
         
         collectionView.register(R.nib.sheklyWalletCell)
         collectionView.delegate = self
