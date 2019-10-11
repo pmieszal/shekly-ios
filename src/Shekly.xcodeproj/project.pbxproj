@@ -114,6 +114,8 @@
 		8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */; };
 		8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */; };
 		8F8F3B9F2350AE17007AC4FB /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */; };
+		8F8F3BA12350AF1D007AC4FB /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */; };
+		8F8F3BA32350AFC2007AC4FB /* DatabaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */; };
 		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
 		8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96D5E92247D036008172D3 /* NewEntry.storyboard */; };
 		8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B752241322A00A2C44A /* WalletHeaderView.swift */; };
@@ -385,6 +387,8 @@
 		8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
 		8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+forceResolve.swift"; sourceTree = "<group>"; };
 		8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
+		8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
+		8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAssembly.swift; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
 		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
 		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
@@ -672,9 +676,10 @@
 				8F229649220DF94D00DE5AF7 /* Groups */,
 				8F22962B220DF0DE00DE5AF7 /* Entities */,
 				8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */,
+				8FDF238F221441E300F46591 /* DatabaseFactory.swift */,
+				8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */,
 				8F1E020A220727AB00EC1A36 /* Database.h */,
 				8F1E020B220727AB00EC1A36 /* Info.plist */,
-				8FDF238F221441E300F46591 /* DatabaseFactory.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -741,6 +746,7 @@
 				8F1E023C22072AA900EC1A36 /* Models */,
 				8F1E023922072AA900EC1A36 /* Providers */,
 				8F1E023E22072AA900EC1A36 /* UserFactory.swift */,
+				8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */,
 				8F1E022A22072A2C00EC1A36 /* User.h */,
 				8F1E022B22072A2C00EC1A36 /* Info.plist */,
 			);
@@ -1964,6 +1970,7 @@
 				8F1E02162207282500EC1A36 /* SheklyDatabasePersistance.swift in Sources */,
 				8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */,
 				8F2FA355222AF89A00D3E1BB /* SheklyJSONDataController.swift in Sources */,
+				8F8F3BA32350AFC2007AC4FB /* DatabaseAssembly.swift in Sources */,
 				8F46830F221482140041F23B /* DatabaseEntry.swift in Sources */,
 				8F2FA357222AFF1900D3E1BB /* SheklyPresistentContainer.swift in Sources */,
 				8F50673F224673C100723C0B /* Wallet+CoreDataClass.swift in Sources */,
@@ -1993,6 +2000,7 @@
 				8F1E024922072B7B00EC1A36 /* UserProviderError.swift in Sources */,
 				8F1E024822072B7B00EC1A36 /* AuthorizationResult.swift in Sources */,
 				8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */,
+				8F8F3BA12350AF1D007AC4FB /* UserAssembly.swift in Sources */,
 				8F1E024B22072B7B00EC1A36 /* UserProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

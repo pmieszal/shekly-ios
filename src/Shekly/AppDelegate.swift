@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let assembler: Assembler = { assembler in
         assembler.apply(assembly: DomainAssembly())
         assembler.apply(assembly: SharedAssembly())
+        assembler.apply(assembly: UserAssembly())
+        assembler.apply(assembly: DatabaseAssembly())
         
         return assembler
     }(Assembler())
