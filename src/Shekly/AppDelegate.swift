@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 
 import UI
 import Shared
@@ -19,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainCoordinator: MainCoordinator?
+    
+    let assembler: Assembler = { assembler in
+        assembler.apply(assembly: DomainAssembly())
+        
+        return assembler
+    }(Assembler())
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {

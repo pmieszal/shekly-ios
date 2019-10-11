@@ -6,6 +6,7 @@ PODS:
   - SwiftDate (6.1.0)
   - SwiftLint (0.35.0)
   - SwiftyBeaver (1.8.2)
+  - Swinject (2.7.1)
 
 DEPENDENCIES:
   - DynamicColor (= 4.2.0)
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SwiftDate (= 6.1.0)
   - SwiftLint (= 0.35.0)
   - SwiftyBeaver (= 1.8.2)
+  - Swinject (= 2.7.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - SwiftDate
     - SwiftLint
     - SwiftyBeaver
+    - Swinject
 
 SPEC CHECKSUMS:
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
@@ -30,7 +33,8 @@ SPEC CHECKSUMS:
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: 79fbb7f5d506e4f580183f988988cad189a6aeb0
+PODFILE CHECKSUM: fc5492a28b47793f32fa7eb95de3237b91c89d2f
 
 COCOAPODS: 1.8.3

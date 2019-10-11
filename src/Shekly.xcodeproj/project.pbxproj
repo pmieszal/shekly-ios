@@ -111,6 +111,8 @@
 		8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */; };
 		8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83CA722260C6ED003464AB /* DatePicker.storyboard */; };
 		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
+		8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */; };
+		8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */; };
 		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
 		8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96D5E92247D036008172D3 /* NewEntry.storyboard */; };
 		8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B752241322A00A2C44A /* WalletHeaderView.swift */; };
@@ -379,6 +381,8 @@
 		8F83CA742260C703003464AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		8F8F3B8F2350693F007AC4FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8F8F3B9123506D14007AC4FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
+		8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+forceResolve.swift"; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
 		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
 		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
@@ -635,6 +639,7 @@
 				8FF3E492225A5EED00A88238 /* WalletList */,
 				8F1E025D22072CA300EC1A36 /* Shared */,
 				8F1E025822072C3300EC1A36 /* DomainFactory.swift */,
+				8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */,
 				8F1E01E82207231200EC1A36 /* Domain.h */,
 				8F1E01E92207231200EC1A36 /* Info.plist */,
 			);
@@ -1167,6 +1172,7 @@
 			isa = PBXGroup;
 			children = (
 				8FDC4E4B22157B66005206C3 /* NumberParser.swift */,
+				8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1920,6 +1926,7 @@
 				8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */,
 				8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */,
 				8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */,
+				8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */,
 				8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */,
 				8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */,
 				8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */,
@@ -1936,6 +1943,7 @@
 			files = (
 				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
 				8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */,
+				8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */,
 				8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */,
 				8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */,
 				8F9F6A432208AC5200AE7A0E /* Colors.swift in Sources */,
