@@ -54,9 +54,9 @@ class UserProvider: UserManaging {
         return user.selectedWalletId
     }
     
-    static let shared: UserManaging = UserProvider()
-    
-    private init() { }
+    init() {
+        
+    }
     
     func set(wallet id: String?) {
         user.selectedWalletId = id

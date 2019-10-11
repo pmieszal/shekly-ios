@@ -9,7 +9,6 @@
 import Foundation
 
 public protocol SHTokenFieldDelegate: AnyObject {
-    
     func tokenField(tokenField: SHTokenField, shouldAddTokenNamed name: String) -> Bool
     func tokenField(tokenField: SHTokenField, shouldDeleteTokenAtIndex index: Int) -> Bool
     func tokenField(tokenField: SHTokenField, didDeleteTokenAtIndex index: Int)
@@ -23,7 +22,6 @@ public protocol SHTokenFieldDelegate: AnyObject {
 }
 
 public extension SHTokenFieldDelegate {
-    
     func tokenField(tokenField: SHTokenField, shouldAddTokenNamed name: String) -> Bool {
         return true
     }

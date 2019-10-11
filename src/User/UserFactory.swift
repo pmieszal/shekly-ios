@@ -13,6 +13,6 @@ public struct UserFactory {
     public init() { }
     
     public func getUserProvider() -> UserManaging {
-        return UserProvider.shared
+        return UserProvider()
     }
 }
