@@ -19,8 +19,7 @@ public class SheklyWalletEntryModel: SheklyEntryModel {
         let categoryAndComment: String?
         if let category = entry.category.name, let text = entry.text {
             categoryAndComment = category + " - " + text
-        }
-        else {
+        } else {
             categoryAndComment = entry.category.name
         }
         
@@ -31,7 +30,11 @@ public class SheklyWalletEntryModel: SheklyEntryModel {
         let date: Date? = entry.date
         let dateString: String? =  date?.toString(DateToStringStyles.date(DateFormatter.Style.long))
         
-        super.init(categoryAndComment: categoryAndComment, subcategory: subcategory, amount: amount, amountColor: entry.type.textColor, dateString: dateString)
+        super.init(categoryAndComment: categoryAndComment,
+                   subcategory: subcategory,
+                   amount: amount,
+                   amountColor: entry.type.textColor,
+                   dateString: dateString)
     }
     
     public override func hash(into hasher: inout Hasher) {

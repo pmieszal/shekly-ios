@@ -47,7 +47,8 @@ extension CategoryViewController: UITableViewDataSource {
         
         switch cellModel {
         case let viewModel as CategoryHeaderCellViewModel:
-            guard let cell: CategoryHeaderCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell, for: indexPath) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryHeaderCell,
+                                                           for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
             cell.viewModel = viewModel
@@ -55,7 +56,8 @@ extension CategoryViewController: UITableViewDataSource {
             return cell
             
         case let viewModel as CategorySubcategoriesCellViewModel:
-            guard let cell: CategorySubcategoriesCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell, for: indexPath) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categorySubcategoriesCell,
+                                                           for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
             cell.viewModel = viewModel
@@ -63,7 +65,8 @@ extension CategoryViewController: UITableViewDataSource {
             return cell
             
         case let model as SheklyEntryModel:
-            guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
+                                                           for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
             cell.model = model
@@ -96,8 +99,7 @@ extension CategoryViewController: UITableViewDelegate {
             let alpha: CGFloat = min(diff / 10, 1)
             
             ibHeaderView.alpha = alpha
-        }
-        else {
+        } else {
             ibHeaderView.alpha = 0
         }
     }

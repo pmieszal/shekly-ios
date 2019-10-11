@@ -30,6 +30,6 @@ public class SheklyWalletModel: Equatable, Hashable {
     }
 }
 
-public func ==(lhs: SheklyWalletModel, rhs: SheklyWalletModel) -> Bool {
+public func == (lhs: SheklyWalletModel, rhs: SheklyWalletModel) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

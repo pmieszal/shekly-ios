@@ -13,11 +13,14 @@ import CoreData
 public class Subcategory: DatabaseEntity {
     
     var entriesSet: Set<WalletEntry> {
+        //swiftlint:disable:next force_cast
         return entries as! Set<WalletEntry>
     }
 
-    override func set<TModel>(withModel model: TModel) where TModel : DatabaseEntry {
-        let subcategory = model as! SubcategoryModel
+    override func set<TModel>(withModel model: TModel) where TModel: DatabaseEntry {
+        guard let subcategory = model as? SubcategoryModel else {
+            fatalError("This can't happen")
+        }
         name = subcategory.name
     }
 }

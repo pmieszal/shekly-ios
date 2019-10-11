@@ -39,7 +39,7 @@ class SHTextField: UITextField {
         setup()
     }
     
-    //MARK: - Padding
+    // MARK: - Padding
     var padding = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -54,7 +54,7 @@ class SHTextField: UITextField {
         return bounds.inset(by: padding)
     }
     
-    //MARK: - Setup
+    // MARK: - Setup
     func setup() {
         setupInput()
         setupAtts()
@@ -68,14 +68,14 @@ class SHTextField: UITextField {
     }
     
     func setupAtts() {
-        let textAtts: [NSAttributedString.Key : Any] = [
+        let textAtts: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .light),
             NSAttributedString.Key.foregroundColor: UIColor(hex: 0x000080)
         ]
         
         defaultTextAttributes = textAtts
         
-        let placeholderAtts: [NSAttributedString.Key : Any] = [
+        let placeholderAtts: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .ultraLight),
             NSAttributedString.Key.foregroundColor: UIColor(hex: 0x19198c)
         ]

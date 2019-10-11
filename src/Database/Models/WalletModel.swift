@@ -34,7 +34,9 @@ public class WalletModel: DatabaseModel<Wallet> {
     }
     
     init?(wallet: Wallet?) {
-        guard let wallet = wallet else { return nil }
+        guard let wallet = wallet else {
+            return nil
+        }
         name = wallet.name
         categoryIds = wallet.categoriesSet.compactMap { $0.id }
         subcategoryIds = wallet.subcategoriesSet.compactMap { $0.id }

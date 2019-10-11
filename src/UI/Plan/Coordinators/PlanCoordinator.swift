@@ -51,10 +51,12 @@ public final class PlanCoordinator: RxCoordinator {
 private extension PlanCoordinator {
     
     func goTo(category model: SheklyCategoryModel) {
-        let coordinator = CategoryCoordinator(parent: self, categoryModel: model, navigationController: navigationController, userFactory: userFactory, viewModelFactory: viewModelFactory)
+        let coordinator = CategoryCoordinator(parent: self,
+                                              categoryModel: model,
+                                              navigationController: navigationController,
+                                              userFactory: userFactory,
+                                              viewModelFactory: viewModelFactory)
         
         coordinator.start()
     }
 }
-
-

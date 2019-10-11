@@ -8,6 +8,6 @@
 
 import UIKit
 
-public protocol ReloadablePresenter: class {
+public protocol ReloadablePresenter: AnyObject {
     func reload(changeSet: ChangeSet)
 }

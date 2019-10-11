@@ -57,7 +57,6 @@ class WalletHeaderView: UIView {
         }
     }
     
-    
     weak var monthCollectionDelegate: SheklyMonthCollectionViewDelegate? {
         get {
             return monthView.delegate

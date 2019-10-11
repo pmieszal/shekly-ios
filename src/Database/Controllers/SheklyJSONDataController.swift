@@ -30,8 +30,7 @@ public class SheklyJSONDataController: SheklyDataController {
             
             if let categoryFromDatabase = categoryOptional {
                 category = categoryFromDatabase
-            }
-            else {
+            } else {
                 category = CategoryModel(name: categoryName, walletId: walletModel.id, properties: nil)
             }
             
@@ -42,12 +41,18 @@ public class SheklyJSONDataController: SheklyDataController {
             
             if let subcategoryFromDatabase = subcategoryOptional {
                 subcategory = subcategoryFromDatabase
-            }
-            else {
+            } else {
                 subcategory = SubcategoryModel(name: subcategoryName, category: category, properties: nil)
             }
             
-            let entry: WalletEntryModel = WalletEntryModel(amount: amount, date: date, text: nil, type: .outcome, wallet: walletModel, category: category, subcategory: subcategory, properties: nil)
+            let entry: WalletEntryModel = WalletEntryModel(amount: amount,
+                                                           date: date,
+                                                           text: nil,
+                                                           type: .outcome,
+                                                           wallet: walletModel,
+                                                           category: category,
+                                                           subcategory: subcategory,
+                                                           properties: nil)
             
             self.save(entry: entry)
         }

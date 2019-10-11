@@ -76,7 +76,9 @@ open class SHTokenField: UIView, UITextFieldDelegate {
         stackView
             .arrangedSubviews
             .forEach { view in
-                guard view != textField else { return }
+                guard view != textField else {
+            return
+        }
                 
                 stackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
@@ -131,7 +133,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
         }
     }
     
-    //MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         scrollToTextFieldRect(animated: false)
         
@@ -163,7 +165,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     }
 }
 
-//MARK: - private extension
+// MARK: - private extension
 private extension SHTokenField {
     
     func setup() {
@@ -189,8 +191,7 @@ private extension SHTokenField {
             let shouldDelete: Bool = self.delegate?.tokenField(tokenField: self, shouldDeleteTokenAtIndex: deleteIndex) ?? false
             
             if shouldDelete == true,
-                deleteIndex < self.stackView.arrangedSubviews.count
-            {
+                deleteIndex < self.stackView.arrangedSubviews.count {
                 let view = self.stackView.arrangedSubviews[deleteIndex]
                 self.stackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
@@ -306,7 +307,9 @@ private extension SHTokenField {
         guard
             let tokenView = gesture.view as? SHTokenView,
             let index = stackView.arrangedSubviews.firstIndex(of: tokenView)
-            else { return }
+            else {
+            return
+        }
         
         delegate?.tokenField(tokenField: self, didTapOn: tokenView, atIndex: index)
     }
@@ -315,7 +318,9 @@ private extension SHTokenField {
         guard
             let tokenView = gesture.view as? SHTokenView,
             let index = shInputAccessoryView.stackView.arrangedSubviews.firstIndex(of: tokenView)
-            else { return }
+            else {
+            return
+        }
         
         delegate?.tokenField(tokenField: self, didTapOnSuggestion: tokenView, atIndex: index)
     }

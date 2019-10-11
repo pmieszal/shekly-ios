@@ -19,7 +19,11 @@ public final class CategoryCoordinator: RxCoordinator {
     
     private let categoryModel: SheklyCategoryModel
     
-    public init(parent: RxCoordinator, categoryModel: SheklyCategoryModel, navigationController: UINavigationController, userFactory: UserFactory, viewModelFactory: DomainFactory) {
+    public init(parent: RxCoordinator,
+                categoryModel: SheklyCategoryModel,
+                navigationController: UINavigationController,
+                userFactory: UserFactory,
+                viewModelFactory: DomainFactory) {
         self.navigationController = navigationController
         self.userFactory = userFactory
         self.viewModelFactory = viewModelFactory

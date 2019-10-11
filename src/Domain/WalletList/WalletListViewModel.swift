@@ -9,22 +9,22 @@
 import Database
 import User
 
-public protocol WalletListPresenter: class {
+public protocol WalletListPresenter: AnyObject {
     func reloadList()
 }
 
-public protocol WalletListDelegate: class {
+public protocol WalletListDelegate: AnyObject {
     func didSelect(wallet: WalletModel)
 }
 
 public class WalletListViewModel: SheklyViewModel {
     
-    //MARK: - Private properties
+    // MARK: - Private properties
     private var wallets: [WalletModel]
     private weak var presenter: WalletListPresenter?
     private weak var delegate: WalletListDelegate?
     
-    //MARK: - Constructor
+    // MARK: - Constructor
     init(
         presenter: WalletListPresenter,
         delegate: WalletListDelegate,

@@ -29,8 +29,7 @@ public class SheklyJSONImporter {
             let wallet: WalletJSONModel = try decoder.decode(WalletJSONModel.self, from: jsonData)
             
             dataController.save(wallet: wallet, completionHandler: completionHandler)
-        }
-        catch let error {
+        } catch let error {
             print(error)
         }
     }

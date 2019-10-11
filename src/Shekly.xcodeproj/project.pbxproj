@@ -378,6 +378,7 @@
 		8F83CA722260C6ED003464AB /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		8F83CA742260C703003464AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		8F8F3B8F2350693F007AC4FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8F8F3B9123506D14007AC4FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
 		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
 		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
@@ -563,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				8F8F3B8F2350693F007AC4FB /* README.md */,
+				8F8F3B9123506D14007AC4FB /* .swiftlint.yml */,
 				8F1E01B92207206B00EC1A36 /* Shekly */,
 				8F1E01D5220722C500EC1A36 /* UI */,
 				8F1E01E72207231200EC1A36 /* Domain */,
@@ -1478,6 +1480,7 @@
 				8F1E01B32207206B00EC1A36 /* Sources */,
 				8F1E01B42207206B00EC1A36 /* Frameworks */,
 				8F1E01B52207206B00EC1A36 /* Resources */,
+				8F8F3B9323506D35007AC4FB /* Run SwiftLint */,
 				8F1E01E0220722C500EC1A36 /* Embed Frameworks */,
 				8F2FA349222AA84300D3E1BB /* Embed App Extensions */,
 				54ECA0AF36D01C3BF2A536E2 /* [CP] Embed Pods Frameworks */,
@@ -1880,6 +1883,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/UI/R.generated.swift\"\n";
+		};
+		8F8F3B9323506D35007AC4FB /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		984559EF5930C57CB529DF73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

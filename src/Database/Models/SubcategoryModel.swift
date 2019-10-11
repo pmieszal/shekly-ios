@@ -59,4 +59,3 @@ public class SubcategoryModel: DatabaseModel<Subcategory> {
         return entity
     }
 }
-

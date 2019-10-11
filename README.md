@@ -27,7 +27,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [x] get rid of Rx
 - [x] ~~propably get rid of generic SheklyViewController, since it really affects code readability (can't implement protocols in extensions)~~ actually Swift 5 solves this problem 🎉
 - [ ] use Swinject for DI instead of current factories
-- [ ] introduce SwiftLint
+- [x] introduce SwiftLint
 - [x] code style: remove redundant `self.` calls
 
 ## Author

@@ -97,4 +97,3 @@ public class WalletEntryModel: DatabaseModel<WalletEntry> {
         return entity
     }
 }
-

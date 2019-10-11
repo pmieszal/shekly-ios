@@ -28,7 +28,7 @@ public class DatabaseEntity: NSManagedObject, ConfigurableEntity {
         self.created = Date()
     }
     
-    func set<TModel>(withModel model: TModel) where TModel : DatabaseEntry {
+    func set<TModel>(withModel model: TModel) where TModel: DatabaseEntry {
         preconditionFailure("Override in subclass")
     }
     
@@ -36,8 +36,8 @@ public class DatabaseEntity: NSManagedObject, ConfigurableEntity {
         let request: NSFetchRequest<NSFetchRequestResult> = TEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id = %@", id)
         
+        //swiftlint:disable:next force_cast
         return request as! NSFetchRequest<TEntity>
     }
     
 }
-

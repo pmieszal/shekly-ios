@@ -31,8 +31,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             
             if let id = model.id, let fetchedEntity: Entity = self.entity(byId: id) {
                 entity = fetchedEntity
-            }
-            else {
+            } else {
                 entity = Entity(context: context)
             }
             
@@ -42,8 +41,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             let savedModel = Model(entity: entitySaved)
             
             return savedModel
-        }
-        catch let error {
+        } catch let error {
             log.error(error)
             
             return model
@@ -51,7 +49,9 @@ class EntityGroup<TModel: DatabaseEntry> {
     }
     
     func delete(model: Model) -> Bool {
-        guard let id = model.id, let fetchedEntity: Entity = entity(byId: id) else { return false }
+        guard let id = model.id, let fetchedEntity: Entity = entity(byId: id) else {
+            return false
+        }
         
         let context: NSManagedObjectContext = store.viewContext
         context.delete(fetchedEntity)
@@ -60,8 +60,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             try context.save()
             
             return true
-        }
-        catch let error {
+        } catch let error {
             log.error(error)
             
             return false
@@ -71,6 +70,7 @@ class EntityGroup<TModel: DatabaseEntry> {
     func list() -> [Model] {
         let request: NSFetchRequest<NSFetchRequestResult> = Entity.fetchRequest()
         
+        //swiftlint:disable:next force_cast
         return execute(request: request as! NSFetchRequest<Entity>)
     }
     
@@ -78,11 +78,12 @@ class EntityGroup<TModel: DatabaseEntry> {
         let request = Entity.fetchRequest(forId: id)
         
         do {
-            let result: [Entity] = try store.viewContext.fetch(request) as! [Entity]
+            guard let result: [Entity] = try store.viewContext.fetch(request) as? [Entity] else {
+                return nil
+            }
             
             return result.first
-        }
-        catch let error {
+        } catch let error {
             log.error(error)
             
             return nil
@@ -101,8 +102,7 @@ class EntityGroup<TModel: DatabaseEntry> {
             }
             
             return mapped
-        }
-        catch let error {
+        } catch let error {
             log.error(error)
             
             return []

@@ -24,15 +24,15 @@ class WalletTokenFieldInputHelper {
             let newText = action.currentText + action.stringChange
             
             tokenType = SheklyTokenType(token: newText, formatter: formatter)
-        }
-        else {
+        } else {
             tokenType = SheklyTokenType(token: action.stringChange, formatter: formatter)
         }
         
-        if action.stringChange == "", action.currentText.count == 1 {
+        if action.stringChange.isEmpty == true,
+            action.currentText.count == 1 {
             decisionHandler(.setTwitterKeyboardType)
-        }
-        else if tokenType != .number, action.keyboardType == .twitter {
+        } else if tokenType != .number,
+            action.keyboardType == .twitter {
             decisionHandler(.setDefaultKeyboardType)
         }
     }

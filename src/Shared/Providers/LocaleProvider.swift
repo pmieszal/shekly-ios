@@ -14,12 +14,10 @@ public class LocaleProvider {
         
         let preferredLanguages: [String] = Locale.preferredLanguages
         
-        for lang in preferredLanguages {
-            if lang.count > 2 {
-                let locale: Locale = Locale(identifier: lang)
-                
-                return locale
-            }
+        for lang in preferredLanguages where lang.count > 2 {
+            let locale: Locale = Locale(identifier: lang)
+            
+            return locale
         }
         
         return Locale.current

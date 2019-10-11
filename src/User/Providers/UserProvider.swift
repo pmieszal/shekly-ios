@@ -27,22 +27,20 @@ extension Encodable {
 
 class UserProvider: UserManaging {
     
-    private struct Keys {
+    private enum Keys {
         static let user: String = "shekly::user"
     }
     
     private var user: StoredUserModel = {
         return StoredUserModel.restore(withKey: Keys.user)
-    }()
-    {
+    }() {
         didSet {
             do {
                 let data = try JSONEncoder().encode(user)
                 UserDefaults.standard.set(data, forKey: Keys.user)
                 log.info("Saving stored user")
                 log.debug(user.toJSONString())
-            }
-            catch let error {
+            } catch let error {
                 log.error(error)
             }
         }

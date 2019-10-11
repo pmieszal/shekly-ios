@@ -28,13 +28,15 @@ public class SheklyDataController {
         entryGroup = EntityGroup(store: store)
     }
     
-    //MARK: - Public functions
+    // MARK: - Public functions
     public func getWallets() -> [WalletModel] {
         return walletGroup.list()
     }
     
     public func getCategories(forWallet wallet: WalletModel) -> [CategoryModel] {
-        guard let walletId = wallet.id else { return [] }
+        guard let walletId = wallet.id else {
+            return []
+        }
         
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "wallet.id", walletId)
@@ -45,7 +47,9 @@ public class SheklyDataController {
     }
     
     public func getSubcategories(forCategory category: CategoryModel) -> [SubcategoryModel] {
-        guard let categoryId = category.id else { return [] }
+        guard let categoryId = category.id else {
+            return []
+        }
         
         let request: NSFetchRequest<Subcategory> = Subcategory.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "category.id", categoryId)
@@ -56,7 +60,9 @@ public class SheklyDataController {
     }
     
     public func getWalletEntries(forWallet wallet: WalletModel) -> [WalletEntryModel] {
-        guard let walletId = wallet.id else { return [] }
+        guard let walletId = wallet.id else {
+            return []
+        }
         
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", [#keyPath(WalletEntry.wallet.id), walletId])
@@ -67,13 +73,21 @@ public class SheklyDataController {
     }
     
     public func getWalletEntries(forWallet wallet: WalletModel, date: Date) -> [WalletEntryModel] {
-        guard let walletId = wallet.id else { return [] }
+        guard let walletId = wallet.id else {
+            return []
+        }
         
         let from: Date = date.dateAtStartOf(.month)
         let to: Date = date.dateAtEndOf(.month)
         
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
-        request.predicate = NSPredicate(format: "%K == %@ AND %K BETWEEN {%@, %@}", argumentArray: [#keyPath(WalletEntry.wallet.id), walletId, #keyPath(WalletEntry.date), from, to])
+        request.predicate = NSPredicate(format: "%K == %@ AND %K BETWEEN {%@, %@}",
+                                        argumentArray: [
+                                            #keyPath(WalletEntry.wallet.id),
+                                            walletId, #keyPath(WalletEntry.date),
+                                            from,
+                                            to
+        ])
         
         let entries: [WalletEntryModel] = entryGroup.execute(request: request)
         
@@ -81,7 +95,9 @@ public class SheklyDataController {
     }
     
     public func getWalletEntries(forCategory category: CategoryModel) -> [WalletEntryModel] {
-        guard let categoryId = category.id else { return [] }
+        guard let categoryId = category.id else {
+            return []
+        }
         
         let request: NSFetchRequest<WalletEntry> = WalletEntry.fetchRequest()
         request.predicate = NSPredicate(format: "%K == %@", "category.id", categoryId)
@@ -115,7 +131,7 @@ public class SheklyDataController {
         return success
     }
     
-    //MARK: - Internal functions
+    // MARK: - Internal functions
     func save(category: CategoryModel) -> CategoryModel {
         return categoryGroup.save(model: category)
     }

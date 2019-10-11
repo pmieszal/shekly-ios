@@ -39,5 +39,3 @@ class GradientMaskView: UIView {
         layer.mask = gradient
     }
 }
-
-

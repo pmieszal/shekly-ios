@@ -4,12 +4,14 @@ PODS:
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
   - SwiftDate (6.1.0)
+  - SwiftLint (0.35.0)
   - SwiftyBeaver (1.8.2)
 
 DEPENDENCIES:
   - DynamicColor (= 4.2.0)
   - R.swift (= 5.0.3)
   - SwiftDate (= 6.1.0)
+  - SwiftLint (= 0.35.0)
   - SwiftyBeaver (= 1.8.2)
 
 SPEC REPOS:
@@ -18,6 +20,7 @@ SPEC REPOS:
     - R.swift
     - R.swift.Library
     - SwiftDate
+    - SwiftLint
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
@@ -25,8 +28,9 @@ SPEC CHECKSUMS:
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
 
-PODFILE CHECKSUM: 9772bbd5181d479e279c8b167cca82341cf861be
+PODFILE CHECKSUM: 79fbb7f5d506e4f580183f988988cad189a6aeb0
 
 COCOAPODS: 1.8.3

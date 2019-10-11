@@ -42,7 +42,6 @@ extension WalletViewController: SheklyMonthCollectionViewDelegate {
     }
 }
 
-
 extension WalletViewController: WalletCollectionViewDataSource {
     func numberOfWalletItems() -> Int {
         return viewModel.numberOfWalletItems()
@@ -64,7 +63,9 @@ extension WalletViewController: WalletCollectionViewDelegate {
         alert.addTextField()
         
         let addAction = UIAlertAction(title: "Dodaj", style: .default) { [weak self] (_) in
-            guard let name = alert.textFields?.first?.text else { return }
+            guard let name = alert.textFields?.first?.text else {
+            return
+        }
             
             self?.viewModel.addWallet(named: name)
         }
@@ -93,7 +94,8 @@ extension WalletViewController: UITableViewDataSource {
         
         switch model {
         case let model as SheklyWalletEntryModel:
-            guard let cell: WalletEntryCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell, for: indexPath) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
+                                                           for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
             cell.model = model
@@ -101,7 +103,8 @@ extension WalletViewController: UITableViewDataSource {
             return cell
             
         case is SheklyEntryEmptyModel:
-            guard let cell: SheklyWalletEntryEmptyCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell, for: indexPath) else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell,
+                                                           for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
             
@@ -116,8 +119,7 @@ extension WalletViewController: UITableViewDataSource {
 
 extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] (action, view, completion) in
-            
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] (_, _, completion) in
             let alertInput = AlertControllerInput(title: "Czy na pewno chcesz usunąć wpis?", message: nil, style: .actionSheet)
             let actions: [UIAlertAction] = .defaultDeleteActions(okHandler: { [unowned self] (_) in
                 let success = self.viewModel.deleteEntry(atIndexPath: indexPath)

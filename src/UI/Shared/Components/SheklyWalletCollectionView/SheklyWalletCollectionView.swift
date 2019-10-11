@@ -10,13 +10,13 @@ import UIKit
 import Domain
 import Shared
 
-protocol WalletCollectionViewDataSource: class {
+protocol WalletCollectionViewDataSource: AnyObject {
     func numberOfWalletItems() -> Int
     func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel
 }
 
 @objc
-protocol WalletCollectionViewDelegate: class {
+protocol WalletCollectionViewDelegate: AnyObject {
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath)
     func walletCollectionDidTapAdd()
 }
@@ -126,8 +126,9 @@ extension SheklyWalletCollectionView: UICollectionViewDataSource {
 }
 
 extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
     

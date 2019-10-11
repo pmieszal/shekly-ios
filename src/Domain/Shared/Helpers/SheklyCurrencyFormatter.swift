@@ -21,7 +21,9 @@ class SheklyCurrencyFormatter {
     }
     
     func getCurrencyString(fromString string: String) -> String? {
-        guard let number = numberParser.getNumber(fromString: string) else { return nil }
+        guard let number = numberParser.getNumber(fromString: string) else {
+            return nil
+        }
         
         let nf = NumberFormatter()
         nf.locale = localeProvider.locale

@@ -36,6 +36,6 @@ public class SheklyCategoryModel: Hashable, Equatable {
     }
 }
 
-public func ==(lhs: SheklyCategoryModel, rhs: SheklyCategoryModel) -> Bool {
+public func == (lhs: SheklyCategoryModel, rhs: SheklyCategoryModel) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

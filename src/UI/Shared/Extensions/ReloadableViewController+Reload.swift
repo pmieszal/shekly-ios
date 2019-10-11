@@ -49,9 +49,7 @@ extension ReloadableViewController {
             for moved in changeSet.moved {
                 self?.reloadableView?.moveRow(at: moved.from, to: moved.to)
             }
-        }) { (completion) in
-            
-        }
+        }, completion: nil)
     }
     
     func reload(changeSet: ChangeSet, reloadableView: ReloadableView) {
@@ -64,8 +62,6 @@ extension ReloadableViewController {
             for moved in changeSet.moved {
                 reloadableView.moveRow(at: moved.from, to: moved.to)
             }
-        }) { (completion) in
-            
-        }
+        }, completion: nil)
     }
 }

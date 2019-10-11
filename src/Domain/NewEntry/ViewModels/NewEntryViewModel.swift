@@ -12,7 +12,7 @@ import User
 import Database
 import Shared
 
-public protocol NewEntryPresenter: class {
+public protocol NewEntryPresenter: AnyObject {
     func show(walletName: String?)
     func show(date: String?)
     func show(amount: String, color: UIColor)
@@ -24,12 +24,14 @@ public protocol NewEntryPresenter: class {
 
 public class NewEntryViewModel: SheklyViewModel {
     
-    //MARK: - Internal properties
+    // MARK: - Internal properties
     var entryType: WalletEntryType = .outcome
     
     var amountStringRaw: String = ""
     var amountString: String {
-        guard amountStringRaw.isEmpty == false else { return amountStringRaw }
+        guard amountStringRaw.isEmpty == false else {
+            return amountStringRaw
+        }
         
         if amountStringRaw.count < 2 {
             return "0.0" + amountStringRaw
@@ -48,7 +50,9 @@ public class NewEntryViewModel: SheklyViewModel {
     var amountWithCurrency: String? {
         let amount: String = amountString.isEmpty ? "0" : amountString
         
-        guard let formattedAmount = currencyFormatter.getCurrencyString(fromString: amount) else { return nil }
+        guard let formattedAmount = currencyFormatter.getCurrencyString(fromString: amount) else {
+            return nil
+        }
         
         return entryType.textPrefix + " " + formattedAmount
     }
@@ -71,13 +75,13 @@ public class NewEntryViewModel: SheklyViewModel {
     
     var wallet: WalletModel?
     
-    //MARK: - Private properties
+    // MARK: - Private properties
     private weak var presenter: NewEntryPresenter?
     private let dataController: SheklyDataController
     private let currencyFormatter: SheklyCurrencyFormatter
     private let differ: Differ
     
-    //MARK: - Constructor
+    // MARK: - Constructor
     init(
         presenter: NewEntryPresenter,
         dataController: SheklyDataController,
@@ -115,7 +119,9 @@ public class NewEntryViewModel: SheklyViewModel {
     }
     
     public func didSelectSegmentedControl(itemAtIndex index: Int) {
-        guard let entryType = WalletEntryType(rawValue: Int16(index)) else { return }
+        guard let entryType = WalletEntryType(rawValue: Int16(index)) else {
+            return
+        }
         
         self.entryType = entryType
         reloadAmount()
@@ -125,8 +131,7 @@ public class NewEntryViewModel: SheklyViewModel {
         
         if range.length > 0, amountStringRaw.isEmpty == false {
             amountStringRaw.removeLast()
-        }
-        else if range.length == 0 {
+        } else if range.length == 0 {
             amountStringRaw.append(string)
         }
         
@@ -186,7 +191,14 @@ public class NewEntryViewModel: SheklyViewModel {
                 return
         }
         
-        let entry = WalletEntryModel(amount: amount, date: date, text: comment, type: entryType, wallet: wallet, category: selectedCategory, subcategory: selectedSubcategory, properties: nil)
+        let entry = WalletEntryModel(amount: amount,
+                                     date: date,
+                                     text: comment,
+                                     type: entryType,
+                                     wallet: wallet,
+                                     category: selectedCategory,
+                                     subcategory: selectedSubcategory,
+                                     properties: nil)
         
         dataController.save(entry: entry)
         presenter?.dismiss()
@@ -207,10 +219,12 @@ extension NewEntryViewModel: DatePickerDelegate {
     }
 }
 
-//MARK: - Internal methods
+// MARK: - Internal methods
 extension NewEntryViewModel {
     func reloadCategories() {
-        guard let wallet = self.wallet else { return }
+        guard let wallet = self.wallet else {
+            return
+        }
         
         let categories = dataController.getCategories(forWallet: wallet)
         

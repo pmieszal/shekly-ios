@@ -17,11 +17,11 @@ public protocol WalletPresenter: ReloadablePresenter {
 
 public final class WalletViewModel: SheklyViewModel {
     
-    //MARK: - Internal properties
+    // MARK: - Internal properties
     var selectedMonthDate: Date?
     var selectedWallet: SheklyWalletModel?
     
-    //MARK: - Private properties
+    // MARK: - Private properties
     private var wallets: [SheklyWalletModel] = []
     private var entries: [SheklyWalletEntryModel] = []
     
@@ -31,7 +31,7 @@ public final class WalletViewModel: SheklyViewModel {
     private let differ: Differ
     private let userProvider: UserManaging
     
-    //MARK: - Constructor
+    // MARK: - Constructor
     init(
         presenter: WalletPresenter,
         dataController: SheklyDataController,
@@ -55,7 +55,7 @@ public final class WalletViewModel: SheklyViewModel {
         super.init()
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
     public override func viewDidAppear() {
         reloadEntries()
         reloadWallets()
@@ -77,7 +77,9 @@ public final class WalletViewModel: SheklyViewModel {
     public func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
         let wallet = wallets[indexPath.row]
         
-        guard wallet.isEmpty == false else { return }
+        guard wallet.isEmpty == false else {
+            return
+        }
         
         selectedWallet = wallet
         userProvider.set(wallet: wallet.id)
@@ -86,7 +88,9 @@ public final class WalletViewModel: SheklyViewModel {
     
     public func numberOfEntries() -> Int {
         let count = entries.count
-        guard count > 0 else { return 1 }
+        guard count > 0 else {
+            return 1
+        }
         
         return count
     }
@@ -118,7 +122,7 @@ public final class WalletViewModel: SheklyViewModel {
     }
 }
 
-//MARK: - Internal methods
+// MARK: - Internal methods
 extension WalletViewModel {
     
     func reloadWallets() {
@@ -131,7 +135,9 @@ extension WalletViewModel {
     }
     
     func reloadEntries() {
-        guard let wallet = selectedWallet?.wallet, let date = selectedMonthDate else { return }
+        guard let wallet = selectedWallet?.wallet, let date = selectedMonthDate else {
+            return
+        }
         
         let entries: [WalletEntryModel] = dataController.getWalletEntries(forWallet: wallet, date: date)
         let entryModels: [SheklyWalletEntryModel] = entries
@@ -144,8 +150,7 @@ extension WalletViewModel {
             
         if entries.isEmpty == true {
             models = [SheklyEntryEmptyModel()]
-        }
-        else {
+        } else {
             models = entryModels
         }
         
@@ -153,8 +158,7 @@ extension WalletViewModel {
         
         if self.entries.isEmpty == true {
             oldState = [SheklyEntryEmptyModel()]
-        }
-        else {
+        } else {
             oldState = self.entries
         }
         
@@ -168,10 +172,13 @@ extension WalletViewModel {
 
 private extension Array where Element == WalletEntryModel {
     
-    func sorted() -> Array<Element> {
+    func sorted() -> [Element] {
         return self
             .sorted { (left, right) -> Bool in
-                guard let leftDate = left.date, let rightDate = right.date else { return false }
+                guard let leftDate = left.date,
+                    let rightDate = right.date else {
+                        return false
+                }
                 
                 return leftDate > rightDate
             }

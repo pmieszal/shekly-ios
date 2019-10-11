@@ -12,14 +12,14 @@ import Shared
 import Domain
 
 @objc
-protocol NewEntryRouter: class {
+protocol NewEntryRouter: AnyObject {
     func presentWalletListPopover(sourceButton: UIButton)
     func presentDatePickerPopover(sourceButton: UIButton)
 }
 
 class NewEntryViewController: SheklyViewController<NewEntryViewModel> {
     
-    private struct Constants {
+    private enum Constants {
         static let cellWidthOffset: CGFloat = 30
         static let cellHeight: CGFloat = 27
     }
@@ -122,7 +122,8 @@ extension NewEntryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: NewEntryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.newEntryCollectionCell, for: indexPath)!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.newEntryCollectionCell,
+                                                      for: indexPath)!
         
         switch collectionView {
         case ibCategoryCollectionView1:
@@ -191,7 +192,9 @@ extension NewEntryViewController: UICollectionViewDelegate {
 }
 
 extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let title: String
         
         switch collectionView {
@@ -231,8 +234,7 @@ extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
             let inset: CGFloat = abs(ibCategoryCollectionView2.contentSize.width - ibCategoryCollectionView1.contentSize.width)
             if ibCategoryCollectionView1.contentSize.width > ibCategoryCollectionView2.contentSize.width {
                 ibCategoryCollectionView2.contentInset.right = inset
-            }
-            else {
+            } else {
                 ibCategoryCollectionView1.contentInset.right = inset
             }
             
@@ -242,8 +244,7 @@ extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
             let inset: CGFloat = abs(ibCategoryCollectionView2.contentSize.width - ibCategoryCollectionView1.contentSize.width)
             if ibCategoryCollectionView1.contentSize.width > ibCategoryCollectionView2.contentSize.width {
                 ibCategoryCollectionView2.contentInset.right = inset
-            }
-            else {
+            } else {
                 ibCategoryCollectionView1.contentInset.right = inset
             }
             
@@ -253,8 +254,7 @@ extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
             let inset: CGFloat = abs(ibSubcategoryCollectionView2.contentSize.width - ibSubcategoryCollectionView1.contentSize.width)
             if ibSubcategoryCollectionView1.contentSize.width > ibSubcategoryCollectionView2.contentSize.width {
                 ibSubcategoryCollectionView2.contentInset.right = inset
-            }
-            else {
+            } else {
                 ibSubcategoryCollectionView1.contentInset.right = inset
             }
             
@@ -264,8 +264,7 @@ extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
             let inset: CGFloat = abs(ibSubcategoryCollectionView2.contentSize.width - ibSubcategoryCollectionView1.contentSize.width)
             if ibSubcategoryCollectionView1.contentSize.width > ibSubcategoryCollectionView2.contentSize.width {
                 ibSubcategoryCollectionView2.contentInset.right = inset
-            }
-            else {
+            } else {
                 ibSubcategoryCollectionView1.contentInset.right = inset
             }
             
@@ -276,7 +275,7 @@ extension NewEntryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension NewEntryViewController: UITextFieldDelegate {
-    //MARK: - UITextFieldDelegate
+    // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         

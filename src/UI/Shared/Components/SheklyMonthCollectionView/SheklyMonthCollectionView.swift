@@ -10,7 +10,7 @@ import UIKit
 import SwiftDate
 import DynamicColor
 
-protocol SheklyMonthCollectionViewDelegate: class {
+protocol SheklyMonthCollectionViewDelegate: AnyObject {
     func monthCollectionViewDidScroll(toDate date: Date)
 }
 
@@ -87,7 +87,8 @@ extension SheklyMonthCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: SheklyMonthCell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyMonthCell, for: indexPath) else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyMonthCell,
+                                                            for: indexPath) else {
             return UICollectionViewCell()
         }
         
@@ -131,8 +132,9 @@ extension SheklyMonthCollectionView: UICollectionViewDelegate {
 }
 
 extension SheklyMonthCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return SheklyMonthCell.size(forDate: dates[indexPath.row], inCollectionView: collectionView)
     }
 }
@@ -199,7 +201,9 @@ private extension SheklyMonthCollectionView {
         
         guard let firstCell = sorted.first,
             let indexPath = collectionView.indexPath(for: firstCell)
-            else { return nil }
+            else {
+            return nil
+        }
         
         if scroll == true {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

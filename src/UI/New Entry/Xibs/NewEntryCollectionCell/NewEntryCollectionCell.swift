@@ -50,8 +50,6 @@ class NewEntryCollectionCell: UICollectionViewCell {
         
         setupContentViewBorder()
     }
-    
-    
 }
 
 private extension NewEntryCollectionCell {

@@ -12,17 +12,17 @@ import Shared
 
 public class CategoryViewModel: SheklyViewModel {
     
-    //MARK: - Public properties
+    // MARK: - Public properties
     public private(set) var feed: [CategoryCellViewModel] = []
     
     public let categoryName: String
     
-    //MARK: - Internal properties
+    // MARK: - Internal properties
     let sheklyCategoryModel: SheklyCategoryModel
     let dataController: SheklyDataController
     let currencyFormatter: SheklyCurrencyFormatter
     
-    //MARK: - Constructor
+    // MARK: - Constructor
     init(
         category: SheklyCategoryModel,
         dataController: SheklyDataController,
@@ -35,7 +35,7 @@ public class CategoryViewModel: SheklyViewModel {
         self.categoryName = category.categoryText
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
     public override func viewWillAppear() {
         super.viewWillAppear()
         
@@ -43,14 +43,15 @@ public class CategoryViewModel: SheklyViewModel {
     }
 }
 
-//MARK: - Internal methods
+// MARK: - Internal methods
 extension CategoryViewModel {
     
     func reloadFeed() {
         let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: sheklyCategoryModel.category, formatter: currencyFormatter)
         
         let subcategories: [SubcategoryModel] = dataController.getSubcategories(forCategory: sheklyCategoryModel.category)
-        let subcategoriesVM: CategorySubcategoriesCellViewModel = CategorySubcategoriesCellViewModel(subcategories: subcategories, formatter: currencyFormatter)
+        let subcategoriesVM = CategorySubcategoriesCellViewModel(subcategories: subcategories,
+                                                                 formatter: currencyFormatter)
         
         let entries: [WalletEntryModel] = dataController.getWalletEntries(forCategory: sheklyCategoryModel.category)
         let entriesVMs: [CategoryCellViewModel] = entries

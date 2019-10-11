@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-public protocol ViewModel: class {
+public protocol ViewModel: AnyObject {
     
     func viewDidLoad()
     func viewWillAppear()

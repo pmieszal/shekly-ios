@@ -49,7 +49,10 @@ class GradientView: UIView {
     }
     
     func setup() {
-        let gradientLayer = layer as! CAGradientLayer
+        guard let gradientLayer = layer as? CAGradientLayer else {
+            return
+        }
+        
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint

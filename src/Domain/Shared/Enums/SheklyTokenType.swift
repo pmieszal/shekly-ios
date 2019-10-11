@@ -18,14 +18,11 @@ public enum SheklyTokenType: String {
     init(token: String, formatter: SheklyTokenFormatter) {
         if token.first == "#" {
             self = .hash
-        }
-        else if token.first == "@" {
+        } else if token.first == "@" {
             self = .at
-        }
-        else if formatter.getNumber(fromToken: token) != nil {
+        } else if formatter.getNumber(fromToken: token) != nil {
             self = .number
-        }
-        else {
+        } else {
             self = .comment
         }
     }

@@ -37,7 +37,9 @@ public class CategoryModel: DatabaseModel<Category> {
     }
     
     init?(category: Category?) {
-        guard let category = category else { return nil }
+        guard let category = category else {
+            return nil
+        }
         name = category.name
         walletId = category.wallet?.id
         subcategoryIds = category.subcategoriesSet.compactMap { $0.id }

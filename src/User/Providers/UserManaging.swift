@@ -9,7 +9,7 @@
 import Combine
 import Shared
 
-public protocol UserManaging: class {
+public protocol UserManaging: AnyObject {
     var token: String? { get }
     var selectedWalletId: String? { get }
     

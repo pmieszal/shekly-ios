@@ -12,8 +12,10 @@ import CoreData
 @objc(WalletEntry)
 public class WalletEntry: DatabaseEntity {
     
-    override func set<TModel>(withModel model: TModel) where TModel : DatabaseEntry {
-        let entry = model as! WalletEntryModel
+    override func set<TModel>(withModel model: TModel) where TModel: DatabaseEntry {
+        guard let entry = model as? WalletEntryModel else {
+            fatalError("This can't happen")
+        }
         
         amount = entry.amount
         date = entry.date

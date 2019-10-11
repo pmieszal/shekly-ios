@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DatePickerDelegate: class {
+public protocol DatePickerDelegate: AnyObject {
     func didPick(date: Date)
 }
 

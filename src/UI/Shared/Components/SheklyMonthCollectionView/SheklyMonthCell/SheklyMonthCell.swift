@@ -11,7 +11,7 @@ import SwiftDate
 
 import Shared
 
-private struct CellConsts {
+private enum CellConsts {
     static let font: UIFont = UIFont.systemFont(ofSize: 20, weight: .regular)
     static let defaultColor: UIColor = .white
     static let inactiveColor: UIColor = Colors.text1Color

@@ -8,7 +8,7 @@
 
 import CoreData
 
-protocol DatabaseEntry: class, Hashable {
+protocol DatabaseEntry: AnyObject, Hashable {
     
     associatedtype TEntity: DatabaseEntity
     

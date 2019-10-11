@@ -23,7 +23,6 @@ class SheklyTabBarController: UITabBarController {
         addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         addButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
-        
         return addButton
     }()
     

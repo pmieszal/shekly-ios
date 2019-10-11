@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol SHTokenFieldDataSource: class {
+public protocol SHTokenFieldDataSource: AnyObject {
     
     func numberOfTokensInTokenField(tokenField: SHTokenField) -> Int
     func tokenField(tokenField: SHTokenField, viewForTokenAtIndex index: Int) -> SHTokenView

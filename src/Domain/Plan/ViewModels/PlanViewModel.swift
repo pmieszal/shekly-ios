@@ -14,10 +14,10 @@ public final class PlanViewModel: SheklyViewModel {
     
     public typealias CategorySelectionHandler = (SheklyCategoryModel) -> Void
     
-    //MARK: - Public properties
+    // MARK: - Public properties
     public private(set) var categories: [SheklyCategoryModel] = []
     
-    //MARK: - Internal properties
+    // MARK: - Internal properties
     let dataController: SheklyDataController
     let tokenFormatter: SheklyTokenFormatter
     let userProvider: UserManaging
@@ -31,7 +31,7 @@ public final class PlanViewModel: SheklyViewModel {
         return selectedWallet ?? wallets.first
     }
     
-    //MARK: - Constructor
+    // MARK: - Constructor
     init(
         categorySelectionHandler: @escaping CategorySelectionHandler,
         dataController: SheklyDataController,
@@ -44,7 +44,7 @@ public final class PlanViewModel: SheklyViewModel {
         self.userProvider = userProvider
     }
     
-    //MARK: - Public methods
+    // MARK: - Public methods
     public override func viewWillAppear() {
         reload()
     }
@@ -54,11 +54,13 @@ public final class PlanViewModel: SheklyViewModel {
     }
 }
 
-//MARK: - Internal methods
+// MARK: - Internal methods
 extension PlanViewModel {
 
     func reload() {
-        guard let wallet = selectedWallet else { return }
+        guard let wallet = selectedWallet else {
+            return
+        }
         
         let categories: [CategoryModel] = dataController.getCategories(forWallet: wallet)
         

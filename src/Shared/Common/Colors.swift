@@ -8,8 +8,7 @@
 
 import DynamicColor
 
-public struct Colors {
-    
+public enum Colors {
     public static let brandColor: UIColor = UIColor(hex: 0x1D1D53)
     public static let brand2Color: UIColor = UIColor(hex: 0x292969)
     

@@ -47,4 +47,3 @@ public final class MainCoordinator: RxCoordinator {
 }
 
 private extension MainCoordinator { }
-
