@@ -9,7 +9,6 @@
 import SHTokenField
 
 class WalletTokenFieldInputHelper {
-    
     let formatter: SheklyTokenFormatter
     
     init(formatter: SheklyTokenFormatter) {
@@ -17,7 +16,6 @@ class WalletTokenFieldInputHelper {
     }
     
     func decideTokenPolicy(forTextFieldAction action: SHTextFieldAction, decisionHandler: ((SHTextFieldActionPolicy) -> ())) {
-        
         let tokenType: SheklyTokenType
         
         if action.currentText.count > 0 {

@@ -18,7 +18,6 @@ public protocol WalletListDelegate: AnyObject {
 }
 
 public class WalletListViewModel: SheklyViewModel {
-    
     // MARK: - Private properties
     private var wallets: [WalletModel]
     private weak var presenter: WalletListPresenter?

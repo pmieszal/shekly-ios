@@ -13,8 +13,5 @@ import Database
 import Shared
 
 public class CategorySubcategoriesCellViewModel: CategoryCellViewModel {
-    
-    init(subcategories: [SubcategoryModel], formatter: SheklyCurrencyFormatter) {
-        
-    }
+    init(subcategories: [SubcategoryModel], formatter: SheklyCurrencyFormatter) { }
 }

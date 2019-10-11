@@ -15,7 +15,6 @@ protocol SheklyMonthCollectionViewDelegate: AnyObject {
 }
 
 class SheklyMonthCollectionView: UIView {
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

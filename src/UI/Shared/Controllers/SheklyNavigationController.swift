@@ -10,7 +10,6 @@ import UIKit
 import Shared
 
 class SheklyNavigationController: UINavigationController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

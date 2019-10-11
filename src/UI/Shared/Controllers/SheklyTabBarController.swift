@@ -10,7 +10,6 @@ import UIKit
 import Shared
 
 class SheklyTabBarController: UITabBarController {
-    
     private lazy var addButton: UIButton = {
         let addButton = UIButton()
         
@@ -76,7 +75,6 @@ extension SheklyTabBarController: UITabBarControllerDelegate {
 }
 
 private extension SheklyTabBarController {
-    
     func setup() {
         tabBar.tintColor = .white
         tabBar.barTintColor = Colors.brandColor

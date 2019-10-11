@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftDate
-
 import Shared
 
 private enum CellConsts {
@@ -18,7 +17,6 @@ private enum CellConsts {
 }
 
 class SheklyMonthCell: UICollectionViewCell {
-    
     @IBOutlet private weak var ibMonthLabel: UILabel!
     
     var date: Date = Date() {

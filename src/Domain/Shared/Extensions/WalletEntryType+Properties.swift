@@ -10,7 +10,6 @@ import Shared
 import Database
 
 extension WalletEntryType {
-    
     var textColor: UIColor {
         switch self {
         case .outcome: return Colors.numberRed

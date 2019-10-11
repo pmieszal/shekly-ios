@@ -7,11 +7,9 @@
 //
 
 public protocol ViewModel: AnyObject {
-    
     func viewDidLoad()
     func viewWillAppear()
     func viewWillDisappear()
     func viewDidAppear()
     func viewDidDisappear()
-    
 }

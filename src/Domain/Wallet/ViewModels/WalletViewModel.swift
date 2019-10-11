@@ -16,7 +16,6 @@ public protocol WalletPresenter: ReloadablePresenter {
 }
 
 public final class WalletViewModel: SheklyViewModel {
-    
     // MARK: - Internal properties
     var selectedMonthDate: Date?
     var selectedWallet: SheklyWalletModel?
@@ -60,21 +59,24 @@ public final class WalletViewModel: SheklyViewModel {
         reloadEntries()
         reloadWallets()
     }
-    
-    public func monthCollectionViewDidScroll(toDate date: Date) {
+}
+
+// MARK: - Public methods
+public extension WalletViewModel {
+    func monthCollectionViewDidScroll(toDate date: Date) {
         selectedMonthDate = date
         reloadEntries()
     }
     
-    public func numberOfWalletItems() -> Int {
+    func numberOfWalletItems() -> Int {
         return wallets.count
     }
     
-    public func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
+    func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
         return wallets[indexPath.row]
     }
     
-    public func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
+    func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
         let wallet = wallets[indexPath.row]
         
         guard wallet.isEmpty == false else {
@@ -86,7 +88,7 @@ public final class WalletViewModel: SheklyViewModel {
         reloadEntries()
     }
     
-    public func numberOfEntries() -> Int {
+    func numberOfEntries() -> Int {
         let count = entries.count
         guard count > 0 else {
             return 1
@@ -95,13 +97,13 @@ public final class WalletViewModel: SheklyViewModel {
         return count
     }
     
-    public func entryModel(forIndexPath indexPath: IndexPath) -> SheklyEntryModel {
+    func entryModel(forIndexPath indexPath: IndexPath) -> SheklyEntryModel {
         let model: SheklyEntryModel? = entries[safe: indexPath.row]
         
         return model ?? SheklyEntryEmptyModel()
     }
     
-    public func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool {
+    func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool {
         let entries: [WalletEntryModel] = self.entries.map { $0.entry }
         let entry: WalletEntryModel = entries[indexPath.row]
         
@@ -112,7 +114,7 @@ public final class WalletViewModel: SheklyViewModel {
         return success
     }
     
-    public func addWallet(named name: String) {
+    func addWallet(named name: String) {
         let wallet: WalletModel = WalletModel(name: name, properties: nil)
         let savedWallet: WalletModel = dataController.save(wallet: wallet)
         
@@ -124,7 +126,6 @@ public final class WalletViewModel: SheklyViewModel {
 
 // MARK: - Internal methods
 extension WalletViewModel {
-    
     func reloadWallets() {
         let wallets: [SheklyWalletModel] = dataController.getWallets().map(SheklyWalletModel.init)
         let emptyModel = SheklyWalletModel(wallet: nil)
@@ -171,7 +172,6 @@ extension WalletViewModel {
 }
 
 private extension Array where Element == WalletEntryModel {
-    
     func sorted() -> [Element] {
         return self
             .sorted { (left, right) -> Bool in

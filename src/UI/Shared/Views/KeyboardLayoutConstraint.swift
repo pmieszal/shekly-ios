@@ -9,7 +9,6 @@
 import UIKit
 
 class KeyboardLayoutConstraint: NSLayoutConstraint {
-    
     private var offset: CGFloat = 0
     private var keyboardVisibleHeight: CGFloat = 0
     

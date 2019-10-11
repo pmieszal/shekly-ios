@@ -610,6 +610,8 @@
 		8F1E01D5220722C500EC1A36 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8F8F3B9923507BFD007AC4FB /* Main */,
+				8F8F3B9823507BEB007AC4FB /* Tab */,
 				8F359BD22240212D00C2603E /* New Entry */,
 				8F1EAD60222589920095AA10 /* Category */,
 				8FDC4E522215A615005206C3 /* Plan */,
@@ -680,7 +682,6 @@
 		8F1E021B2207291D00EC1A36 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				8F9BAFB3225644AC0017F431 /* Helpers */,
 				8F359BCD2240180300C2603E /* Bootstraps */,
 				8F1E027822074AD600EC1A36 /* Components */,
 				8F1E025A22072C6200EC1A36 /* Controllers */,
@@ -688,7 +689,6 @@
 				8F1E021F2207294500EC1A36 /* Extensions */,
 				8F1E021A2207290900EC1A36 /* Resources */,
 				8F1E021E2207294000EC1A36 /* Views */,
-				8F996B77224158D500A2C44A /* Xibs */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -708,9 +708,9 @@
 		8F1E021F2207294500EC1A36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8F359BC72240068D00C2603E /* UIView+Corners.swift */,
-				8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */,
 				8F9BAFB62256473E0017F431 /* ReloadableViewController+Reload.swift */,
+				8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */,
+				8F359BC72240068D00C2603E /* UIView+Corners.swift */,
 				8F3C1EB02257A63E008C29EE /* UIViewController+KeyboardDismiss.swift */,
 				8FF3E495225A61E700A88238 /* UIViewController+Popover.swift */,
 			);
@@ -720,8 +720,6 @@
 		8F1E0220220729F500EC1A36 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				8F1E022122072A0100EC1A36 /* MainCoordinator.swift */,
-				8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */,
 				8FA92220234FA4EF006B70CC /* RxMVVMC.swift */,
 			);
 			path = Coordinators;
@@ -807,42 +805,19 @@
 		8F1E026422072F1300EC1A36 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				8F1E026522072F3F00EC1A36 /* Controllers */,
-				8FDC4E582215A640005206C3 /* Coordinators */,
-				8F1E0268220730DB00EC1A36 /* Storyboards */,
-				8F1E026F220733EE00EC1A36 /* Views */,
-				8F1E02802207559A00EC1A36 /* Xibs */,
-			);
-			path = Wallet;
-			sourceTree = "<group>";
-		};
-		8F1E026522072F3F00EC1A36 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
+				8FEAD6F6225686500022325E /* WalletEntryCell */,
+				8F8F3B9723507BBA007AC4FB /* WalletHeaderView */,
 				8F1E026622072F5100EC1A36 /* WalletViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8F1E0268220730DB00EC1A36 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
+				8FDC4E502215A397005206C3 /* WalletCoordinator.swift */,
 				8F1E0269220730EB00EC1A36 /* Wallet.storyboard */,
 			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		8F1E026F220733EE00EC1A36 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8F996B752241322A00A2C44A /* WalletHeaderView.swift */,
-			);
-			path = Views;
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		8F1E027822074AD600EC1A36 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8FEAD6EF2256820E0022325E /* SheklyWalletEntryEmptyCell */,
 				8FD1EE44224407AA000DEEC8 /* SheklyMonthCollectionView */,
 				8FD1EE45224407BF000DEEC8 /* SheklyWalletCollectionView */,
 				8FF3E48B225A5D8400A88238 /* DatePicker */,
@@ -867,66 +842,16 @@
 			path = TokenField;
 			sourceTree = "<group>";
 		};
-		8F1E02802207559A00EC1A36 /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-				8FEAD6F6225686500022325E /* WalletEntryCell */,
-			);
-			path = Xibs;
-			sourceTree = "<group>";
-		};
 		8F1EAD60222589920095AA10 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				8F1EAD61222589B30095AA10 /* Controllers */,
-				8F1EAD63222589C30095AA10 /* Coordinators */,
-				8F1EAD62222589B90095AA10 /* Storyboards */,
-				8F1EAD64222589D30095AA10 /* Views */,
-				8F1EAD65222589D80095AA10 /* Xibs */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		8F1EAD61222589B30095AA10 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
+				8F8F3B9523507B82007AC4FB /* CategorySubcategoriesCell */,
+				8F8F3B9423507B79007AC4FB /* CategoryHeaderCell */,
+				8F1EAD6622258B770095AA10 /* Category.storyboard */,
+				8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */,
 				8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8F1EAD62222589B90095AA10 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				8F1EAD6622258B770095AA10 /* Category.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		8F1EAD63222589C30095AA10 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		8F1EAD64222589D30095AA10 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */,
-				8F4138C9222B10100035002F /* CategorySubcategoriesCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8F1EAD65222589D80095AA10 /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-				8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */,
-				8F4138C7222B0F5D0035002F /* CategorySubcategoriesCell.xib */,
-			);
-			path = Xibs;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		8F1EAD6E222592D00095AA10 /* Category */ = {
@@ -971,14 +896,6 @@
 			children = (
 				8F1E025E22072CA300EC1A36 /* ViewModel.swift */,
 				8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8F1EAD732225930B0095AA10 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8FDC4E602215AA40005206C3 /* PlanViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1068,20 +985,11 @@
 		8F359BD22240212D00C2603E /* New Entry */ = {
 			isa = PBXGroup;
 			children = (
-				8F359BD32240213700C2603E /* Controllers */,
-				8F96D5E82247CD12008172D3 /* Storyboards */,
-				8F96D5EB2247D0F8008172D3 /* Views */,
-				8F96D5EC2247D103008172D3 /* Xibs */,
-			);
-			path = "New Entry";
-			sourceTree = "<group>";
-		};
-		8F359BD32240213700C2603E /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
+				8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */,
+				8F96D5E92247D036008172D3 /* NewEntry.storyboard */,
 				8F359BD42240214800C2603E /* NewEntryViewController.swift */,
 			);
-			path = Controllers;
+			path = "New Entry";
 			sourceTree = "<group>";
 		};
 		8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */ = {
@@ -1096,63 +1004,60 @@
 		8F3C1EB72257C9DC008C29EE /* NewEntry */ = {
 			isa = PBXGroup;
 			children = (
-				8F3C1EB92257CA2F008C29EE /* Models */,
-				8F3C1EB82257CA20008C29EE /* ViewModels */,
+				8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */,
 			);
 			path = NewEntry;
 			sourceTree = "<group>";
 		};
-		8F3C1EB82257CA20008C29EE /* ViewModels */ = {
+		8F8F3B9423507B79007AC4FB /* CategoryHeaderCell */ = {
 			isa = PBXGroup;
 			children = (
-				8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */,
+				8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */,
+				8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */,
 			);
-			path = ViewModels;
+			path = CategoryHeaderCell;
 			sourceTree = "<group>";
 		};
-		8F3C1EB92257CA2F008C29EE /* Models */ = {
+		8F8F3B9523507B82007AC4FB /* CategorySubcategoriesCell */ = {
 			isa = PBXGroup;
 			children = (
+				8F4138C9222B10100035002F /* CategorySubcategoriesCell.swift */,
+				8F4138C7222B0F5D0035002F /* CategorySubcategoriesCell.xib */,
 			);
-			path = Models;
+			path = CategorySubcategoriesCell;
 			sourceTree = "<group>";
 		};
-		8F96D5E82247CD12008172D3 /* Storyboards */ = {
+		8F8F3B9623507B96007AC4FB /* CategoryListCell */ = {
 			isa = PBXGroup;
 			children = (
-				8F96D5E92247D036008172D3 /* NewEntry.storyboard */,
+				8F3CCB582215F3AD00420C5A /* CategoryListCell.swift */,
+				8F3CCB562215F39400420C5A /* CategoryListCell.xib */,
 			);
-			path = Storyboards;
+			path = CategoryListCell;
 			sourceTree = "<group>";
 		};
-		8F96D5EB2247D0F8008172D3 /* Views */ = {
+		8F8F3B9723507BBA007AC4FB /* WalletHeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				8F996B752241322A00A2C44A /* WalletHeaderView.swift */,
 			);
-			path = Views;
+			path = WalletHeaderView;
 			sourceTree = "<group>";
 		};
-		8F96D5EC2247D103008172D3 /* Xibs */ = {
+		8F8F3B9823507BEB007AC4FB /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */,
+				8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */,
 			);
-			path = Xibs;
+			path = Tab;
 			sourceTree = "<group>";
 		};
-		8F996B77224158D500A2C44A /* Xibs */ = {
+		8F8F3B9923507BFD007AC4FB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8FEAD6EF2256820E0022325E /* SheklyWalletEntryEmptyCell */,
+				8F1E022122072A0100EC1A36 /* MainCoordinator.swift */,
 			);
-			path = Xibs;
-			sourceTree = "<group>";
-		};
-		8F9BAFB3225644AC0017F431 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8F9F6A3B2208812300AE7A0E /* Wallet */ = {
@@ -1239,14 +1144,6 @@
 			path = SheklyWalletCollectionView;
 			sourceTree = "<group>";
 		};
-		8FD40F38224555EC00FE3716 /* Differ */ = {
-			isa = PBXGroup;
-			children = (
-				8FD40F362245248300FE3716 /* Differ.swift */,
-			);
-			path = Differ;
-			sourceTree = "<group>";
-		};
 		8FDC4E42221574BE005206C3 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1258,7 +1155,7 @@
 		8FDC4E4722157616005206C3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8FD40F38224555EC00FE3716 /* Differ */,
+				8FD40F362245248300FE3716 /* Differ.swift */,
 				8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */,
 				8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */,
 				8F9BAFB42256458E0017F431 /* ReloadablePresenter.swift */,
@@ -1277,67 +1174,18 @@
 		8FDC4E522215A615005206C3 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				8FDC4E542215A627005206C3 /* Controllers */,
-				8FDC4E532215A61D005206C3 /* Coordinators */,
-				8FDC4E562215A631005206C3 /* Storyboards */,
-				8FDC4E552215A62C005206C3 /* Views */,
-				8FDC4E572215A636005206C3 /* Xibs */,
-			);
-			path = Plan;
-			sourceTree = "<group>";
-		};
-		8FDC4E532215A61D005206C3 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		8FDC4E542215A627005206C3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
+				8F8F3B9623507B96007AC4FB /* CategoryListCell */,
 				8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8FDC4E552215A62C005206C3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8F3CCB582215F3AD00420C5A /* CategoryListCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8FDC4E562215A631005206C3 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
+				8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */,
 				8FDC4E5B2215A726005206C3 /* Plan.storyboard */,
 			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		8FDC4E572215A636005206C3 /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-				8F3CCB562215F39400420C5A /* CategoryListCell.xib */,
-			);
-			path = Xibs;
-			sourceTree = "<group>";
-		};
-		8FDC4E582215A640005206C3 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8FDC4E502215A397005206C3 /* WalletCoordinator.swift */,
-			);
-			path = Coordinators;
+			path = Plan;
 			sourceTree = "<group>";
 		};
 		8FDC4E5F2215AA32005206C3 /* Plan */ = {
 			isa = PBXGroup;
 			children = (
-				8F1EAD732225930B0095AA10 /* ViewModels */,
+				8FDC4E602215AA40005206C3 /* PlanViewModel.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";

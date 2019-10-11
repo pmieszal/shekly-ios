@@ -10,7 +10,6 @@ import UIKit
 import Domain
 
 class WalletListViewController: SheklyViewController<WalletListViewModel> {
-
     @IBOutlet private weak var ibTableView: UITableView!
     
     override func viewDidLoad() {

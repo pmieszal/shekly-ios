@@ -10,7 +10,6 @@ import SwiftDate
 import Database
 
 public class SheklyCategoryModel: Hashable, Equatable {
-    
     public let categoryText: String
     public let subcategoriesText: String
     public let entriesText: String

@@ -9,7 +9,6 @@
 import UIKit
 
 class GradientMaskView: UIView {
-    
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         

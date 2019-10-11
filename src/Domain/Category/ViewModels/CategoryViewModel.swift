@@ -11,10 +11,8 @@ import Database
 import Shared
 
 public class CategoryViewModel: SheklyViewModel {
-    
     // MARK: - Public properties
     public private(set) var feed: [CategoryCellViewModel] = []
-    
     public let categoryName: String
     
     // MARK: - Internal properties
@@ -45,7 +43,6 @@ public class CategoryViewModel: SheklyViewModel {
 
 // MARK: - Internal methods
 extension CategoryViewModel {
-    
     func reloadFeed() {
         let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: sheklyCategoryModel.category, formatter: currencyFormatter)
         

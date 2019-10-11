@@ -10,7 +10,6 @@ import UIKit
 import Domain
 
 class DatePickerViewController: SheklyViewController<DatePickerViewModel> {
-
     @IBOutlet private weak var ibDatePicker: UIDatePicker!
     @IBOutlet private weak var ibOKButton: UIButton!
     

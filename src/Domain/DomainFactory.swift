@@ -11,7 +11,6 @@ import Database
 import Shared
 
 public struct DomainFactory {
-    
     let userFactory: UserFactory
     let databaseFactory: DatabaseFactory
     let sharedFactory: SharedFactory
@@ -25,13 +24,14 @@ public struct DomainFactory {
         self.databaseFactory = databaseFactory
         self.sharedFactory = sharedFactory
     }
-    
-    public func getEmptyViewModel() -> SheklyViewModel {
+}
+
+public extension DomainFactory {
+    func getEmptyViewModel() -> SheklyViewModel {
         return SheklyViewModel()
     }
     
-    public func getWalletViewModel(presenter: WalletPresenter) -> WalletViewModel {
-        
+    func getWalletViewModel(presenter: WalletPresenter) -> WalletViewModel {
         return WalletViewModel(
             presenter: presenter,
             dataController: databaseFactory.getDataController(),
@@ -40,7 +40,7 @@ public struct DomainFactory {
             userProvider: userFactory.getUserProvider())
     }
     
-    public func getPlanViewModel(categorySelectionHandler: @escaping PlanViewModel.CategorySelectionHandler) -> PlanViewModel {
+    func getPlanViewModel(categorySelectionHandler: @escaping PlanViewModel.CategorySelectionHandler) -> PlanViewModel {
         return PlanViewModel(
             categorySelectionHandler: categorySelectionHandler,
             dataController: databaseFactory.getDataController(),
@@ -48,14 +48,14 @@ public struct DomainFactory {
             userProvider: userFactory.getUserProvider())
     }
     
-    public func getCategoryViewModel(category: SheklyCategoryModel) -> CategoryViewModel {
+    func getCategoryViewModel(category: SheklyCategoryModel) -> CategoryViewModel {
         return CategoryViewModel(
             category: category,
             dataController: databaseFactory.getDataController(),
             currencyFormatter: getCurrencyFormatter())
     }
     
-    public func getNewEntryViewModel(presenter: NewEntryPresenter) -> NewEntryViewModel {
+    func getNewEntryViewModel(presenter: NewEntryPresenter) -> NewEntryViewModel {
         return NewEntryViewModel(
             presenter: presenter,
             dataController: databaseFactory.getDataController(),
@@ -64,7 +64,7 @@ public struct DomainFactory {
             userProvider: userFactory.getUserProvider())
     }
     
-    public func getWalletListViewModel(
+    func getWalletListViewModel(
         presenter: WalletListPresenter,
         delegate: WalletListDelegate) -> WalletListViewModel {
         return WalletListViewModel(
@@ -73,7 +73,7 @@ public struct DomainFactory {
             dataController: databaseFactory.getDataController())
     }
     
-    public func getDatePickerViewModel(delegate: DatePickerDelegate) -> DatePickerViewModel {
+    func getDatePickerViewModel(delegate: DatePickerDelegate) -> DatePickerViewModel {
         return DatePickerViewModel(delegate: delegate)
     }
 }

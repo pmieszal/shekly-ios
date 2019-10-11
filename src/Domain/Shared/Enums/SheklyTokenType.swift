@@ -9,7 +9,6 @@
 import Shared
 
 public enum SheklyTokenType: String {
-    
     case hash = "#"
     case at = "@"
     case comment = "shekly_comment"

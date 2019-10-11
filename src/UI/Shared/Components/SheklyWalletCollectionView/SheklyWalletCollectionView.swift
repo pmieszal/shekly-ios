@@ -22,7 +22,6 @@ protocol WalletCollectionViewDelegate: AnyObject {
 }
 
 class SheklyWalletCollectionView: UIView {
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -96,7 +95,6 @@ class SheklyWalletCollectionView: UIView {
 }
 
 extension SheklyWalletCollectionView: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

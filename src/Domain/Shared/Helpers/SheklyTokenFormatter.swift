@@ -11,7 +11,6 @@ import Foundation
 import Shared
 
 class SheklyTokenFormatter {
-    
     let localeProvider: LocaleProvider
     let numberParser: NumberParser
     

@@ -10,7 +10,6 @@ import Foundation
 import Database
 
 public struct WalletTokenModel {
-    
     public var label: String {
         return formatter.getLabel(fromToken: token, type: type)
     }

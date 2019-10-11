@@ -10,9 +10,7 @@ import UIKit
 import Shared
 
 public extension Bootstrap {
-    
     static func tabBarItemAppearance() {
-        
         let normalAtts: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10, weight: .regular),
             NSAttributedString.Key.foregroundColor: Colors.text1Color

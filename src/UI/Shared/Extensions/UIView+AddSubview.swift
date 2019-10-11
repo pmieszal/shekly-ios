@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIView {
-    
     func addSubviewWithMatchingConstraints(
         _ view: UIView,
         insets: UIEdgeInsets = .zero

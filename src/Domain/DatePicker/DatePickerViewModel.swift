@@ -13,8 +13,7 @@ public protocol DatePickerDelegate: AnyObject {
 }
 
 public class DatePickerViewModel: SheklyViewModel {
-    
-    private weak var delegate: DatePickerDelegate?
+    weak var delegate: DatePickerDelegate?
     
     init(delegate: DatePickerDelegate) {
         self.delegate = delegate

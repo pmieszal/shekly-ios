@@ -10,7 +10,6 @@ import UIKit
 import Shared
 
 class WalletListCell: UITableViewCell {
-    
     @IBOutlet weak var ibNameLabel: UILabel!
     
     override func awakeFromNib() {

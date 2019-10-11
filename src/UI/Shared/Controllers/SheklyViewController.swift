@@ -11,7 +11,6 @@ import Shared
 import Domain
 
 class SheklyViewController<TViewModel: ViewModel>: UIViewController {
-    
     private var factory: (() -> TViewModel)!
     private var _viewModel: TViewModel?
     
@@ -94,7 +93,6 @@ struct AlertControllerInput {
 }
 
 extension Array where Element == UIAlertAction {
-    
     static func defaultDeleteActions(okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)?) -> [Element] {
         
         let ok = UIAlertAction(title: "OK", style: .destructive, handler: okHandler)

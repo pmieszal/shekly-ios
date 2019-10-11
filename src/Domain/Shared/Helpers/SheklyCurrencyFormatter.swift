@@ -11,7 +11,6 @@ import Foundation
 import Shared
 
 class SheklyCurrencyFormatter {
-    
     let localeProvider: LocaleProvider
     let numberParser: NumberParser
     

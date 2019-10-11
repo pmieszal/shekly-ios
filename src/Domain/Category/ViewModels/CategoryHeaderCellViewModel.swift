@@ -11,7 +11,6 @@ import Database
 import Shared
 
 public class CategoryHeaderCellViewModel: CategoryCellViewModel {
-    
     public let name: String?
     public let amountText: String?
     

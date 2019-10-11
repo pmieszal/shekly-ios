@@ -9,7 +9,6 @@
 import UIKit
 
 class SheklyButton: UIButton {
-
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
