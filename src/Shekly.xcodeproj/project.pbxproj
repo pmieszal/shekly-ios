@@ -113,6 +113,7 @@
 		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
 		8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */; };
 		8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */; };
+		8F8F3B9F2350AE17007AC4FB /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */; };
 		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
 		8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96D5E92247D036008172D3 /* NewEntry.storyboard */; };
 		8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B752241322A00A2C44A /* WalletHeaderView.swift */; };
@@ -383,6 +384,7 @@
 		8F8F3B9123506D14007AC4FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
 		8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+forceResolve.swift"; sourceTree = "<group>"; };
+		8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
 		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
 		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 				8F1E024E22072BDD00EC1A36 /* Common */,
 				8F1E01F92207234F00EC1A36 /* Shared.h */,
 				8FDC4E442215757F005206C3 /* SharedFactory.swift */,
+				8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */,
 				8F1E01FA2207234F00EC1A36 /* Info.plist */,
 			);
 			path = Shared;
@@ -1943,6 +1946,7 @@
 			files = (
 				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
 				8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */,
+				8F8F3B9F2350AE17007AC4FB /* SharedAssembly.swift in Sources */,
 				8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */,
 				8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */,
 				8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */,
