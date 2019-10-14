@@ -64,6 +64,8 @@
 		8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */; };
 		8F1EAD7E222599680095AA10 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */; };
 		8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */; };
+		8F228A882354BCDD00E1E44E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A872354BCDD00E1E44E /* Router.swift */; };
+		8F228A8C2354BDE200E1E44E /* DependencyContainer+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A8B2354BDE200E1E44E /* DependencyContainer+forceResolve.swift */; };
 		8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */; };
 		8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */; };
 		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
@@ -111,11 +113,10 @@
 		8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */; };
 		8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83CA722260C6ED003464AB /* DatePicker.storyboard */; };
 		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
-		8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */; };
-		8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */; };
-		8F8F3B9F2350AE17007AC4FB /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */; };
-		8F8F3BA12350AF1D007AC4FB /* UserAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */; };
-		8F8F3BA32350AFC2007AC4FB /* DatabaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */; };
+		8F8F3B9B2350A5A6007AC4FB /* Domain+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */; };
+		8F8F3B9F2350AE17007AC4FB /* Shared+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */; };
+		8F8F3BA12350AF1D007AC4FB /* User+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA02350AF1D007AC4FB /* User+DI.swift */; };
+		8F8F3BA32350AFC2007AC4FB /* Database+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */; };
 		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
 		8F96D5EA2247D036008172D3 /* NewEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F96D5E92247D036008172D3 /* NewEntry.storyboard */; };
 		8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F996B752241322A00A2C44A /* WalletHeaderView.swift */; };
@@ -331,6 +332,8 @@
 		8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
 		8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
 		8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		8F228A872354BCDD00E1E44E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		8F228A8B2354BDE200E1E44E /* DependencyContainer+forceResolve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+forceResolve.swift"; sourceTree = "<group>"; };
 		8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Subcategory+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/WalletEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -384,11 +387,10 @@
 		8F83CA742260C703003464AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		8F8F3B8F2350693F007AC4FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8F8F3B9123506D14007AC4FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainAssembly.swift; sourceTree = "<group>"; };
-		8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+forceResolve.swift"; sourceTree = "<group>"; };
-		8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
-		8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssembly.swift; sourceTree = "<group>"; };
-		8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAssembly.swift; sourceTree = "<group>"; };
+		8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain+DI.swift"; sourceTree = "<group>"; };
+		8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+DI.swift"; sourceTree = "<group>"; };
+		8F8F3BA02350AF1D007AC4FB /* User+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+DI.swift"; sourceTree = "<group>"; };
+		8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+DI.swift"; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
 		8F8F88402214A3710028375D /* WalletEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryCell.swift; sourceTree = "<group>"; };
 		8F96D5E92247D036008172D3 /* NewEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEntry.storyboard; sourceTree = "<group>"; };
@@ -645,7 +647,7 @@
 				8FF3E492225A5EED00A88238 /* WalletList */,
 				8F1E025D22072CA300EC1A36 /* Shared */,
 				8F1E025822072C3300EC1A36 /* DomainFactory.swift */,
-				8F8F3B9A2350A5A6007AC4FB /* DomainAssembly.swift */,
+				8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */,
 				8F1E01E82207231200EC1A36 /* Domain.h */,
 				8F1E01E92207231200EC1A36 /* Info.plist */,
 			);
@@ -660,7 +662,7 @@
 				8F1E024E22072BDD00EC1A36 /* Common */,
 				8F1E01F92207234F00EC1A36 /* Shared.h */,
 				8FDC4E442215757F005206C3 /* SharedFactory.swift */,
-				8F8F3B9E2350AE17007AC4FB /* SharedAssembly.swift */,
+				8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */,
 				8F1E01FA2207234F00EC1A36 /* Info.plist */,
 			);
 			path = Shared;
@@ -677,7 +679,7 @@
 				8F22962B220DF0DE00DE5AF7 /* Entities */,
 				8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */,
 				8FDF238F221441E300F46591 /* DatabaseFactory.swift */,
-				8F8F3BA22350AFC2007AC4FB /* DatabaseAssembly.swift */,
+				8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */,
 				8F1E020A220727AB00EC1A36 /* Database.h */,
 				8F1E020B220727AB00EC1A36 /* Info.plist */,
 			);
@@ -695,6 +697,7 @@
 		8F1E021B2207291D00EC1A36 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8F228A862354BCD200E1E44E /* Router */,
 				8F359BCD2240180300C2603E /* Bootstraps */,
 				8F1E027822074AD600EC1A36 /* Components */,
 				8F1E025A22072C6200EC1A36 /* Controllers */,
@@ -746,7 +749,7 @@
 				8F1E023C22072AA900EC1A36 /* Models */,
 				8F1E023922072AA900EC1A36 /* Providers */,
 				8F1E023E22072AA900EC1A36 /* UserFactory.swift */,
-				8F8F3BA02350AF1D007AC4FB /* UserAssembly.swift */,
+				8F8F3BA02350AF1D007AC4FB /* User+DI.swift */,
 				8F1E022A22072A2C00EC1A36 /* User.h */,
 				8F1E022B22072A2C00EC1A36 /* Info.plist */,
 			);
@@ -912,6 +915,14 @@
 				8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8F228A862354BCD200E1E44E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8F228A872354BCDD00E1E44E /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		8F22962B220DF0DE00DE5AF7 /* Entities */ = {
@@ -1180,8 +1191,8 @@
 		8FDC4E4A22157B56005206C3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8F228A8B2354BDE200E1E44E /* DependencyContainer+forceResolve.swift */,
 				8FDC4E4B22157B66005206C3 /* NumberParser.swift */,
-				8F8F3B9C2350AC38007AC4FB /* Resolver+forceResolve.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1868,6 +1879,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F228A882354BCDD00E1E44E /* Router.swift in Sources */,
 				8FDCD0F52242ABF400B235EC /* SheklyMonthCollectionView.swift in Sources */,
 				8F1E025C22072C7400EC1A36 /* SheklyViewController.swift in Sources */,
 				8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */,
@@ -1935,7 +1947,7 @@
 				8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */,
 				8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */,
 				8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */,
-				8F8F3B9B2350A5A6007AC4FB /* DomainAssembly.swift in Sources */,
+				8F8F3B9B2350A5A6007AC4FB /* Domain+DI.swift in Sources */,
 				8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */,
 				8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */,
 				8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */,
@@ -1952,9 +1964,9 @@
 			files = (
 				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
 				8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */,
-				8F8F3B9F2350AE17007AC4FB /* SharedAssembly.swift in Sources */,
-				8F8F3B9D2350AC38007AC4FB /* Resolver+forceResolve.swift in Sources */,
+				8F8F3B9F2350AE17007AC4FB /* Shared+DI.swift in Sources */,
 				8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */,
+				8F228A8C2354BDE200E1E44E /* DependencyContainer+forceResolve.swift in Sources */,
 				8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */,
 				8F9F6A432208AC5200AE7A0E /* Colors.swift in Sources */,
 			);
@@ -1970,7 +1982,7 @@
 				8F1E02162207282500EC1A36 /* SheklyDatabasePersistance.swift in Sources */,
 				8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */,
 				8F2FA355222AF89A00D3E1BB /* SheklyJSONDataController.swift in Sources */,
-				8F8F3BA32350AFC2007AC4FB /* DatabaseAssembly.swift in Sources */,
+				8F8F3BA32350AFC2007AC4FB /* Database+DI.swift in Sources */,
 				8F46830F221482140041F23B /* DatabaseEntry.swift in Sources */,
 				8F2FA357222AFF1900D3E1BB /* SheklyPresistentContainer.swift in Sources */,
 				8F50673F224673C100723C0B /* Wallet+CoreDataClass.swift in Sources */,
@@ -2000,7 +2012,7 @@
 				8F1E024922072B7B00EC1A36 /* UserProviderError.swift in Sources */,
 				8F1E024822072B7B00EC1A36 /* AuthorizationResult.swift in Sources */,
 				8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */,
-				8F8F3BA12350AF1D007AC4FB /* UserAssembly.swift in Sources */,
+				8F8F3BA12350AF1D007AC4FB /* User+DI.swift in Sources */,
 				8F1E024B22072B7B00EC1A36 /* UserProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,4 +1,5 @@
 PODS:
+  - Dip (7.0.1)
   - DynamicColor (4.2.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
@@ -6,35 +7,34 @@ PODS:
   - SwiftDate (6.1.0)
   - SwiftLint (0.35.0)
   - SwiftyBeaver (1.8.2)
-  - Swinject (2.7.1)
 
 DEPENDENCIES:
+  - Dip (= 7.0.1)
   - DynamicColor (= 4.2.0)
   - R.swift (= 5.0.3)
   - SwiftDate (= 6.1.0)
   - SwiftLint (= 0.35.0)
   - SwiftyBeaver (= 1.8.2)
-  - Swinject (= 2.7.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Dip
     - DynamicColor
     - R.swift
     - R.swift.Library
     - SwiftDate
     - SwiftLint
     - SwiftyBeaver
-    - Swinject
 
 SPEC CHECKSUMS:
+  Dip: 79509d5dc4f648e10e922ed79c608a7761c52b13
   DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   SwiftLint: 5553187048b900c91aa03552807681bb6b027846
   SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
-  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: fc5492a28b47793f32fa7eb95de3237b91c89d2f
+PODFILE CHECKSUM: 163513689f3dd781540f14494eddaba69e90e134
 
 COCOAPODS: 1.8.3
