@@ -13,7 +13,7 @@ def utilities
   pod 'SwiftDate', '6.1.0'
   pod 'DynamicColor', '4.2.0'
   pod 'SwiftLint', '0.35.0'
-  pod 'Swinject', '2.7.1'
+  pod 'Dip', '7.0.1'
 end
 
 target 'Shekly' do

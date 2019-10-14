@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Swinject
+import Dip
 
 import UI
 import Shared
@@ -21,28 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var mainCoordinator: MainCoordinator?
     
-    let assembler: Assembler = { assembler in
-        assembler.apply(assembly: DomainAssembly())
-        assembler.apply(assembly: SharedAssembly())
-        assembler.apply(assembly: UserAssembly())
-        assembler.apply(assembly: DatabaseAssembly())
-        
-        return assembler
-    }(Assembler())
+    let container = DependencyContainer()
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         
         Bootstrap.tabBarItemAppearance()
+        container.configureApp()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        let userFactory = UserFactory()
-        let databaseFactory = DatabaseFactory()
-        let sharedFactory = SharedFactory()
-        let viewModelFactory = DomainFactory(userFactory: userFactory, databaseFactory: databaseFactory, sharedFactory: sharedFactory)
-        
-        mainCoordinator = MainCoordinator(window: window, userFactory: userFactory, viewModelFactory: viewModelFactory)
+        mainCoordinator = container.forceResolve()
         mainCoordinator?.start()
         self.window = window
         
@@ -51,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let url = Bundle.main.url(forResource: "ExpensesJSON", withExtension: "shekly")!
             
-            let importer = databaseFactory.getSheklyJSONImporter()
+            let importer: SheklyJSONImporter = container.forceResolve()
             importer
                 .importData(fromJSONUrl: url) {
                     let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
@@ -70,5 +59,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+}
+
+private extension DependencyContainer {
+    func configureApp() {
+        //let uiContainer = DependencyContainer.configureUI() TODO: this
+        let domainContainer = DependencyContainer.configureDomain()
+        let databaseContainer = DependencyContainer.configureDatabase()
+        let userContainer = DependencyContainer.configureUser()
+        let sharedContainer = DependencyContainer.configureShared()
+        
+        collaborate(with: domainContainer, databaseContainer, userContainer, sharedContainer)
     }
 }
