@@ -12,13 +12,7 @@ import Domain
 class CategorySubcategoriesCell: UITableViewCell {
     @IBOutlet private weak var stackView: UIStackView!
 
-    var viewModel: CategorySubcategoriesCellViewModel! {
-        didSet {
-            initialize()
-        }
-    }
-    
-    private func initialize() {
+    func setup(with viewModel: CategorySubcategoriesCellViewModel) {
         stackView
             .arrangedSubviews
             .forEach { (view) in

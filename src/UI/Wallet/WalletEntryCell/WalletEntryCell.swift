@@ -16,13 +16,6 @@ class WalletEntryCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
     
-    //TODO: get rid of this
-    var model: SheklyWalletEntryModel! {
-        didSet {
-            initialize()
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -41,7 +34,7 @@ class WalletEntryCell: UITableViewCell {
         entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
     }
     
-    private func initialize() {
+    func setup(with model: SheklyWalletEntryModel) {
         entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
         
         categoryAndCommentLabel.text = model.categoryAndComment

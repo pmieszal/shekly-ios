@@ -62,7 +62,7 @@ extension CategoryViewController: UITableViewDataSource {
                                                            for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
-            cell.viewModel = viewModel
+            cell.setup(with: viewModel)
             
             return cell
             
@@ -71,7 +71,7 @@ extension CategoryViewController: UITableViewDataSource {
                                                            for: indexPath) else {
                 fatalError("Cell can't be nil")
             }
-            cell.model = model
+            cell.setup(with: model)
             
             return cell
             

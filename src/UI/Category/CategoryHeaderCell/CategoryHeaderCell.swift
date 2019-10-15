@@ -13,13 +13,10 @@ class CategoryHeaderCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
     
-    var viewModel: CategoryHeaderCellViewModel! {
-        didSet {
-            initialize()
-        }
-    }
+    var viewModel: CategoryHeaderCellViewModel?
     
-    private func initialize() {
+    func setup(with viewModel: CategoryHeaderCellViewModel) {
+        self.viewModel = viewModel
         nameLabel.text = viewModel.name
         amountLabel.text = viewModel.amountText
     }

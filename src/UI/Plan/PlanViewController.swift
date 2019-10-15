@@ -45,7 +45,7 @@ extension PlanViewController: UITableViewDataSource {
         }
         
         let model = viewModel.categories[indexPath.row]
-        cell.model = model
+        cell.setup(with: model)
         
         return cell
     }
