@@ -31,8 +31,8 @@ class SheklyButton: UIButton {
     @IBInspectable var rounded: Bool = false {
         didSet {
             guard rounded == true else {
-            return
-        }
+                return
+            }
             
             layer.cornerRadius = frame.height / 2
             clipsToBounds = true

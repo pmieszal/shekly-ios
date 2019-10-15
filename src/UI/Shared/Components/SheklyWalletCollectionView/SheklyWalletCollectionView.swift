@@ -115,7 +115,7 @@ extension SheklyWalletCollectionView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.model = model
+        cell.setup(with: model)
         cell.setAddButton(target: delegate, action: #selector(delegate?.walletCollectionDidTapAdd), for: .touchUpInside)
         
         return cell

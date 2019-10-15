@@ -25,12 +25,6 @@ class SheklyWalletCell: UICollectionViewCell {
     @IBOutlet private weak var emptyView: UIView!
     @IBOutlet private weak var addButton: UIButton!
     
-    var model: SheklyWalletModel! {
-        didSet {
-            initialize()
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -49,6 +43,13 @@ class SheklyWalletCell: UICollectionViewCell {
         layoutAddButton()
     }
     
+    func setup(with model: SheklyWalletModel) {
+        emptyView.isHidden = model.isEmpty == false
+        contentStackView.isHidden = model.isEmpty == true
+        
+        nameLabel.text = model.name
+    }
+    
     func setAddButton(target: Any?, action: Selector, for event: UIControl.Event) {
         addButton.addTarget(target, action: action, for: event)
     }
@@ -60,12 +61,5 @@ private extension SheklyWalletCell {
         addButton.layer.cornerRadius = addButton.frame.height / 2
         addButton.layer.borderColor = UIColor.white.cgColor
         addButton.layer.borderWidth = 1
-    }
-    
-    func initialize() {
-        emptyView.isHidden = model.isEmpty == false
-        contentStackView.isHidden = model.isEmpty == true
-        
-        nameLabel.text = model.name
     }
 }

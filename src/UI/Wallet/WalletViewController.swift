@@ -106,7 +106,7 @@ extension WalletViewController: UITableViewDataSource {
                                                            for: indexPath) else {
                                                             fatalError("Cell can't be nil")
             }
-            cell.model = model
+            cell.setup(with: model)
             
             return cell
         }
