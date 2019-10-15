@@ -9,15 +9,7 @@
 import Database
 import User
 
-public protocol WalletListPresenter: AnyObject {
-    func reloadList()
-}
-
-public protocol WalletListDelegate: AnyObject {
-    func didSelect(wallet: WalletModel)
-}
-
-public class WalletListViewModel: SheklyViewModel {
+public class WalletListViewModel: ViewModel {
     // MARK: - Private properties
     private var wallets: [WalletModel]
     private weak var presenter: WalletListPresenter?
@@ -32,13 +24,9 @@ public class WalletListViewModel: SheklyViewModel {
         self.wallets = dataController.getWallets()
         self.presenter = presenter
         self.delegate = delegate
-        
-        super.init()
     }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    public func viewDidLoad() {
         presenter?.reloadList()
     }
     

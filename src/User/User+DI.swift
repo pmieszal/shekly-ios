@@ -9,9 +9,11 @@
 import Dip
 
 public extension DependencyContainer {
-    static func configureUser() -> DependencyContainer {
-        return DependencyContainer { container in
-            container.register(.singleton, factory: { _ in UserProvider() as UserManaging })
-        }
+    func configureUser() -> DependencyContainer {
+        unowned let container = self
+        
+        container.register(.singleton, factory: { _ in UserProvider() as UserManaging })
+        
+        return container
     }
 }

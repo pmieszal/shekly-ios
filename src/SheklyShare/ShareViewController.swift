@@ -11,12 +11,13 @@ import Social
 import MobileCoreServices
 
 import Database
+import Dip
 
 class ShareViewController: SLComposeServiceViewController {
     
     private var fileUrl: URL?
     
-    private let importer = DatabaseFactory().getSheklyJSONImporter()
+    private let importer: SheklyJSONImporter = DependencyContainer.configureDatabase().forceResolve()
     
     override func viewDidLoad() {
         super.viewDidLoad()

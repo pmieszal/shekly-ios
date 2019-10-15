@@ -46,4 +46,12 @@ class SheklyCurrencyFormatter {
     func getCurrencyString(fromNumber number: Double) -> String? {
         return getCurrencyString(fromNumber: number as NSNumber)
     }
+    
+    func getCurrencyString(fromNumber number: Double?) -> String? {
+        guard let number = number else {
+            return nil
+        }
+        
+        return getCurrencyString(fromNumber: number)
+    }
 }

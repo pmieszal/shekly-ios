@@ -8,11 +8,7 @@
 
 import Foundation
 
-public protocol DatePickerDelegate: AnyObject {
-    func didPick(date: Date)
-}
-
-public class DatePickerViewModel: SheklyViewModel {
+public class DatePickerViewModel: ViewModel {
     weak var delegate: DatePickerDelegate?
     
     init(delegate: DatePickerDelegate) {

@@ -10,39 +10,62 @@ import SwiftDate
 
 import Database
 
-public class SheklyWalletEntryModel: SheklyEntryModel {
-    let entry: WalletEntryModel
+public class SheklyWalletEntryModel: Hashable {
+    public let categoryAndComment: String?
+    public let subcategory: String?
+    public let amount: String?
+    public let amountColor: UIColor?
+    public let dateString: String?
     
-    init(entry: WalletEntryModel, formatter: SheklyCurrencyFormatter) {
+    let id: String?
+    let entry: WalletEntryModel?
+    
+    init(entry: WalletEntryModel?, formatter: SheklyCurrencyFormatter) {
         self.entry = entry
         
         let categoryAndComment: String?
-        if let category = entry.category.name, let text = entry.text {
+        if let category = entry?.category.name, let text = entry?.text {
             categoryAndComment = category + " - " + text
         } else {
-            categoryAndComment = entry.category.name
+            categoryAndComment = entry?.category.name
         }
         
-        let subcategory: String? = entry.subcategory.name
+        let subcategory: String? = entry?.subcategory.name
         
-        let amount: String? = "\(entry.type.textPrefix) " + (formatter.getCurrencyString(fromNumber: entry.amount) ?? "")
+        let amount = entry?.type.textPrefix
+            .appending(" ")
+            .appending(formatter.getCurrencyString(fromNumber: entry?.amount) ?? "")
         
-        let date: Date? = entry.date
+        let date: Date? = entry?.date
         let dateString: String? =  date?.toString(DateToStringStyles.date(DateFormatter.Style.long))
         
-        super.init(categoryAndComment: categoryAndComment,
-                   subcategory: subcategory,
-                   amount: amount,
-                   amountColor: entry.type.textColor,
-                   dateString: dateString)
+        self.id = entry?.id
+        self.categoryAndComment = categoryAndComment
+        self.subcategory = subcategory
+        self.amount = amount
+        self.amountColor = entry?.type.textColor
+        self.dateString = dateString
     }
     
-    public override func hash(into hasher: inout Hasher) {
-        guard let id = entry.id else {
-            assertionFailure("Id can't be nil")
-            return
-        }
-        
-        hasher.combine(id)
+    init() {
+        categoryAndComment = nil
+        subcategory = nil
+        amount = nil
+        amountColor = nil
+        dateString = nil
+        id = nil
+        entry = nil
     }
+    
+    public func hash(into hasher: inout Hasher) {
+        if let id = id {
+            hasher.combine(id)
+        } else {
+            hasher.combine(NSUUID())
+        }
+    }
+}
+
+public func ==<T: SheklyWalletEntryModel>(lhs: T, rhs: T) -> Bool {
+    return lhs.hashValue == rhs.hashValue
 }

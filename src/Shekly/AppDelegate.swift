@@ -19,32 +19,29 @@ import Database
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var mainCoordinator: MainCoordinator?
+    var mainRouter: MainRouter?
     
-    let container = DependencyContainer()
+    let container = DependencyContainer.configureApp()
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         
         Bootstrap.tabBarItemAppearance()
-        container.configureApp()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        mainCoordinator = container.forceResolve()
-        mainCoordinator?.start()
+        let mainConfigurator: MainConfigurator = container.forceResolve()
+        mainRouter = mainConfigurator.configureMainModule(with: window)
         self.window = window
         
         //Temporary hack for database init on fresh install
         if UserDefaults.standard.string(forKey: "App.Version") == nil {
-            
             let url = Bundle.main.url(forResource: "ExpensesJSON", withExtension: "shekly")!
-            
             let importer: SheklyJSONImporter = container.forceResolve()
-            importer
-                .importData(fromJSONUrl: url) {
-                    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-                    UserDefaults.standard.set(version, forKey: "App.Version")
+            
+            importer.importData(fromJSONUrl: url) {
+                let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+                UserDefaults.standard.set(version, forKey: "App.Version")
             }
         }
         
@@ -63,13 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 private extension DependencyContainer {
-    func configureApp() {
-        //let uiContainer = DependencyContainer.configureUI() TODO: this
-        let domainContainer = DependencyContainer.configureDomain()
-        let databaseContainer = DependencyContainer.configureDatabase()
-        let userContainer = DependencyContainer.configureUser()
-        let sharedContainer = DependencyContainer.configureShared()
+    static func configureApp() -> DependencyContainer {
+        let container = DependencyContainer()
+            .configureUI()
+            .configureDomain()
+            .configureDatabase()
+            .configureUser()
+            .configureShared()
+
+        try? container.bootstrap()
         
-        collaborate(with: domainContainer, databaseContainer, userContainer, sharedContainer)
+        return container
     }
 }

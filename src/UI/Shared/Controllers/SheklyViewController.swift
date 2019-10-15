@@ -66,6 +66,31 @@ class SheklyViewController<TViewModel: ViewModel>: UIViewController {
         viewModel.viewDidDisappear()
     }
     
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        let presentationStyle = modalPresentationStyle
+        let presentingViewController = self.presentingViewController
+        
+        //Workaround for new iOS 13 modals
+        if presentationStyle == .pageSheet {
+            presentingViewController?.viewWillAppear(true)
+        }
+        
+        super.dismiss(animated: flag, completion: {
+            if presentationStyle == .pageSheet {
+                presentingViewController?.viewDidAppear(true)
+            }
+            completion?()
+        })
+    }
+    
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        viewWillAppear(true)
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        viewDidAppear(true)
+    }
+    
     @discardableResult
     func showAlert(
         input: AlertControllerInput,

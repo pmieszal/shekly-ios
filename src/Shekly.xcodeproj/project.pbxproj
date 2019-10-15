@@ -32,7 +32,7 @@
 		8F1E02172207282D00EC1A36 /* Shekly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */; };
 		8F1E0219220728FA00EC1A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E0218220728FA00EC1A36 /* LaunchScreen.storyboard */; };
 		8F1E021D2207292C00EC1A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1E021C2207292C00EC1A36 /* Assets.xcassets */; };
-		8F1E022222072A0100EC1A36 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E022122072A0100EC1A36 /* MainCoordinator.swift */; };
+		8F1E022222072A0100EC1A36 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E022122072A0100EC1A36 /* MainRouter.swift */; };
 		8F1E022C22072A2C00EC1A36 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E022A22072A2C00EC1A36 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F1E022F22072A2C00EC1A36 /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; };
 		8F1E023022072A2C00EC1A36 /* User.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E022822072A2C00EC1A36 /* User.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -41,10 +41,8 @@
 		8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023D22072AA900EC1A36 /* StoredUserModel.swift */; };
 		8F1E024B22072B7B00EC1A36 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023A22072AA900EC1A36 /* UserProvider.swift */; };
 		8F1E024C22072B7B00EC1A36 /* UserManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023B22072AA900EC1A36 /* UserManaging.swift */; };
-		8F1E024D22072B7B00EC1A36 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E023E22072AA900EC1A36 /* UserFactory.swift */; };
 		8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025122072BDD00EC1A36 /* Logger.swift */; };
 		8F1E025722072C0600EC1A36 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; };
-		8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025822072C3300EC1A36 /* DomainFactory.swift */; };
 		8F1E025C22072C7400EC1A36 /* SheklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025B22072C7400EC1A36 /* SheklyViewController.swift */; };
 		8F1E026022072CA300EC1A36 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025E22072CA300EC1A36 /* ViewModel.swift */; };
 		8F1E026122072CA300EC1A36 /* SheklyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */; };
@@ -58,7 +56,7 @@
 		8F1EAD6722258B770095AA10 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6622258B770095AA10 /* Category.storyboard */; };
 		8F1EAD6922258BE20095AA10 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */; };
 		8F1EAD6B22258C010095AA10 /* TableTopGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6A22258C010095AA10 /* TableTopGradientView.swift */; };
-		8F1EAD6D222591290095AA10 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */; };
+		8F1EAD6D222591290095AA10 /* CategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD6C222591290095AA10 /* CategoryRouter.swift */; };
 		8F1EAD752225931C0095AA10 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */; };
 		8F1EAD7A222597A30095AA10 /* CategoryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */; };
 		8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */; };
@@ -66,6 +64,21 @@
 		8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */; };
 		8F228A882354BCDD00E1E44E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A872354BCDD00E1E44E /* Router.swift */; };
 		8F228A8C2354BDE200E1E44E /* DependencyContainer+forceResolve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A8B2354BDE200E1E44E /* DependencyContainer+forceResolve.swift */; };
+		8F228A8F235593D900E1E44E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A8E235593D900E1E44E /* Configurator.swift */; };
+		8F228A91235594A500E1E44E /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A90235594A500E1E44E /* MainConfigurator.swift */; };
+		8F228A932355953800E1E44E /* TabConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A922355953800E1E44E /* TabConfigurator.swift */; };
+		8F228A952355976300E1E44E /* UI+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A942355976300E1E44E /* UI+DI.swift */; };
+		8F228A972355983D00E1E44E /* WalletConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A962355983D00E1E44E /* WalletConfigurator.swift */; };
+		8F228A992355995900E1E44E /* PlanConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A982355995900E1E44E /* PlanConfigurator.swift */; };
+		8F228A9B23559B8900E1E44E /* CategoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228A9A23559B8900E1E44E /* CategoryConfigurator.swift */; };
+		8F228AA42355C3E600E1E44E /* NewEntryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AA32355C3E600E1E44E /* NewEntryRouter.swift */; };
+		8F228AA62355C3F200E1E44E /* NewEntryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AA52355C3F200E1E44E /* NewEntryConfigurator.swift */; };
+		8F228AA82355D47500E1E44E /* PlanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AA72355D47500E1E44E /* PlanPresenter.swift */; };
+		8F228AAA2355EA7800E1E44E /* DatePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AA92355EA7800E1E44E /* DatePickerDelegate.swift */; };
+		8F228AAC2355EA8C00E1E44E /* NewEntryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AAB2355EA8C00E1E44E /* NewEntryPresenter.swift */; };
+		8F228AAF2355EAEA00E1E44E /* WalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AAE2355EAEA00E1E44E /* WalletPresenter.swift */; };
+		8F228AB12355EB0200E1E44E /* WalletListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AB02355EB0200E1E44E /* WalletListPresenter.swift */; };
+		8F228AB32355EB0F00E1E44E /* WalletListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F228AB22355EB0F00E1E44E /* WalletListDelegate.swift */; };
 		8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */; };
 		8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */; };
 		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
@@ -77,7 +90,6 @@
 		8F28A360220C726C00FD48DC /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35F220C726C00FD48DC /* KeyboardLayoutConstraint.swift */; };
 		8F2FA33E222AA84300D3E1BB /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA33D222AA84300D3E1BB /* ShareViewController.swift */; };
 		8F2FA341222AA84300D3E1BB /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2FA33F222AA84300D3E1BB /* MainInterface.storyboard */; };
-		8F2FA345222AA84300D3E1BB /* SheklyShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F2FA34C222AF50F00D3E1BB /* Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E0208220727AB00EC1A36 /* Database.framework */; };
 		8F2FA34E222AF55900D3E1BB /* SheklyJSONImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA34D222AF55900D3E1BB /* SheklyJSONImporter.swift */; };
 		8F2FA351222AF74600D3E1BB /* ExpenseJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2FA350222AF74600D3E1BB /* ExpenseJSONModel.swift */; };
@@ -127,7 +139,6 @@
 		8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */; };
 		8F9F6A412208AAAC00AE7A0E /* SheklyTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A402208AAAC00AE7A0E /* SheklyTokenType.swift */; };
 		8F9F6A432208AC5200AE7A0E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F6A422208AC5200AE7A0E /* Colors.swift */; };
-		8FA92221234FA4EF006B70CC /* RxMVVMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA92220234FA4EF006B70CC /* RxMVVMC.swift */; };
 		8FAE1CC92305832500D14BD3 /* ExpensesJSON.shekly in Resources */ = {isa = PBXBuildFile; fileRef = 8FAE1CC82305832500D14BD3 /* ExpensesJSON.shekly */; };
 		8FAE76932209C8B6007D83B1 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */; };
 		8FAE769D2209CA0A007D83B1 /* SHTokenField.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FAE769B2209CA0A007D83B1 /* SHTokenField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,24 +160,21 @@
 		8FD1EE47224407D7000DEEC8 /* SheklyWalletCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1EE46224407D7000DEEC8 /* SheklyWalletCollectionView.swift */; };
 		8FD40F372245248300FE3716 /* Differ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD40F362245248300FE3716 /* Differ.swift */; };
 		8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E40221574AF005206C3 /* LocaleProvider.swift */; };
-		8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E442215757F005206C3 /* SharedFactory.swift */; };
 		8FDC4E4922157626005206C3 /* SheklyTokenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */; };
 		8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4B22157B66005206C3 /* NumberParser.swift */; };
-		8FDC4E4F2215A346005206C3 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */; };
-		8FDC4E512215A397005206C3 /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E502215A397005206C3 /* WalletCoordinator.swift */; };
-		8FDC4E5A2215A65A005206C3 /* PlanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */; };
+		8FDC4E4F2215A346005206C3 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E4E2215A346005206C3 /* TabRouter.swift */; };
+		8FDC4E512215A397005206C3 /* WalletRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E502215A397005206C3 /* WalletRouter.swift */; };
+		8FDC4E5A2215A65A005206C3 /* PlanRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E592215A65A005206C3 /* PlanRouter.swift */; };
 		8FDC4E5C2215A726005206C3 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5B2215A726005206C3 /* Plan.storyboard */; };
 		8FDC4E5E2215A73C005206C3 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */; };
 		8FDC4E612215AA40005206C3 /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDC4E602215AA40005206C3 /* PlanViewModel.swift */; };
 		8FDCD0F52242ABF400B235EC /* SheklyMonthCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCD0F42242ABF400B235EC /* SheklyMonthCollectionView.swift */; };
 		8FDCD0F72242B5C200B235EC /* UIView+AddSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */; };
-		8FDF2390221441E300F46591 /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF238F221441E300F46591 /* DatabaseFactory.swift */; };
 		8FDF23932214449C00F46591 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF23922214449C00F46591 /* CategoryModel.swift */; };
 		8FDF23952214457900F46591 /* SubcategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF23942214457900F46591 /* SubcategoryModel.swift */; };
 		8FDF239B2214552000F46591 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDF239A2214552000F46591 /* DatabaseModel.swift */; };
 		8FEAD6F2225682AE0022325E /* SheklyWalletEntryEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F0225682AE0022325E /* SheklyWalletEntryEmptyCell.swift */; };
 		8FEAD6F3225682AE0022325E /* SheklyWalletEntryEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F1225682AE0022325E /* SheklyWalletEntryEmptyCell.xib */; };
-		8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F4225685160022325E /* SheklyEntryModel.swift */; };
 		8FEAD6F72256873D0022325E /* WalletEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F8F883E2214A3290028375D /* WalletEntryCell.xib */; };
 		8FEAD6F922568A520022325E /* SheklyEntryEmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6F822568A520022325E /* SheklyEntryEmptyModel.swift */; };
 		8FEAD6FC22568BC40022325E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEAD6FB22568BC40022325E /* Array.swift */; };
@@ -217,13 +225,6 @@
 			remoteGlobalIDString = 8F1E022722072A2C00EC1A36;
 			remoteInfo = User;
 		};
-		8F2FA343222AA84300D3E1BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8F2FA33A222AA84300D3E1BB;
-			remoteInfo = SheklyShare;
-		};
 		8FAE769E2209CA0A007D83B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
@@ -248,17 +249,6 @@
 				8F1E0210220727AB00EC1A36 /* Database.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F2FA349222AA84300D3E1BB /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				8F2FA345222AA84300D3E1BB /* SheklyShare.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -300,7 +290,7 @@
 		8F1E02142207282100EC1A36 /* SheklyDatabasePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyDatabasePersistance.swift; sourceTree = "<group>"; };
 		8F1E0218220728FA00EC1A36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F1E021C2207292C00EC1A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8F1E022122072A0100EC1A36 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8F1E022122072A0100EC1A36 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		8F1E022822072A2C00EC1A36 /* User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1E022A22072A2C00EC1A36 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		8F1E022B22072A2C00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -308,10 +298,8 @@
 		8F1E023A22072AA900EC1A36 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
 		8F1E023B22072AA900EC1A36 /* UserManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManaging.swift; sourceTree = "<group>"; };
 		8F1E023D22072AA900EC1A36 /* StoredUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredUserModel.swift; sourceTree = "<group>"; };
-		8F1E023E22072AA900EC1A36 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		8F1E024222072AC700EC1A36 /* AuthorizationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResult.swift; sourceTree = "<group>"; };
 		8F1E025122072BDD00EC1A36 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		8F1E025822072C3300EC1A36 /* DomainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainFactory.swift; sourceTree = "<group>"; };
 		8F1E025B22072C7400EC1A36 /* SheklyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyViewController.swift; sourceTree = "<group>"; };
 		8F1E025E22072CA300EC1A36 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8F1E025F22072CA300EC1A36 /* SheklyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyViewModel.swift; sourceTree = "<group>"; };
@@ -326,7 +314,7 @@
 		8F1EAD6622258B770095AA10 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8F1EAD6A22258C010095AA10 /* TableTopGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTopGradientView.swift; sourceTree = "<group>"; };
-		8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		8F1EAD6C222591290095AA10 /* CategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRouter.swift; sourceTree = "<group>"; };
 		8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		8F1EAD79222597A30095AA10 /* CategoryHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryHeaderCell.xib; sourceTree = "<group>"; };
 		8F1EAD7B222598B40095AA10 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
@@ -334,6 +322,21 @@
 		8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCellViewModel.swift; sourceTree = "<group>"; };
 		8F228A872354BCDD00E1E44E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8F228A8B2354BDE200E1E44E /* DependencyContainer+forceResolve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+forceResolve.swift"; sourceTree = "<group>"; };
+		8F228A8E235593D900E1E44E /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		8F228A90235594A500E1E44E /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
+		8F228A922355953800E1E44E /* TabConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabConfigurator.swift; sourceTree = "<group>"; };
+		8F228A942355976300E1E44E /* UI+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+DI.swift"; sourceTree = "<group>"; };
+		8F228A962355983D00E1E44E /* WalletConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConfigurator.swift; sourceTree = "<group>"; };
+		8F228A982355995900E1E44E /* PlanConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanConfigurator.swift; sourceTree = "<group>"; };
+		8F228A9A23559B8900E1E44E /* CategoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryConfigurator.swift; sourceTree = "<group>"; };
+		8F228AA32355C3E600E1E44E /* NewEntryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryRouter.swift; sourceTree = "<group>"; };
+		8F228AA52355C3F200E1E44E /* NewEntryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryConfigurator.swift; sourceTree = "<group>"; };
+		8F228AA72355D47500E1E44E /* PlanPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanPresenter.swift; sourceTree = "<group>"; };
+		8F228AA92355EA7800E1E44E /* DatePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerDelegate.swift; sourceTree = "<group>"; };
+		8F228AAB2355EA8C00E1E44E /* NewEntryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryPresenter.swift; sourceTree = "<group>"; };
+		8F228AAE2355EAEA00E1E44E /* WalletPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPresenter.swift; sourceTree = "<group>"; };
+		8F228AB02355EB0200E1E44E /* WalletListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListPresenter.swift; sourceTree = "<group>"; };
+		8F228AB22355EB0F00E1E44E /* WalletListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListDelegate.swift; sourceTree = "<group>"; };
 		8F229632220DF6E100DE5AF7 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Subcategory+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/WalletEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -362,7 +365,7 @@
 		8F3C1EB32257BF31008C29EE /* NewEntryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryCollectionCell.swift; sourceTree = "<group>"; };
 		8F3C1EB42257BF31008C29EE /* NewEntryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewEntryCollectionCell.xib; sourceTree = "<group>"; };
 		8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewModel.swift; sourceTree = "<group>"; };
-		8F3CCB4C2215B0E600420C5A /* Shekly+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Shekly+CoreDataModel.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Shekly+CoreDataModel.swift"; sourceTree = "<group>"; };
+		8F3CCB4C2215B0E600420C5A /* Shekly+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Shekly+CoreDataModel.swift"; path = "../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Shekly+CoreDataModel.swift"; sourceTree = "<group>"; };
 		8F3CCB4D2215B0E600420C5A /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8F3CCB4E2215B0E600420C5A /* Subcategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Subcategory+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/Subcategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8F3CCB502215B0E700420C5A /* DatabaseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DatabaseEntity+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/DatabaseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -402,7 +405,6 @@
 		8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTokenModel.swift; sourceTree = "<group>"; };
 		8F9F6A402208AAAC00AE7A0E /* SheklyTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyTokenType.swift; sourceTree = "<group>"; };
 		8F9F6A422208AC5200AE7A0E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		8FA92220234FA4EF006B70CC /* RxMVVMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMVVMC.swift; sourceTree = "<group>"; };
 		8FAE1CC82305832500D14BD3 /* ExpensesJSON.shekly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExpensesJSON.shekly; sourceTree = "<group>"; };
 		8FAE768E2209B063007D83B1 /* SHTextFieldAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextFieldAction.swift; sourceTree = "<group>"; };
 		8FAE76902209B26E007D83B1 /* SHTextFieldActionPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTextFieldActionPolicy.swift; sourceTree = "<group>"; };
@@ -418,24 +420,21 @@
 		8FD1EE46224407D7000DEEC8 /* SheklyWalletCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletCollectionView.swift; sourceTree = "<group>"; };
 		8FD40F362245248300FE3716 /* Differ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Differ.swift; sourceTree = "<group>"; };
 		8FDC4E40221574AF005206C3 /* LocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleProvider.swift; sourceTree = "<group>"; };
-		8FDC4E442215757F005206C3 /* SharedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFactory.swift; sourceTree = "<group>"; };
 		8FDC4E4822157626005206C3 /* SheklyTokenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyTokenFormatter.swift; sourceTree = "<group>"; };
 		8FDC4E4B22157B66005206C3 /* NumberParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberParser.swift; sourceTree = "<group>"; };
-		8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
-		8FDC4E502215A397005206C3 /* WalletCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
-		8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCoordinator.swift; sourceTree = "<group>"; };
+		8FDC4E4E2215A346005206C3 /* TabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
+		8FDC4E502215A397005206C3 /* WalletRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRouter.swift; sourceTree = "<group>"; };
+		8FDC4E592215A65A005206C3 /* PlanRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRouter.swift; sourceTree = "<group>"; };
 		8FDC4E5B2215A726005206C3 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		8FDC4E602215AA40005206C3 /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
 		8FDCD0F42242ABF400B235EC /* SheklyMonthCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyMonthCollectionView.swift; sourceTree = "<group>"; };
 		8FDCD0F62242B5C200B235EC /* UIView+AddSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubview.swift"; sourceTree = "<group>"; };
-		8FDF238F221441E300F46591 /* DatabaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		8FDF23922214449C00F46591 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		8FDF23942214457900F46591 /* SubcategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryModel.swift; sourceTree = "<group>"; };
 		8FDF239A2214552000F46591 /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		8FEAD6F0225682AE0022325E /* SheklyWalletEntryEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletEntryEmptyCell.swift; sourceTree = "<group>"; };
 		8FEAD6F1225682AE0022325E /* SheklyWalletEntryEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheklyWalletEntryEmptyCell.xib; sourceTree = "<group>"; };
-		8FEAD6F4225685160022325E /* SheklyEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyEntryModel.swift; sourceTree = "<group>"; };
 		8FEAD6F822568A520022325E /* SheklyEntryEmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyEntryEmptyModel.swift; sourceTree = "<group>"; };
 		8FEAD6FB22568BC40022325E /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		8FF3E483225A21A200A88238 /* WalletEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataProperties.swift"; path = "../../../../../../Library/Developer/Xcode/DerivedData/Shekly-dkrssazycoecabbmdjnqfmnbldnq/Build/Intermediates.noindex/Shekly.build/Debug-iphonesimulator/Database.build/DerivedSources/CoreDataGenerated/Shekly/WalletEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -632,6 +631,7 @@
 				8F1E01D6220722C500EC1A36 /* UI.h */,
 				8F1E01D7220722C500EC1A36 /* Info.plist */,
 				8F1E026D2207317100EC1A36 /* R.generated.swift */,
+				8F228A942355976300E1E44E /* UI+DI.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -646,7 +646,6 @@
 				8F9F6A3B2208812300AE7A0E /* Wallet */,
 				8FF3E492225A5EED00A88238 /* WalletList */,
 				8F1E025D22072CA300EC1A36 /* Shared */,
-				8F1E025822072C3300EC1A36 /* DomainFactory.swift */,
 				8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */,
 				8F1E01E82207231200EC1A36 /* Domain.h */,
 				8F1E01E92207231200EC1A36 /* Info.plist */,
@@ -661,7 +660,6 @@
 				8FDC4E42221574BE005206C3 /* Providers */,
 				8F1E024E22072BDD00EC1A36 /* Common */,
 				8F1E01F92207234F00EC1A36 /* Shared.h */,
-				8FDC4E442215757F005206C3 /* SharedFactory.swift */,
 				8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */,
 				8F1E01FA2207234F00EC1A36 /* Info.plist */,
 			);
@@ -678,7 +676,6 @@
 				8F229649220DF94D00DE5AF7 /* Groups */,
 				8F22962B220DF0DE00DE5AF7 /* Entities */,
 				8F1E01C12207206B00EC1A36 /* Shekly.xcdatamodeld */,
-				8FDF238F221441E300F46591 /* DatabaseFactory.swift */,
 				8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */,
 				8F1E020A220727AB00EC1A36 /* Database.h */,
 				8F1E020B220727AB00EC1A36 /* Info.plist */,
@@ -697,13 +694,13 @@
 		8F1E021B2207291D00EC1A36 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				8F228A862354BCD200E1E44E /* Router */,
 				8F359BCD2240180300C2603E /* Bootstraps */,
 				8F1E027822074AD600EC1A36 /* Components */,
+				8F228A8D235593C800E1E44E /* Configurator */,
 				8F1E025A22072C6200EC1A36 /* Controllers */,
-				8F1E0220220729F500EC1A36 /* Coordinators */,
 				8F1E021F2207294500EC1A36 /* Extensions */,
 				8F1E021A2207290900EC1A36 /* Resources */,
+				8F228A862354BCD200E1E44E /* Router */,
 				8F1E021E2207294000EC1A36 /* Views */,
 			);
 			path = Shared;
@@ -733,14 +730,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8F1E0220220729F500EC1A36 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				8FA92220234FA4EF006B70CC /* RxMVVMC.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		8F1E022922072A2C00EC1A36 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,7 +737,6 @@
 				8F1E023722072AA800EC1A36 /* Errors */,
 				8F1E023C22072AA900EC1A36 /* Models */,
 				8F1E023922072AA900EC1A36 /* Providers */,
-				8F1E023E22072AA900EC1A36 /* UserFactory.swift */,
 				8F8F3BA02350AF1D007AC4FB /* User+DI.swift */,
 				8F1E022A22072A2C00EC1A36 /* User.h */,
 				8F1E022B22072A2C00EC1A36 /* Info.plist */,
@@ -824,9 +812,10 @@
 			children = (
 				8FEAD6F6225686500022325E /* WalletEntryCell */,
 				8F8F3B9723507BBA007AC4FB /* WalletHeaderView */,
-				8F1E026622072F5100EC1A36 /* WalletViewController.swift */,
-				8FDC4E502215A397005206C3 /* WalletCoordinator.swift */,
 				8F1E0269220730EB00EC1A36 /* Wallet.storyboard */,
+				8F228A962355983D00E1E44E /* WalletConfigurator.swift */,
+				8FDC4E502215A397005206C3 /* WalletRouter.swift */,
+				8F1E026622072F5100EC1A36 /* WalletViewController.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -862,10 +851,11 @@
 		8F1EAD60222589920095AA10 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				8F8F3B9523507B82007AC4FB /* CategorySubcategoriesCell */,
 				8F8F3B9423507B79007AC4FB /* CategoryHeaderCell */,
+				8F8F3B9523507B82007AC4FB /* CategorySubcategoriesCell */,
 				8F1EAD6622258B770095AA10 /* Category.storyboard */,
-				8F1EAD6C222591290095AA10 /* CategoryCoordinator.swift */,
+				8F228A9A23559B8900E1E44E /* CategoryConfigurator.swift */,
+				8F1EAD6C222591290095AA10 /* CategoryRouter.swift */,
 				8F1EAD6822258BE20095AA10 /* CategoryViewController.swift */,
 			);
 			path = Category;
@@ -874,38 +864,11 @@
 		8F1EAD6E222592D00095AA10 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				8F1EAD70222592EE0095AA10 /* ViewModels */,
-				8F1EAD6F222592E00095AA10 /* Models */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		8F1EAD6F222592E00095AA10 /* Models */ = {
-			isa = PBXGroup;
-			children = (
+				8F228AAD2355EAA800E1E44E /* Cell */,
+				8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */,
 				8F3CCB5B2215F3E500420C5A /* SheklyCategoryModel.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		8F1EAD70222592EE0095AA10 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */,
-				8F1EAD742225931C0095AA10 /* CategoryViewModel.swift */,
-				8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */,
-				8F4138CB222B10440035002F /* CategorySubcategoriesCellViewModel.swift */,
-				8F4138CD222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8F1EAD71222592F30095AA10 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */,
-			);
-			path = ViewModels;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		8F1EAD72222592FD0095AA10 /* ViewModels */ = {
@@ -923,6 +886,25 @@
 				8F228A872354BCDD00E1E44E /* Router.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		8F228A8D235593C800E1E44E /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				8F228A8E235593D900E1E44E /* Configurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		8F228AAD2355EAA800E1E44E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8F1EAD7D222599680095AA10 /* CategoryCellViewModel.swift */,
+				8F1EAD7F2225998D0095AA10 /* CategoryHeaderCellViewModel.swift */,
+				8F4138CB222B10440035002F /* CategorySubcategoriesCellViewModel.swift */,
+				8F4138CD222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8F22962B220DF0DE00DE5AF7 /* Entities */ = {
@@ -962,6 +944,7 @@
 			isa = PBXGroup;
 			children = (
 				8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */,
+				8F228AA92355EA7800E1E44E /* DatePickerDelegate.swift */,
 			);
 			path = DatePicker;
 			sourceTree = "<group>";
@@ -1012,6 +995,8 @@
 			children = (
 				8F3C1EB22257BEBB008C29EE /* NewEntryCollectionCell */,
 				8F96D5E92247D036008172D3 /* NewEntry.storyboard */,
+				8F228AA52355C3F200E1E44E /* NewEntryConfigurator.swift */,
+				8F228AA32355C3E600E1E44E /* NewEntryRouter.swift */,
 				8F359BD42240214800C2603E /* NewEntryViewController.swift */,
 			);
 			path = "New Entry";
@@ -1030,6 +1015,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3C1EBA2257CA3F008C29EE /* NewEntryViewModel.swift */,
+				8F228AAB2355EA8C00E1E44E /* NewEntryPresenter.swift */,
 			);
 			path = NewEntry;
 			sourceTree = "<group>";
@@ -1072,7 +1058,8 @@
 		8F8F3B9823507BEB007AC4FB /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				8FDC4E4E2215A346005206C3 /* TabCoordinator.swift */,
+				8F228A922355953800E1E44E /* TabConfigurator.swift */,
+				8FDC4E4E2215A346005206C3 /* TabRouter.swift */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
@@ -1080,7 +1067,8 @@
 		8F8F3B9923507BFD007AC4FB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8F1E022122072A0100EC1A36 /* MainCoordinator.swift */,
+				8F228A90235594A500E1E44E /* MainConfigurator.swift */,
+				8F1E022122072A0100EC1A36 /* MainRouter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1088,9 +1076,10 @@
 		8F9F6A3B2208812300AE7A0E /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				8F1EAD71222592F30095AA10 /* ViewModels */,
 				8FAE76AF2209CDE3007D83B1 /* Helpers */,
 				8F9F6A3C2208813000AE7A0E /* Models */,
+				8FAE76922209C8B6007D83B1 /* WalletViewModel.swift */,
+				8F228AAE2355EAEA00E1E44E /* WalletPresenter.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1098,7 +1087,6 @@
 		8F9F6A3C2208813000AE7A0E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8FEAD6F4225685160022325E /* SheklyEntryModel.swift */,
 				8F46831422149E4C0041F23B /* SheklyWalletEntryModel.swift */,
 				8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */,
 				8F9F6A3D220881B000AE7A0E /* WalletTokenModel.swift */,
@@ -1201,9 +1189,10 @@
 			isa = PBXGroup;
 			children = (
 				8F8F3B9623507B96007AC4FB /* CategoryListCell */,
-				8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */,
-				8FDC4E592215A65A005206C3 /* PlanCoordinator.swift */,
 				8FDC4E5B2215A726005206C3 /* Plan.storyboard */,
+				8F228A982355995900E1E44E /* PlanConfigurator.swift */,
+				8FDC4E592215A65A005206C3 /* PlanRouter.swift */,
+				8FDC4E5D2215A73C005206C3 /* PlanViewController.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -1212,6 +1201,7 @@
 			isa = PBXGroup;
 			children = (
 				8FDC4E602215AA40005206C3 /* PlanViewModel.swift */,
+				8F228AA72355D47500E1E44E /* PlanPresenter.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -1268,9 +1258,9 @@
 		8FF3E48A225A5D7600A88238 /* WalletList */ = {
 			isa = PBXGroup;
 			children = (
-				8FF3E48E225A5DAC00A88238 /* WalletListViewController.swift */,
 				8FF3E48C225A5D9300A88238 /* WalletList.storyboard */,
 				8FF3E490225A5E2D00A88238 /* WalletListCell.swift */,
+				8FF3E48E225A5DAC00A88238 /* WalletListViewController.swift */,
 			);
 			path = WalletList;
 			sourceTree = "<group>";
@@ -1288,6 +1278,8 @@
 			isa = PBXGroup;
 			children = (
 				8FF3E493225A5F5E00A88238 /* WalletListViewModel.swift */,
+				8F228AB02355EB0200E1E44E /* WalletListPresenter.swift */,
+				8F228AB22355EB0F00E1E44E /* WalletListDelegate.swift */,
 			);
 			path = WalletList;
 			sourceTree = "<group>";
@@ -1356,7 +1348,6 @@
 				8F1E01B52207206B00EC1A36 /* Resources */,
 				8F8F3B9323506D35007AC4FB /* Run SwiftLint */,
 				8F1E01E0220722C500EC1A36 /* Embed Frameworks */,
-				8F2FA349222AA84300D3E1BB /* Embed App Extensions */,
 				54ECA0AF36D01C3BF2A536E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -1368,7 +1359,6 @@
 				8F1E020E220727AB00EC1A36 /* PBXTargetDependency */,
 				8F1E022E22072A2C00EC1A36 /* PBXTargetDependency */,
 				8FAE769F2209CA0A007D83B1 /* PBXTargetDependency */,
-				8F2FA344222AA84300D3E1BB /* PBXTargetDependency */,
 			);
 			name = Shekly;
 			productName = Shekly;
@@ -1881,41 +1871,49 @@
 			files = (
 				8F228A882354BCDD00E1E44E /* Router.swift in Sources */,
 				8FDCD0F52242ABF400B235EC /* SheklyMonthCollectionView.swift in Sources */,
+				8F228A972355983D00E1E44E /* WalletConfigurator.swift in Sources */,
 				8F1E025C22072C7400EC1A36 /* SheklyViewController.swift in Sources */,
 				8F996B762241322A00A2C44A /* WalletHeaderView.swift in Sources */,
 				8F28A35E220C723700FD48DC /* SheklyButton.swift in Sources */,
 				8F9BAFB72256473E0017F431 /* ReloadableViewController+Reload.swift in Sources */,
 				8FD1EE42224406AF000DEEC8 /* SheklyWalletCell.swift in Sources */,
-				8FA92221234FA4EF006B70CC /* RxMVVMC.swift in Sources */,
 				8FF3E491225A5E2D00A88238 /* WalletListCell.swift in Sources */,
+				8F228A952355976300E1E44E /* UI+DI.swift in Sources */,
 				8F3C1EB12257A63E008C29EE /* UIViewController+KeyboardDismiss.swift in Sources */,
 				8FDCD0F72242B5C200B235EC /* UIView+AddSubview.swift in Sources */,
+				8F228AA42355C3E600E1E44E /* NewEntryRouter.swift in Sources */,
+				8F228AA62355C3F200E1E44E /* NewEntryConfigurator.swift in Sources */,
 				8F17E07F222B0CA300C363CA /* GradientView.swift in Sources */,
+				8F228A91235594A500E1E44E /* MainConfigurator.swift in Sources */,
 				8F1EAD7C222598B40095AA10 /* CategoryHeaderCell.swift in Sources */,
 				8F1EAD6922258BE20095AA10 /* CategoryViewController.swift in Sources */,
 				8F1EAD6B22258C010095AA10 /* TableTopGradientView.swift in Sources */,
-				8F1EAD6D222591290095AA10 /* CategoryCoordinator.swift in Sources */,
+				8F1EAD6D222591290095AA10 /* CategoryRouter.swift in Sources */,
 				8FF3E496225A61E700A88238 /* UIViewController+Popover.swift in Sources */,
 				8F1E026322072CFF00EC1A36 /* SheklyNavigationController.swift in Sources */,
-				8FDC4E512215A397005206C3 /* WalletCoordinator.swift in Sources */,
+				8FDC4E512215A397005206C3 /* WalletRouter.swift in Sources */,
 				8F1E026E2207317100EC1A36 /* R.generated.swift in Sources */,
 				8F996B7B2241592000A2C44A /* SheklyMonthCell.swift in Sources */,
 				8F359BCA224007A300C2603E /* SheklyTabBarController.swift in Sources */,
 				8FF3E48F225A5DAC00A88238 /* WalletListViewController.swift in Sources */,
 				8F3C1EB52257BF31008C29EE /* NewEntryCollectionCell.swift in Sources */,
-				8FDC4E5A2215A65A005206C3 /* PlanCoordinator.swift in Sources */,
+				8FDC4E5A2215A65A005206C3 /* PlanRouter.swift in Sources */,
+				8F228A9B23559B8900E1E44E /* CategoryConfigurator.swift in Sources */,
 				8F17E07D222B0BA700C363CA /* GradientMaskView.swift in Sources */,
-				8FDC4E4F2215A346005206C3 /* TabCoordinator.swift in Sources */,
+				8FDC4E4F2215A346005206C3 /* TabRouter.swift in Sources */,
 				8F359BC82240068D00C2603E /* UIView+Corners.swift in Sources */,
 				8F28A360220C726C00FD48DC /* KeyboardLayoutConstraint.swift in Sources */,
 				8F4138CA222B10100035002F /* CategorySubcategoriesCell.swift in Sources */,
-				8F1E022222072A0100EC1A36 /* MainCoordinator.swift in Sources */,
+				8F228A8F235593D900E1E44E /* Configurator.swift in Sources */,
+				8F1E022222072A0100EC1A36 /* MainRouter.swift in Sources */,
 				8F359BD12240187800C2603E /* Bootstrap.swift in Sources */,
 				8FEAD6F2225682AE0022325E /* SheklyWalletEntryEmptyCell.swift in Sources */,
 				8FD1EE47224407D7000DEEC8 /* SheklyWalletCollectionView.swift in Sources */,
 				8F3CCB592215F3AD00420C5A /* CategoryListCell.swift in Sources */,
 				8F359BCF2240183000C2603E /* UITabBarItem+Bootstrap.swift in Sources */,
 				8F1E026722072F5100EC1A36 /* WalletViewController.swift in Sources */,
+				8F228A932355953800E1E44E /* TabConfigurator.swift in Sources */,
+				8F228A992355995900E1E44E /* PlanConfigurator.swift in Sources */,
 				8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */,
 				8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */,
 				8F359BD52240214800C2603E /* NewEntryViewController.swift in Sources */,
@@ -1928,9 +1926,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */,
+				8F228AAC2355EA8C00E1E44E /* NewEntryPresenter.swift in Sources */,
 				8F1E026122072CA300EC1A36 /* SheklyViewModel.swift in Sources */,
+				8F228AAA2355EA7800E1E44E /* DatePickerDelegate.swift in Sources */,
 				8F4138CC222B10440035002F /* CategorySubcategoriesCellViewModel.swift in Sources */,
 				8FF3E494225A5F5E00A88238 /* WalletListViewModel.swift in Sources */,
+				8F228AA82355D47500E1E44E /* PlanPresenter.swift in Sources */,
 				8F9BAFB82256475E0017F431 /* ReloadablePresenter.swift in Sources */,
 				8FEAD6F922568A520022325E /* SheklyEntryEmptyModel.swift in Sources */,
 				8FF3E489225A268A00A88238 /* WalletEntryType+Properties.swift in Sources */,
@@ -1941,14 +1942,15 @@
 				8FDC4E612215AA40005206C3 /* PlanViewModel.swift in Sources */,
 				8FD40F372245248300FE3716 /* Differ.swift in Sources */,
 				8F9F6A412208AAAC00AE7A0E /* SheklyTokenType.swift in Sources */,
+				8F228AB12355EB0200E1E44E /* WalletListPresenter.swift in Sources */,
 				8F1EAD752225931C0095AA10 /* CategoryViewModel.swift in Sources */,
+				8F228AB32355EB0F00E1E44E /* WalletListDelegate.swift in Sources */,
 				8FAE76932209C8B6007D83B1 /* WalletViewModel.swift in Sources */,
 				8F4138CE222B13760035002F /* SheklyEntryModel+CategoryCellViewModel.swift in Sources */,
 				8F9F6A3E220881B000AE7A0E /* WalletTokenModel.swift in Sources */,
-				8FEAD6F5225685160022325E /* SheklyEntryModel.swift in Sources */,
 				8F1EAD802225998D0095AA10 /* CategoryHeaderCellViewModel.swift in Sources */,
 				8F8F3B9B2350A5A6007AC4FB /* Domain+DI.swift in Sources */,
-				8F1E025922072C3300EC1A36 /* DomainFactory.swift in Sources */,
+				8F228AAF2355EAEA00E1E44E /* WalletPresenter.swift in Sources */,
 				8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */,
 				8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */,
 				8FAE76B12209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift in Sources */,
@@ -1963,7 +1965,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
-				8FDC4E4622157584005206C3 /* SharedFactory.swift in Sources */,
 				8F8F3B9F2350AE17007AC4FB /* Shared+DI.swift in Sources */,
 				8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */,
 				8F228A8C2354BDE200E1E44E /* DependencyContainer+forceResolve.swift in Sources */,
@@ -1993,7 +1994,6 @@
 				8F229638220DF6E200DE5AF7 /* Subcategory+CoreDataClass.swift in Sources */,
 				8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */,
 				8F468311221492BB0041F23B /* WalletEntryModel.swift in Sources */,
-				8FDF2390221441E300F46591 /* DatabaseFactory.swift in Sources */,
 				8FF3E487225A259E00A88238 /* WalletEntryType.swift in Sources */,
 				8F22964B220DF95B00DE5AF7 /* EntityGroup.swift in Sources */,
 				8FDF23932214449C00F46591 /* CategoryModel.swift in Sources */,
@@ -2008,7 +2008,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1E024C22072B7B00EC1A36 /* UserManaging.swift in Sources */,
-				8F1E024D22072B7B00EC1A36 /* UserFactory.swift in Sources */,
 				8F1E024922072B7B00EC1A36 /* UserProviderError.swift in Sources */,
 				8F1E024822072B7B00EC1A36 /* AuthorizationResult.swift in Sources */,
 				8F1E024A22072B7B00EC1A36 /* StoredUserModel.swift in Sources */,
@@ -2068,11 +2067,6 @@
 			isa = PBXTargetDependency;
 			target = 8F1E022722072A2C00EC1A36 /* User */;
 			targetProxy = 8F1E022D22072A2C00EC1A36 /* PBXContainerItemProxy */;
-		};
-		8F2FA344222AA84300D3E1BB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8F2FA33A222AA84300D3E1BB /* SheklyShare */;
-			targetProxy = 8F2FA343222AA84300D3E1BB /* PBXContainerItemProxy */;
 		};
 		8FAE769F2209CA0A007D83B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

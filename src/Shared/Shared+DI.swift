@@ -9,10 +9,12 @@
 import Dip
 
 public extension DependencyContainer {
-    static func configureShared() -> DependencyContainer {
-        return DependencyContainer { container in
-            container.register(.shared, factory: { LocaleProvider() })
-            container.register(.shared, factory: { NumberParser() })
-        }
+    func configureShared() -> DependencyContainer {
+        unowned let container = self
+        
+        container.register(.shared, factory: { LocaleProvider() })
+        container.register(.shared, factory: { NumberParser() })
+        
+        return container
     }
 }

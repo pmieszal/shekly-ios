@@ -40,8 +40,9 @@ extension UICollectionView: ReloadableView {
 }
 
 extension ReloadableViewController {
-    func reload(changeSet: ChangeSet) {
+    func reload(changeSet: ChangeSet, setData: (() -> ())?) {
         reloadableView?.performBatchUpdates({ [weak self] in
+            setData?()
             self?.reloadableView?.deleteRows(at: changeSet.deleted, with: .fade)
             self?.reloadableView?.insertRows(at: changeSet.inserted, with: .fade)
             self?.reloadableView?.reloadRows(at: changeSet.updated, with: .none)

@@ -54,9 +54,7 @@ class UserProvider: UserManaging {
         return user.selectedWalletId
     }
     
-    init() {
-        
-    }
+    init() { }
     
     func set(wallet id: String?) {
         user.selectedWalletId = id

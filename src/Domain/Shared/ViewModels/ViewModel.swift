@@ -13,3 +13,11 @@ public protocol ViewModel: AnyObject {
     func viewDidAppear()
     func viewDidDisappear()
 }
+
+public extension ViewModel {
+    func viewDidLoad() { }
+    func viewWillAppear() { }
+    func viewWillDisappear() { }
+    func viewDidAppear() { }
+    func viewDidDisappear() { }
+}

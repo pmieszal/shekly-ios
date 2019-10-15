@@ -12,17 +12,7 @@ import User
 import Database
 import Shared
 
-public protocol NewEntryPresenter: AnyObject {
-    func show(walletName: String?)
-    func show(date: String?)
-    func show(amount: String, color: UIColor)
-    func setSaveButton(enabled: Bool)
-    func reloadCategories(changeSet1: ChangeSet, changeSet2: ChangeSet)
-    func reloadSubcategories(changeSet1: ChangeSet, changeSet2: ChangeSet)
-    func dismiss()
-}
-
-public class NewEntryViewModel: SheklyViewModel {
+public class NewEntryViewModel: ViewModel {
     // MARK: - Internal properties
     var entryType: WalletEntryType = .outcome
     
@@ -80,13 +70,11 @@ public class NewEntryViewModel: SheklyViewModel {
     let differ: Differ
     
     // MARK: - Constructor
-    init(
-        presenter: NewEntryPresenter,
-        dataController: SheklyDataController,
-        currencyFormatter: SheklyCurrencyFormatter,
-        differ: Differ,
-        userProvider: UserManaging
-        ) {
+    init(presenter: NewEntryPresenter,
+         dataController: SheklyDataController,
+         currencyFormatter: SheklyCurrencyFormatter,
+         differ: Differ,
+         userProvider: UserManaging) {
         
         self.presenter = presenter
         self.dataController = dataController
@@ -96,23 +84,16 @@ public class NewEntryViewModel: SheklyViewModel {
         let wallets = dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.wallet = selectedWallet ?? wallets.first
-        
-        super.init()
-        
-        reloadAmount()
     }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    public func viewDidLoad() {
+        reloadAmount()
         reloadSaveButton()
         presenter?.show(walletName: wallet?.name)
         presenter?.show(date: dateString)
     }
     
-    public override func viewDidAppear() {
-        super.viewDidAppear()
-        
+    public func viewDidAppear() {
         reloadCategories()
     }
 }
