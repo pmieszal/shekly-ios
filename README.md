@@ -29,7 +29,8 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [x] use ~~Swinject~~ Dip for DI instead of current factories
 - [x] introduce SwiftLint
 - [x] code style: remove redundant `self.` calls
-- [ ] code style: remove redundant `ib` prefix for IBOutlets
+- [x] code style: remove redundant `ib` prefix for IBOutlets
+- [ ] use new UICollectionView layout introduced by Paul Hudson in mobiconf
 - [ ] try SwiftUI
 - [ ] define features 😅
 

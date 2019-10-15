@@ -17,19 +17,18 @@ private enum CellConsts {
 }
 
 class SheklyMonthCell: UICollectionViewCell {
-    @IBOutlet private weak var ibMonthLabel: UILabel!
+    @IBOutlet private weak var monthLabel: UILabel!
     
     var date: Date = Date() {
         didSet {
             let style = SheklyMonthCell.style(forDate: date)
-            
-            ibMonthLabel.text = date.toString(style)
+            monthLabel.text = date.toString(style)
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        ibMonthLabel.text = nil
+        monthLabel.text = nil
     }
     
     func updateLayout(forCenter center: CGPoint, parentSize: CGSize) {
@@ -41,7 +40,7 @@ class SheklyMonthCell: UICollectionViewCell {
         let scale: CGFloat = width/diffX
         let scaleNormalized: CGFloat = max(min(scale, 1), 0.7)
         
-        ibMonthLabel.transform = CGAffineTransform(scaleX: scaleNormalized, y: scaleNormalized)
+        monthLabel.transform = CGAffineTransform(scaleX: scaleNormalized, y: scaleNormalized)
         
         let colorWeight: CGFloat = scaleNormalized == 1 ? 1 : max((0.3 - (1 - scaleNormalized)) / 0.3, 0)
         
@@ -51,7 +50,7 @@ class SheklyMonthCell: UICollectionViewCell {
                    weight: colorWeight,
                    inColorSpace: .rgb)
         
-        ibMonthLabel.textColor = color
+        monthLabel.textColor = color
     }
     
     class func size(forDate date: Date, inCollectionView collectionView: UICollectionView) -> CGSize {

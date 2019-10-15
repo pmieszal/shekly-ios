@@ -12,8 +12,8 @@ import SHTokenField
 import Shared
 
 class WalletViewController: SheklyViewController<WalletViewModel> {
-    @IBOutlet private weak var ibTableView: UITableView!
-    @IBOutlet private weak var ibHeaderView: WalletHeaderView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var headerView: WalletHeaderView!
     
     var router: WalletRouter?
     
@@ -26,13 +26,13 @@ class WalletViewController: SheklyViewController<WalletViewModel> {
 
 extension WalletViewController: ReloadableViewController {
     var reloadableView: ReloadableView? {
-        return ibTableView
+        return tableView
     }
 }
 
 extension WalletViewController: WalletPresenter {
     func reloadWallets() {
-        ibHeaderView.reloadWalletCollectionView()
+        headerView.reloadWalletCollectionView()
     }
 }
 
@@ -136,22 +136,22 @@ extension WalletViewController: UITableViewDelegate {
 
 private extension WalletViewController {
     func setup() {
-        ibHeaderView.walletDataSource = self
-        ibHeaderView.walletDelegate = self
-        ibHeaderView.monthCollectionDelegate = self
-        ibHeaderView.layer.shadowColor = Colors.brandColor.cgColor
-        ibHeaderView.layer.shadowOpacity = 0.5
-        ibHeaderView.layer.shadowRadius = 2
-        ibHeaderView.layer.shadowOffset.height = 2
+        headerView.walletDataSource = self
+        headerView.walletDelegate = self
+        headerView.monthCollectionDelegate = self
+        headerView.layer.shadowColor = Colors.brandColor.cgColor
+        headerView.layer.shadowOpacity = 0.5
+        headerView.layer.shadowRadius = 2
+        headerView.layer.shadowOffset.height = 2
         
-        ibTableView.delegate = self
-        ibTableView.dataSource = self
-        ibTableView.register(R.nib.walletEntryCell)
-        ibTableView.register(R.nib.sheklyWalletEntryEmptyCell)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(R.nib.walletEntryCell)
+        tableView.register(R.nib.sheklyWalletEntryEmptyCell)
         
-        ibTableView.tableFooterView = UIView()
-        ibTableView.contentInset.top = 4
-        ibTableView.contentInset.bottom = 4
-        ibTableView.contentOffset.y = -4
+        tableView.tableFooterView = UIView()
+        tableView.contentInset.top = 4
+        tableView.contentInset.bottom = 4
+        tableView.contentOffset.y = -4
     }
 }

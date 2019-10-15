@@ -10,20 +10,20 @@ import UIKit
 import Domain
 
 class WalletListViewController: SheklyViewController<WalletListViewModel> {
-    @IBOutlet private weak var ibTableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ibTableView.contentInset.top = 5
-        ibTableView.dataSource = self
-        ibTableView.delegate = self
+        tableView.contentInset.top = 5
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
 extension WalletListViewController: WalletListPresenter {
     func reloadList() {
-        ibTableView.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -38,7 +38,7 @@ extension WalletListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletListCell, for: indexPath)!
-        cell.ibNameLabel.text = viewModel.title(forRowAt: indexPath)
+        cell.nameLabel.text = viewModel.title(forRowAt: indexPath)
         
         return cell
     }

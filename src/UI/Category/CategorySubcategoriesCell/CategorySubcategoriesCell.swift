@@ -10,7 +10,7 @@ import UIKit
 import Domain
 
 class CategorySubcategoriesCell: UITableViewCell {
-    @IBOutlet private weak var ibStackView: UIStackView!
+    @IBOutlet private weak var stackView: UIStackView!
 
     var viewModel: CategorySubcategoriesCellViewModel! {
         didSet {
@@ -19,10 +19,10 @@ class CategorySubcategoriesCell: UITableViewCell {
     }
     
     private func initialize() {
-        ibStackView
+        stackView
             .arrangedSubviews
             .forEach { (view) in
-                ibStackView.removeArrangedSubview(view)
+                stackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
         }
     }

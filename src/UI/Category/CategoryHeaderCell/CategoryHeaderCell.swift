@@ -10,8 +10,8 @@ import UIKit
 import Domain
 
 class CategoryHeaderCell: UITableViewCell {
-    @IBOutlet private weak var ibNameLabel: UILabel!
-    @IBOutlet private weak var ibAmountLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var amountLabel: UILabel!
     
     var viewModel: CategoryHeaderCellViewModel! {
         didSet {
@@ -20,7 +20,7 @@ class CategoryHeaderCell: UITableViewCell {
     }
     
     private func initialize() {
-        ibNameLabel.text = viewModel.name
-        ibAmountLabel.text = viewModel.amountText
+        nameLabel.text = viewModel.name
+        amountLabel.text = viewModel.amountText
     }
 }

@@ -9,23 +9,23 @@
 import UIKit
 
 class SheklyWalletEntryEmptyCell: UITableViewCell {
-    @IBOutlet private weak var ibContainerView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ibContainerView.roundCorners(corners: .allCorners, radius: 6)
+        containerView.roundCorners(corners: .allCorners, radius: 6)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        ibContainerView.roundCorners(corners: .allCorners, radius: 6)
+        containerView.roundCorners(corners: .allCorners, radius: 6)
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        ibContainerView.roundCorners(corners: .allCorners, radius: 6)
+        containerView.roundCorners(corners: .allCorners, radius: 6)
     }
 }

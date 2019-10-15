@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,11 +11,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJl-tM-wnH" id="wxU-Sn-Y1Y">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cq-GDX">
                                 <rect key="frame" x="40" y="40" width="295" height="24"/>
@@ -53,8 +50,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="ibAmountLabel" destination="bUN-ms-Ud3" id="YLl-3T-iL4"/>
-                <outlet property="ibNameLabel" destination="2hB-Cq-GDX" id="g55-KO-9o5"/>
+                <outlet property="amountLabel" destination="bUN-ms-Ud3" id="YLl-3T-iL4"/>
+                <outlet property="nameLabel" destination="2hB-Cq-GDX" id="g55-KO-9o5"/>
             </connections>
             <point key="canvasLocation" x="140" y="154.27286356821591"/>
         </tableViewCell>
