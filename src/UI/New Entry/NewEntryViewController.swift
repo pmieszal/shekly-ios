@@ -11,12 +11,6 @@ import UIKit
 import Shared
 import Domain
 
-@objc
-protocol NewEntryRouter: AnyObject {
-    func presentWalletListPopover(sourceButton: UIButton)
-    func presentDatePickerPopover(sourceButton: UIButton)
-}
-
 class NewEntryViewController: SheklyViewController<NewEntryViewModel> {
     private enum Constants {
         static let cellWidthOffset: CGFloat = 30
@@ -93,7 +87,7 @@ extension NewEntryViewController: NewEntryPresenter {
     }
     
     func dismiss() {
-        dismiss(animated: true, completion: nil)
+        router?.dismiss()
     }
 }
 
@@ -349,16 +343,11 @@ private extension NewEntryViewController {
                 for: .normal
         )
         
-        ibCancelButton.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
+        ibCancelButton.addTarget(router, action: #selector(router?.dismiss), for: .touchUpInside)
     }
     
     @objc
     func didChangeSegmentedControl() {
         viewModel.didSelectSegmentedControl(itemAtIndex: ibEntryTypeSegmentedControl.selectedSegmentIndex)
-    }
-    
-    @objc
-    func didTapCancelButton() {
-        dismiss()
     }
 }

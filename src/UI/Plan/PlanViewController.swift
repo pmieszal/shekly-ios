@@ -14,6 +14,8 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
     @IBOutlet private weak var ibTableView: UITableView!
     @IBOutlet private weak var ibGradientView: UIView!
     
+    var router: PlanRouter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,12 @@ class PlanViewController: SheklyViewController<PlanViewModel> {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+}
+
+extension PlanViewController: PlanPresenter {
+    func navigate(to category: SheklyCategoryModel) {
+        router?.navigate(to: category)
     }
 }
 

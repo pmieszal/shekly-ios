@@ -29,22 +29,22 @@ class SheklyTabBarController: UITabBarController {
         return addButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor)
     }()
     
-    var router: TabCoordinator?
-    
-    init(router: TabCoordinator) {
-        self.router = router
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+    var router: TabRouter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
         setupAddButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Setting up add button target on will appear,
+        //since tab bar is "special" type of ViewController,
+        //and it calls viewDidLoad on super.init
+        setupAddButtonTarget()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +88,12 @@ private extension SheklyTabBarController {
         
         addButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor).isActive = true
         addButtonCenterYConstraint.isActive = true
-        addButton.addTarget(router, action: #selector(router?.navigateToNewEntry), for: .touchUpInside)
+    }
+    
+    func setupAddButtonTarget() {
+        let targetsEmpty = addButton.actions(forTarget: router, forControlEvent: .touchUpInside)?.isEmpty ?? true
+        if targetsEmpty == true {
+            addButton.addTarget(router, action: #selector(router?.navigateToNewEntry), for: .touchUpInside)
+        }
     }
 }

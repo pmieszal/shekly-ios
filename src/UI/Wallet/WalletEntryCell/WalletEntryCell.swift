@@ -16,7 +16,7 @@ class WalletEntryCell: UITableViewCell {
     @IBOutlet private weak var ibDateLabel: UILabel!
     @IBOutlet private weak var ibAmountLabel: UILabel!
     
-    var model: SheklyEntryModel! {
+    var model: SheklyWalletEntryModel! {
         didSet {
             initialize()
         }

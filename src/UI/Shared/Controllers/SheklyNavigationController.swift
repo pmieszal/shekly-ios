@@ -16,7 +16,17 @@ class SheklyNavigationController: UINavigationController {
         setup()
     }
     
-    private func setup() {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        topViewController?.viewWillAppear(true)
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        topViewController?.viewDidAppear(true)
+    }
+}
+
+private extension SheklyNavigationController {
+    func setup() {
         navigationBar.tintColor = Colors.brandColor
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: Colors.brandColor,

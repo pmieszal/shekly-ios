@@ -9,24 +9,26 @@
 import Dip
 
 public extension DependencyContainer {
-    static func configureDatabase() -> DependencyContainer {
-        return DependencyContainer { container in
-            container.register(.singleton, factory: { SheklyDatabasePersistance() })
-            
-            container.register(.shared,
-                               factory: {
-                                SheklyDataController(store: container.forceResolve())
-            })
-            
-            container.register(.shared,
-                               factory: {
-                                SheklyJSONDataController(store: container.forceResolve())
-            })
-            
-            container.register(.shared,
-                               factory: {
-                                SheklyJSONImporter(dataController: container.forceResolve())
-            })
-        }
+    func configureDatabase() -> DependencyContainer {
+        unowned let container = self
+        
+        container.register(.singleton, factory: { SheklyDatabasePersistance() as SheklyDatabaseStore })
+        
+        container.register(.shared,
+                           factory: {
+                            SheklyDataController(store: container.forceResolve())
+        })
+        
+        container.register(.shared,
+                           factory: {
+                            SheklyJSONDataController(store: container.forceResolve())
+        })
+        
+        container.register(.shared,
+                           factory: {
+                            SheklyJSONImporter(dataController: container.forceResolve())
+        })
+        
+        return container
     }
 }

@@ -15,6 +15,8 @@ class WalletViewController: SheklyViewController<WalletViewModel> {
     @IBOutlet private weak var ibTableView: UITableView!
     @IBOutlet private weak var ibHeaderView: WalletHeaderView!
     
+    var router: WalletRouter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,30 +89,26 @@ extension WalletViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let model: SheklyEntryModel = viewModel.entryModel(forIndexPath: indexPath)
+        let model: SheklyWalletEntryModel = viewModel.entryModel(forIndexPath: indexPath)
         
         switch model {
-        case let model as SheklyWalletEntryModel:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
-                                                           for: indexPath) else {
-                fatalError("Cell can't be nil")
-            }
-            cell.model = model
-            
-            return cell
             
         case is SheklyEntryEmptyModel:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell,
                                                            for: indexPath) else {
-                fatalError("Cell can't be nil")
+                                                            fatalError("Cell can't be nil")
             }
             
             return cell
-        default:
-            assertionFailure("Not implemented")
             
-            return UITableViewCell()
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
+                                                           for: indexPath) else {
+                                                            fatalError("Cell can't be nil")
+            }
+            cell.model = model
+            
+            return cell
         }
     }
 }

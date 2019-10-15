@@ -10,8 +10,8 @@ import User
 import Database
 import Shared
 
-public final class PlanViewModel: SheklyViewModel {
-    public typealias CategorySelectionHandler = (SheklyCategoryModel) -> Void
+public final class PlanViewModel: ViewModel {
+    public typealias CategorySelectionHandler = (SheklyCategoryModel) -> ()
     
     // MARK: - Public properties
     public private(set) var categories: [SheklyCategoryModel] = []
@@ -21,7 +21,7 @@ public final class PlanViewModel: SheklyViewModel {
     let tokenFormatter: SheklyTokenFormatter
     let userProvider: UserManaging
     
-    let categorySelectionHandler: CategorySelectionHandler
+    weak var presenter: PlanPresenter?
     
     private var selectedWallet: WalletModel? {
         let wallets = dataController.getWallets()
@@ -31,23 +31,27 @@ public final class PlanViewModel: SheklyViewModel {
     }
     
     // MARK: - Constructor
-    init(categorySelectionHandler: @escaping CategorySelectionHandler,
+    init(presenter: PlanPresenter,
          dataController: SheklyDataController,
          tokenFormatter: SheklyTokenFormatter,
          userProvider: UserManaging) {
-        self.categorySelectionHandler = categorySelectionHandler
+        self.presenter = presenter
         self.dataController = dataController
         self.tokenFormatter = tokenFormatter
         self.userProvider = userProvider
     }
     
     // MARK: - Public methods
-    public override func viewWillAppear() {
+    public func viewWillAppear() {
         reload()
     }
     
     public func didSelectCategory(at indexPath: IndexPath) {
-        categorySelectionHandler(categories[indexPath.row])
+        guard let category = categories[safe: indexPath.row] else {
+            return
+        }
+        
+        presenter?.navigate(to: category)
     }
 }
 

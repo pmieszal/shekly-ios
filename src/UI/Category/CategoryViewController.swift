@@ -14,6 +14,8 @@ class CategoryViewController: SheklyViewController<CategoryViewModel> {
     @IBOutlet private weak var ibHeaderView: UIView!
     @IBOutlet private weak var ibCategoryLabel: UILabel!
     @IBOutlet private weak var ibTableView: UITableView!
+    
+    var router: CategoryRouter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ extension CategoryViewController: UITableViewDataSource {
             
             return cell
             
-        case let model as SheklyEntryModel:
+        case let model as SheklyWalletEntryModel:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
                                                            for: indexPath) else {
                 fatalError("Cell can't be nil")

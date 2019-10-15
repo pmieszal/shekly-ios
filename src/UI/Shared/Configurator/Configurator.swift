@@ -1,14 +1,15 @@
 //
-//  Router.swift
+//  Configurator.swift
 //  UI
 //
-//  Created by Patryk Mieszała on 14/10/2019.
+//  Created by Patryk Mieszała on 15/10/2019.
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
 import Dip
 
-public class Router: NSObject, Resolvable {
+public class Configurator: Resolvable {
+    
     private var injectedContainer: DependencyContainer?
     
     var container: DependencyContainer {

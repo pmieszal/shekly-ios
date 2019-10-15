@@ -1,5 +1,5 @@
 //
-//  SheklyEntryModel+CategoryCellViewModel.swift
+//  SheklyWalletEntryModel+CategoryCellViewModel.swift
 //  Domain
 //
 //  Created by Patryk Mieszała on 02/03/2019.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-extension SheklyEntryModel: CategoryCellViewModel { }
+extension SheklyWalletEntryModel: CategoryCellViewModel { }

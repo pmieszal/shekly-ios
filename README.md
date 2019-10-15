@@ -23,12 +23,15 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 ## TODO
 
 - [x] upgrade to Swift 5
-- [ ] move entirely to CleanSwift
+- [x] move entirely to CleanSwift
 - [x] get rid of Rx
 - [x] ~~propably get rid of generic SheklyViewController, since it really affects code readability (can't implement protocols in extensions)~~ actually Swift 5 solves this problem 🎉
-- [ ] use ~~Swinject~~ Dip for DI instead of current factories
+- [x] use ~~Swinject~~ Dip for DI instead of current factories
 - [x] introduce SwiftLint
 - [x] code style: remove redundant `self.` calls
+- [ ] code style: remove redundant `ib` prefix for IBOutlets
+- [ ] try SwiftUI
+- [ ] define features 😅
 
 ## Author
 

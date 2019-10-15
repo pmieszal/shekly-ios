@@ -10,7 +10,7 @@ import User
 import Database
 import Shared
 
-public class CategoryViewModel: SheklyViewModel {
+public class CategoryViewModel: ViewModel {
     // MARK: - Public properties
     public private(set) var feed: [CategoryCellViewModel] = []
     public let categoryName: String
@@ -21,11 +21,9 @@ public class CategoryViewModel: SheklyViewModel {
     let currencyFormatter: SheklyCurrencyFormatter
     
     // MARK: - Constructor
-    init(
-        category: SheklyCategoryModel,
-        dataController: SheklyDataController,
-        currencyFormatter: SheklyCurrencyFormatter
-        ) {
+    init(category: SheklyCategoryModel,
+         dataController: SheklyDataController,
+         currencyFormatter: SheklyCurrencyFormatter) {
         self.sheklyCategoryModel = category
         self.dataController = dataController
         self.currencyFormatter = currencyFormatter
@@ -34,9 +32,7 @@ public class CategoryViewModel: SheklyViewModel {
     }
     
     // MARK: - Public methods
-    public override func viewWillAppear() {
-        super.viewWillAppear()
-        
+    public func viewWillAppear() {
         reloadFeed()
     }
 }

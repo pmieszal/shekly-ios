@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol ReloadablePresenter: AnyObject {
-    func reload(changeSet: ChangeSet)
+    func reload(changeSet: ChangeSet, setData: (() -> ())?)
 }
