@@ -18,7 +18,7 @@ That said, architecture is a bit of mixture here. One constant here, is separati
 - SHTokenField (not used any more, but good candidate for separate pod),
 - SheklyShare (kind of dummy share ios extension, just for reading data from json, only for development purposes yet)
 
-It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring appeard, mostly in Domain target. Now, it's still using RxCoordinator for navigation layer, but most of ViewModel's logic is written in pure Swift. There are some Rx left overs, but they appears mainly in not developed sections (like Category an Plan).
+It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring appeard, mostly in Domain target. ~~Now, it's still using RxCoordinator for navigation layer, but most of ViewModel's logic is written in pure Swift. There are some Rx left overs, but they appears mainly in not developed sections (like Category an Plan).~~ Lately I had some time to continue refactoring and now there is null Rx in the project 🎉.
 
 ## TODO
 
