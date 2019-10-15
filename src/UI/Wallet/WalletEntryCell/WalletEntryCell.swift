@@ -10,12 +10,13 @@ import UIKit
 import Domain
 
 class WalletEntryCell: UITableViewCell {
-    @IBOutlet private weak var ibEntryView: UIView!
-    @IBOutlet private weak var ibSubcategoryLabel: UILabel!
-    @IBOutlet private weak var ibCategoryAndCommentLabel: UILabel!
-    @IBOutlet private weak var ibDateLabel: UILabel!
-    @IBOutlet private weak var ibAmountLabel: UILabel!
+    @IBOutlet private weak var entryView: UIView!
+    @IBOutlet private weak var subcategoryLabel: UILabel!
+    @IBOutlet private weak var categoryAndCommentLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var amountLabel: UILabel!
     
+    //TODO: get rid of this
     var model: SheklyWalletEntryModel! {
         didSet {
             initialize()
@@ -25,28 +26,28 @@ class WalletEntryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ibEntryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
+        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        ibEntryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
+        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        ibEntryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
+        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
     }
     
     private func initialize() {
-        ibEntryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
+        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
         
-        ibCategoryAndCommentLabel.text = model.categoryAndComment
-        ibSubcategoryLabel.text = model.subcategory
-        ibAmountLabel.text = model.amount
-        ibAmountLabel.textColor = model.amountColor
-        ibDateLabel.text = model.dateString
+        categoryAndCommentLabel.text = model.categoryAndComment
+        subcategoryLabel.text = model.subcategory
+        amountLabel.text = model.amount
+        amountLabel.textColor = model.amountColor
+        dateLabel.text = model.dateString
     }
 }

@@ -10,15 +10,15 @@ import UIKit
 import Shared
 
 class NewEntryCollectionCell: UICollectionViewCell {
-    @IBOutlet private weak var ibContentView: UIView!
-    @IBOutlet private weak var ibLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var label: UILabel!
     
     var text: String? {
         get {
-            return ibLabel.text
+            return label.text
         }
         set {
-            ibLabel.text = newValue
+            label.text = newValue
         }
     }
     
@@ -35,32 +35,32 @@ class NewEntryCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupContentViewBorder()
+        setupContainerViewBorder()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        setupContentViewBorder()
+        setupContainerViewBorder()
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
-        setupContentViewBorder()
+        setupContainerViewBorder()
     }
 }
 
 private extension NewEntryCollectionCell {
-    func setupContentViewBorder() {
-        ibContentView.layer.cornerRadius = ibContentView.bounds.height/2
-        ibContentView.layer.borderColor = UIColor.white.cgColor
-        ibContentView.layer.borderWidth = 1
-        ibContentView.clipsToBounds = true
+    func setupContainerViewBorder() {
+        containerView.layer.cornerRadius = contentView.bounds.height/2
+        containerView.layer.borderColor = UIColor.white.cgColor
+        containerView.layer.borderWidth = 1
+        containerView.clipsToBounds = true
     }
     
     func set(selected: Bool) {
-        ibContentView.backgroundColor = selected ? .white : .clear
-        ibLabel.textColor = selected ? Colors.brandColor : .white
+        containerView.backgroundColor = selected ? .white : .clear
+        label.textColor = selected ? Colors.brandColor : .white
     }
 }

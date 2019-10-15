@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,17 +11,14 @@
             <objects>
                 <viewController storyboardIdentifier="DatePickerViewController" id="0jD-YB-68p" customClass="DatePickerViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KBg-wK-yfn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-zg-cWv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="599"/>
-                                <date key="date" timeIntervalSinceReferenceDate="576767766.39413905">
-                                    <!--2019-04-12 13:16:06 +0000-->
-                                </date>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-zg-cWv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BX-ur-x77">
-                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="552" width="600" height="48"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" red="0.11238998919725418" green="0.10556621104478836" blue="0.33099153637886047" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,8 +38,8 @@
                         <viewLayoutGuide key="safeArea" id="SPI-S6-fmB"/>
                     </view>
                     <connections>
-                        <outlet property="ibDatePicker" destination="uDD-zg-cWv" id="nqC-s0-3Gl"/>
-                        <outlet property="ibOKButton" destination="6BX-ur-x77" id="HYP-1d-tsz"/>
+                        <outlet property="datePicker" destination="uDD-zg-cWv" id="nqC-s0-3Gl"/>
+                        <outlet property="okButton" destination="6BX-ur-x77" id="HYP-1d-tsz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QHl-g1-pAf" userLabel="First Responder" sceneMemberID="firstResponder"/>

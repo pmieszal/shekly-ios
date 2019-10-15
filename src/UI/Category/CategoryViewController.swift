@@ -11,9 +11,9 @@ import Domain
 import Shared
 
 class CategoryViewController: SheklyViewController<CategoryViewModel> {
-    @IBOutlet private weak var ibHeaderView: UIView!
-    @IBOutlet private weak var ibCategoryLabel: UILabel!
-    @IBOutlet private weak var ibTableView: UITableView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
     
     var router: CategoryRouter?
 
@@ -32,8 +32,8 @@ class CategoryViewController: SheklyViewController<CategoryViewModel> {
     override func bind(viewModel: CategoryViewModel) {
         super.bind(viewModel: viewModel)
         
-        ibCategoryLabel.text = viewModel.categoryName
-        ibHeaderView.alpha = 0
+        categoryLabel.text = viewModel.categoryName
+        headerView.alpha = 0
     }
 }
 
@@ -83,26 +83,26 @@ extension CategoryViewController: UITableViewDataSource {
 
 extension CategoryViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let visibleCells: [UITableViewCell] = ibTableView.visibleCells
+        let visibleCells: [UITableViewCell] = tableView.visibleCells
         
         guard let headerIndex: Int = visibleCells.firstIndex(where: { $0 is CategoryHeaderCell }) else {
             return
         }
         
         let headerCell: UITableViewCell = visibleCells[headerIndex]
-        let headerCellPositionFrame: CGRect = view.convert(headerCell.frame, from: ibTableView)
+        let headerCellPositionFrame: CGRect = view.convert(headerCell.frame, from: tableView)
         let headerCellY: CGFloat = abs(headerCellPositionFrame.origin.y)
         
-        let headerHeight: CGFloat = ibHeaderView.frame.size.height
+        let headerHeight: CGFloat = headerView.frame.size.height
         
         let diff: CGFloat = headerCellY - headerHeight
         
         if diff > 0 {
             let alpha: CGFloat = min(diff / 10, 1)
             
-            ibHeaderView.alpha = alpha
+            headerView.alpha = alpha
         } else {
-            ibHeaderView.alpha = 0
+            headerView.alpha = 0
         }
     }
 }
@@ -110,20 +110,20 @@ extension CategoryViewController: UITableViewDelegate {
 private extension CategoryViewController {
     
     func setup() {
-        ibTableView.register(R.nib.categoryHeaderCell)
-        ibTableView.register(R.nib.categorySubcategoriesCell)
-        ibTableView.register(R.nib.walletEntryCell)
+        tableView.register(R.nib.categoryHeaderCell)
+        tableView.register(R.nib.categorySubcategoriesCell)
+        tableView.register(R.nib.walletEntryCell)
         
-        ibTableView.tableFooterView = UIView()
-        ibTableView.contentInset.top = 20
-        ibTableView.contentInset.bottom = 20
+        tableView.tableFooterView = UIView()
+        tableView.contentInset.top = 20
+        tableView.contentInset.bottom = 20
         
-        ibTableView.dataSource = self
-        ibTableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        ibHeaderView.layer.shadowColor = UIColor.black.cgColor
-        ibHeaderView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        ibHeaderView.layer.shadowRadius = 2
-        ibHeaderView.layer.shadowOpacity = 0.3
+        headerView.layer.shadowColor = UIColor.black.cgColor
+        headerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        headerView.layer.shadowRadius = 2
+        headerView.layer.shadowOpacity = 0.3
     }
 }

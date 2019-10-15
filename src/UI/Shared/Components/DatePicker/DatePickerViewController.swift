@@ -10,17 +10,17 @@ import UIKit
 import Domain
 
 class DatePickerViewController: SheklyViewController<DatePickerViewModel> {
-    @IBOutlet private weak var ibDatePicker: UIDatePicker!
-    @IBOutlet private weak var ibOKButton: UIButton!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var okButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ibOKButton.addTarget(self, action: #selector(didTapOKButton), for: .touchUpInside)
+        okButton.addTarget(self, action: #selector(didTapOKButton), for: .touchUpInside)
     }
     
     @objc
     private func didTapOKButton() {
-        viewModel.didPick(date: ibDatePicker.date)
+        viewModel.didPick(date: datePicker.date)
         dismiss(animated: true, completion: nil)
     }
 }

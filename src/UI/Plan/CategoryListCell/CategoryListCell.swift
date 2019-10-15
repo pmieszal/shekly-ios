@@ -10,10 +10,10 @@ import UIKit
 import Domain
 
 class CategoryListCell: UITableViewCell {
-    @IBOutlet private weak var ibCategoryLabel: UILabel!
-    @IBOutlet private weak var ibSubcategoriesLabel: UILabel!
-    @IBOutlet private weak var ibEntryLabel: UILabel!
-    @IBOutlet private weak var ibAmountLabel: UILabel!
+    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var subcategoriesLabel: UILabel!
+    @IBOutlet private weak var entryLabel: UILabel!
+    @IBOutlet private weak var amountLabel: UILabel!
     
     var model: SheklyCategoryModel! {
         didSet {
@@ -22,10 +22,10 @@ class CategoryListCell: UITableViewCell {
     }
     
     private func initialize() {
-        ibCategoryLabel.text = model.categoryText
-        ibSubcategoriesLabel.text = model.subcategoriesText
-        ibEntryLabel.text = model.entriesText
-        ibAmountLabel.text = model.amountText
+        categoryLabel.text = model.categoryText
+        subcategoriesLabel.text = model.subcategoriesText
+        entryLabel.text = model.entriesText
+        amountLabel.text = model.amountText
     }
 
 }

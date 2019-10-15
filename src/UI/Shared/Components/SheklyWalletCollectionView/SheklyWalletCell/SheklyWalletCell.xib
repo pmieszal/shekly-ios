@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -58,7 +55,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="do wydania:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0w-7H-Qkm">
-                                        <rect key="frame" x="247.5" y="0.0" width="67" height="14.5"/>
+                                        <rect key="frame" x="247.5" y="0.0" width="65.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -125,7 +122,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1768,57 zł" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="5de-C7-gfV">
-                                                        <rect key="frame" x="97" y="-2.5" width="76" height="20.5"/>
+                                                        <rect key="frame" x="97.5" y="-2.5" width="75.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -221,7 +218,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1768,57 zł" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8rp-ch-LBx">
-                                                        <rect key="frame" x="97" y="-2.5" width="76" height="20.5"/>
+                                                        <rect key="frame" x="97.5" y="-2.5" width="75.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -247,7 +244,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="563,79 zł" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bOg-8N-Reb">
-                                                        <rect key="frame" x="102.5" y="-2.5" width="70.5" height="20.5"/>
+                                                        <rect key="frame" x="103" y="-2.5" width="70" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -289,15 +286,15 @@
                 <constraint firstAttribute="bottom" secondItem="cVM-Rm-gcL" secondAttribute="bottom" id="yl2-u6-e0z"/>
             </constraints>
             <connections>
-                <outlet property="ibAddButton" destination="xWn-uQ-rtg" id="vhp-Qg-zd6"/>
-                <outlet property="ibContentStackView" destination="cVM-Rm-gcL" id="Ul3-YO-Pvl"/>
-                <outlet property="ibEmptyView" destination="SpQ-hf-dxN" id="2E5-eo-UAE"/>
-                <outlet property="ibNameLabel" destination="ijx-Dm-ANd" id="0l1-0w-GNJ"/>
-                <outlet property="ibPlanIncomeLabel" destination="5de-C7-gfV" id="7Hi-jJ-WsO"/>
-                <outlet property="ibPlanOutcomeLabel" destination="pCu-D0-e2t" id="4Tq-Pk-eCg"/>
-                <outlet property="ibRealIncomeLabel" destination="8rp-ch-LBx" id="vrv-47-lHH"/>
-                <outlet property="ibRealOutcomeLabel" destination="bOg-8N-Reb" id="3Og-xx-bZK"/>
-                <outlet property="ibToSpendAmountLabel" destination="V4T-UT-zX6" id="0X4-1x-ZJV"/>
+                <outlet property="addButton" destination="xWn-uQ-rtg" id="vhp-Qg-zd6"/>
+                <outlet property="contentStackView" destination="cVM-Rm-gcL" id="Ul3-YO-Pvl"/>
+                <outlet property="emptyView" destination="SpQ-hf-dxN" id="2E5-eo-UAE"/>
+                <outlet property="nameLabel" destination="ijx-Dm-ANd" id="0l1-0w-GNJ"/>
+                <outlet property="planIncomeLabel" destination="5de-C7-gfV" id="7Hi-jJ-WsO"/>
+                <outlet property="planOutcomeLabel" destination="pCu-D0-e2t" id="4Tq-Pk-eCg"/>
+                <outlet property="realIncomeLabel" destination="8rp-ch-LBx" id="vrv-47-lHH"/>
+                <outlet property="realOutcomeLabel" destination="bOg-8N-Reb" id="3Og-xx-bZK"/>
+                <outlet property="toSpendAmountLabel" destination="V4T-UT-zX6" id="0X4-1x-ZJV"/>
             </connections>
         </collectionViewCell>
     </objects>

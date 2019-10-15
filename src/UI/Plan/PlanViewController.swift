@@ -11,8 +11,7 @@ import Domain
 import Shared
 
 class PlanViewController: SheklyViewController<PlanViewModel> {
-    @IBOutlet private weak var ibTableView: UITableView!
-    @IBOutlet private weak var ibGradientView: UIView!
+    @IBOutlet private weak var tableView: UITableView!
     
     var router: PlanRouter?
     
@@ -60,11 +59,11 @@ extension PlanViewController: UITableViewDelegate {
 
 private extension PlanViewController {
     func setup() {
-        ibTableView.register(R.nib.categoryListCell)
-        ibTableView.tableFooterView = UIView()
-        ibTableView.contentInset.top = 20
-        ibTableView.contentInset.bottom = 20
-        ibTableView.dataSource = self
-        ibTableView.delegate = self
+        tableView.register(R.nib.categoryListCell)
+        tableView.tableFooterView = UIView()
+        tableView.contentInset.top = 20
+        tableView.contentInset.bottom = 20
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }

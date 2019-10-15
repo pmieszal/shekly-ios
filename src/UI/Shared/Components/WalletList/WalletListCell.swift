@@ -10,11 +10,11 @@ import UIKit
 import Shared
 
 class WalletListCell: UITableViewCell {
-    @IBOutlet weak var ibNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ibNameLabel.textColor = Colors.brandColor
+        nameLabel.textColor = Colors.brandColor
     }
 }
