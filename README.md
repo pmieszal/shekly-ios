@@ -32,6 +32,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [x] code style: remove redundant `ib` prefix for IBOutlets
 - [ ] use new UICollectionView layout introduced by Paul Hudson in mobiconf
 - [ ] try SwiftUI
+- [ ] write some unit tests
 - [ ] define features 😅
 
 ## Author

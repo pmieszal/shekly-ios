@@ -1,7 +1,6 @@
 platform :ios, '13.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
-use_frameworks!
 inhibit_all_warnings!
 
 project 'Shekly'
@@ -23,6 +22,11 @@ end
 target 'Shared' do
   utilities
 end
+
+target 'Swift-UI' do
+  utilities
+end
+
 
 target 'UI' do
   utilities
