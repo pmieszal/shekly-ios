@@ -30,8 +30,12 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [x] introduce SwiftLint
 - [x] code style: remove redundant `self.` calls
 - [x] code style: remove redundant `ib` prefix for IBOutlets
-- [ ] use new UICollectionView layout introduced by Paul Hudson in mobiconf
+- [ ] try new UICollectionView layout introduced by Paul Hudson in mobiconf
 - [ ] try SwiftUI
+- [ ] move to SPM since SwiftUI preview doesn't support cocoapods yet?
+- [ ] have fun with haptics
+- [ ] checkout new native DI with storyboards 🎉 https://www.hackingwithswift.com/example-code/uikit/how-to-use-dependency-injection-with-storyboards
+- [ ] play with Dark Mode
 - [ ] define features 😅
 
 ## Author
