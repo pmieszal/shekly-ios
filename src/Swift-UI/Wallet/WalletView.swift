@@ -13,11 +13,9 @@ struct WalletView: View {
     var body: some View {
         NavigationView {
             List {
-                Text("Content")
+                WalletEntryListItem()
             }
-            .navigationBarTitle(Text("Wallet").foregroundColor(.white))
         }
-        .colorMultiply(Color(Colors.brandColor))
     }
 }
 

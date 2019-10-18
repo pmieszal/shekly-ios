@@ -18,12 +18,13 @@ struct NewEntryButton: View {
                 Image(systemName: "plus")
                     .accentColor(Color(Colors.brandColor))
                     .imageScale(Image.Scale.large)
-                    .padding()
-            })
-            .background((Color(.white)))
-            .mask(Circle())
-            .frame(width: 50, height: 50)
-        
+                    .padding(EdgeInsets(top: 25, leading: 30, bottom: 25, trailing: 30))
+        })
+            .background(
+                Circle()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(Color(.white))
+        )
     }
 }
 

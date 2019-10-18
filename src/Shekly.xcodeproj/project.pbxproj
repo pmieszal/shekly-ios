@@ -131,6 +131,7 @@
 		8F50674322467AD100723C0B /* WalletJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50674222467AD100723C0B /* WalletJSONModel.swift */; };
 		8F50674D22467EAE00723C0B /* SheklyWalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */; };
 		8F50675122468B2C00723C0B /* SheklyCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */; };
+		8F6BA5D5235A2BBA00F3B651 /* WalletEntryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA5D4235A2BBA00F3B651 /* WalletEntryListItem.swift */; };
 		8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83CA722260C6ED003464AB /* DatePicker.storyboard */; };
 		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
 		8F8F3B9B2350A5A6007AC4FB /* Domain+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */; };
@@ -428,6 +429,7 @@
 		8F50674C22467EAE00723C0B /* SheklyWalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyWalletModel.swift; sourceTree = "<group>"; };
 		8F50675022468B2C00723C0B /* SheklyCurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyCurrencyFormatter.swift; sourceTree = "<group>"; };
 		8F577275D90C610D64AE76CD /* libPods-UI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F6BA5D4235A2BBA00F3B651 /* WalletEntryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntryListItem.swift; sourceTree = "<group>"; };
 		8F83CA722260C6ED003464AB /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		8F83CA742260C703003464AB /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		8F8F3B8F2350693F007AC4FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -1016,6 +1018,7 @@
 			isa = PBXGroup;
 			children = (
 				8F228AD823576EC300E1E44E /* WalletView.swift */,
+				8F6BA5D4235A2BBA00F3B651 /* WalletEntryListItem.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2328,6 +2331,7 @@
 				8F228AD02357589F00E1E44E /* NewEntryButton.swift in Sources */,
 				8F228AC92357579E00E1E44E /* MainView.swift in Sources */,
 				8F228AD923576EC300E1E44E /* WalletView.swift in Sources */,
+				8F6BA5D5235A2BBA00F3B651 /* WalletEntryListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

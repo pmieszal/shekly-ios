@@ -16,7 +16,6 @@ struct MainView: View {
             NewEntryButton {
                 log.debug("New entry button tapped")
             }
-            .padding()
         })
     }
 }
