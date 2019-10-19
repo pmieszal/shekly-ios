@@ -11,36 +11,41 @@ import Shared
 
 struct WalletEntryListItem: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             HStack() {
                 Text("subcategory")
                     .padding(.leading, 20)
-                    .padding(.top, 8)
+                    .padding(.top, 4)
                     .font(Font.system(size: 16, weight: .medium))
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                
                 Text("13 marzec 2019")
                     .foregroundColor(Color(Colors.text1Color))
                     .padding(.trailing, 20)
-                    .padding(.top, 6)
+                    .padding(.top, 4)
                     .font(Font.system(size: 10, weight: .light))
             }
-            .scaledToFill()
-            HStack() {
-                Text("category + comment")
+            
+            HStack(alignment: .top) {
+                Text("category + comment + comment + comment + comment + comment + comment + comment + comment")
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(Color(Colors.text1Color))
                     .padding(.leading, 20)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 16)
                     .font(Font.system(size: 14, weight: .regular))
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     
                 Text("- 5,00 zł")
                     .foregroundColor(Color(Colors.numberRed))
-                    .padding(.leading, 20)
-                    .padding(.bottom, 20)
-                    .font(Font.system(size: 14, weight: .regular))
+                    .padding(.trailing, 20)
+                    .font(Font.system(size: 14, weight: .semibold))
+                    .frame(minWidth: 0, maxHeight: .infinity, alignment: .topTrailing)
             }
         }
-        .background(Color(Colors.brand2Color))
+        .background(Color(Colors.walletEntryBackground))
         .foregroundColor(.white)
-        .border(Color.black)
+        .fillHorizontally()
     }
 }
 

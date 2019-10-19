@@ -34,6 +34,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [ ] try SwiftUI
 - [ ] write some unit tests
 - [ ] define features 😅
+- [ ] implement proper dependency for modules (Domain target should define API for Database and shouldn't import Database module directly)
 
 ## Author
 
