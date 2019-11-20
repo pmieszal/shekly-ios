@@ -84,6 +84,8 @@
 		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
 		8F22964B220DF95B00DE5AF7 /* EntityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */; };
 		8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */; };
+		8F281274235B896C00C26858 /* WalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F281273235B896C00C26858 /* WalletRepository.swift */; };
+		8F281276235B8D7100C26858 /* WalletEntriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F281275235B8D7100C26858 /* WalletEntriesRepository.swift */; };
 		8F28749C2263282C00EC4933 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */; };
 		8F28A35C220C60B800FD48DC /* SHTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35B220C60B800FD48DC /* SHTokenView.swift */; };
 		8F28A35E220C723700FD48DC /* SheklyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35D220C723700FD48DC /* SheklyButton.swift */; };
@@ -342,6 +344,8 @@
 		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityGroup.swift; sourceTree = "<group>"; };
 		8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyDataController.swift; sourceTree = "<group>"; };
+		8F281273235B896C00C26858 /* WalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepository.swift; sourceTree = "<group>"; };
+		8F281275235B8D7100C26858 /* WalletEntriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEntriesRepository.swift; sourceTree = "<group>"; };
 		8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
 		8F28A35B220C60B800FD48DC /* SHTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenView.swift; sourceTree = "<group>"; };
 		8F28A35D220C723700FD48DC /* SheklyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyButton.swift; sourceTree = "<group>"; };
@@ -639,6 +643,7 @@
 		8F1E01E72207231200EC1A36 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				8F281272235B895E00C26858 /* Repositories */,
 				8F28749A2263280400EC4933 /* DatePicker */,
 				8F3C1EB72257C9DC008C29EE /* NewEntry */,
 				8F1EAD6E222592D00095AA10 /* Category */,
@@ -938,6 +943,15 @@
 				8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */,
 			);
 			path = Groups;
+			sourceTree = "<group>";
+		};
+		8F281272235B895E00C26858 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8F281273235B896C00C26858 /* WalletRepository.swift */,
+				8F281275235B8D7100C26858 /* WalletEntriesRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		8F28749A2263280400EC4933 /* DatePicker */ = {
@@ -1503,7 +1517,7 @@
 		8F1E01AF2207206B00EC1A36 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Patryk Mieszała";
 				TargetAttributes = {
@@ -1933,6 +1947,7 @@
 				8FF3E494225A5F5E00A88238 /* WalletListViewModel.swift in Sources */,
 				8F228AA82355D47500E1E44E /* PlanPresenter.swift in Sources */,
 				8F9BAFB82256475E0017F431 /* ReloadablePresenter.swift in Sources */,
+				8F281274235B896C00C26858 /* WalletRepository.swift in Sources */,
 				8FEAD6F922568A520022325E /* SheklyEntryEmptyModel.swift in Sources */,
 				8FF3E489225A268A00A88238 /* WalletEntryType+Properties.swift in Sources */,
 				8F50674D22467EAE00723C0B /* SheklyWalletModel.swift in Sources */,
@@ -1953,6 +1968,7 @@
 				8F228AAF2355EAEA00E1E44E /* WalletPresenter.swift in Sources */,
 				8F3C1EBB2257CA3F008C29EE /* NewEntryViewModel.swift in Sources */,
 				8F3CCB5C2215F3E500420C5A /* SheklyCategoryModel.swift in Sources */,
+				8F281276235B8D7100C26858 /* WalletEntriesRepository.swift in Sources */,
 				8FAE76B12209CDFA007D83B1 /* WalletTokenFieldInputHelper.swift in Sources */,
 				8F46831522149E4C0041F23B /* SheklyWalletEntryModel.swift in Sources */,
 				8F1EAD7E222599680095AA10 /* CategoryCellViewModel.swift in Sources */,

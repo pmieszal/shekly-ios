@@ -8,7 +8,6 @@
 
 import User
 import SHTokenField
-import Database
 import Shared
 
 public final class WalletViewModel: ViewModel {
@@ -20,7 +19,9 @@ public final class WalletViewModel: ViewModel {
     private var wallets: [SheklyWalletModel] = []
     private var entries: [SheklyWalletEntryModel] = []
     
-    private let dataController: SheklyDataController
+    private let walletRepository: WalletRepository
+    private let walletEntriesRepository: WalletEntriesRepository
+    
     private weak var presenter: WalletPresenter?
     private let currencyFormatter: SheklyCurrencyFormatter
     private let differ: Differ
@@ -28,19 +29,22 @@ public final class WalletViewModel: ViewModel {
     
     // MARK: - Constructor
     init(presenter: WalletPresenter,
-         dataController: SheklyDataController,
+         walletRepository: WalletRepository,
+         walletEntriesRepository: WalletEntriesRepository,
          differ: Differ,
          currencyFormatter: SheklyCurrencyFormatter,
          userProvider: UserManaging) {
         self.presenter = presenter
-        self.dataController = dataController
+        self.walletRepository = walletRepository
+        self.walletEntriesRepository = walletEntriesRepository
         self.differ = differ
         self.currencyFormatter = currencyFormatter
         self.userProvider = userProvider
         
         self.selectedMonthDate = Date()
         
-        let wallets = dataController.getWallets().map(SheklyWalletModel.init)
+        //TODO: this
+        let wallets = walletRepository.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.selectedWallet = selectedWallet ?? wallets.first
     }
@@ -90,24 +94,21 @@ public extension WalletViewModel {
     }
     
     func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool {
-        let entries: [WalletEntryModel] = self.entries.compactMap { $0.entry }
-        
         guard let entry = entries[safe: indexPath.row] else {
             return false
         }
         
-        let success = dataController.delete(entry: entry)
-        
+        let success = walletEntriesRepository.delete(entry: entry)
         reloadEntries()
         
         return success
     }
     
     func addWallet(named name: String) {
-        let wallet: WalletModel = WalletModel(name: name, properties: nil)
-        let savedWallet: WalletModel = dataController.save(wallet: wallet)
+        let wallet = SheklyWalletModel(name: name, id: nil)
+        let savedWallet = walletRepository.save(wallet: wallet)
         
-        selectedWallet = SheklyWalletModel(wallet: savedWallet)
+        selectedWallet = savedWallet
         reloadWallets()
         reloadEntries()
     }
@@ -116,46 +117,32 @@ public extension WalletViewModel {
 // MARK: - Internal methods
 extension WalletViewModel {
     func reloadWallets() {
-        let wallets: [SheklyWalletModel] = dataController.getWallets().map(SheklyWalletModel.init)
-        let emptyModel = SheklyWalletModel(wallet: nil)
-        
+        let wallets: [SheklyWalletModel] = walletRepository.getWallets()
+        //TODO: emptymodel should be logic in UI
+        let emptyModel = SheklyWalletModel(name: nil, id: nil)
+
         self.wallets = wallets + [emptyModel]
         
         presenter?.reloadWallets()
     }
     
     func reloadEntries() {
-        guard let wallet = selectedWallet?.wallet, let date = selectedMonthDate else {
+        //TODO: this
+        guard let selectedWallet = selectedWallet, let date = selectedMonthDate else {
             return
         }
-        
-        let entries: [WalletEntryModel] = dataController.getWalletEntries(forWallet: wallet, date: date)
+
+        let entries = walletEntriesRepository.getWalletEntries(forWallet: selectedWallet, date: date)
         let entryModels: [SheklyWalletEntryModel] = entries
             .sorted()
-            .map { entry -> SheklyWalletEntryModel in
-                return SheklyWalletEntryModel(entry: entry, formatter: currencyFormatter)
-        }
-        
+
         let models: [SheklyWalletEntryModel] = entries.isEmpty ? [SheklyEntryEmptyModel()] : entryModels
         let oldState = self.entries
-        
+
         let changeSet: ChangeSet = differ.getDiff(oldState: oldState, newState: models)
-        
+
         presenter?.reload(changeSet: changeSet, setData: { [weak self] in
             self?.entries = models
         })
-    }
-}
-
-private extension Array where Element == WalletEntryModel {
-    func sorted() -> [Element] {
-        return sorted { (left, right) -> Bool in
-            guard let leftDate = left.date,
-                let rightDate = right.date else {
-                    return false
-            }
-            
-            return leftDate > rightDate
-        }
     }
 }

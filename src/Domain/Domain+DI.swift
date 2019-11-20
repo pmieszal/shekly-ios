@@ -7,7 +7,6 @@
 //
 
 import Dip
-import Database
 import User
 import Shared
 
@@ -27,7 +26,8 @@ public extension DependencyContainer {
         container.register(.unique,
                            factory: { presenter in
                             WalletViewModel(presenter: presenter,
-                                            dataController: container.forceResolve(),
+                                            walletRepository: container.forceResolve(),
+                                            walletEntriesRepository: container.forceResolve(),
                                             differ: container.forceResolve(),
                                             currencyFormatter: container.forceResolve(),
                                             userProvider: container.forceResolve())

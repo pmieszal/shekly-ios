@@ -18,6 +18,7 @@ public class SheklyWalletEntryModel: Hashable {
     public let dateString: String?
     
     let id: String?
+    let date: Date?
     let entry: WalletEntryModel?
     
     init(entry: WalletEntryModel?, formatter: SheklyCurrencyFormatter) {
@@ -40,6 +41,7 @@ public class SheklyWalletEntryModel: Hashable {
         let dateString: String? =  date?.toString(DateToStringStyles.date(DateFormatter.Style.long))
         
         self.id = entry?.id
+        self.date = entry?.date
         self.categoryAndComment = categoryAndComment
         self.subcategory = subcategory
         self.amount = amount
@@ -55,6 +57,7 @@ public class SheklyWalletEntryModel: Hashable {
         dateString = nil
         id = nil
         entry = nil
+        date = nil
     }
     
     public func hash(into hasher: inout Hasher) {
@@ -68,4 +71,17 @@ public class SheklyWalletEntryModel: Hashable {
 
 public func ==<T: SheklyWalletEntryModel>(lhs: T, rhs: T) -> Bool {
     return lhs.hashValue == rhs.hashValue
+}
+
+extension Array where Element == SheklyWalletEntryModel {
+    func sorted() -> [Element] {
+        return sorted { (left, right) -> Bool in
+            guard let leftDate = left.date,
+                let rightDate = right.date else {
+                    return false
+            }
+            
+            return leftDate > rightDate
+        }
+    }
 }

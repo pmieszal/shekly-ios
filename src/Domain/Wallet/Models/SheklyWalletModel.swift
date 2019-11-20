@@ -6,24 +6,13 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Database
-
-public class SheklyWalletModel: Equatable, Hashable {
+public struct SheklyWalletModel: Equatable, Hashable {
     public let name: String?
-    public let isEmpty: Bool
+    public let id: String?
     
-    var id: String? {
-        return wallet?.id
-    }
+    //TODO: get rid of this, this logic should be in UI module
+    public var isEmpty: Bool { id == nil }
     
-    let wallet: WalletModel?
-    
-    init(wallet: WalletModel?) {
-        self.wallet = wallet
-        
-        self.name = wallet?.name
-        self.isEmpty = wallet == nil
-    }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id ?? NSUUID().uuidString)
