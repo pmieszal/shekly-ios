@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SheklyJSONDataController: SheklyDataController {
+public class SheklyJSONDataController: SheklyDataRepository {
     
     func save(wallet: WalletJSONModel, completionHandler: () -> ()) {
         let entries = wallet.expenses

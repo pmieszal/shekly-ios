@@ -32,6 +32,10 @@ target 'Domain' do
   utilities
 end
 
+target 'DomainTests' do
+  utilities
+end
+
 target 'User' do
   utilities
 end

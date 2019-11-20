@@ -10,10 +10,11 @@ import Database
 import User
 
 public class WalletListViewModel: ViewModel {
-    // MARK: - Private properties
-    private var wallets: [WalletModel]
-    private weak var presenter: WalletListPresenter?
-    private weak var delegate: WalletListDelegate?
+    // MARK: - Internal properties
+    var wallets: [WalletModel] = []
+    weak var presenter: WalletListPresenter?
+    weak var delegate: WalletListDelegate?
+    var dataController: SheklyDataController
     
     // MARK: - Constructor
     init(
@@ -21,12 +22,13 @@ public class WalletListViewModel: ViewModel {
         delegate: WalletListDelegate,
         dataController: SheklyDataController
         ) {
-        self.wallets = dataController.getWallets()
         self.presenter = presenter
         self.delegate = delegate
+        self.dataController = dataController
     }
     
     public func viewDidLoad() {
+        wallets = dataController.getWallets()
         presenter?.reloadList()
     }
     
@@ -43,7 +45,9 @@ public class WalletListViewModel: ViewModel {
     }
     
     public func didSelect(itemAt indexPath: IndexPath) {
-        let wallet = wallets[indexPath.row]
+        guard let wallet = wallets[safe: indexPath.row] else {
+            return
+        }
         
         delegate?.didSelect(wallet: wallet)
     }

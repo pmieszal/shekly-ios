@@ -16,8 +16,9 @@ public extension DependencyContainer {
         
         container.register(.shared,
                            factory: {
-                            SheklyDataController(store: container.forceResolve())
-        })
+                            SheklyDataRepository(store: container.forceResolve())
+            })
+            .implements(SheklyDataController.self)
         
         container.register(.shared,
                            factory: {

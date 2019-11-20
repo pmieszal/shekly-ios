@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F1E01B62207206B00EC1A36"
-               BuildableName = "Shekly.app"
-               BlueprintName = "Shekly"
+               BlueprintIdentifier = "8F1E01E52207231200EC1A36"
+               BuildableName = "Domain.framework"
+               BlueprintName = "Domain"
                ReferencedContainer = "container:Shekly.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,16 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8F1E01B62207206B00EC1A36"
-            BuildableName = "Shekly.app"
-            BlueprintName = "Shekly"
-            ReferencedContainer = "container:Shekly.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,16 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8F1E01B62207206B00EC1A36"
-            BuildableName = "Shekly.app"
-            BlueprintName = "Shekly"
+            BlueprintIdentifier = "8F1E01E52207231200EC1A36"
+            BuildableName = "Domain.framework"
+            BlueprintName = "Domain"
             ReferencedContainer = "container:Shekly.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

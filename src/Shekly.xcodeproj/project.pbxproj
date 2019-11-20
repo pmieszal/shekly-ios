@@ -10,8 +10,15 @@
 		0BFB7D14ACEE425B59A86E29 /* Pods_SHTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00647349B0D7F6248079AE21 /* Pods_SHTokenField.framework */; };
 		15E957719AE03FF986C5C908 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075EB91BD924D0E9BAC57E43 /* Pods_Domain.framework */; };
 		4E4E711DDBEF0349070CD5F9 /* Pods_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFBF1ED73E4F6A884440511 /* Pods_User.framework */; };
+		5321C99BDBD122B16E45B50C /* Pods_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56A3C0B77FB6027892D88DB /* Pods_DomainTests.framework */; };
 		619551D3C559BCEFAE289856 /* Pods_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E242A6E782812E490BA455 /* Pods_UI.framework */; };
 		800D00A3AE07F626E198EAE8 /* Pods_Shekly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE190F928FFEC21A155668D3 /* Pods_Shekly.framework */; };
+		8F006E4A2385B74A0015C9C1 /* WalletListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F006E492385B74A0015C9C1 /* WalletListTests.swift */; };
+		8F006E4C2385B74A0015C9C1 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; };
+		8F0F12992385BA2C00794777 /* SheklyDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F12982385BA2C00794777 /* SheklyDataController.swift */; };
+		8F0F129E2385BBCB00794777 /* WalletListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F129D2385BBCB00794777 /* WalletListPresenterMock.swift */; };
+		8F0F12A02385BBDB00794777 /* WalletListDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F129F2385BBDB00794777 /* WalletListDelegateMock.swift */; };
+		8F0F12A22385BBF600794777 /* SheklyDataControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F12A12385BBF600794777 /* SheklyDataControllerMock.swift */; };
 		8F17E07D222B0BA700C363CA /* GradientMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F17E07C222B0BA700C363CA /* GradientMaskView.swift */; };
 		8F17E07F222B0CA300C363CA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F17E07E222B0CA300C363CA /* GradientView.swift */; };
 		8F1E01BB2207206B00EC1A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E01BA2207206B00EC1A36 /* AppDelegate.swift */; };
@@ -83,7 +90,7 @@
 		8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */; };
 		8F22963B220DF6E200DE5AF7 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */; };
 		8F22964B220DF95B00DE5AF7 /* EntityGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */; };
-		8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */; };
+		8F22964E220DFD3F00DE5AF7 /* SheklyDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22964D220DFD3F00DE5AF7 /* SheklyDataRepository.swift */; };
 		8F28749C2263282C00EC4933 /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */; };
 		8F28A35C220C60B800FD48DC /* SHTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35B220C60B800FD48DC /* SHTokenView.swift */; };
 		8F28A35E220C723700FD48DC /* SheklyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F28A35D220C723700FD48DC /* SheklyButton.swift */; };
@@ -190,6 +197,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8F006E4D2385B74A0015C9C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F1E01E52207231200EC1A36;
+			remoteInfo = Domain;
+		};
 		8F1E01D9220722C500EC1A36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F1E01AF2207206B00EC1A36 /* Project object */;
@@ -262,12 +276,21 @@
 		28681FC01412BD0B5F9E1ACD /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35CDAC8383ACFD287A43346E /* Pods-Shekly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shekly.release.xcconfig"; path = "Target Support Files/Pods-Shekly/Pods-Shekly.release.xcconfig"; sourceTree = "<group>"; };
 		3E47797B54295F8E59364C9D /* Pods-Shekly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shekly.debug.xcconfig"; path = "Target Support Files/Pods-Shekly/Pods-Shekly.debug.xcconfig"; sourceTree = "<group>"; };
+		6612C55EF4A9DE02DB1E92A2 /* Pods-DomainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.debug.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BBCAC83D4D77B70512BD260 /* Pods-Database.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Database.release.xcconfig"; path = "Target Support Files/Pods-Database/Pods-Database.release.xcconfig"; sourceTree = "<group>"; };
 		70D0B3CA853F4FEDCCFB8EAA /* Pods-UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.debug.xcconfig"; path = "Target Support Files/Pods-UI/Pods-UI.debug.xcconfig"; sourceTree = "<group>"; };
 		751C87E1D3CA274DD94BDCD1 /* Pods-Database.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Database.debug.xcconfig"; path = "Target Support Files/Pods-Database/Pods-Database.debug.xcconfig"; sourceTree = "<group>"; };
 		7BFD7A7CFABE0E43C4186F9C /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		8031F0ADA0C7447386DBB73F /* Pods-UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UI.release.xcconfig"; path = "Target Support Files/Pods-UI/Pods-UI.release.xcconfig"; sourceTree = "<group>"; };
+		8078E17877C9D0F95152AC16 /* Pods-DomainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomainTests.release.xcconfig"; path = "Target Support Files/Pods-DomainTests/Pods-DomainTests.release.xcconfig"; sourceTree = "<group>"; };
 		8486D388FD0D72C2FD1EF632 /* Pods_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F006E472385B74A0015C9C1 /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F006E492385B74A0015C9C1 /* WalletListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListTests.swift; sourceTree = "<group>"; };
+		8F006E4B2385B74A0015C9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F0F12982385BA2C00794777 /* SheklyDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyDataController.swift; sourceTree = "<group>"; };
+		8F0F129D2385BBCB00794777 /* WalletListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListPresenterMock.swift; sourceTree = "<group>"; };
+		8F0F129F2385BBDB00794777 /* WalletListDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListDelegateMock.swift; sourceTree = "<group>"; };
+		8F0F12A12385BBF600794777 /* SheklyDataControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyDataControllerMock.swift; sourceTree = "<group>"; };
 		8F17E07C222B0BA700C363CA /* GradientMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientMaskView.swift; sourceTree = "<group>"; };
 		8F17E07E222B0CA300C363CA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8F1E01B72207206B00EC1A36 /* Shekly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shekly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,7 +364,7 @@
 		8F229634220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WalletEntry+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/WalletEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F229635220DF6E200DE5AF7 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "/Users/patrykmieszala/Developer/shekly-ios/src/Database/Entities/Category+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		8F22964A220DF95B00DE5AF7 /* EntityGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityGroup.swift; sourceTree = "<group>"; };
-		8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyDataController.swift; sourceTree = "<group>"; };
+		8F22964D220DFD3F00DE5AF7 /* SheklyDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheklyDataRepository.swift; sourceTree = "<group>"; };
 		8F28749B2263282C00EC4933 /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
 		8F28A35B220C60B800FD48DC /* SHTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHTokenView.swift; sourceTree = "<group>"; };
 		8F28A35D220C723700FD48DC /* SheklyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheklyButton.swift; sourceTree = "<group>"; };
@@ -446,6 +469,7 @@
 		8FF3E493225A5F5E00A88238 /* WalletListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewModel.swift; sourceTree = "<group>"; };
 		8FF3E495225A61E700A88238 /* UIViewController+Popover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Popover.swift"; sourceTree = "<group>"; };
 		A2D24E0CDE88D846E76E103B /* Pods-User.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User.release.xcconfig"; path = "Target Support Files/Pods-User/Pods-User.release.xcconfig"; sourceTree = "<group>"; };
+		B56A3C0B77FB6027892D88DB /* Pods_DomainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E242A6E782812E490BA455 /* Pods_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAB6FFD94FE9ABEB8D504D6 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 		DE190F928FFEC21A155668D3 /* Pods_Shekly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shekly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -455,6 +479,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F006E442385B74A0015C9C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F006E4C2385B74A0015C9C1 /* Domain.framework in Frameworks */,
+				5321C99BDBD122B16E45B50C /* Pods_DomainTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F1E01B42207206B00EC1A36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,6 +579,7 @@
 				DE190F928FFEC21A155668D3 /* Pods_Shekly.framework */,
 				C6E242A6E782812E490BA455 /* Pods_UI.framework */,
 				1CFBF1ED73E4F6A884440511 /* Pods_User.framework */,
+				B56A3C0B77FB6027892D88DB /* Pods_DomainTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -567,8 +601,46 @@
 				8031F0ADA0C7447386DBB73F /* Pods-UI.release.xcconfig */,
 				1EEAE94B94A4C5D63C26EA17 /* Pods-User.debug.xcconfig */,
 				A2D24E0CDE88D846E76E103B /* Pods-User.release.xcconfig */,
+				6612C55EF4A9DE02DB1E92A2 /* Pods-DomainTests.debug.xcconfig */,
+				8078E17877C9D0F95152AC16 /* Pods-DomainTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8F006E482385B74A0015C9C1 /* DomainTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F0F129B2385BBB800794777 /* WalletList */,
+				8F0F129A2385BB2B00794777 /* Mocks */,
+				8F006E4B2385B74A0015C9C1 /* Info.plist */,
+			);
+			path = DomainTests;
+			sourceTree = "<group>";
+		};
+		8F0F129A2385BB2B00794777 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0F12A12385BBF600794777 /* SheklyDataControllerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8F0F129B2385BBB800794777 /* WalletList */ = {
+			isa = PBXGroup;
+			children = (
+				8F0F129C2385BBBE00794777 /* Mocks */,
+				8F006E492385B74A0015C9C1 /* WalletListTests.swift */,
+			);
+			path = WalletList;
+			sourceTree = "<group>";
+		};
+		8F0F129C2385BBBE00794777 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8F0F129D2385BBCB00794777 /* WalletListPresenterMock.swift */,
+				8F0F129F2385BBDB00794777 /* WalletListDelegateMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8F1E01AE2207206B00EC1A36 = {
@@ -579,6 +651,7 @@
 				8F1E01B92207206B00EC1A36 /* Shekly */,
 				8F1E01D5220722C500EC1A36 /* UI */,
 				8F1E01E72207231200EC1A36 /* Domain */,
+				8F006E482385B74A0015C9C1 /* DomainTests */,
 				8F1E0209220727AB00EC1A36 /* Database */,
 				8F1E022922072A2C00EC1A36 /* User */,
 				8F1E01F82207234F00EC1A36 /* Shared */,
@@ -601,6 +674,7 @@
 				8F1E022822072A2C00EC1A36 /* User.framework */,
 				8FAE76992209CA0A007D83B1 /* SHTokenField.framework */,
 				8F2FA33B222AA84300D3E1BB /* SheklyShare.appex */,
+				8F006E472385B74A0015C9C1 /* DomainTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -973,10 +1047,11 @@
 		8F2FA354222AF7B800D3E1BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8F22964D220DFD3F00DE5AF7 /* SheklyDataController.swift */,
+				8F22964D220DFD3F00DE5AF7 /* SheklyDataRepository.swift */,
 				8F2FA352222AF7AE00D3E1BB /* SheklyJSONDataController.swift */,
 				8F1E02142207282100EC1A36 /* SheklyDatabasePersistance.swift */,
 				8F2FA356222AFF1900D3E1BB /* SheklyPresistentContainer.swift */,
+				8F0F12982385BA2C00794777 /* SheklyDataController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1338,6 +1413,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8F006E462385B74A0015C9C1 /* DomainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F006E512385B74A0015C9C1 /* Build configuration list for PBXNativeTarget "DomainTests" */;
+			buildPhases = (
+				92E8A9FEA2C071C927CB44E5 /* [CP] Check Pods Manifest.lock */,
+				8F006E432385B74A0015C9C1 /* Sources */,
+				8F006E442385B74A0015C9C1 /* Frameworks */,
+				8F006E452385B74A0015C9C1 /* Resources */,
+				1CBD4A03C55EB4EDC8361EBF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F006E4E2385B74A0015C9C1 /* PBXTargetDependency */,
+			);
+			name = DomainTests;
+			productName = DomainTests;
+			productReference = 8F006E472385B74A0015C9C1 /* DomainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8F1E01B62207206B00EC1A36 /* Shekly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F1E01CC2207206C00EC1A36 /* Build configuration list for PBXNativeTarget "Shekly" */;
@@ -1503,10 +1598,13 @@
 		8F1E01AF2207206B00EC1A36 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Patryk Mieszała";
 				TargetAttributes = {
+					8F006E462385B74A0015C9C1 = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					8F1E01B62207206B00EC1A36 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -1566,11 +1664,19 @@
 				8F1E022722072A2C00EC1A36 /* User */,
 				8FAE76982209CA0A007D83B1 /* SHTokenField */,
 				8F2FA33A222AA84300D3E1BB /* SheklyShare */,
+				8F006E462385B74A0015C9C1 /* DomainTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F006E452385B74A0015C9C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F1E01B52207206B00EC1A36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1649,6 +1755,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1CBD4A03C55EB4EDC8361EBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainTests/Pods-DomainTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomainTests/Pods-DomainTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomainTests/Pods-DomainTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1E67D6DB68A4358FCE8216AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1766,6 +1889,28 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
+		92E8A9FEA2C071C927CB44E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DomainTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		984559EF5930C57CB529DF73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1857,6 +2002,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F006E432385B74A0015C9C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0F12A02385BBDB00794777 /* WalletListDelegateMock.swift in Sources */,
+				8F0F12A22385BBF600794777 /* SheklyDataControllerMock.swift in Sources */,
+				8F006E4A2385B74A0015C9C1 /* WalletListTests.swift in Sources */,
+				8F0F129E2385BBCB00794777 /* WalletListPresenterMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F1E01B32207206B00EC1A36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1981,13 +2137,14 @@
 				8F5067412246755300723C0B /* WalletModel.swift in Sources */,
 				8F50674322467AD100723C0B /* WalletJSONModel.swift in Sources */,
 				8F1E02162207282500EC1A36 /* SheklyDatabasePersistance.swift in Sources */,
-				8F22964E220DFD3F00DE5AF7 /* SheklyDataController.swift in Sources */,
+				8F22964E220DFD3F00DE5AF7 /* SheklyDataRepository.swift in Sources */,
 				8F2FA355222AF89A00D3E1BB /* SheklyJSONDataController.swift in Sources */,
 				8F8F3BA32350AFC2007AC4FB /* Database+DI.swift in Sources */,
 				8F46830F221482140041F23B /* DatabaseEntry.swift in Sources */,
 				8F2FA357222AFF1900D3E1BB /* SheklyPresistentContainer.swift in Sources */,
 				8F50673F224673C100723C0B /* Wallet+CoreDataClass.swift in Sources */,
 				8F4682E5221458560041F23B /* DatabaseEntity+CoreDataClass.swift in Sources */,
+				8F0F12992385BA2C00794777 /* SheklyDataController.swift in Sources */,
 				8F22963A220DF6E200DE5AF7 /* WalletEntry+CoreDataClass.swift in Sources */,
 				8F468313221498730041F23B /* DatabaseModelProperties.swift in Sources */,
 				8F2FA351222AF74600D3E1BB /* ExpenseJSONModel.swift in Sources */,
@@ -2043,6 +2200,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8F006E4E2385B74A0015C9C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F1E01E52207231200EC1A36 /* Domain */;
+			targetProxy = 8F006E4D2385B74A0015C9C1 /* PBXContainerItemProxy */;
+		};
 		8F1E01DA220722C500EC1A36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8F1E01D3220722C400EC1A36 /* UI */;
@@ -2087,6 +2249,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8F006E4F2385B74A0015C9C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6612C55EF4A9DE02DB1E92A2 /* Pods-DomainTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DomainTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.DomainTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F006E502385B74A0015C9C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8078E17877C9D0F95152AC16 /* Pods-DomainTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DomainTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = pl.patryk.mieszala.DomainTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8F1E01CA2207206C00EC1A36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2694,6 +2894,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F006E512385B74A0015C9C1 /* Build configuration list for PBXNativeTarget "DomainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F006E4F2385B74A0015C9C1 /* Debug */,
+				8F006E502385B74A0015C9C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8F1E01B22207206B00EC1A36 /* Build configuration list for PBXProject "Shekly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
