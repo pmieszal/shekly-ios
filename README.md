@@ -31,7 +31,7 @@ It was started with pure Rx, using MVVM + Coordinator. Then hard refactoring app
 - [x] code style: remove redundant `self.` calls
 - [x] code style: remove redundant `ib` prefix for IBOutlets
 - [ ] divide project to feature-modules
-- [ ] introduce XcodeGen
+- [x] introduce XcodeGen
 - [ ] implement real Domain module
 - [ ] try new UICollectionView layout introduced by Paul Hudson in mobiconf
 - [ ] try SwiftUI
