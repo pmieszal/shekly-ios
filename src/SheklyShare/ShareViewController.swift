@@ -17,7 +17,7 @@ class ShareViewController: SLComposeServiceViewController {
     
     private var fileUrl: URL?
     
-    private let importer: SheklyJSONImporter = DependencyContainer.configureDatabase().forceResolve()
+    private let importer: SheklyJSONImporter = DependencyContainer().configureDatabase().forceResolve()
     
     override func viewDidLoad() {
         super.viewDidLoad()

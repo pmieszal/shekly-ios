@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Shared
+import Common
 
 public enum SheklyTokenType: String {
     case hash = "#"

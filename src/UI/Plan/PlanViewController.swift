@@ -8,7 +8,7 @@
 
 import UIKit
 import Domain
-import Shared
+import Common
 
 class PlanViewController: SheklyViewController<PlanViewModel> {
     @IBOutlet private weak var tableView: UITableView!

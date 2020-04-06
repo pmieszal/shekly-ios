@@ -8,7 +8,7 @@
 
 import UIKit
 import Domain
-import Shared
+import Common
 
 class CategoryViewController: SheklyViewController<CategoryViewModel> {
     @IBOutlet private weak var headerView: UIView!

@@ -8,7 +8,7 @@
 
 import Domain
 import User
-import Shared
+import Common
 
 final class TabRouter: Router {
     weak var viewController: SheklyTabBarController?

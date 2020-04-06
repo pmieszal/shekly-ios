@@ -9,7 +9,7 @@
 import Dip
 
 public extension DependencyContainer {
-    func configureShared() -> DependencyContainer {
+    func configureCommon() -> DependencyContainer {
         unowned let container = self
         
         container.register(.shared, factory: { LocaleProvider() })

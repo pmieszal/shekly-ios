@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 class WalletHeaderView: UIView {
     private lazy var walletCollectionView: SheklyWalletCollectionView = {

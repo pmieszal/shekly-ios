@@ -8,7 +8,7 @@
 
 import UIKit
 
-import Shared
+import Common
 import Domain
 
 class NewEntryViewController: SheklyViewController<NewEntryViewModel> {

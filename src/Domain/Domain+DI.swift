@@ -9,7 +9,7 @@
 import Dip
 import Database
 import User
-import Shared
+import Common
 
 public enum ContainerCustomName: String, DependencyTagConvertible {
     case emptyViewModel

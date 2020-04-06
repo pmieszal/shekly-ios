@@ -1,0 +1,179 @@
+name: Shekly-generated
+
+packages:
+  Rswift:
+    url: https://github.com/mac-cain13/R.swift.Library
+    exactVersion: 5.1.0
+  rswift:
+    url: https://github.com/mac-cain13/R.swift
+    exactVersion: 5.1.0
+  SwiftyBeaver:
+    url: https://github.com/SwiftyBeaver/SwiftyBeaver
+    exactVersion: 1.8.2
+  SwiftDate:
+    url: https://github.com/malcommac/SwiftDate
+    exactVersion: 6.1.0
+  DynamicColor:
+    url: https://github.com/yannickl/DynamicColor
+    exactVersion: 5.0.0
+  Dip:
+    url: https://github.com/AliSoftware/Dip
+    exactVersion: 7.1.1
+
+options:
+  bundleIdPrefix: pl.patryk.mieszala
+  minimumXcodeGenVersion: 2.13.1
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  deploymentTarget: 
+    iOS: "13.0"
+  xcodeVersion: 11.3
+  preGenCommand: sh check-generated-files.sh
+
+configs:
+  Debug: debug
+  Release: release
+
+schemes:
+  Shekly:
+    build:
+      targets:
+        Shekly: all
+
+targets:
+  Shekly:
+    type: application
+    platform: iOS
+    settings:
+      base:
+        INFOPLIST_FILE: Shekly/Info.plist
+    entitlements:
+      path: Shekly/Shekly.entitlements
+      properties:
+        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+    sources: 
+      - Shekly
+    dependencies:
+      - package: Rswift
+      - package: rswift
+      - package: SwiftyBeaver
+      - package: SwiftDate
+      - package: DynamicColor
+      - package: Dip
+      - target: Common
+      - target: UI
+      - target: Domain
+      - target: Database
+      - target: User
+      - target: SHTokenField
+    preBuildScripts:
+      - script: 'mint run R.swift rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
+        name: R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/Shekly/Generated/R.generated.swift
+    postCompileScripts:
+      - script: mint run SwiftLint swiftlint
+        name: Swiftlint
+
+  SheklyShare:
+    type: app-extension
+    platform: iOS
+    sources: SheklyShare
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: pl.patryk.mieszala.Shekly.SheklyShare
+    entitlements:
+      path: SheklyShare/SheklyShare.entitlements
+      properties:
+        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+    dependencies:
+      - package: Dip
+      - target: Database
+
+  UI:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Common
+      - target: Domain
+      - target: User
+      - target: SHTokenField
+
+  Domain:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Common
+      - target: Database
+      - target: SHTokenField
+      - target: User
+
+  Database:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Common
+
+  User:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Common
+
+  SHTokenField:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Common
+
+  Common:
+    type: framework
+    platform: iOS
+    dependencies:
+      - package: Rswift
+      - package: rswift
+      - package: SwiftyBeaver
+      - package: SwiftDate
+      - package: DynamicColor
+      - package: Dip
+    configVariants:
+      - Debug
+      - Release
+    sources:
+      - Common
+      - path: Common/Generated
+        optional: true
+    preBuildScripts:
+      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/Common/Generated/R.generated.swift"'
+        name: R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/Common/Generated/R.generated.swift
+
+targetTemplates:
+  Framework:
+    type: framework
+    platform: iOS
+    dependencies:
+      - package: Rswift
+      - package: rswift
+      - package: SwiftyBeaver
+      - package: SwiftDate
+      - package: DynamicColor
+      - package: Dip
+    configVariants:
+      - Debug
+      - Release
+    sources:
+      - ${target_name}
+      - path: ${target_name}/Generated
+        optional: true
+    preBuildScripts:
+      - script: 'mint run R.swift rswift generate "$SRCROOT/${target_name}/Generated/R.generated.swift"'
+        name: R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/${target_name}/Generated/R.generated.swift

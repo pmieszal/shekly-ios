@@ -8,7 +8,7 @@
 
 import Foundation
 
-import Shared
+import Common
 
 class SheklyCurrencyFormatter {
     let localeProvider: LocaleProvider

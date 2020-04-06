@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 class WalletListCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!

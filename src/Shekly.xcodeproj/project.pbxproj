@@ -22,7 +22,7 @@
 		8F1E01EA2207231200EC1A36 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01E82207231200EC1A36 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F1E01ED2207231200EC1A36 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; };
 		8F1E01EE2207231200EC1A36 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01E62207231200EC1A36 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F1E01FB2207234F00EC1A36 /* Shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01F92207234F00EC1A36 /* Shared.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F1E01FB2207234F00EC1A36 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E01F92207234F00EC1A36 /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F1E01FE2207234F00EC1A36 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; };
 		8F1E01FF2207234F00EC1A36 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E01F72207234F00EC1A36 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F1E020C220727AB00EC1A36 /* Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E020A220727AB00EC1A36 /* Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -126,7 +126,7 @@
 		8F83CA732260C6ED003464AB /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F83CA722260C6ED003464AB /* DatePicker.storyboard */; };
 		8F83CA752260C703003464AB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83CA742260C703003464AB /* DatePickerViewController.swift */; };
 		8F8F3B9B2350A5A6007AC4FB /* Domain+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */; };
-		8F8F3B9F2350AE17007AC4FB /* Shared+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */; };
+		8F8F3B9F2350AE17007AC4FB /* Common+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3B9E2350AE17007AC4FB /* Common+DI.swift */; };
 		8F8F3BA12350AF1D007AC4FB /* User+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA02350AF1D007AC4FB /* User+DI.swift */; };
 		8F8F3BA32350AFC2007AC4FB /* Database+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */; };
 		8F8F88412214A3710028375D /* WalletEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F88402214A3710028375D /* WalletEntryCell.swift */; };
@@ -282,7 +282,7 @@
 		8F1E01E82207231200EC1A36 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		8F1E01E92207231200EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F1E01F72207234F00EC1A36 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F1E01F92207234F00EC1A36 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
+		8F1E01F92207234F00EC1A36 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8F1E01FA2207234F00EC1A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F1E0208220727AB00EC1A36 /* Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1E020A220727AB00EC1A36 /* Database.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
@@ -391,7 +391,7 @@
 		8F8F3B8F2350693F007AC4FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8F8F3B9123506D14007AC4FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8F8F3B9A2350A5A6007AC4FB /* Domain+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain+DI.swift"; sourceTree = "<group>"; };
-		8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+DI.swift"; sourceTree = "<group>"; };
+		8F8F3B9E2350AE17007AC4FB /* Common+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common+DI.swift"; sourceTree = "<group>"; };
 		8F8F3BA02350AF1D007AC4FB /* User+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+DI.swift"; sourceTree = "<group>"; };
 		8F8F3BA22350AFC2007AC4FB /* Database+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+DI.swift"; sourceTree = "<group>"; };
 		8F8F883E2214A3290028375D /* WalletEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalletEntryCell.xib; sourceTree = "<group>"; };
@@ -581,7 +581,7 @@
 				8F1E01E72207231200EC1A36 /* Domain */,
 				8F1E0209220727AB00EC1A36 /* Database */,
 				8F1E022922072A2C00EC1A36 /* User */,
-				8F1E01F82207234F00EC1A36 /* Shared */,
+				8F1E01F82207234F00EC1A36 /* Common */,
 				8FAE769A2209CA0A007D83B1 /* SHTokenField */,
 				8F2FA33C222AA84300D3E1BB /* SheklyShare */,
 				8F1E01B82207206B00EC1A36 /* Products */,
@@ -653,17 +653,17 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		8F1E01F82207234F00EC1A36 /* Shared */ = {
+		8F1E01F82207234F00EC1A36 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				8FDC4E4A22157B56005206C3 /* Helpers */,
 				8FDC4E42221574BE005206C3 /* Providers */,
 				8F1E024E22072BDD00EC1A36 /* Common */,
-				8F1E01F92207234F00EC1A36 /* Shared.h */,
-				8F8F3B9E2350AE17007AC4FB /* Shared+DI.swift */,
+				8F1E01F92207234F00EC1A36 /* Common.h */,
+				8F8F3B9E2350AE17007AC4FB /* Common+DI.swift */,
 				8F1E01FA2207234F00EC1A36 /* Info.plist */,
 			);
-			path = Shared;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		8F1E0209220727AB00EC1A36 /* Database */ = {
@@ -1307,7 +1307,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F1E01FB2207234F00EC1A36 /* Shared.h in Headers */,
+				8F1E01FB2207234F00EC1A36 /* Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1965,7 +1965,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FDC4E43221574D3005206C3 /* LocaleProvider.swift in Sources */,
-				8F8F3B9F2350AE17007AC4FB /* Shared+DI.swift in Sources */,
+				8F8F3B9F2350AE17007AC4FB /* Common+DI.swift in Sources */,
 				8F1E025522072BDD00EC1A36 /* Logger.swift in Sources */,
 				8F228A8C2354BDE200E1E44E /* DependencyContainer+forceResolve.swift in Sources */,
 				8FDC4E4C22157B66005206C3 /* NumberParser.swift in Sources */,

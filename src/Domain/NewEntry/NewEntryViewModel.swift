@@ -10,7 +10,7 @@ import SwiftDate
 
 import User
 import Database
-import Shared
+import Common
 
 public class NewEntryViewModel: ViewModel {
     // MARK: - Internal properties

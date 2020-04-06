@@ -10,7 +10,7 @@ import Foundation
 
 import User
 import Database
-import Shared
+import Common
 
 public class CategorySubcategoriesCellViewModel: CategoryCellViewModel {
     init(subcategories: [SubcategoryModel], formatter: SheklyCurrencyFormatter) { }

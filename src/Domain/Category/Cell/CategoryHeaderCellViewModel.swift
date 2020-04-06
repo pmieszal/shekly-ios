@@ -8,7 +8,7 @@
 
 import User
 import Database
-import Shared
+import Common
 
 public class CategoryHeaderCellViewModel: CategoryCellViewModel {
     public let name: String?

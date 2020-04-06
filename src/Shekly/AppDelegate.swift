@@ -10,7 +10,7 @@ import UIKit
 import Dip
 
 import UI
-import Shared
+import Common
 import User
 import Domain
 import Database
@@ -66,7 +66,7 @@ private extension DependencyContainer {
             .configureDomain()
             .configureDatabase()
             .configureUser()
-            .configureShared()
+            .configureCommon()
 
         try? container.bootstrap()
         

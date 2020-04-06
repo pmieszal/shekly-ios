@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 import Domain
 
 class SheklyViewController<TViewModel: ViewModel>: UIViewController {
