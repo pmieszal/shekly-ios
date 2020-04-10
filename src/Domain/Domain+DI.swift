@@ -56,15 +56,6 @@ public extension DependencyContainer {
         })
         
         container.register(.unique,
-                           factory: { presenter in
-                            NewEntryViewModel(presenter: presenter,
-                                              dataController: container.forceResolve(),
-                                              currencyFormatter: container.forceResolve(),
-                                              differ: container.forceResolve(),
-                                              userProvider: container.forceResolve())
-        })
-        
-        container.register(.unique,
                            factory: { delegate in
                             DatePickerViewModel(delegate: delegate)
         })

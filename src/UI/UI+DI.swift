@@ -27,9 +27,6 @@ public extension DependencyContainer {
         container.register(.unique, factory: { CategoryConfigurator() })
         container.register(.unique, factory: { CategoryRouter(viewController: $0) })
         
-        container.register(.unique, factory: { NewEntryConfigurator() })
-        container.register(.unique, factory: { NewEntryRouter(viewController: $0) })
-        
         return container
     }
 }

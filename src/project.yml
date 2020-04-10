@@ -61,11 +61,18 @@ targets:
       - package: DynamicColor
       - package: Dip
       - target: Common
-      - target: UI
       - target: Domain
       - target: Database
       - target: User
       - target: SHTokenField
+      - target: Clean-Architecture-Helpers
+      - target: UI-Common
+      - target: Main
+      - target: Tabs
+      - target: NewEntry
+      - target: Wallet
+      - target: Plan
+      - target: Category
     preBuildScripts:
       - script: 'mint run R.swift rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
         name: R.swift
@@ -90,15 +97,53 @@ targets:
     dependencies:
       - package: Dip
       - target: Database
-      
-  UI:
+
+  Clean-Architecture-Helpers:
+    templates: 
+      - Framework
+
+  UI-Common:
+    templates: 
+      - Framework
+
+  Main:
     templates: 
       - Framework
     dependencies:
-      - target: Common
+      - target: Tabs
+
+  Tabs:
+    templates: 
+      - Framework
+    dependencies:
       - target: Domain
-      - target: User
-      - target: SHTokenField
+      - target: NewEntry
+      - target: Wallet
+      - target: Plan
+
+  NewEntry:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+
+  Wallet:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+
+  Plan:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+
+  Category:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
 
   Domain:
     templates: 

@@ -4,8 +4,17 @@ for d in */ ; do
     if [ -f "$FILE" ]; then
         echo ""
     else 
-        echo "Generating file: $FILE"
+        echo "Generating FILE: $FILE"
         mkdir -p $DIR
         touch $FILE
     fi
+
+    DIRNAME=${d%?}
+    FILE=$d\/$DIRNAME+DI.swift
+    if [ -f "$FILE" ]; then
+        echo ""
+    else 
+        echo "Generating FILE: $FILE"
+        touch $FILE
+    fi  
 done
