@@ -8,7 +8,7 @@
 
 import Combine
 import SwiftDate
-import Shared
+import Common
 
 extension Encodable {
     func toJSONString() -> String {

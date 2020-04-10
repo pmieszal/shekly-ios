@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-import Shared
+import Common
 
 class EntityGroup<TModel: DatabaseEntry> {
     

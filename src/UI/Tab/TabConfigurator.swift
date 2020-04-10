@@ -7,7 +7,7 @@
 //
 
 import Domain
-import Shared
+import Common
 
 class TabConfigurator: Configurator {
     func configureTabModule() -> SheklyTabBarController {

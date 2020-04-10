@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftDate
-import Shared
+import Common
 
 private enum CellConsts {
     static let font: UIFont = UIFont.systemFont(ofSize: 20, weight: .regular)

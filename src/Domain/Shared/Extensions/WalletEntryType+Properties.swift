@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Shared
+import Common
 import Database
 
 extension WalletEntryType {

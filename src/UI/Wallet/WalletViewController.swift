@@ -9,7 +9,7 @@
 import UIKit
 import Domain
 import SHTokenField
-import Shared
+import Common
 
 class WalletViewController: SheklyViewController<WalletViewModel> {
     @IBOutlet private weak var tableView: UITableView!

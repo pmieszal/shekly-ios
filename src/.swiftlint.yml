@@ -22,12 +22,12 @@ included:
  - Domain
  - Database
  - User
- - Shared
+ - Common
  - SHTokenField
  - SheklyShare
  
 excluded:
- - UI/R.generated.swift
+  - ./*/*/R.generated.swift
 
 line_length:
   - 150

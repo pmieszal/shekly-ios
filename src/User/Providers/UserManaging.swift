@@ -7,7 +7,7 @@
 //
 
 import Combine
-import Shared
+import Common
 
 public protocol UserManaging: AnyObject {
     var token: String? { get }

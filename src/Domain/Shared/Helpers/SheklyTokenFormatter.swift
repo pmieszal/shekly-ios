@@ -8,7 +8,7 @@
 
 import Foundation
 
-import Shared
+import Common
 
 class SheklyTokenFormatter {
     let localeProvider: LocaleProvider

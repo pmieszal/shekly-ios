@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 class NewEntryCollectionCell: UICollectionViewCell {
     @IBOutlet private weak var containerView: UIView!

@@ -8,7 +8,7 @@
 
 import User
 import SHTokenField
-import Shared
+import Common
 
 public final class WalletViewModel: ViewModel {
     // MARK: - Internal properties

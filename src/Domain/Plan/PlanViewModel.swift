@@ -8,7 +8,7 @@
 
 import User
 import Database
-import Shared
+import Common
 
 public final class PlanViewModel: ViewModel {
     public typealias CategorySelectionHandler = (SheklyCategoryModel) -> ()

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 class SheklyTabBarController: UITabBarController {
     private lazy var addButton: UIButton = {

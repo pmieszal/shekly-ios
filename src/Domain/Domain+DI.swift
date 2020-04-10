@@ -8,7 +8,7 @@
 
 import Dip
 import User
-import Shared
+import Common
 
 public enum ContainerCustomName: String, DependencyTagConvertible {
     case emptyViewModel

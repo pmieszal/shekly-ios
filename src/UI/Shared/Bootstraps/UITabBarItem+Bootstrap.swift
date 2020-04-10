@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 public extension Bootstrap {
     static func tabBarItemAppearance() {

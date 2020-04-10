@@ -8,7 +8,7 @@
 
 import UIKit
 import Domain
-import Shared
+import Common
 
 protocol WalletCollectionViewDataSource: AnyObject {
     func numberOfWalletItems() -> Int

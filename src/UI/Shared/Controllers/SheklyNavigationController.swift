@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Shared
+import Common
 
 class SheklyNavigationController: UINavigationController {
     override func viewDidLoad() {
