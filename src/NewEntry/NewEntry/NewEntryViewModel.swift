@@ -8,9 +8,11 @@
 
 import SwiftDate
 
+import CleanArchitectureHelpers
 import User
-import Database
 import Common
+import CommonUI
+import Domain
 
 public class NewEntryViewModel: ViewModel {
     // MARK: - Internal properties
@@ -46,7 +48,7 @@ public class NewEntryViewModel: ViewModel {
         return entryType.textPrefix + " " + formattedAmount
     }
     var amountNumber: NSNumber? {
-        return currencyFormatter.numberParser.getNumber(fromString: amountString)
+        return numberParser.getNumber(fromString: amountString)
     }
     
     var date: Date = Date()
@@ -54,34 +56,37 @@ public class NewEntryViewModel: ViewModel {
         return date.toString(DateToStringStyles.date(DateFormatter.Style.short))
     }
     
-    var categories: [CategoryModel] = []
-    var subcategories: [SubcategoryModel] = []
+    var categories: [SheklyCategoryModel] = []
+    var subcategories: [SheklySubcategoryModel] = []
     
-    var selectedCategory: CategoryModel?
-    var selectedSubcategory: SubcategoryModel?
+    var selectedCategory: SheklyCategoryModel?
+    var selectedSubcategory: SheklySubcategoryModel?
     
     var comment: String?
     
-    var wallet: WalletModel?
+    var wallet: SheklyWalletModel?
     
     weak var presenter: NewEntryPresenter?
-    let dataController: SheklyDataController
+    //let dataController: SheklyDataController
     let currencyFormatter: SheklyCurrencyFormatter
+    let numberParser: NumberParser
     let differ: Differ
     
     // MARK: - Constructor
     init(presenter: NewEntryPresenter,
-         dataController: SheklyDataController,
+         //dataController: SheklyDataController,
          currencyFormatter: SheklyCurrencyFormatter,
          differ: Differ,
+         numberParser: NumberParser,
          userProvider: UserManaging) {
         
         self.presenter = presenter
-        self.dataController = dataController
+        //self.dataController = dataController
         self.currencyFormatter = currencyFormatter
+        self.numberParser = numberParser
         self.differ = differ
         
-        let wallets = dataController.getWallets()
+        let wallets = [SheklyWalletModel]() // dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.wallet = selectedWallet ?? wallets.first
     }
@@ -128,7 +133,7 @@ public extension NewEntryViewModel {
     }
     
     func categoryTitle(forItemAt indexPath: IndexPath) -> String {
-        return NewEntryViewModel.getItem(at: indexPath, list: categories).name ?? ""
+        return NewEntryViewModel.getItem(at: indexPath, list: categories).categoryText
     }
     
     func didSelectCategory(at indexPath: IndexPath) {
@@ -173,22 +178,24 @@ public extension NewEntryViewModel {
                 return
         }
         
-        let entry = WalletEntryModel(amount: amount,
-                                     date: date,
-                                     text: comment,
-                                     type: entryType,
-                                     wallet: wallet,
-                                     category: selectedCategory,
-                                     subcategory: selectedSubcategory,
-                                     properties: nil)
+        //TODO: this
+//        let entry = WalletEntryModel(amount: amount,
+//                                     date: date,
+//                                     text: comment,
+//                                     type: entryType,
+//                                     wallet: wallet,
+//                                     category: selectedCategory,
+//                                     subcategory: selectedSubcategory,
+//                                     properties: nil)
+//
+//        dataController.save(entry: entry)
         
-        dataController.save(entry: entry)
         presenter?.dismiss()
     }
 }
 
 extension NewEntryViewModel: WalletListDelegate {
-    public func didSelect(wallet: WalletModel) {
+    public func didSelect(wallet: SheklyWalletModel) {
         self.wallet = wallet
         presenter?.show(walletName: wallet.name)
     }
@@ -208,31 +215,33 @@ extension NewEntryViewModel {
             return
         }
         
-        let categories = dataController.getCategories(forWallet: wallet)
-        
-        let oldState = self.categories
-        self.categories = categories
-        
-        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
-        let newSections = NewEntryViewModel.getSectionedList(from: categories)
-        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
-        
-        presenter?.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
+        //TODO: this
+//        let categories = dataController.getCategories(forWallet: wallet)
+//
+//        let oldState = self.categories
+//        self.categories = categories
+//
+//        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
+//        let newSections = NewEntryViewModel.getSectionedList(from: categories)
+//        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
+//        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
+//
+//        presenter?.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
-    func reloadSubcategories(forCategory category: CategoryModel) {
-        let subcategories = self.dataController.getSubcategories(forCategory: category)
-        
-        let oldState = self.subcategories
-        self.subcategories = subcategories
-        
-        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
-        let newSections = NewEntryViewModel.getSectionedList(from: subcategories)
-        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
-        
-        presenter?.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
+    func reloadSubcategories(forCategory category: SheklyCategoryModel) {
+        //TODO: this
+//        let subcategories = self.dataController.getSubcategories(forCategory: category)
+//
+//        let oldState = self.subcategories
+//        self.subcategories = subcategories
+//
+//        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
+//        let newSections = NewEntryViewModel.getSectionedList(from: subcategories)
+//        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
+//        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
+//
+//        presenter?.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
     func reloadAmount() {

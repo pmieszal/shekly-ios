@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import Domain
 
 public class WalletEntryModel: DatabaseModel<WalletEntry> {
     
@@ -19,16 +20,14 @@ public class WalletEntryModel: DatabaseModel<WalletEntry> {
     public let category: CategoryModel
     public let subcategory: SubcategoryModel
     
-    public init(
-        amount: Double,
-        date: Date?,
-        text: String?,
-        type: WalletEntryType,
-        wallet: WalletModel,
-        category: CategoryModel,
-        subcategory: SubcategoryModel,
-        properties: DatabaseModelProperties?
-        ) {
+    public init(amount: Double,
+                date: Date?,
+                text: String?,
+                type: WalletEntryType,
+                wallet: WalletModel,
+                category: CategoryModel,
+                subcategory: SubcategoryModel,
+                properties: DatabaseModelProperties?) {
         self.amount = amount
         self.date = date
         self.text = text

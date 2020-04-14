@@ -65,8 +65,8 @@ targets:
       - target: Database
       - target: User
       - target: SHTokenField
-      - target: Clean-Architecture-Helpers
-      - target: UI-Common
+      - target: CleanArchitectureHelpers
+      - target: CommonUI
       - target: Main
       - target: Tabs
       - target: NewEntry
@@ -98,13 +98,17 @@ targets:
       - package: Dip
       - target: Database
 
-  Clean-Architecture-Helpers:
+  CleanArchitectureHelpers:
     templates: 
       - Framework
+    dependencies:
+      - target: Common
 
-  UI-Common:
+  Common:
     templates: 
       - Framework
+    dependencies:
+      - target: Domain
 
   Main:
     templates: 
@@ -126,6 +130,10 @@ targets:
       - Framework
     dependencies:
       - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
 
   Wallet:
     templates: 
@@ -148,17 +156,13 @@ targets:
   Domain:
     templates: 
       - Framework
-    dependencies:
-      - target: Common
-      - target: Database
-      - target: SHTokenField
-      - target: User
 
   Database:
     templates: 
       - Framework
     dependencies:
       - target: Common
+      - target: Domain
 
   User:
     templates: 
@@ -172,7 +176,7 @@ targets:
     dependencies:
       - target: Common
 
-  Common:
+  CommonUI:
     type: framework
     platform: iOS
     dependencies:
@@ -182,20 +186,22 @@ targets:
       - package: SwiftDate
       - package: DynamicColor
       - package: Dip
+      - target: Domain
+      - target: CleanArchitectureHelpers
     configVariants:
       - Debug
       - Release
     sources:
-      - Common
-      - path: Common/Generated
+      - CommonUI
+      - path: CommonUI/Generated
         optional: true
     preBuildScripts:
-      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/Common/Generated/R.generated.swift"'
+      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/CommonUI/Generated/R.generated.swift"'
         name: R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
-          - $SRCROOT/Common/Generated/R.generated.swift
+          - $SRCROOT/CommonUI/Generated/R.generated.swift
 
 targetTemplates:
   Framework:

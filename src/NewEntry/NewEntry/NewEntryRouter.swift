@@ -7,6 +7,8 @@
 //
 
 import Domain
+import CleanArchitectureHelpers
+import CommonUI
 
 class NewEntryRouter: Router {
     weak var viewController: NewEntryViewController?
@@ -19,26 +21,23 @@ class NewEntryRouter: Router {
 extension NewEntryRouter {
     @objc
     func presentWalletListPopover(sourceButton: UIButton) {
-        guard let delegate: WalletListDelegate = viewController?.viewModel,
-            let walletList = R.storyboard.walletList.walletListViewController() else {
-                return
+        guard let delegate: WalletListDelegate = viewController?.viewModel else {
+            return
         }
         
-        let viewModel: WalletListViewModel = container.forceResolve(arguments: walletList as WalletListPresenter, delegate)
-        walletList.set(viewModel: viewModel)
+        let configurator: WalletListConfigurator = container.forceResolve()
+        let walletList = configurator.configureWalletListModule(with: delegate)
         
         viewController?.presentAsPopover(vc: walletList, sourceView: sourceButton, preferredContentSize: CGSize(width: 200, height: 300))
     }
 
     @objc
     func presentDatePickerPopover(sourceButton: UIButton) {
-        guard let delegate: DatePickerDelegate = viewController?.viewModel,
-            let datePicker = R.storyboard.datePicker.datePickerViewController() else {
-                return
+        guard let delegate: DatePickerDelegate = viewController?.viewModel else {
+            return
         }
-        
-        let viewModel: DatePickerViewModel = container.forceResolve(arguments: delegate)
-        datePicker.set(viewModel: viewModel)
+        let configurator: DatePickerConfigurator = container.forceResolve()
+        let datePicker = configurator.configureDatePickerModule(with: delegate)
         
         let screenWidth = UIScreen.main.bounds.width
         let preferredContentSize = CGSize(width: screenWidth - 20, height: 270)

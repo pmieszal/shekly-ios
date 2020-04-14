@@ -8,6 +8,8 @@
 
 import UIKit
 
+import CleanArchitectureHelpers
+import CommonUI
 import Common
 import Domain
 
@@ -293,9 +295,9 @@ private extension NewEntryViewController {
         subcategoryHeader.isHidden = true
         subcategoriesContainer.isHidden = true
         
-        walletButton.setImage(R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysTemplate), for: .normal)
+        walletButton.setImage(CommonUI.R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysTemplate), for: .normal)
         walletButton.addTarget(router, action: #selector(router?.presentWalletListPopover(sourceButton:)), for: .touchUpInside)
-        dateButton.setImage(R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysTemplate), for: .normal)
+        dateButton.setImage(CommonUI.R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysTemplate), for: .normal)
         dateButton.addTarget(router, action: #selector(router?.presentDatePickerPopover(sourceButton:)), for: .touchUpInside)
         
         entryTypeSegmentedControl.addTarget(self, action: #selector(didChangeSegmentedControl), for: UIControl.Event.valueChanged)

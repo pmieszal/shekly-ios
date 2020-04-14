@@ -13,15 +13,7 @@ public extension DependencyContainer {
         unowned let container = self
         
         container.register(.unique, factory: { NewEntryConfigurator() })
-        container.register(.unique, factory: { NewEntryRouter(viewController: $0) })
         
-        container.register(.unique,
-                           factory: { presenter in
-                            NewEntryViewModel(presenter: presenter,
-                                              dataController: container.forceResolve(),
-                                              currencyFormatter: container.forceResolve(),
-                                              differ: container.forceResolve(),
-                                              userProvider: container.forceResolve())
-        })
+        return container
     }
 }

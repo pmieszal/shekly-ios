@@ -6,7 +6,8 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Common
 
 public protocol NewEntryPresenter: AnyObject {
     func show(walletName: String?)

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Differ {
-    func getDiff<T: Hashable & Equatable>(oldState: [T], newState: [T]) -> ChangeSet {
+public class Differ {
+    public func getDiff<T: Hashable & Equatable>(oldState: [T], newState: [T]) -> ChangeSet {
         
         let oldStateWithIndexSet: Set<State<T>> = Set(
             oldState
@@ -52,7 +52,7 @@ class Differ {
         return ChangeSet(inserted: insertedIndexPaths, deleted: deletedIndexPaths, moved: movedIndexPaths, updated: updatedIndexPaths)
     }
     
-    func getDiff<T: Hashable & Equatable>(oldState: [[T]], newState: [[T]]) -> ChangeSet {
+    public func getDiff<T: Hashable & Equatable>(oldState: [[T]], newState: [[T]]) -> ChangeSet {
         
         let oldStateWithIndexSet: Set<State<T>> = Set(
             oldState

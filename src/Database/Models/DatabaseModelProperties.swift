@@ -9,8 +9,6 @@
 import Foundation
 
 public struct DatabaseModelProperties {
-    
     let id: String?
     let created: Date?
-    
 }
