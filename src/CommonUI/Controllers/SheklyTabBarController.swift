@@ -8,6 +8,7 @@
 
 import UIKit
 import Common
+import CommonUI
 
 class SheklyTabBarController: UITabBarController {
     private lazy var addButton: UIButton = {
@@ -15,7 +16,7 @@ class SheklyTabBarController: UITabBarController {
         
         addButton.backgroundColor = .white
         addButton.layer.cornerRadius = 25
-        addButton.setImage(R.image.tabBarAddButton(), for: .normal)
+        addButton.setImage(CommonUI.R.image.tabBarAddButton(), for: .normal)
         
         addButton.translatesAutoresizingMaskIntoConstraints = false
         

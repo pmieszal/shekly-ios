@@ -9,6 +9,7 @@
 import UIKit
 import Domain
 import Common
+import CommonUI
 
 class PlanViewController: SheklyViewController<PlanViewModel> {
     @IBOutlet private weak var tableView: UITableView!

@@ -9,11 +9,17 @@
 import UIKit
 import Dip
 
-import UI
 import Common
+import CommonUI
 import User
 import Domain
 import Database
+import Main
+import Tabs
+import NewEntry
+import Wallet
+import Plan
+import Category
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -62,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension DependencyContainer {
     static func configureApp() -> DependencyContainer {
         let container = DependencyContainer()
-            .configureUI()
             .configureDomain()
             .configureDatabase()
             .configureUser()

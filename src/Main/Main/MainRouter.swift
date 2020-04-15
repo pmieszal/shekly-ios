@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CleanArchitectureHelpers
+import CommonUI
+import Tabs
 
 public final class MainRouter: Router {
     weak var navigationController: UINavigationController?

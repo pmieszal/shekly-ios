@@ -6,12 +6,12 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CleanArchitectureHelpers
 
 public final class MainConfigurator: Configurator {
-    
     public func configureMainModule(with window: UIWindow) -> MainRouter {
-        let router: MainRouter = container.forceResolve(arguments: window)
+        let router = MainRouter(window: window)
         router.showTabs()
         
         return router

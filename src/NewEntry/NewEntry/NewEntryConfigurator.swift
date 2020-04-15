@@ -9,8 +9,8 @@
 import CleanArchitectureHelpers
 import Domain
 
-final class NewEntryConfigurator: Configurator {
-    func configureNewEntryModule() -> UIViewController {
+public final class NewEntryConfigurator: Configurator {
+    public func configureNewEntryModule() -> UIViewController {
         guard let viewController = R.storyboard.newEntry.newEntryViewController() else {
             fatalError("VC can't be nil")
         }

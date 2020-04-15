@@ -6,6 +6,8 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
+import CleanArchitectureHelpers
+
 public class SheklyViewModel: ViewModel {
     public func viewDidLoad() { }
     public func viewWillAppear() { }

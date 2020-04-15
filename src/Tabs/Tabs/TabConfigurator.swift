@@ -6,11 +6,16 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
+import Wallet
+import Plan
+import NewEntry
 import Domain
 import Common
+import CommonUI
+import CleanArchitectureHelpers
 
-class TabConfigurator: Configurator {
-    func configureTabModule() -> SheklyTabBarController {
+public class TabConfigurator: Configurator {
+    public func configureTabModule() -> UIViewController {
         let tabController = SheklyTabBarController()
         let tabRouter: TabRouter = container.forceResolve(arguments: tabController)
         tabController.router = tabRouter
@@ -25,20 +30,20 @@ class TabConfigurator: Configurator {
         
         //TODO: move configuration to configurators
         let stats = TempViewController()
-        let statsViewModel: SheklyViewModel = container.forceResolve(tag: ContainerCustomName.emptyViewModel)
+        let statsViewModel = SheklyViewModel()
         stats.set(viewModel: statsViewModel)
         stats.view.backgroundColor = Colors.brandColor
         stats.tabBarItem.title = "Statystyki"
-        stats.tabBarItem.image = R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
-        stats.tabBarItem.selectedImage = R.image.tabBarStatsIcon()
+        stats.tabBarItem.image = CommonUI.R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
+        stats.tabBarItem.selectedImage = CommonUI.R.image.tabBarStatsIcon()
         
         let more = TempViewController()
-        let moreViewModel: SheklyViewModel = container.forceResolve(tag: ContainerCustomName.emptyViewModel)
+        let moreViewModel = SheklyViewModel()
         more.set(viewModel: moreViewModel)
         more.view.backgroundColor = Colors.brandColor
         more.tabBarItem.title = "Więcej"
-        more.tabBarItem.image = R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)
-        more.tabBarItem.selectedImage = R.image.tabBarMoreIcon()
+        more.tabBarItem.image = CommonUI.R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)
+        more.tabBarItem.selectedImage = CommonUI.R.image.tabBarMoreIcon()
         
         let empty = UIViewController()
         

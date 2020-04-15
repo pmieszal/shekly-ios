@@ -10,14 +10,21 @@ import Domain
 import CleanArchitectureHelpers
 import CommonUI
 
-final class WalletConfigurator: Configurator {
-    func configureWalletModule() -> UIViewController {
+public final class WalletConfigurator: Configurator {
+    public func configureWalletModule() -> UIViewController {
         guard let viewController = R.storyboard.wallet.walletViewController() else {
             fatalError("VC can't be nil")
         }
         
-        let walletRouter: WalletRouter = container.forceResolve(arguments: viewController)
-        let walletViewModel: WalletViewModel = container.forceResolve(arguments: viewController as WalletPresenter)
+        let walletRouter = WalletRouter(viewController: viewController)
+        let walletViewModel = WalletViewModel(
+            presenter: viewController,
+            walletRepository: container.forceResolve(),
+            walletEntriesRepository: container.forceResolve(),
+            differ: container.forceResolve(),
+            currencyFormatter: container.forceResolve(),
+            userProvider: container.forceResolve())
+        
         viewController.set(viewModel: walletViewModel)
         viewController.router = walletRouter
         viewController.tabBarItem.title = "Portfel"

@@ -10,6 +10,7 @@ import Domain
 import User
 import Common
 import NewEntry
+import CleanArchitectureHelpers
 
 final class TabRouter: Router {
     weak var viewController: SheklyTabBarController?
