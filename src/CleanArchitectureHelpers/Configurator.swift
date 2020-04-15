@@ -19,10 +19,10 @@ open class Configurator: Resolvable {
         return container
     }
     
-    public init() {}
+    public init() { }
     
     public func resolveDependencies(_ container: DependencyContainer) {
-        self.injectedContainer = container
+        injectedContainer = container
     }
     
     public func didResolveDependencies() { }

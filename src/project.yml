@@ -56,7 +56,6 @@ targets:
     dependencies:
       - package: Rswift
       - package: rswift
-      - package: SwiftyBeaver
       - package: SwiftDate
       - package: DynamicColor
       - package: Dip
@@ -108,6 +107,7 @@ targets:
     templates: 
       - Framework
     dependencies:
+      - package: SwiftyBeaver
       - target: Domain
 
   Main:
@@ -161,6 +161,10 @@ targets:
       - Framework
     dependencies:
       - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
 
   Domain:
     templates: 
@@ -219,7 +223,6 @@ targetTemplates:
     dependencies:
       - package: Rswift
       - package: rswift
-      - package: SwiftyBeaver
       - package: SwiftDate
       - package: DynamicColor
       - package: Dip

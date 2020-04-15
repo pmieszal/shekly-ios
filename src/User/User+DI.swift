@@ -12,7 +12,7 @@ public extension DependencyContainer {
     func configureUser() -> DependencyContainer {
         unowned let container = self
         
-        container.register(.singleton, factory: { _ in UserProvider() as UserManaging })
+        container.register(.singleton, factory: { UserProvider() }).implements(UserManaging.self)
         
         return container
     }

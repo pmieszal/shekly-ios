@@ -13,8 +13,15 @@ import CommonUI
 class NewEntryRouter: Router {
     weak var viewController: NewEntryViewController?
     
-    init(viewController: NewEntryViewController) {
+    let walletConfigurator: WalletListConfigurator
+    let datePickerConfigurator: DatePickerConfigurator
+    
+    init(viewController: NewEntryViewController,
+         walletConfigurator: WalletListConfigurator,
+         datePickerConfigurator: DatePickerConfigurator) {
         self.viewController = viewController
+        self.walletConfigurator = walletConfigurator
+        self.datePickerConfigurator = datePickerConfigurator
     }
 }
 
@@ -25,8 +32,7 @@ extension NewEntryRouter {
             return
         }
         
-        let configurator: WalletListConfigurator = container.forceResolve()
-        let walletList = configurator.configureWalletListModule(with: delegate)
+        let walletList = walletConfigurator.configureWalletListModule(with: delegate)
         
         viewController?.presentAsPopover(vc: walletList, sourceView: sourceButton, preferredContentSize: CGSize(width: 200, height: 300))
     }
@@ -36,8 +42,7 @@ extension NewEntryRouter {
         guard let delegate: DatePickerDelegate = viewController?.viewModel else {
             return
         }
-        let configurator: DatePickerConfigurator = container.forceResolve()
-        let datePicker = configurator.configureDatePickerModule(with: delegate)
+        let datePicker = datePickerConfigurator.configureDatePickerModule(with: delegate)
         
         let screenWidth = UIScreen.main.bounds.width
         let preferredContentSize = CGSize(width: screenWidth - 20, height: 270)

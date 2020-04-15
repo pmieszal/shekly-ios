@@ -15,16 +15,19 @@ import CleanArchitectureHelpers
 final class TabRouter: Router {
     weak var viewController: SheklyTabBarController?
     
-    init(viewController: SheklyTabBarController) {
+    let newEntryConfigurator: NewEntryConfigurator
+    
+    init(viewController: SheklyTabBarController,
+         newEntryConfigurator: NewEntryConfigurator) {
         self.viewController = viewController
+        self.newEntryConfigurator = newEntryConfigurator
     }
 }
 
 extension TabRouter {
     @objc
     func navigateToNewEntry() {
-        let configurator: NewEntryConfigurator = container.forceResolve()
-        let newEntry = configurator.configureNewEntryModule()
+        let newEntry = newEntryConfigurator.configureNewEntryModule()
         newEntry.presentationController?.delegate = viewController?.selectedViewController
         
         viewController?.present(newEntry, animated: true, completion: nil)

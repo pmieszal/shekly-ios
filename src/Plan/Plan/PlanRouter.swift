@@ -14,14 +14,17 @@ import Category
 public final class PlanRouter: Router {
     private weak var viewController: PlanViewController?
     
-    init(viewController: PlanViewController) {
+    let categoryConfigurator: CategoryConfigurator
+    
+    init(viewController: PlanViewController,
+         categoryConfigurator: CategoryConfigurator) {
         self.viewController = viewController
+        self.categoryConfigurator = categoryConfigurator
     }
 }
 
 extension PlanRouter {
     func navigate(to category: SheklyCategoryModel) {
-        let categoryConfigurator: CategoryConfigurator = container.forceResolve()
         let category = categoryConfigurator.configureCategoryModule(categoryModel: category)
         
         viewController?.navigationController?.pushViewController(category, animated: true)

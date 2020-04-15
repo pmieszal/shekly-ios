@@ -1,10 +1,3 @@
-//
-//  NewEntry+DI.swift
-//  NewEntry
-//
-//  Created by Patryk Mieszała on 10/04/2020.
-//
-
 import Dip
 
 public extension DependencyContainer {

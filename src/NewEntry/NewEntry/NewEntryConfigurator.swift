@@ -15,7 +15,10 @@ public final class NewEntryConfigurator: Configurator {
             fatalError("VC can't be nil")
         }
         
-        let router = NewEntryRouter(viewController: viewController)
+        let router = NewEntryRouter(
+            viewController: viewController,
+            walletConfigurator: container.forceResolve(),
+            datePickerConfigurator: container.forceResolve())
         let viewModel = NewEntryViewModel(
             presenter: viewController,
             currencyFormatter: container.forceResolve(),

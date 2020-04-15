@@ -11,7 +11,7 @@ import Social
 import MobileCoreServices
 
 import Database
-import Dip
+import Common
 
 class ShareViewController: SLComposeServiceViewController {
     

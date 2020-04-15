@@ -15,9 +15,12 @@ public final class MainRouter: Router {
     weak var navigationController: UINavigationController?
     
     let window: UIWindow
+    let tabConfigurator: TabConfigurator
     
-    init(window: UIWindow) {
+    init(window: UIWindow,
+         tabConfigurator: TabConfigurator) {
         self.window = window
+        self.tabConfigurator = tabConfigurator
     }
 }
 
@@ -26,9 +29,7 @@ extension MainRouter {
         let navigation = SheklyNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
         
-        let tabConfigurator: TabConfigurator = container.forceResolve()
         let tabs = tabConfigurator.configureTabModule()
-        
         navigation.setViewControllers([tabs], animated: false)
         
         window.rootViewController = navigation
