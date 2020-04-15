@@ -6,6 +6,8 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
+import Domain
+
 public protocol PlanPresenter: AnyObject {
     func navigate(to category: SheklyCategoryModel)
 }

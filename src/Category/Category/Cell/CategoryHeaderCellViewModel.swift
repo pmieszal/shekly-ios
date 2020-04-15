@@ -7,15 +7,15 @@
 //
 
 import User
-import Database
+import Domain
 import Common
 
 public class CategoryHeaderCellViewModel: CategoryCellViewModel {
     public let name: String?
     public let amountText: String?
     
-    init(category: CategoryModel, formatter: SheklyCurrencyFormatter) {
-        name = category.name
+    init(category: SheklyCategoryModel, formatter: SheklyCurrencyFormatter) {
+        name = category.categoryText
         amountText = formatter.getCurrencyString(fromNumber: category.amount)
     }
 }

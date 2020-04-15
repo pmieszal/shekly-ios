@@ -9,6 +9,7 @@
 import UIKit
 import Domain
 import Common
+import CommonUI
 
 class CategoryViewController: SheklyViewController<CategoryViewModel> {
     @IBOutlet private weak var headerView: UIView!
@@ -66,17 +67,18 @@ extension CategoryViewController: UITableViewDataSource {
             
             return cell
             
-        case let model as SheklyWalletEntryModel:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
-                                                           for: indexPath) else {
-                fatalError("Cell can't be nil")
-            }
-            cell.setup(with: model)
-            
-            return cell
+//        case let model as SheklyWalletEntryModel:
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
+//                                                           for: indexPath) else {
+//                fatalError("Cell can't be nil")
+//            }
+//            cell.setup(with: model)
+//
+//            return cell
             
         default:
-            fatalError("This can't happen")
+            assertionFailure("This can't happen")
+            return UITableViewCell()
         }
     }
 }
@@ -112,7 +114,7 @@ private extension CategoryViewController {
     func setup() {
         tableView.register(R.nib.categoryHeaderCell)
         tableView.register(R.nib.categorySubcategoriesCell)
-        tableView.register(R.nib.walletEntryCell)
+        //tableView.register(R.nib.walletEntryCell)
         
         tableView.tableFooterView = UIView()
         tableView.contentInset.top = 20

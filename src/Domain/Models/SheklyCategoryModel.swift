@@ -9,21 +9,25 @@
 import SwiftDate
 
 public class SheklyCategoryModel: Hashable, Equatable {
-    public let categoryId: String
-    public let categoryText: String
-    public let subcategoriesText: String
-    public let entriesText: String
-    public let amountText: String
+    public let
+    categoryId: String,
+    categoryText: String,
+    subcategoriesText: String,
+    entriesText: String,
+    amount: Double,
+    amountText: String
     
     init(categoryId: String,
          categoryText: String,
          subcategoriesText: String,
          entriesText: String,
+         amount: Double,
          amountText: String) {
         self.categoryId = categoryId
         self.categoryText = categoryText
         self.subcategoriesText = subcategoriesText
         self.entriesText = entriesText
+        self.amount = amount
         self.amountText = amountText
     }
     

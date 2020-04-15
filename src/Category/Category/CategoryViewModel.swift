@@ -7,7 +7,8 @@
 //
 
 import User
-import Database
+import Domain
+import CleanArchitectureHelpers
 import Common
 
 public class CategoryViewModel: ViewModel {
@@ -17,15 +18,15 @@ public class CategoryViewModel: ViewModel {
     
     // MARK: - Internal properties
     let sheklyCategoryModel: SheklyCategoryModel
-    let dataController: SheklyDataController
+    //let dataController: SheklyDataController
     let currencyFormatter: SheklyCurrencyFormatter
     
     // MARK: - Constructor
     init(category: SheklyCategoryModel,
-         dataController: SheklyDataController,
+         //dataController: SheklyDataController,
          currencyFormatter: SheklyCurrencyFormatter) {
         self.sheklyCategoryModel = category
-        self.dataController = dataController
+        //self.dataController = dataController
         self.currencyFormatter = currencyFormatter
         
         self.categoryName = category.categoryText
@@ -40,17 +41,14 @@ public class CategoryViewModel: ViewModel {
 // MARK: - Internal methods
 extension CategoryViewModel {
     func reloadFeed() {
-        let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: sheklyCategoryModel.category, formatter: currencyFormatter)
+        let headerVM: CategoryHeaderCellViewModel = CategoryHeaderCellViewModel(category: sheklyCategoryModel, formatter: currencyFormatter)
         
-        let subcategories: [SubcategoryModel] = dataController.getSubcategories(forCategory: sheklyCategoryModel.category)
+        let subcategories: [SheklySubcategoryModel] = [] //dataController.getSubcategories(forCategory: sheklyCategoryModel.category)
         let subcategoriesVM = CategorySubcategoriesCellViewModel(subcategories: subcategories,
                                                                  formatter: currencyFormatter)
         
-        let entries: [WalletEntryModel] = dataController.getWalletEntries(forCategory: sheklyCategoryModel.category)
+        let entries: [SheklyWalletEntryModel] = [] // dataController.getWalletEntries(forCategory: sheklyCategoryModel)
         let entriesVMs: [CategoryCellViewModel] = entries
-            .map { entry in
-                return SheklyWalletEntryModel(entry: entry, formatter: currencyFormatter)
-        }
         
         let feed: [CategoryCellViewModel] = [headerVM, subcategoriesVM] + entriesVMs
         self.feed = feed

@@ -7,8 +7,9 @@
 //
 
 import User
-import Database
 import Common
+import Domain
+import CleanArchitectureHelpers
 
 public final class PlanViewModel: ViewModel {
     public typealias CategorySelectionHandler = (SheklyCategoryModel) -> ()
@@ -17,14 +18,13 @@ public final class PlanViewModel: ViewModel {
     public private(set) var categories: [SheklyCategoryModel] = []
     
     // MARK: - Internal properties
-    let dataController: SheklyDataController
-    let tokenFormatter: SheklyTokenFormatter
+    //let dataController: SheklyDataController
     let userProvider: UserManaging
     
     weak var presenter: PlanPresenter?
     
-    private var selectedWallet: WalletModel? {
-        let wallets = dataController.getWallets()
+    private var selectedWallet: SheklyWalletModel? {
+        let wallets = [SheklyWalletModel]()// dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         
         return selectedWallet ?? wallets.first
@@ -32,12 +32,10 @@ public final class PlanViewModel: ViewModel {
     
     // MARK: - Constructor
     init(presenter: PlanPresenter,
-         dataController: SheklyDataController,
-         tokenFormatter: SheklyTokenFormatter,
+         //dataController: SheklyDataController,
          userProvider: UserManaging) {
         self.presenter = presenter
-        self.dataController = dataController
-        self.tokenFormatter = tokenFormatter
+        //self.dataController = dataController
         self.userProvider = userProvider
     }
     
@@ -62,11 +60,9 @@ extension PlanViewModel {
             return
         }
         
-        let categories: [CategoryModel] = dataController.getCategories(forWallet: wallet)
+        let categories: [SheklyCategoryModel] = []
+        //TODO: this
         
-        let models: [SheklyCategoryModel] = categories
-            .map { SheklyCategoryModel(category: $0, formatter: tokenFormatter) }
-        
-        self.categories = models
+        self.categories = categories
     }
 }

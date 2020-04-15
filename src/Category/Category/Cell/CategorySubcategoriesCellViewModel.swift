@@ -6,12 +6,10 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Foundation
-
 import User
-import Database
+import Domain
 import Common
 
 public class CategorySubcategoriesCellViewModel: CategoryCellViewModel {
-    init(subcategories: [SubcategoryModel], formatter: SheklyCurrencyFormatter) { }
+    init(subcategories: [SheklySubcategoryModel], formatter: SheklyCurrencyFormatter) { }
 }

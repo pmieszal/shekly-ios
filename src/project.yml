@@ -150,6 +150,11 @@ targets:
       - Framework
     dependencies:
       - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
+      - target: Category
 
   Category:
     templates: 

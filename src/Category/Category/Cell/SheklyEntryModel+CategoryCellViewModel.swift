@@ -6,6 +6,6 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Foundation
+import Domain
 
 extension SheklyWalletEntryModel: CategoryCellViewModel { }
