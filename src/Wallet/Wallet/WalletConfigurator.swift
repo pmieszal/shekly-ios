@@ -7,6 +7,8 @@
 //
 
 import Domain
+import CleanArchitectureHelpers
+import CommonUI
 
 final class WalletConfigurator: Configurator {
     func configureWalletModule() -> UIViewController {
@@ -19,8 +21,8 @@ final class WalletConfigurator: Configurator {
         viewController.set(viewModel: walletViewModel)
         viewController.router = walletRouter
         viewController.tabBarItem.title = "Portfel"
-        viewController.tabBarItem.image = R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysOriginal)
-        viewController.tabBarItem.selectedImage = R.image.tabBarWalletIcon()
+        viewController.tabBarItem.image = CommonUI.R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysOriginal)
+        viewController.tabBarItem.selectedImage = CommonUI.R.image.tabBarWalletIcon()
         
         let walletNavigation = SheklyNavigationController(rootViewController: viewController)
         walletNavigation.setViewControllers([viewController], animated: false)

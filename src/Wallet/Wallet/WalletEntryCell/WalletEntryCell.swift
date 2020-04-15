@@ -40,7 +40,7 @@ class WalletEntryCell: UITableViewCell {
         categoryAndCommentLabel.text = model.categoryAndComment
         subcategoryLabel.text = model.subcategory
         amountLabel.text = model.amount
-        amountLabel.textColor = model.amountColor
+        amountLabel.textColor = model.entryType?.textColor
         dateLabel.text = model.dateString
     }
 }

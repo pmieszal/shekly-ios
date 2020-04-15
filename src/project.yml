@@ -140,6 +140,10 @@ targets:
       - Framework
     dependencies:
       - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
 
   Plan:
     templates: 

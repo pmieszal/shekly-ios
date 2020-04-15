@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Foundation
+import CleanArchitectureHelpers
 
 public protocol WalletPresenter: ReloadablePresenter {
     func reloadWallets()

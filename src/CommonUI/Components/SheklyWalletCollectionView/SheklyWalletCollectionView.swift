@@ -10,19 +10,19 @@ import UIKit
 import Domain
 import Common
 
-protocol WalletCollectionViewDataSource: AnyObject {
+public protocol WalletCollectionViewDataSource: AnyObject {
     func numberOfWalletItems() -> Int
     func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel
 }
 
 @objc
-protocol WalletCollectionViewDelegate: AnyObject {
+public protocol WalletCollectionViewDelegate: AnyObject {
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath)
     func walletCollectionDidTapAdd()
 }
 
-class SheklyWalletCollectionView: UIView {
-    private lazy var collectionView: UICollectionView = {
+public class SheklyWalletCollectionView: UIView {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -45,7 +45,7 @@ class SheklyWalletCollectionView: UIView {
         return collectionView
     }()
     
-    private lazy var pageControl: UIPageControl = {
+    lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.isUserInteractionEnabled = false
@@ -58,55 +58,55 @@ class SheklyWalletCollectionView: UIView {
         return pageControl
     }()
     
-    weak var dataSource: WalletCollectionViewDataSource?
-    weak var delegate: WalletCollectionViewDelegate?
+    public weak var dataSource: WalletCollectionViewDataSource?
+    public weak var delegate: WalletCollectionViewDelegate?
     
-    convenience init() {
+    convenience public init() {
         self.init(frame: .zero)
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         
         setup()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
 
-    func reload() {
+    public func reload() {
         collectionView.reloadData()
     }
 }
 
 extension SheklyWalletCollectionView: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let number = dataSource?.numberOfWalletItems() ?? 0
         pageControl.numberOfPages = number
         
         return number
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell: SheklyWalletCell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyWalletCell, for: indexPath),
             let model = dataSource?.walletCollectionView(modelForItemAt: indexPath)
@@ -124,13 +124,13 @@ extension SheklyWalletCollectionView: UICollectionViewDataSource {
 }
 
 extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
+    public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let index = getCurrentCollectionIndex()
         pageControl.currentPage = index
         
@@ -138,7 +138,7 @@ extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
         delegate?.walletCollectionViewDidScroll(toItemAt: indexPath)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = getCurrentCollectionIndex()
         pageControl.currentPage = index
         

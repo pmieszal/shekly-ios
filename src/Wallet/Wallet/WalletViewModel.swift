@@ -7,8 +7,9 @@
 //
 
 import User
-import SHTokenField
 import Common
+import CleanArchitectureHelpers
+import Domain
 
 public final class WalletViewModel: ViewModel {
     // MARK: - Internal properties

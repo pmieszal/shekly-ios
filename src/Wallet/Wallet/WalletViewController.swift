@@ -8,8 +8,8 @@
 
 import UIKit
 import Domain
-import SHTokenField
 import Common
+import CommonUI
 
 class WalletViewController: SheklyViewController<WalletViewModel> {
     @IBOutlet private weak var tableView: UITableView!
@@ -94,7 +94,7 @@ extension WalletViewController: UITableViewDataSource {
         switch model {
             
         case is SheklyEntryEmptyModel:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.sheklyWalletEntryEmptyCell,
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
                                                            for: indexPath) else {
                                                             fatalError("Cell can't be nil")
             }
@@ -128,7 +128,7 @@ extension WalletViewController: UITableViewDelegate {
             self.showAlert(input: alertInput, actions: actions)
         }
         
-        deleteAction.image = R.image.trashIcon()
+        deleteAction.image = CommonUI.R.image.trashIcon()
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
@@ -147,7 +147,7 @@ private extension WalletViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(R.nib.walletEntryCell)
-        tableView.register(R.nib.sheklyWalletEntryEmptyCell)
+        tableView.register(CommonUI.R.nib.sheklyWalletEntryEmptyCell)
         
         tableView.tableFooterView = UIView()
         tableView.contentInset.top = 4

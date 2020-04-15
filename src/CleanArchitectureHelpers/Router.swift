@@ -8,6 +8,7 @@
 
 import Dip
 
+@available(*, deprecated, message: "Delete this")
 open class Router: Resolvable {
     private var injectedContainer: DependencyContainer?
     

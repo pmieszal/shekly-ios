@@ -8,6 +8,7 @@
 
 import UIKit
 import Common
+import CommonUI
 
 class WalletHeaderView: UIView {
     private lazy var walletCollectionView: SheklyWalletCollectionView = {

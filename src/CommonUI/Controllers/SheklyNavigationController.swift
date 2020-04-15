@@ -9,8 +9,8 @@
 import UIKit
 import Common
 
-class SheklyNavigationController: UINavigationController {
-    override func viewDidLoad() {
+public class SheklyNavigationController: UINavigationController {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         setup()

@@ -8,7 +8,7 @@
 
 import UIKit
 import Domain
-import User
+import CleanArchitectureHelpers
 
 final class WalletRouter: Router {
     weak var viewController: WalletViewController?

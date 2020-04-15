@@ -93,7 +93,7 @@ open class SheklyViewController<TViewModel: ViewModel>: UIViewController {
     }
     
     @discardableResult
-    func showAlert(
+    public func showAlert(
         input: AlertControllerInput,
         actions: [UIAlertAction],
         completion: (() -> Void)? = nil
@@ -112,13 +112,22 @@ open class SheklyViewController<TViewModel: ViewModel>: UIViewController {
     }
 }
 
-struct AlertControllerInput {
-    let title: String?
-    let message: String?
-    let style: UIAlertController.Style
+public struct AlertControllerInput {
+    let
+    title: String?,
+    message: String?,
+    style: UIAlertController.Style
+    
+    public init(title: String?,
+                message: String?,
+                style: UIAlertController.Style) {
+        self.title = title
+        self.message = message
+        self.style = style
+    }
 }
 
-extension Array where Element == UIAlertAction {
+public extension Array where Element == UIAlertAction {
     static func defaultDeleteActions(okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)?) -> [Element] {
         
         let ok = UIAlertAction(title: "OK", style: .destructive, handler: okHandler)

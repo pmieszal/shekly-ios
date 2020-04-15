@@ -10,12 +10,12 @@ import UIKit
 import SwiftDate
 import DynamicColor
 
-protocol SheklyMonthCollectionViewDelegate: AnyObject {
+public protocol SheklyMonthCollectionViewDelegate: AnyObject {
     func monthCollectionViewDidScroll(toDate date: Date)
 }
 
-class SheklyMonthCollectionView: UIView {
-    private lazy var collectionView: UICollectionView = {
+public class SheklyMonthCollectionView: UIView {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -35,7 +35,7 @@ class SheklyMonthCollectionView: UIView {
         return collectionView
     }()
     
-    private lazy var dates: [Date] = {
+    lazy var dates: [Date] = {
         let today = Date()
         let from = DateInRegion(year: today.year - 10, month: 1, day: 1)
         let to = DateInRegion(year: today.year + 10, month: 1, day: 1)
@@ -50,26 +50,26 @@ class SheklyMonthCollectionView: UIView {
         return dates
     }()
     
-    weak var delegate: SheklyMonthCollectionViewDelegate?
+    public weak var delegate: SheklyMonthCollectionViewDelegate?
     var didMadeInitialLayout = false
     
-    convenience init() {
+    convenience public init() {
         self.init(frame: .zero)
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
     }
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         setup()
@@ -77,15 +77,15 @@ class SheklyMonthCollectionView: UIView {
 }
 
 extension SheklyMonthCollectionView: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dates.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyMonthCell,
                                                             for: indexPath) else {
             return UICollectionViewCell()
@@ -99,13 +99,13 @@ extension SheklyMonthCollectionView: UICollectionViewDataSource {
 }
 
 extension SheklyMonthCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        willDisplay cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView,
+                               willDisplay cell: UICollectionViewCell,
+                               forItemAt indexPath: IndexPath) {
         guard didMadeInitialLayout == false else {
             return
         }
@@ -131,7 +131,7 @@ extension SheklyMonthCollectionView: UICollectionViewDelegate {
 }
 
 extension SheklyMonthCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
+    public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return SheklyMonthCell.size(forDate: dates[indexPath.row], inCollectionView: collectionView)
@@ -139,7 +139,7 @@ extension SheklyMonthCollectionView: UICollectionViewDelegateFlowLayout {
 }
 
 extension SheklyMonthCollectionView: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let visibleCells: [SheklyMonthCell] = collectionView.visibleCells as? [SheklyMonthCell] ?? []
         
         visibleCells
@@ -149,7 +149,7 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
         }
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let indexPath = decideCollectionViewPosition() else {
             return
         }
@@ -158,7 +158,7 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
         delegate?.monthCollectionViewDidScroll(toDate: date)
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         guard let indexPath = decideCollectionViewPosition() else {
             return
         }
@@ -167,7 +167,7 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
         delegate?.monthCollectionViewDidScroll(toDate: date)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate == false {
             decideCollectionViewPosition()
         }

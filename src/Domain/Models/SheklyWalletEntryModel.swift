@@ -51,7 +51,7 @@ public class SheklyWalletEntryModel: Hashable {
         self.dateString = dateString
     }
     
-    init() {
+    public init() {
         categoryAndComment = nil
         subcategory = nil
         amount = nil
@@ -74,7 +74,7 @@ public func ==<T: SheklyWalletEntryModel>(lhs: T, rhs: T) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
 
-extension Array where Element == SheklyWalletEntryModel {
+public extension Array where Element == SheklyWalletEntryModel {
     func sorted() -> [Element] {
         return sorted { (left, right) -> Bool in
             guard let leftDate = left.date,
