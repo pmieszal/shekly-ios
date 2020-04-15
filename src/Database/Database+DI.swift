@@ -7,6 +7,7 @@
 //
 
 import Dip
+import Domain
 
 public extension DependencyContainer {
     func configureDatabase() -> DependencyContainer {
@@ -14,10 +15,13 @@ public extension DependencyContainer {
         
         container.register(.singleton, factory: { SheklyDatabasePersistance() as SheklyDatabaseStore })
         
-        container.register(.shared,
-                           factory: {
-                            SheklyDataController(store: container.forceResolve())
+        container.register(
+            .shared,
+            factory: {
+                SheklyDataController(store: container.forceResolve())
         })
+            .implements(WalletRepository.self)
+            .implements(WalletEntriesRepository.self)
         
         container.register(.shared,
                            factory: {

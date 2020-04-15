@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Domain
 
 public class SheklyDataController {
     
@@ -137,5 +138,49 @@ public class SheklyDataController {
     
     func save(subcategory: SubcategoryModel) -> SubcategoryModel {
         return subcategoryGroup.save(model: subcategory)
+    }
+}
+
+extension SheklyDataController: WalletRepository {
+    public func getWallets() -> [SheklyWalletModel] {
+        let wallets: [WalletModel] = getWallets()
+        let models = wallets.map(SheklyWalletModel.init)
+        
+        return models
+    }
+    
+    public func save(wallet: SheklyWalletModel) -> SheklyWalletModel {
+        //TODO: this
+        
+        return wallet
+    }
+}
+
+extension SheklyDataController: WalletEntriesRepository {
+    //TODO: this
+    public func getWalletEntries(forWallet wallet: SheklyWalletModel) -> [SheklyWalletEntryModel] {
+        return []
+    }
+    
+    public func getWalletEntries(forWallet wallet: SheklyWalletModel, date: Date) -> [SheklyWalletEntryModel] {
+        return []
+    }
+    
+    public func getWalletEntries(forCategory category: SheklyCategoryModel) -> [SheklyWalletEntryModel] {
+        return []
+    }
+    
+    public func save(entry: SheklyWalletEntryModel) -> SheklyWalletEntryModel {
+        return entry
+    }
+    
+    public func delete(entry: SheklyWalletEntryModel) -> Bool {
+        return true
+    }
+}
+
+extension SheklyWalletModel {
+    init(wallet: WalletModel) {
+        self.init(name: wallet.name, id: wallet.id)
     }
 }

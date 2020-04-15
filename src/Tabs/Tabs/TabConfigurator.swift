@@ -17,7 +17,9 @@ import CleanArchitectureHelpers
 public class TabConfigurator: Configurator {
     public func configureTabModule() -> UIViewController {
         let tabController = SheklyTabBarController()
-        let tabRouter: TabRouter = container.forceResolve(arguments: tabController)
+        let tabRouter = TabRouter(
+            viewController: tabController,
+            newEntryConfigurator: container.forceResolve())
         tabController.router = tabRouter
         
         let walletConfigurator: WalletConfigurator = container.forceResolve()

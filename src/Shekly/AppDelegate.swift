@@ -76,6 +76,7 @@ private extension DependencyContainer {
             .configureCategory()
             .configurePlan()
             .configureWallet()
+            .configureNewEntry()
 
         try? container.bootstrap()
         

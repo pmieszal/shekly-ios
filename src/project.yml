@@ -54,11 +54,7 @@ targets:
     sources: 
       - Shekly
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: SPMPackages
       - target: Common
       - target: Domain
       - target: Database
@@ -97,6 +93,22 @@ targets:
       - package: Dip
       - target: Database
 
+  SPMPackages:
+    type: framework
+    platform: iOS
+    dependencies:
+      - package: Rswift
+      - package: rswift
+      - package: SwiftDate
+      - package: DynamicColor
+      - package: Dip
+      - package: SwiftyBeaver
+    configVariants:
+      - Debug
+      - Release
+    sources:
+      - SPMPackages
+
   CleanArchitectureHelpers:
     templates: 
       - Framework
@@ -107,7 +119,6 @@ targets:
     templates: 
       - Framework
     dependencies:
-      - package: SwiftyBeaver
       - target: Domain
 
   Main:
@@ -193,12 +204,7 @@ targets:
     type: framework
     platform: iOS
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftyBeaver
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: SPMPackages
       - target: Domain
       - target: CleanArchitectureHelpers
     configVariants:
@@ -221,11 +227,7 @@ targetTemplates:
     type: framework
     platform: iOS
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: SPMPackages
     configVariants:
       - Debug
       - Release
