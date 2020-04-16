@@ -11,7 +11,7 @@ import User
 import CleanArchitectureHelpers
 import Category
 
-public final class PlanRouter: Router {
+public final class PlanRouter {
     private weak var viewController: PlanViewController?
     
     let categoryConfigurator: CategoryConfigurator

@@ -11,7 +11,7 @@ import Domain
 import User
 import CleanArchitectureHelpers
 
-final class CategoryRouter: Router {
+final class CategoryRouter {
     weak var viewController: CategoryViewController?
     
     init(viewController: CategoryViewController) {

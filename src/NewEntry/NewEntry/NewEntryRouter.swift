@@ -10,7 +10,7 @@ import Domain
 import CleanArchitectureHelpers
 import CommonUI
 
-class NewEntryRouter: Router {
+class NewEntryRouter {
     weak var viewController: NewEntryViewController?
     
     let walletConfigurator: WalletListConfigurator

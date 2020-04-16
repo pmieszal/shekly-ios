@@ -10,7 +10,7 @@ import UIKit
 import Domain
 import CleanArchitectureHelpers
 
-final class WalletRouter: Router {
+final class WalletRouter {
     weak var viewController: WalletViewController?
     
     init(viewController: WalletViewController) {

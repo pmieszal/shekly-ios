@@ -12,7 +12,7 @@ import Common
 import NewEntry
 import CleanArchitectureHelpers
 
-final class TabRouter: Router {
+final class TabRouter {
     weak var viewController: SheklyTabBarController?
     
     let newEntryConfigurator: NewEntryConfigurator

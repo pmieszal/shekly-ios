@@ -11,7 +11,7 @@ import CleanArchitectureHelpers
 import CommonUI
 import Tabs
 
-public final class MainRouter: Router {
+public final class MainRouter {
     weak var navigationController: UINavigationController?
     
     let window: UIWindow
