@@ -21,7 +21,7 @@ packages:
     exactVersion: 7.1.1
 
 options:
-  bundleIdPrefix: pl.patryk.mieszala
+  bundleIdPrefix: pl.swiftoletzbrothers
   minimumXcodeGenVersion: 2.13.1
   groupSortPosition: top
   generateEmptyDirectories: true
@@ -50,7 +50,7 @@ targets:
     entitlements:
       path: Shekly/Shekly.entitlements
       properties:
-        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+        com.apple.security.application-groups: [group.pl.swiftoletzbrothers.shekly]
     sources: 
       - Shekly
     dependencies:
@@ -84,11 +84,11 @@ targets:
     platform: iOS
     sources: SheklyShare
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: pl.patryk.mieszala.Shekly.SheklyShare
+      PRODUCT_BUNDLE_IDENTIFIER: pl.swiftoletzbrothers.shekly.sheklyShare
     entitlements:
       path: SheklyShare/SheklyShare.entitlements
       properties:
-        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+        com.apple.security.application-groups: [group.pl.swiftoletzbrothers.shekly]
     dependencies:
       - package: Dip
       - target: Database

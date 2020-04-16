@@ -11,7 +11,7 @@ import Domain
 import Common
 import CommonUI
 
-class PlanViewController: SheklyViewController<PlanViewModel> {
+class PlanViewController: GenericSheklyViewController<PlanViewModel> {
     @IBOutlet private weak var tableView: UITableView!
     
     var router: PlanRouter?

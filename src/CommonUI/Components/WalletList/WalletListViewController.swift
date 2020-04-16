@@ -9,7 +9,7 @@
 import UIKit
 import Domain
 
-public class WalletListViewController: SheklyViewController<WalletListViewModel> {
+public class WalletListViewController: GenericSheklyViewController<WalletListViewModel> {
     @IBOutlet private weak var tableView: UITableView!
     
     override public func viewDidLoad() {

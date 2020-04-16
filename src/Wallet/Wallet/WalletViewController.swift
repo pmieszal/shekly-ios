@@ -1,9 +1,9 @@
 //
 //  WalletViewController.swift
-//  UI
+//  Shekly-generated
 //
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
+//  Created by Patryk Mieszała on 16/04/2020.
+//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -11,16 +11,68 @@ import Domain
 import Common
 import CommonUI
 
-class WalletViewController: SheklyViewController<WalletViewModel> {
+import CleanArchitectureHelpers
+
+protocol WalletViewControllerLogic: ViewControllerLogic {
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletEntryModel>)
+    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>)
+}
+
+final class WalletViewController: SheklyViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var headerView: WalletHeaderView!
     
-    var router: WalletRouter?
+    // MARK: - Public Properties
+    var interactor: WalletInteractorLogic?
+    var router: WalletRouterType?
+    
+    lazy var dataSource: WalletEntriesDataSource = WalletEntriesDataSource(
+        tableView: tableView,
+        cellProvider: { (tableView, indexPath, model) -> UITableViewCell in
+            switch model {
+                
+            case is SheklyEntryEmptyModel:
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
+                    for: indexPath) else {
+                        assertionFailure("Cell can't be nil")
+                        return UITableViewCell()
+                }
+                
+                return cell
+                
+            default:
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: R.reuseIdentifier.walletEntryCell,
+                    for: indexPath) else {
+                        assertionFailure("Cell can't be nil")
+                        return UITableViewCell()
+                }
+                cell.setup(with: model)
+                
+                return cell
+            }
+    })
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.viewWillAppear?()
+    }
+}
+
+extension WalletViewController: WalletViewControllerLogic {
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletEntryModel>) {
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+        headerView.reload(snapshot: snapshot)
     }
 }
 
@@ -30,31 +82,15 @@ extension WalletViewController: ReloadableViewController {
     }
 }
 
-extension WalletViewController: WalletPresenter {
-    func reloadWallets() {
-        headerView.reloadWalletCollectionView()
-    }
-}
-
 extension WalletViewController: SheklyMonthCollectionViewDelegate {
     func monthCollectionViewDidScroll(toDate date: Date) {
-        viewModel.monthCollectionViewDidScroll(toDate: date)
-    }
-}
-
-extension WalletViewController: WalletCollectionViewDataSource {
-    func numberOfWalletItems() -> Int {
-        return viewModel.numberOfWalletItems()
-    }
-    
-    func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
-        return viewModel.walletCollectionView(modelForItemAt: indexPath)
+        interactor?.monthCollectionViewDidScroll(toDate: date)
     }
 }
 
 extension WalletViewController: WalletCollectionViewDelegate {
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
-        viewModel.walletCollectionViewDidScroll(toItemAt: indexPath)
+        interactor?.walletCollectionViewDidScroll(toItemAt: indexPath)
     }
     
     func walletCollectionDidTapAdd() {
@@ -62,13 +98,16 @@ extension WalletViewController: WalletCollectionViewDelegate {
         
         alert.addTextField()
         
-        let addAction = UIAlertAction(title: "Dodaj", style: .default) { [weak self] (_) in
-            guard let name = alert.textFields?.first?.text else {
-            return
-        }
-            
-            self?.viewModel.addWallet(named: name)
-        }
+        let addAction = UIAlertAction(
+            title: "Dodaj",
+            style: .default,
+            handler: { [weak self] (_) in
+                guard let name = alert.textFields?.first?.text else {
+                    return
+                }
+                
+                self?.interactor?.addWallet(named: name)
+        })
         
         let cancelAction = UIAlertAction(title: "Anuluj", style: .cancel, handler: nil)
         
@@ -79,54 +118,28 @@ extension WalletViewController: WalletCollectionViewDelegate {
     }
 }
 
-extension WalletViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfEntries()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model: SheklyWalletEntryModel = viewModel.entryModel(forIndexPath: indexPath)
-        
-        switch model {
-            
-        case is SheklyEntryEmptyModel:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
-                                                           for: indexPath) else {
-                                                            fatalError("Cell can't be nil")
-            }
-            
-            return cell
-            
-        default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.walletEntryCell,
-                                                           for: indexPath) else {
-                                                            fatalError("Cell can't be nil")
-            }
-            cell.setup(with: model)
-            
-            return cell
-        }
-    }
-}
-
 extension WalletViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] (_, _, completion) in
-            let alertInput = AlertControllerInput(title: "Czy na pewno chcesz usunąć wpis?", message: nil, style: .actionSheet)
-            let actions: [UIAlertAction] = .defaultDeleteActions(okHandler: { [unowned self] (_) in
-                let success = self.viewModel.deleteEntry(atIndexPath: indexPath)
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: nil,
+            handler: { [unowned self] (_, _, completion) in
+                let alertInput = AlertControllerInput(
+                    title: "Czy na pewno chcesz usunąć wpis?",
+                    message: nil,
+                    style: .actionSheet)
+                let actions: [UIAlertAction] = .defaultDeleteActions(
+                    okHandler: { [unowned self] (_) in
+                        let success = self.interactor?.deleteEntry(atIndexPath: indexPath) ?? false
+                        
+                        completion(success)
+                    }, cancelHandler: { _ in
+                        completion(false)
+                })
                 
-                completion(success)
-            }, cancelHandler: { _ in
-                completion(false)
-            })
-            
-            self.showAlert(input: alertInput, actions: actions)
-        }
+                self.showAlert(input: alertInput, actions: actions)
+        })
         
         deleteAction.image = CommonUI.R.image.trashIcon()
         
@@ -136,7 +149,6 @@ extension WalletViewController: UITableViewDelegate {
 
 private extension WalletViewController {
     func setup() {
-        headerView.walletDataSource = self
         headerView.walletDelegate = self
         headerView.monthCollectionDelegate = self
         headerView.layer.shadowColor = Colors.brandColor.cgColor
@@ -145,7 +157,6 @@ private extension WalletViewController {
         headerView.layer.shadowOffset.height = 2
         
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(R.nib.walletEntryCell)
         tableView.register(CommonUI.R.nib.sheklyWalletEntryEmptyCell)
         

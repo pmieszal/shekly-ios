@@ -11,7 +11,7 @@ import Domain
 import Common
 import CommonUI
 
-class CategoryViewController: SheklyViewController<CategoryViewModel> {
+class CategoryViewController: GenericSheklyViewController<CategoryViewModel> {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var categoryLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!

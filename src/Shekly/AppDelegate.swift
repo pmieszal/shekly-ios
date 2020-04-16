@@ -71,6 +71,7 @@ private extension DependencyContainer {
             .configureDatabase()
             .configureUser()
             .configureCommon()
+            .configureCommonUI()
             .configureMain()
             .configureTabs()
             .configureCategory()

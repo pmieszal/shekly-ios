@@ -9,6 +9,7 @@
 import UIKit
 import Common
 import CommonUI
+import Domain
 
 class WalletHeaderView: UIView {
     private lazy var walletCollectionView: SheklyWalletCollectionView = {
@@ -38,15 +39,6 @@ class WalletHeaderView: UIView {
         return view
         
     }()
-    
-    weak var walletDataSource: WalletCollectionViewDataSource? {
-        get {
-            return walletCollectionView.dataSource
-        }
-        set {
-            walletCollectionView.dataSource = newValue
-        }
-    }
     
     weak var walletDelegate: WalletCollectionViewDelegate? {
         get {
@@ -78,8 +70,8 @@ class WalletHeaderView: UIView {
         roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
     
-    func reloadWalletCollectionView() {
-        walletCollectionView.reload()
+    func reload(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+        walletCollectionView.reload(snapshot: snapshot)
     }
 }
 

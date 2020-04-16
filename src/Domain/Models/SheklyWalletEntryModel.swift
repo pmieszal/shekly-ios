@@ -34,7 +34,6 @@ public class SheklyWalletEntryModel: Hashable {
             categoryAndComment = categoryName
         }
         
-        
         let amount = entryType?
             .textPrefix
             .appending(" ")

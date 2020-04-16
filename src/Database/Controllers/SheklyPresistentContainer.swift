@@ -10,7 +10,7 @@ import CoreData
 
 class SheklyPresistentContainer: NSPersistentContainer {
     
-    static let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.pl.patryk.mieszala.Shekly")!
+    static let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.pl.swiftoletzbrothers.shekly")!
     
     override class func defaultDirectoryURL() -> URL {
         return url

@@ -28,7 +28,7 @@ public class TabConfigurator: Configurator {
         let planConfigurator: PlanConfigurator = container.forceResolve()
         let planViewController = planConfigurator.configurePlanModule()
         
-        class TempViewController: SheklyViewController<SheklyViewModel> { }
+        class TempViewController: GenericSheklyViewController<SheklyViewModel> { }
         
         //TODO: move configuration to configurators
         let stats = TempViewController()

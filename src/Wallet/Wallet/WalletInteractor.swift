@@ -1,9 +1,9 @@
 //
-//  WalletViewModel.swift
-//  Domain
+//  WalletInteractor.swift
+//  Shekly-generated
 //
-//  Created by Patryk Mieszała on 05/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
+//  Created by Patryk Mieszała on 16/04/2020.
+//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import User
@@ -11,7 +11,16 @@ import Common
 import CleanArchitectureHelpers
 import Domain
 
-public final class WalletViewModel: ViewModel {
+protocol WalletInteractorLogic: InteractorLogic {
+    func monthCollectionViewDidScroll(toDate date: Date)
+    func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath)
+    func addWallet(named name: String)
+    func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool
+}
+
+protocol WalletDataStore {}
+
+final class WalletInteractor: WalletDataStore {
     // MARK: - Internal properties
     var selectedMonthDate: Date?
     var selectedWallet: SheklyWalletModel?
@@ -23,13 +32,13 @@ public final class WalletViewModel: ViewModel {
     private let walletRepository: WalletRepository
     private let walletEntriesRepository: WalletEntriesRepository
     
-    private weak var presenter: WalletPresenter?
+    private var presenter: WalletPresenterLogic
     private let currencyFormatter: SheklyCurrencyFormatter
     private let differ: Differ
     private let userProvider: UserManaging
     
-    // MARK: - Constructor
-    init(presenter: WalletPresenter,
+    // MARK: - Initializers
+    init(presenter: WalletPresenterLogic,
          walletRepository: WalletRepository,
          walletEntriesRepository: WalletEntriesRepository,
          differ: Differ,
@@ -49,27 +58,19 @@ public final class WalletViewModel: ViewModel {
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.selectedWallet = selectedWallet ?? wallets.first
     }
-    
-    // MARK: - Public methods
-    public func viewWillAppear() {
+}
+
+extension WalletInteractor: WalletInteractorLogic {
+    func viewWillAppear() {
         reloadEntries()
         reloadWallets()
     }
 }
 
-// MARK: - Public methods
-public extension WalletViewModel {
+extension WalletInteractor {
     func monthCollectionViewDidScroll(toDate date: Date) {
         selectedMonthDate = date
         reloadEntries()
-    }
-    
-    func numberOfWalletItems() -> Int {
-        return wallets.count
-    }
-    
-    func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel {
-        return wallets[indexPath.row]
     }
     
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath) {
@@ -82,16 +83,6 @@ public extension WalletViewModel {
         selectedWallet = wallet
         userProvider.set(wallet: wallet.id)
         reloadEntries()
-    }
-    
-    func numberOfEntries() -> Int {
-        return entries.count
-    }
-    
-    func entryModel(forIndexPath indexPath: IndexPath) -> SheklyWalletEntryModel {
-        let model: SheklyWalletEntryModel? = entries[safe: indexPath.row]
-        
-        return model ?? SheklyEntryEmptyModel()
     }
     
     func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool {
@@ -115,8 +106,7 @@ public extension WalletViewModel {
     }
 }
 
-// MARK: - Internal methods
-extension WalletViewModel {
+private extension WalletInteractor {
     func reloadWallets() {
         let wallets: [SheklyWalletModel] = walletRepository.getWallets()
         //TODO: emptymodel should be logic in UI
@@ -124,7 +114,7 @@ extension WalletViewModel {
 
         self.wallets = wallets + [emptyModel]
         
-        presenter?.reloadWallets()
+        presenter.reload(wallets: wallets)
     }
     
     func reloadEntries() {
@@ -134,16 +124,11 @@ extension WalletViewModel {
         }
 
         let entries = walletEntriesRepository.getWalletEntries(forWallet: selectedWallet, date: date)
-        let entryModels: [SheklyWalletEntryModel] = entries
-            .sorted()
+        let entryModels = entries.sorted()
 
-        let models: [SheklyWalletEntryModel] = entries.isEmpty ? [SheklyEntryEmptyModel()] : entryModels
-        let oldState = self.entries
+        let models = entries.isEmpty ? [SheklyEntryEmptyModel()] : entryModels
+        self.entries = models
 
-        let changeSet: ChangeSet = differ.getDiff(oldState: oldState, newState: models)
-
-        presenter?.reload(changeSet: changeSet, setData: { [weak self] in
-            self?.entries = models
-        })
+        presenter.reload(entries: models)
     }
 }

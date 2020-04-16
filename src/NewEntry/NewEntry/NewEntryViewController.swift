@@ -13,7 +13,7 @@ import CommonUI
 import Common
 import Domain
 
-class NewEntryViewController: SheklyViewController<NewEntryViewModel> {
+class NewEntryViewController: GenericSheklyViewController<NewEntryViewModel> {
     private enum Constants {
         static let cellWidthOffset: CGFloat = 30
         static let cellHeight: CGFloat = 27

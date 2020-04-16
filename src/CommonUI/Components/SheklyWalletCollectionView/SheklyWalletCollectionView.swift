@@ -10,11 +10,6 @@ import UIKit
 import Domain
 import Common
 
-public protocol WalletCollectionViewDataSource: AnyObject {
-    func numberOfWalletItems() -> Int
-    func walletCollectionView(modelForItemAt indexPath: IndexPath) -> SheklyWalletModel
-}
-
 @objc
 public protocol WalletCollectionViewDelegate: AnyObject {
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath)
@@ -58,7 +53,24 @@ public class SheklyWalletCollectionView: UIView {
         return pageControl
     }()
     
-    public weak var dataSource: WalletCollectionViewDataSource?
+    lazy var dataSource: SheklyWalletCollectionViewDataSource = SheklyWalletCollectionViewDataSource(
+        collectionView: collectionView,
+        cellProvider: { [weak self] (collectionView, indexPath, model) -> UICollectionViewCell in
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: R.reuseIdentifier.sheklyWalletCell,
+                for: indexPath) else {
+                    return UICollectionViewCell()
+            }
+            
+            cell.setup(with: model)
+            cell.setAddButton(
+                target: self?.delegate,
+                action: #selector(self?.delegate?.walletCollectionDidTapAdd),
+                for: .touchUpInside)
+            
+            return cell
+    })
+    
     public weak var delegate: WalletCollectionViewDelegate?
     
     convenience public init() {
@@ -88,39 +100,12 @@ public class SheklyWalletCollectionView: UIView {
         
         roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
-
-    public func reload() {
-        collectionView.reloadData()
-    }
 }
 
-extension SheklyWalletCollectionView: UICollectionViewDataSource {
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+public extension SheklyWalletCollectionView {
+    func reload(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let number = dataSource?.numberOfWalletItems() ?? 0
-        pageControl.numberOfPages = number
-        
-        return number
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard
-            let cell: SheklyWalletCell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyWalletCell, for: indexPath),
-            let model = dataSource?.walletCollectionView(modelForItemAt: indexPath)
-            else {
-                
-            return UICollectionViewCell()
-        }
-        
-        cell.setup(with: model)
-        cell.setAddButton(target: delegate, action: #selector(delegate?.walletCollectionDidTapAdd), for: .touchUpInside)
-        
-        return cell
-    }
-    
 }
 
 extension SheklyWalletCollectionView: UICollectionViewDelegateFlowLayout {
@@ -153,7 +138,6 @@ private extension SheklyWalletCollectionView {
         
         collectionView.register(R.nib.sheklyWalletCell)
         collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
     func getCurrentCollectionIndex() -> Int {
