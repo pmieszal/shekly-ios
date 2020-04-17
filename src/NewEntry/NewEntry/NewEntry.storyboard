@@ -94,7 +94,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8Z-qu-eqt" userLabel="WalletAndDate">
                                                 <rect key="frame" x="0.0" y="137" width="414" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5h-5H-Qz3" customClass="SheklyButton" customModule="UI" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5h-5H-Qz3" customClass="SheklyButton" customModule="NewEntry" customModuleProvider="target">
                                                         <rect key="frame" x="210" y="0.0" width="81" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,7 +115,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37D-W7-Sws" customClass="SheklyButton" customModule="UI" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37D-W7-Sws" customClass="SheklyButton" customModule="NewEntry" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.5" width="91" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,20 +184,9 @@
                                                 <rect key="frame" x="0.0" y="235" width="414" height="62"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-zf-Nab">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="K0R-gT-85x">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hwf-IQ-Tg5">
-                                                        <rect key="frame" x="0.0" y="31" width="414" height="31"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="dhW-Fi-ul9">
                                                             <size key="itemSize" width="50" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -210,13 +199,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="62" id="AQD-yz-e8l"/>
                                                     <constraint firstAttribute="trailing" secondItem="7nY-zf-Nab" secondAttribute="trailing" id="Dr2-UZ-e15"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7nY-zf-Nab" secondAttribute="bottom" id="FFh-8z-v3j"/>
                                                     <constraint firstItem="7nY-zf-Nab" firstAttribute="top" secondItem="NDn-g6-OiK" secondAttribute="top" id="KUE-7d-k27"/>
-                                                    <constraint firstItem="7nY-zf-Nab" firstAttribute="height" secondItem="hwf-IQ-Tg5" secondAttribute="height" id="KqD-2k-ntJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hwf-IQ-Tg5" secondAttribute="trailing" id="V4d-8W-SHS"/>
-                                                    <constraint firstItem="hwf-IQ-Tg5" firstAttribute="top" secondItem="7nY-zf-Nab" secondAttribute="bottom" id="aef-W6-ypj"/>
                                                     <constraint firstItem="7nY-zf-Nab" firstAttribute="leading" secondItem="NDn-g6-OiK" secondAttribute="leading" id="nnB-nA-Ung"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hwf-IQ-Tg5" secondAttribute="bottom" id="vYu-ZN-DGt"/>
-                                                    <constraint firstItem="hwf-IQ-Tg5" firstAttribute="leading" secondItem="NDn-g6-OiK" secondAttribute="leading" id="zLC-7f-vvb"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syn-yV-pTn" userLabel="Spacer">
@@ -257,20 +242,9 @@
                                                 <rect key="frame" x="0.0" y="365" width="414" height="62"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NON-K8-BdS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="ZN7-Wq-YMk">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="az0-ps-b9u">
-                                                        <rect key="frame" x="0.0" y="31" width="414" height="31"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="Vyu-lA-3LU">
                                                             <size key="itemSize" width="50" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -282,14 +256,10 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="NON-K8-BdS" secondAttribute="trailing" id="3Zt-Kg-SYU"/>
-                                                    <constraint firstAttribute="bottom" secondItem="az0-ps-b9u" secondAttribute="bottom" id="OsC-0G-65Y"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NON-K8-BdS" secondAttribute="bottom" id="8WE-jz-RzO"/>
                                                     <constraint firstAttribute="height" constant="62" id="UT4-Sn-DJB"/>
-                                                    <constraint firstItem="az0-ps-b9u" firstAttribute="top" secondItem="NON-K8-BdS" secondAttribute="bottom" id="VDw-0m-XWw"/>
                                                     <constraint firstItem="NON-K8-BdS" firstAttribute="leading" secondItem="scZ-uZ-Xxa" secondAttribute="leading" id="aIN-Wf-SWe"/>
                                                     <constraint firstItem="NON-K8-BdS" firstAttribute="top" secondItem="scZ-uZ-Xxa" secondAttribute="top" id="fYz-rv-hSG"/>
-                                                    <constraint firstItem="az0-ps-b9u" firstAttribute="leading" secondItem="scZ-uZ-Xxa" secondAttribute="leading" id="mzf-xK-xyL"/>
-                                                    <constraint firstItem="NON-K8-BdS" firstAttribute="height" secondItem="az0-ps-b9u" secondAttribute="height" id="nyF-Rt-zSp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="az0-ps-b9u" secondAttribute="trailing" id="pey-d1-GEs"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZC-Z5-VlV" userLabel="Spacer">
@@ -404,7 +374,7 @@
                             <constraint firstItem="ucQ-6K-ntx" firstAttribute="top" secondItem="agc-wn-d1h" secondAttribute="top" id="WOF-ZT-zbs"/>
                             <constraint firstItem="ucQ-6K-ntx" firstAttribute="leading" secondItem="agc-wn-d1h" secondAttribute="leading" id="cKn-Un-EJX"/>
                             <constraint firstItem="agc-wn-d1h" firstAttribute="trailing" secondItem="Ild-mE-eZ0" secondAttribute="trailing" id="eDM-7X-7Vc"/>
-                            <constraint firstItem="agc-wn-d1h" firstAttribute="bottom" secondItem="u3t-Hm-MPo" secondAttribute="bottom" id="lcR-or-u8A" customClass="KeyboardLayoutConstraint" customModule="UI" customModuleProvider="target"/>
+                            <constraint firstItem="agc-wn-d1h" firstAttribute="bottom" secondItem="u3t-Hm-MPo" secondAttribute="bottom" id="lcR-or-u8A" customClass="KeyboardLayoutConstraint" customModule="NewEntry" customModuleProvider="target"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agc-wn-d1h"/>
                     </view>
@@ -412,14 +382,12 @@
                         <outlet property="amountTextField" destination="lqy-Te-dQK" id="2T4-Sh-jKe"/>
                         <outlet property="cancelButton" destination="qXJ-x6-wid" id="sdv-lC-9dR"/>
                         <outlet property="categoryCollectionView1" destination="7nY-zf-Nab" id="PAy-xX-0Ly"/>
-                        <outlet property="categoryCollectionView2" destination="hwf-IQ-Tg5" id="OjW-QA-MAk"/>
                         <outlet property="commentTextView" destination="GHa-XT-I2G" id="4NX-cJ-J3t"/>
                         <outlet property="dateButton" destination="D5h-5H-Qz3" id="do1-VP-Pes"/>
                         <outlet property="entryTypeSegmentedControl" destination="fHm-0M-TpE" id="LK0-uY-23b"/>
                         <outlet property="saveButton" destination="D0q-zT-VWN" id="CUE-Tf-S02"/>
                         <outlet property="subcategoriesContainer" destination="scZ-uZ-Xxa" id="kB9-A3-Rmw"/>
                         <outlet property="subcategoryCollectionView1" destination="NON-K8-BdS" id="CVQ-61-6Bs"/>
-                        <outlet property="subcategoryCollectionView2" destination="az0-ps-b9u" id="55V-dY-pfv"/>
                         <outlet property="subcategoryHeader" destination="51U-yh-zZy" id="RJe-mj-8gY"/>
                         <outlet property="walletButton" destination="37D-W7-Sws" id="MR7-cy-NRw"/>
                     </connections>

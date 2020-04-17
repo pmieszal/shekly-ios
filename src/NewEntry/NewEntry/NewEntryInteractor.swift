@@ -1,20 +1,37 @@
 //
-//  NewEntryViewModel.swift
-//  Domain
+//  NewEntryInteractor.swift
+//  Shekly-generated
 //
-//  Created by Patryk Mieszała on 05/04/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
+//  Created by Patryk Mieszała on 17/04/2020.
+//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+import UIKit
 import SwiftDate
-
 import CleanArchitectureHelpers
 import User
 import Common
 import CommonUI
 import Domain
 
-public class NewEntryViewModel: ViewModel {
+@objc
+protocol NewEntryInteractorLogic: InteractorLogic {
+    func didSelectSegmentedControl(itemAtIndex index: Int)
+    func amountTextField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    
+    func didSelectCategory(id: String)
+    func didSelectSubcategory(id: String)
+    
+    func commentTextViewDidChange(_ text: String)
+    func save()
+}
+
+protocol NewEntryDataStore {
+    var walletListDelegate: WalletListDelegate { get }
+    var datePickerDelegate: DatePickerDelegate { get }
+}
+
+final class NewEntryInteractor: NewEntryDataStore {
     // MARK: - Internal properties
     var entryType: WalletEntryType = .outcome
     
@@ -66,7 +83,7 @@ public class NewEntryViewModel: ViewModel {
     
     var wallet: SheklyWalletModel?
     
-    weak var presenter: NewEntryPresenter?
+    var presenter: NewEntryPresenterLogic
     //let dataController: SheklyDataController
     let currencyFormatter: SheklyCurrencyFormatter
     let numberParser: NumberParser
@@ -90,21 +107,12 @@ public class NewEntryViewModel: ViewModel {
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.wallet = selectedWallet ?? wallets.first
     }
-    
-    public func viewDidLoad() {
-        reloadAmount()
-        reloadSaveButton()
-        presenter?.show(walletName: wallet?.name)
-        presenter?.show(date: dateString)
-    }
-    
-    public func viewDidAppear() {
-        reloadCategories()
-    }
 }
 
- // MARK: - Public methods
-public extension NewEntryViewModel {
+extension NewEntryInteractor: NewEntryInteractorLogic {
+    var walletListDelegate: WalletListDelegate { self }
+    var datePickerDelegate: DatePickerDelegate { self }
+    
     func didSelectSegmentedControl(itemAtIndex index: Int) {
         guard let entryType = WalletEntryType(rawValue: Int16(index)) else {
             return
@@ -128,17 +136,11 @@ public extension NewEntryViewModel {
         return false
     }
     
-    func numberOfItemsInCategories(section: Int) -> Int {
-        return NewEntryViewModel.getNumberOfItems(section: section, list: categories)
-    }
-    
-    func categoryTitle(forItemAt indexPath: IndexPath) -> String {
-        return NewEntryViewModel.getItem(at: indexPath, list: categories).categoryText
-    }
-    
-    func didSelectCategory(at indexPath: IndexPath) {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: categories)
-        let category = sectionedList[indexPath.section][indexPath.row]
+    func didSelectCategory(id: String) {
+        guard let category = categories.first(where: { $0.categoryId == id }) else {
+            return
+        }
+        
         selectedCategory = category
         selectedSubcategory = nil
         
@@ -146,17 +148,10 @@ public extension NewEntryViewModel {
         reloadSaveButton()
     }
     
-    func numberOfItemsInSubcategories(section: Int) -> Int {
-        return NewEntryViewModel.getNumberOfItems(section: section, list: subcategories)
-    }
-    
-    func subcategoryTitle(forItemAt indexPath: IndexPath) -> String {
-        return NewEntryViewModel.getItem(at: indexPath, list: subcategories).name ?? ""
-    }
-    
-    func didSelectSubcategory(at indexPath: IndexPath) {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: subcategories)
-        let subcategory = sectionedList[indexPath.section][indexPath.row]
+    func didSelectSubcategory(id: String) {
+        guard let subcategory = subcategories.first(where: { $0.id == id }) else {
+            return
+        }
         
         selectedSubcategory = subcategory
         reloadSaveButton()
@@ -166,10 +161,8 @@ public extension NewEntryViewModel {
         comment = text
     }
     
-    @objc
     func save() {
-        guard
-            let wallet = wallet,
+        guard let wallet = wallet,
             let amount = amountNumber?.doubleValue,
             amount > 0,
             let selectedCategory = self.selectedCategory,
@@ -190,26 +183,26 @@ public extension NewEntryViewModel {
 //
 //        dataController.save(entry: entry)
         
-        presenter?.dismiss()
+        presenter.dismiss()
     }
 }
 
-extension NewEntryViewModel: WalletListDelegate {
+extension NewEntryInteractor: WalletListDelegate {
     public func didSelect(wallet: SheklyWalletModel) {
         self.wallet = wallet
-        presenter?.show(walletName: wallet.name)
+        presenter.show(walletName: wallet.name)
     }
 }
 
-extension NewEntryViewModel: DatePickerDelegate {
+extension NewEntryInteractor: DatePickerDelegate {
     public func didPick(date: Date) {
         self.date = date
-        presenter?.show(date: dateString)
+        presenter.show(date: dateString)
     }
 }
 
-// MARK: - Internal methods
-extension NewEntryViewModel {
+// MARK: - Private methods
+private extension NewEntryInteractor {
     func reloadCategories() {
         guard let wallet = self.wallet else {
             return
@@ -226,7 +219,7 @@ extension NewEntryViewModel {
 //        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
 //        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
 //
-//        presenter?.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
+//        presenter.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
     func reloadSubcategories(forCategory category: SheklyCategoryModel) {
@@ -241,11 +234,11 @@ extension NewEntryViewModel {
 //        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
 //        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
 //
-//        presenter?.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
+//        presenter.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
     func reloadAmount() {
-        presenter?.show(amount: amountWithCurrency ?? "", color: entryType.textColor)
+        presenter.show(amount: amountWithCurrency ?? "", color: entryType.textColor)
     }
     
     func reloadSaveButton() {
@@ -254,32 +247,10 @@ extension NewEntryViewModel {
             selectedCategory != nil,
             selectedSubcategory != nil
             else {
-                presenter?.setSaveButton(enabled: false)
+                presenter.setSaveButton(enabled: false)
                 return
         }
         
-        presenter?.setSaveButton(enabled: true)
-    }
-    
-    class func getNumberOfItems<T>(section: Int, list: [T]) -> Int {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: list)
-        
-        return sectionedList[section].count
-    }
-    
-    class func getItem<T>(at indexPath: IndexPath, list: [T]) -> T {
-        let sectionedList = NewEntryViewModel.getSectionedList(from: list)
-        
-        return sectionedList[indexPath.section][indexPath.row]
-    }
-    
-    class func getSectionedList<T>(from list: [T]) -> [[T]] {
-        let middleIndexDouble = Double(list.count) / 2
-        let middleIndex: Int = Int(middleIndexDouble.rounded(.up))
-        
-        let section1: [T] = Array(list.prefix(upTo: middleIndex))
-        let section2: [T] = Array(list.suffix(from: middleIndex))
-        
-        return [section1, section2]
+        presenter.setSaveButton(enabled: true)
     }
 }

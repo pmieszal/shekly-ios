@@ -9,5 +9,7 @@ import Foundation
 
 public struct SheklySubcategoryModel {
     //TODO: this
-    public let name: String?
+    public let
+    id: String,
+    name: String
 }

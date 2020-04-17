@@ -9,7 +9,6 @@ import UIKit
 import Domain
 
 class WalletEntriesDataSource: UITableViewDiffableDataSource<String, SheklyWalletEntryModel> {
-    
     override init(tableView: UITableView,
                   cellProvider: @escaping WalletEntriesDataSource.CellProvider) {
         super.init(tableView: tableView, cellProvider: cellProvider)
