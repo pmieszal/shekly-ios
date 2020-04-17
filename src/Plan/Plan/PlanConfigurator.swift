@@ -16,9 +16,7 @@ public final class PlanConfigurator: Configurator {
             fatalError("VC can't be nil")
         }
         
-        let router = PlanRouter(
-            viewController: viewController,
-            categoryConfigurator: container.forceResolve())
+        let router = PlanRouter(viewController: viewController)
         viewController.router = router
         viewController.tabBarItem.title = "Plan"
         viewController.tabBarItem.image = CommonUI.R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysOriginal)

@@ -19,7 +19,6 @@ import Tabs
 import NewEntry
 import Wallet
 import Plan
-import Category
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -74,7 +73,6 @@ private extension DependencyContainer {
             .configureCommonUI()
             .configureMain()
             .configureTabs()
-            .configureCategory()
             .configurePlan()
             .configureWallet()
             .configureNewEntry()

@@ -9,24 +9,14 @@
 import Domain
 import User
 import CleanArchitectureHelpers
-import Category
 
 public final class PlanRouter {
     private weak var viewController: PlanViewController?
     
-    let categoryConfigurator: CategoryConfigurator
-    
-    init(viewController: PlanViewController,
-         categoryConfigurator: CategoryConfigurator) {
+    init(viewController: PlanViewController) {
         self.viewController = viewController
-        self.categoryConfigurator = categoryConfigurator
     }
 }
 
 extension PlanRouter {
-    func navigate(to category: SheklyCategoryModel) {
-        let category = categoryConfigurator.configureCategoryModule(categoryModel: category)
-        
-        viewController?.navigationController?.pushViewController(category, animated: true)
-    }
 }

@@ -31,7 +31,6 @@ class PlanViewController: GenericSheklyViewController<PlanViewModel> {
 
 extension PlanViewController: PlanPresenter {
     func navigate(to category: SheklyCategoryModel) {
-        router?.navigate(to: category)
     }
 }
 

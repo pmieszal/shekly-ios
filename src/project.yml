@@ -67,7 +67,6 @@ targets:
       - target: NewEntry
       - target: Wallet
       - target: Plan
-      - target: Category
     preBuildScripts:
       - script: 'mint run R.swift rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
         name: R.swift
@@ -157,17 +156,6 @@ targets:
       - target: User
 
   Plan:
-    templates: 
-      - Framework
-    dependencies:
-      - target: Domain
-      - target: CleanArchitectureHelpers
-      - target: Common
-      - target: CommonUI
-      - target: User
-      - target: Category
-
-  Category:
     templates: 
       - Framework
     dependencies:
