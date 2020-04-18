@@ -5,7 +5,7 @@ public extension DependencyContainer {
         unowned let container = self
         
         container.register(factory: { WalletListConfigurator() })
-        container.register(factory: { DatePickerConfigurator() })
+        container.register(factory: { DatePickerConfigurator() }).implements(DatePickerConfiguratorProtocol.self)
         
         return container
     }

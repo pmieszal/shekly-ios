@@ -29,13 +29,13 @@ final class NewEntryRouter: NewEntryDataPassing {
     var dataStore: NewEntryDataStore
     
     let walletConfigurator: WalletListConfigurator
-    let datePickerConfigurator: DatePickerConfigurator
+    let datePickerConfigurator: DatePickerConfiguratorProtocol
     
     // MARK: - Initializers
     init(viewController: NewEntryViewController?,
          dataStore: NewEntryDataStore,
          walletConfigurator: WalletListConfigurator,
-         datePickerConfigurator: DatePickerConfigurator) {
+         datePickerConfigurator: DatePickerConfiguratorProtocol) {
         self.viewController = viewController
         self.dataStore = dataStore
         self.walletConfigurator = walletConfigurator

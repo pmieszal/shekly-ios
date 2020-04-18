@@ -381,13 +381,13 @@
                     <connections>
                         <outlet property="amountTextField" destination="lqy-Te-dQK" id="2T4-Sh-jKe"/>
                         <outlet property="cancelButton" destination="qXJ-x6-wid" id="sdv-lC-9dR"/>
-                        <outlet property="categoryCollectionView1" destination="7nY-zf-Nab" id="PAy-xX-0Ly"/>
+                        <outlet property="categoryCollectionView" destination="7nY-zf-Nab" id="wqo-fb-IMN"/>
                         <outlet property="commentTextView" destination="GHa-XT-I2G" id="4NX-cJ-J3t"/>
                         <outlet property="dateButton" destination="D5h-5H-Qz3" id="do1-VP-Pes"/>
                         <outlet property="entryTypeSegmentedControl" destination="fHm-0M-TpE" id="LK0-uY-23b"/>
                         <outlet property="saveButton" destination="D0q-zT-VWN" id="CUE-Tf-S02"/>
                         <outlet property="subcategoriesContainer" destination="scZ-uZ-Xxa" id="kB9-A3-Rmw"/>
-                        <outlet property="subcategoryCollectionView1" destination="NON-K8-BdS" id="CVQ-61-6Bs"/>
+                        <outlet property="subcategoryCollectionView" destination="NON-K8-BdS" id="Jcn-r2-IQk"/>
                         <outlet property="subcategoryHeader" destination="51U-yh-zZy" id="RJe-mj-8gY"/>
                         <outlet property="walletButton" destination="37D-W7-Sws" id="MR7-cy-NRw"/>
                     </connections>
