@@ -1,15 +1,20 @@
 //
 //  DatePickerViewController.swift
-//  UI
+//  Shekly-generated
 //
-//  Created by Patryk Mieszała on 12/04/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
+//  Created by Patryk Mieszała on 18/04/2020.
+//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
-import Domain
 
-public class DatePickerViewController: GenericSheklyViewController<DatePickerViewModel> {
+protocol DatePickerViewControllerLogic: AnyObject {}
+
+public final class DatePickerViewController: UIViewController {
+    // MARK: - Public Properties
+    var interactor: DatePickerInteractorLogic?
+    var router: DatePickerRouterType?
+    
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var okButton: UIButton!
     
@@ -20,7 +25,9 @@ public class DatePickerViewController: GenericSheklyViewController<DatePickerVie
     
     @objc
     private func didTapOKButton() {
-        viewModel.didPick(date: datePicker.date)
+        interactor?.didPick(date: datePicker.date)
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension DatePickerViewController: DatePickerViewControllerLogic {}
