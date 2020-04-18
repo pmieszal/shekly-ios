@@ -15,10 +15,10 @@ import CleanArchitectureHelpers
 final class TabRouter {
     weak var viewController: SheklyTabBarController?
     
-    let newEntryConfigurator: NewEntryConfigurator
+    let newEntryConfigurator: NewEntryConfiguratorProtocol
     
     init(viewController: SheklyTabBarController,
-         newEntryConfigurator: NewEntryConfigurator) {
+         newEntryConfigurator: NewEntryConfiguratorProtocol) {
         self.viewController = viewController
         self.newEntryConfigurator = newEntryConfigurator
     }

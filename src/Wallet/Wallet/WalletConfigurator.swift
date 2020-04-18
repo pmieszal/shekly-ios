@@ -15,8 +15,8 @@ public protocol WalletConfiguratorProtocol {
     func configureWalletModule() -> UIViewController
 }
 
-public final class WalletConfigurator: Configurator, WalletConfiguratorProtocol {
-    public func configureWalletModule() -> UIViewController {
+final class WalletConfigurator: Configurator, WalletConfiguratorProtocol {
+    func configureWalletModule() -> UIViewController {
         guard let viewController = R.storyboard.wallet.walletViewController() else {
             fatalError("VC can't be nil")
         }

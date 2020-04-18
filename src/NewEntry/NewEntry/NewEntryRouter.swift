@@ -28,13 +28,13 @@ final class NewEntryRouter: NewEntryDataPassing {
     weak var viewController: NewEntryViewController?
     var dataStore: NewEntryDataStore
     
-    let walletConfigurator: WalletListConfigurator
+    let walletConfigurator: WalletListConfiguratorProtocol
     let datePickerConfigurator: DatePickerConfiguratorProtocol
     
     // MARK: - Initializers
     init(viewController: NewEntryViewController?,
          dataStore: NewEntryDataStore,
-         walletConfigurator: WalletListConfigurator,
+         walletConfigurator: WalletListConfiguratorProtocol,
          datePickerConfigurator: DatePickerConfiguratorProtocol) {
         self.viewController = viewController
         self.dataStore = dataStore

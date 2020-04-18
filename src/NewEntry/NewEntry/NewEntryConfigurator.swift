@@ -14,8 +14,8 @@ public protocol NewEntryConfiguratorProtocol {
     func configureNewEntryModule() -> UIViewController
 }
 
-public class NewEntryConfigurator: Configurator, NewEntryConfiguratorProtocol {
-    public func configureNewEntryModule() -> UIViewController {
+class NewEntryConfigurator: Configurator, NewEntryConfiguratorProtocol {
+    func configureNewEntryModule() -> UIViewController {
         guard let viewController = R.storyboard.newEntry.newEntryViewController() else {
             fatalError("VC can't be nil")
         }

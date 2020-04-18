@@ -22,7 +22,7 @@ public class TabConfigurator: Configurator {
             newEntryConfigurator: container.forceResolve())
         tabController.router = tabRouter
         
-        let walletConfigurator: WalletConfigurator = container.forceResolve()
+        let walletConfigurator: WalletConfiguratorProtocol = container.forceResolve()
         let walletViewController = walletConfigurator.configureWalletModule()
         
         let planConfigurator: PlanConfigurator = container.forceResolve()
