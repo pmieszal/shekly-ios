@@ -11,8 +11,8 @@ import CleanArchitectureHelpers
 import Domain
 
 protocol WalletPresenterLogic: PresenterLogic {
-    func reload(wallets: [SheklyWalletModel])
-    func reload(entries: [SheklyWalletEntryModel])
+    func reload(wallets: [WalletModel])
+    func reload(entries: [WalletEntryModel])
 }
 
 final class WalletPresenter {
@@ -30,16 +30,16 @@ extension WalletPresenter: WalletPresenterLogic {
         viewController
     }
     
-    func reload(wallets: [SheklyWalletModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<String, SheklyWalletModel>()
+    func reload(wallets: [WalletModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<String, WalletModel>()
         snapshot.appendSections(["wallets"])
         snapshot.appendItems(wallets)
         
         viewController?.reloadWallets(snapshot: snapshot)
     }
     
-    func reload(entries: [SheklyWalletEntryModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<String, SheklyWalletEntryModel>()
+    func reload(entries: [WalletEntryModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<String, WalletEntryModel>()
         snapshot.appendSections(["entries"])
         snapshot.appendItems(entries)
         

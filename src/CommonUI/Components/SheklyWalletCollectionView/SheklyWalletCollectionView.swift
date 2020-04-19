@@ -103,7 +103,7 @@ public class SheklyWalletCollectionView: UIView {
 }
 
 public extension SheklyWalletCollectionView {
-    func reload(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+    func reload(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>) {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum WalletEntryType: Int16 {
+public enum WalletEntryType: Int {
     case outcome = 0
     case income
     

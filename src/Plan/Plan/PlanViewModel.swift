@@ -12,10 +12,10 @@ import Domain
 import CleanArchitectureHelpers
 
 public final class PlanViewModel: ViewModel {
-    public typealias CategorySelectionHandler = (SheklyCategoryModel) -> ()
+    public typealias CategorySelectionHandler = (CategoryModel) -> ()
     
     // MARK: - Public properties
-    public private(set) var categories: [SheklyCategoryModel] = []
+    public private(set) var categories: [CategoryModel] = []
     
     // MARK: - Internal properties
     //let dataController: SheklyDataController
@@ -23,8 +23,8 @@ public final class PlanViewModel: ViewModel {
     
     weak var presenter: PlanPresenter?
     
-    private var selectedWallet: SheklyWalletModel? {
-        let wallets = [SheklyWalletModel]()// dataController.getWallets()
+    private var selectedWallet: WalletModel? {
+        let wallets = [WalletModel]()// dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         
         return selectedWallet ?? wallets.first
@@ -60,7 +60,7 @@ extension PlanViewModel {
             return
         }
         
-        let categories: [SheklyCategoryModel] = []
+        let categories: [CategoryModel] = []
         //TODO: this
         
         self.categories = categories

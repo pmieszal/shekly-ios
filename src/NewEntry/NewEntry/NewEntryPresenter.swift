@@ -16,8 +16,8 @@ protocol NewEntryPresenterLogic: PresenterLogic {
     func show(date: String?)
     func show(amount: String, color: UIColor)
     func setSaveButton(enabled: Bool)
-    func reload(categories: [SheklyCategoryModel])
-    func reload(subcategories: [SheklySubcategoryModel])
+    func reload(categories: [CategoryModel])
+    func reload(subcategories: [SubcategoryModel])
     func dismiss()
 }
 
@@ -52,7 +52,7 @@ extension NewEntryPresenter: NewEntryPresenterLogic {
         viewController?.setSaveButton(enabled: enabled)
     }
     
-    func reload(categories: [SheklyCategoryModel]) {
+    func reload(categories: [CategoryModel]) {
         var snapshot = NewEntryViewControllerLogic.DataSnapshot()
         let sections = NewEntryPresenter.getSectionedList(from: categories)
         
@@ -60,12 +60,12 @@ extension NewEntryPresenter: NewEntryPresenterLogic {
             let sectionName = "section-\(index)"
             snapshot.appendSections([sectionName])
             
-            let titles = section.map { $0.categoryText }
+            let titles = section.map { $0.name }
             snapshot.appendItems(titles, toSection: sectionName)
         }
     }
     
-    func reload(subcategories: [SheklySubcategoryModel]) {
+    func reload(subcategories: [SubcategoryModel]) {
         var snapshot = NewEntryViewControllerLogic.DataSnapshot()
         let sections = NewEntryPresenter.getSectionedList(from: subcategories)
         

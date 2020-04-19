@@ -73,15 +73,15 @@ final class NewEntryInteractor: NewEntryDataStore {
         return date.toString(DateToStringStyles.date(DateFormatter.Style.short))
     }
     
-    var categories: [SheklyCategoryModel] = []
-    var subcategories: [SheklySubcategoryModel] = []
+    var categories: [CategoryModel] = []
+    var subcategories: [SubcategoryModel] = []
     
-    var selectedCategory: SheklyCategoryModel?
-    var selectedSubcategory: SheklySubcategoryModel?
+    var selectedCategory: CategoryModel?
+    var selectedSubcategory: SubcategoryModel?
     
     var comment: String?
     
-    var wallet: SheklyWalletModel?
+    var wallet: WalletModel?
     
     var presenter: NewEntryPresenterLogic
     //let dataController: SheklyDataController
@@ -103,7 +103,7 @@ final class NewEntryInteractor: NewEntryDataStore {
         self.numberParser = numberParser
         self.differ = differ
         
-        let wallets = [SheklyWalletModel]() // dataController.getWallets()
+        let wallets = [WalletModel]() // dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         self.wallet = selectedWallet ?? wallets.first
     }
@@ -114,7 +114,7 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
     var datePickerDelegate: DatePickerDelegate { self }
     
     func didSelectSegmentedControl(itemAtIndex index: Int) {
-        guard let entryType = WalletEntryType(rawValue: Int16(index)) else {
+        guard let entryType = WalletEntryType(rawValue: index) else {
             return
         }
         
@@ -137,7 +137,7 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
     }
     
     func didSelectCategory(id: String) {
-        guard let category = categories.first(where: { $0.categoryId == id }) else {
+        guard let category = categories.first(where: { $0.id == id }) else {
             return
         }
         
@@ -188,7 +188,7 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
 }
 
 extension NewEntryInteractor: WalletListDelegate {
-    public func didSelect(wallet: SheklyWalletModel) {
+    public func didSelect(wallet: WalletModel) {
         self.wallet = wallet
         presenter.show(walletName: wallet.name)
     }
@@ -222,7 +222,7 @@ private extension NewEntryInteractor {
 //        presenter.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
     }
     
-    func reloadSubcategories(forCategory category: SheklyCategoryModel) {
+    func reloadSubcategories(forCategory category: CategoryModel) {
         //TODO: this
 //        let subcategories = self.dataController.getSubcategories(forCategory: category)
 //

@@ -9,7 +9,6 @@
 import Foundation
 
 public class SheklyJSONImporter {
-    
     let decoder: JSONDecoder = {
         let decoder: JSONDecoder = JSONDecoder()
         decoder.keyDecodingStrategy = .useDefaultKeys

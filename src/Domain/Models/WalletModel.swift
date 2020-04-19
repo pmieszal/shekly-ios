@@ -1,23 +1,25 @@
 //
-//  SheklyWalletModel.swift
+//  WalletModel.swift
 //  Domain
 //
 //  Created by Patryk Mieszała on 23/03/2019.
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-public struct SheklyWalletModel: Equatable, Hashable {
+public struct WalletModel: Equatable, Hashable {
     public let
+    id: String?,
     name: String?,
-    id: String?
+    entries: [WalletEntryModel]
     
-    //TODO: get rid of this, this logic should be in UI module
     public var isEmpty: Bool { id == nil }
     
-    public init(name: String?,
-                id: String?) {
+    public init(id: String?,
+                name: String?,
+                entries: [WalletEntryModel]) {
+                    self.id = id
         self.name = name
-        self.id = id
+        self.entries = entries
     }
     
     public func hash(into hasher: inout Hasher) {
@@ -25,6 +27,6 @@ public struct SheklyWalletModel: Equatable, Hashable {
     }
 }
 
-public func == (lhs: SheklyWalletModel, rhs: SheklyWalletModel) -> Bool {
+public func == (lhs: WalletModel, rhs: WalletModel) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

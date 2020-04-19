@@ -15,10 +15,7 @@ class CategoryListCell: UITableViewCell {
     @IBOutlet private weak var entryLabel: UILabel!
     @IBOutlet private weak var amountLabel: UILabel!
     
-    func setup(with model: SheklyCategoryModel) {
-        categoryLabel.text = model.categoryText
-        subcategoriesLabel.text = model.subcategoriesText
-        entryLabel.text = model.entriesText
-        amountLabel.text = model.amountText
+    func setup(with model: CategoryModel) {
+        categoryLabel.text = model.name
     }
 }

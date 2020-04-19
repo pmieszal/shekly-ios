@@ -9,6 +9,6 @@
 import Foundation
 
 public protocol WalletRepository: AnyObject {
-    func getWallets() -> [SheklyWalletModel]
-    func save(wallet: SheklyWalletModel) -> SheklyWalletModel
+    func getWallets() -> [WalletModel]
+    func save(wallet: WalletModel) -> WalletModel
 }

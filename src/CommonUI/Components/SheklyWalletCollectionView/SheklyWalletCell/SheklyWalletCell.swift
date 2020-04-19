@@ -43,7 +43,7 @@ public class SheklyWalletCell: UICollectionViewCell {
         layoutAddButton()
     }
     
-    func setup(with model: SheklyWalletModel) {
+    func setup(with model: WalletModel) {
         emptyView.isHidden = model.isEmpty == false
         contentStackView.isHidden = model.isEmpty == true
         

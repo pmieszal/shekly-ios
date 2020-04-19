@@ -9,5 +9,5 @@
 import Domain
 
 public protocol WalletListDelegate: AnyObject {
-    func didSelect(wallet: SheklyWalletModel)
+    func didSelect(wallet: WalletModel)
 }

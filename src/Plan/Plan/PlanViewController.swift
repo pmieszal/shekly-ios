@@ -30,7 +30,7 @@ class PlanViewController: GenericSheklyViewController<PlanViewModel> {
 }
 
 extension PlanViewController: PlanPresenter {
-    func navigate(to category: SheklyCategoryModel) {
+    func navigate(to category: CategoryModel) {
     }
 }
 

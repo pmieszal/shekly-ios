@@ -70,7 +70,7 @@ class WalletHeaderView: UIView {
         roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
     
-    func reload(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+    func reload(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>) {
         walletCollectionView.reload(snapshot: snapshot)
     }
 }

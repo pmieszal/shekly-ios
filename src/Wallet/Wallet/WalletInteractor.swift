@@ -23,11 +23,11 @@ protocol WalletDataStore {}
 final class WalletInteractor: WalletDataStore {
     // MARK: - Internal properties
     var selectedMonthDate: Date?
-    var selectedWallet: SheklyWalletModel?
+    var selectedWallet: WalletModel?
     
     // MARK: - Private properties
-    private var wallets: [SheklyWalletModel] = []
-    private var entries: [SheklyWalletEntryModel] = []
+    private var wallets: [WalletModel] = []
+    private var entries: [WalletEntryModel] = []
     
     private let walletRepository: WalletRepository
     private let walletEntriesRepository: WalletEntriesRepository
@@ -97,7 +97,7 @@ extension WalletInteractor {
     }
     
     func addWallet(named name: String) {
-        let wallet = SheklyWalletModel(name: name, id: nil)
+        let wallet = WalletModel(id: nil, name: name, entries: [])
         let savedWallet = walletRepository.save(wallet: wallet)
         
         selectedWallet = savedWallet
@@ -108,9 +108,9 @@ extension WalletInteractor {
 
 private extension WalletInteractor {
     func reloadWallets() {
-        let wallets: [SheklyWalletModel] = walletRepository.getWallets()
+        let wallets: [WalletModel] = walletRepository.getWallets()
         //TODO: emptymodel should be logic in UI
-        let emptyModel = SheklyWalletModel(name: nil, id: nil)
+        let emptyModel = WalletModel(id: nil, name: nil, entries: [])
 
         self.wallets = wallets + [emptyModel]
         
@@ -126,7 +126,7 @@ private extension WalletInteractor {
         let entries = walletEntriesRepository.getWalletEntries(forWallet: selectedWallet, date: date)
         let entryModels = entries.sorted()
 
-        let models = entries.isEmpty ? [SheklyEntryEmptyModel()] : entryModels
+        let models = entries.isEmpty ? [WalletEntryModel()] : entryModels
         self.entries = models
 
         presenter.reload(entries: models)

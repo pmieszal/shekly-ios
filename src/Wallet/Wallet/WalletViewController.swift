@@ -14,8 +14,8 @@ import CommonUI
 import CleanArchitectureHelpers
 
 protocol WalletViewControllerLogic: ViewControllerLogic {
-    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletEntryModel>)
-    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>)
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryModel>)
+    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>)
 }
 
 final class WalletViewController: SheklyViewController {
@@ -29,9 +29,7 @@ final class WalletViewController: SheklyViewController {
     lazy var dataSource: WalletEntriesDataSource = WalletEntriesDataSource(
         tableView: tableView,
         cellProvider: { (tableView, indexPath, model) -> UITableViewCell in
-            switch model {
-                
-            case is SheklyEntryEmptyModel:
+            guard model.id != nil else {
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
                     for: indexPath) else {
@@ -40,18 +38,17 @@ final class WalletViewController: SheklyViewController {
                 }
                 
                 return cell
-                
-            default:
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: R.reuseIdentifier.walletEntryCell,
-                    for: indexPath) else {
-                        assertionFailure("Cell can't be nil")
-                        return UITableViewCell()
-                }
-                cell.setup(with: model)
-                
-                return cell
             }
+            
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: R.reuseIdentifier.walletEntryCell,
+                for: indexPath) else {
+                    assertionFailure("Cell can't be nil")
+                    return UITableViewCell()
+            }
+            cell.setup(with: model)
+            
+            return cell
     })
     
     override func viewDidLoad() {
@@ -67,11 +64,11 @@ final class WalletViewController: SheklyViewController {
 }
 
 extension WalletViewController: WalletViewControllerLogic {
-    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletEntryModel>) {
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryModel>) {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, SheklyWalletModel>) {
+    func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>) {
         headerView.reload(snapshot: snapshot)
     }
 }

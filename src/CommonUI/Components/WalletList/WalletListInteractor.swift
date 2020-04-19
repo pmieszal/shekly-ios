@@ -20,7 +20,7 @@ final class WalletListInteractor: WalletListDataStore {
     var presenter: WalletListPresenterLogic
     
     // MARK: - Private properties
-    private var wallets: [SheklyWalletModel]
+    private var wallets: [WalletModel]
     private weak var delegate: WalletListDelegate?
 
     // MARK: - Initializers

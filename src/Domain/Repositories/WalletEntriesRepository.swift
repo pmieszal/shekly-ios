@@ -9,9 +9,8 @@
 import Foundation
 
 public protocol WalletEntriesRepository: AnyObject {
-    func getWalletEntries(forWallet wallet: SheklyWalletModel) -> [SheklyWalletEntryModel]
-    func getWalletEntries(forWallet wallet: SheklyWalletModel, date: Date) -> [SheklyWalletEntryModel]
-    func getWalletEntries(forCategory category: SheklyCategoryModel) -> [SheklyWalletEntryModel]
-    func save(entry: SheklyWalletEntryModel) -> SheklyWalletEntryModel
-    func delete(entry: SheklyWalletEntryModel) -> Bool
+    func getWalletEntries(forWallet wallet: WalletModel) -> [WalletEntryModel]
+    func getWalletEntries(forWallet wallet: WalletModel, date: Date) -> [WalletEntryModel]
+    func save(entry: WalletEntryModel) -> WalletEntryModel?
+    func delete(entry: WalletEntryModel) -> Bool
 }

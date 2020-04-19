@@ -8,30 +8,54 @@
 
 import Dip
 import Domain
+import Common
+import RealmSwift
 
 public extension DependencyContainer {
     func configureDatabase() -> DependencyContainer {
         unowned let container = self
         
-        container.register(.singleton, factory: { SheklyDatabasePersistance() as SheklyDatabaseStore })
+        container.register(factory: { try Realm() })
         
         container.register(
             .shared,
             factory: {
-                SheklyDataController(store: container.forceResolve())
-        })
+                DBWalletWorker(realm: container.forceResolve())
+            })
             .implements(WalletRepository.self)
+        
+        container.register(
+            .shared,
+            factory: {
+                DBWalletEntryWorker(
+                    realm: container.forceResolve(),
+                    walletWorker: container.forceResolve())
+            })
             .implements(WalletEntriesRepository.self)
         
-        container.register(.shared,
-                           factory: {
-                            SheklyJSONDataController(store: container.forceResolve())
+        container.register(
+            .shared,
+            factory: {
+                DBCategoryWorker(realm: container.forceResolve())
         })
         
-        container.register(.shared,
-                           factory: {
-                            SheklyJSONImporter(dataController: container.forceResolve())
+        container.register(
+            .shared,
+            factory: {
+                DBSubcategoryWorker(realm: container.forceResolve())
         })
+        
+        container.register(
+            .shared,
+            factory: {
+                SheklyJSONImporter(
+                    dataController: SheklyJSONDataController(
+                        walletWorker: container.forceResolve(),
+                        categoryWorker: container.forceResolve(),
+                        subcategoryWorker: container.forceResolve(),
+                        entryWorker: container.forceResolve())
+                )
+            })
         
         return container
     }

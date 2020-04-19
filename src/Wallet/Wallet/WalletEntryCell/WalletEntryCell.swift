@@ -34,13 +34,13 @@ class WalletEntryCell: UITableViewCell {
         entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
     }
     
-    func setup(with model: SheklyWalletEntryModel) {
+    func setup(with model: WalletEntryModel) {
         entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
         
         categoryAndCommentLabel.text = model.categoryAndComment
-        subcategoryLabel.text = model.subcategory
-        amountLabel.text = model.amount
-        amountLabel.textColor = model.entryType?.textColor
+        subcategoryLabel.text = model.subcategory?.name
+        amountLabel.text = "\(model.amount)" //TODO: this
+        amountLabel.textColor = model.type.textColor
         dateLabel.text = model.dateString
     }
 }
