@@ -64,4 +64,5 @@ fastlane/test_output
 
 *.xcconfig
 *.xcodeproj
+*.xcworkspace
 *.generated.swift

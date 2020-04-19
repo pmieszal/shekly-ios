@@ -51,7 +51,7 @@ targets:
     sources: 
       - Shekly
     dependencies:
-      - target: SPMPackages
+      - target: Vendors
       - target: Common
       - target: Domain
       - target: Database
@@ -89,7 +89,7 @@ targets:
       - package: Dip
       - target: Database
 
-  SPMPackages:
+  Vendors:
     type: framework
     platform: iOS
     dependencies:
@@ -102,7 +102,7 @@ targets:
       - Debug
       - Release
     sources:
-      - SPMPackages
+      - Vendors
 
   CleanArchitectureHelpers:
     templates: 
@@ -188,7 +188,7 @@ targets:
     type: framework
     platform: iOS
     dependencies:
-      - target: SPMPackages
+      - target: Vendors
       - target: Domain
       - target: CleanArchitectureHelpers
     configVariants:
@@ -211,7 +211,7 @@ targetTemplates:
     type: framework
     platform: iOS
     dependencies:
-      - target: SPMPackages
+      - target: Vendors
     configVariants:
       - Debug
       - Release
