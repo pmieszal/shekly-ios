@@ -4,9 +4,6 @@ packages:
   Rswift:
     url: https://github.com/mac-cain13/R.swift.Library
     exactVersion: 5.1.0
-  rswift:
-    url: https://github.com/mac-cain13/R.swift
-    exactVersion: 5.1.0
   SwiftyBeaver:
     url: https://github.com/SwiftyBeaver/SwiftyBeaver
     exactVersion: 1.8.2
@@ -97,7 +94,6 @@ targets:
     platform: iOS
     dependencies:
       - package: Rswift
-      - package: rswift
       - package: SwiftDate
       - package: DynamicColor
       - package: Dip
@@ -175,8 +171,6 @@ targets:
     dependencies:
       - target: Common
       - target: Domain
-      - framework: Database/Realm-4.4.1/Realm.framework
-      - framework: Database/Realm-4.4.1/RealmSwift.framework
 
   User:
     templates: 
