@@ -14,19 +14,17 @@ class DBWalletEntryModel: DBModel {
     @objc dynamic var amount = Double(0)
     @objc dynamic var type = Int(0)
     let wallet = LinkingObjects(fromType: DBWalletModel.self, property: "entries")
-//    let category = LinkingObjects(fromType: DBCategoryModel.self, property: "entries")
-//    let subcategory = LinkingObjects(fromType: DBSubcategoryModel.self, property: "entries")
+    let category = LinkingObjects(fromType: DBCategoryModel.self, property: "entries")
+    let subcategory = LinkingObjects(fromType: DBSubcategoryModel.self, property: "entries")
     
     convenience init(_ entry: WalletEntryModel) {
         self.init()
         
-        id = entry.id
+        id = entry.id ?? NSUUID().uuidString
         text = entry.text
         date = entry.date
         amount = entry.amount
         type = entry.type.rawValue
-        
-        //TODO: figure out linking
     }
     
     convenience init?(_ entry: WalletEntryModel?) {
@@ -46,9 +44,9 @@ extension WalletEntryModel {
             text: entry.text,
             date: entry.date,
             amount: entry.amount,
-            wallet: WalletModel(entry.wallet.first),
-            category: nil, // CategoryModel(entry.category.first),
-            subcategory: nil) // SubcategoryModel(entry.subcategory.first))
+            wallet: SimplyWalletModel(entry.wallet.first),
+            category: SimplyCategoryModel(entry.category.first),
+            subcategory: SimplySubcategoryModel(entry.subcategory.first))
     }
     
     init?(_ entry: DBWalletEntryModel?) {

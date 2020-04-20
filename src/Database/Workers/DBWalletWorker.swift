@@ -8,10 +8,6 @@
 import Domain
 
 class DBWalletWorker: DBGroup<DBWalletModel> {
-    func getWallet(id: String) -> DBWalletModel? {
-        return get(id: id)
-    }
-    
     func save(wallet: DBWalletModel) {
         save(object: wallet)
     }

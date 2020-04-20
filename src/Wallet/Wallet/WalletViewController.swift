@@ -29,7 +29,7 @@ final class WalletViewController: SheklyViewController {
     lazy var dataSource: WalletEntriesDataSource = WalletEntriesDataSource(
         tableView: tableView,
         cellProvider: { (tableView, indexPath, model) -> UITableViewCell in
-            guard model.id != nil else {
+            guard model.id?.isEmpty == false else {
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
                     for: indexPath) else {

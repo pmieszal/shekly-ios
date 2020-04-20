@@ -44,11 +44,13 @@ public class SheklyJSONDataController {
             if let categoryFromDatabase = categoryOptional {
                 category = categoryFromDatabase
             } else {
-                category = CategoryModel(
+                let categoryModel = CategoryModel(
                     id: nil,
                     name: categoryName,
-                    wallet: walletModel,
+                    wallet: SimplyWalletModel(wallet: walletModel),
                     subcategories: [])
+                
+                category = categoryWorker.save(category: categoryModel)
             }
             
             let subcategories = subcategoryWorker.getSubcategories(forCategory: category)
@@ -59,11 +61,13 @@ public class SheklyJSONDataController {
             if let subcategoryFromDatabase = subcategoryOptional {
                 subcategory = subcategoryFromDatabase
             } else {
-                subcategory = SubcategoryModel(
+                let subcategoryModel = SubcategoryModel(
                     id: nil,
                     name: subcategoryName,
-                    wallet: walletModel,
-                    category: category)
+                    wallet: SimplyWalletModel(wallet: walletModel),
+                    category: SimplyCategoryModel(category: category))
+                
+                subcategory = subcategoryWorker.save(subcategory: subcategoryModel)
             }
             
             let entry = WalletEntryModel(
@@ -72,9 +76,9 @@ public class SheklyJSONDataController {
                 text: "",
                 date: date,
                 amount: amount,
-                wallet: walletModel,
-                category: category,
-                subcategory: subcategory)
+                wallet: SimplyWalletModel(wallet: walletModel),
+                category: SimplyCategoryModel(category: category),
+                subcategory: SimplySubcategoryModel(subcategory: subcategory))
             
             _ = entryWorker.save(entry: entry)
         }

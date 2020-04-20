@@ -27,23 +27,30 @@ public extension DependencyContainer {
         container.register(
             .shared,
             factory: {
-                DBWalletEntryWorker(
+                DBCategoryWorker(
                     realm: container.forceResolve(),
                     walletWorker: container.forceResolve())
+        })
+        
+        container.register(
+            .shared,
+            factory: {
+                DBSubcategoryWorker(
+                    realm: container.forceResolve(),
+                    walletWorker: container.forceResolve(),
+                    categoryWorker: container.forceResolve())
+        })
+        
+        container.register(
+            .shared,
+            factory: {
+                DBWalletEntryWorker(
+                    realm: container.forceResolve(),
+                    walletWorker: container.forceResolve(),
+                    categoryWorker: container.forceResolve(),
+                    subcategoryWorker: container.forceResolve())
             })
             .implements(WalletEntriesRepository.self)
-        
-        container.register(
-            .shared,
-            factory: {
-                DBCategoryWorker(realm: container.forceResolve())
-        })
-        
-        container.register(
-            .shared,
-            factory: {
-                DBSubcategoryWorker(realm: container.forceResolve())
-        })
         
         container.register(
             .shared,

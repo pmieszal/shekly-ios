@@ -17,6 +17,7 @@ class DBWalletModel: DBModel {
     convenience init(_ wallet: WalletModel) {
         self.init()
         id = wallet.id ?? NSUUID().uuidString
+        name = wallet.name ?? ""
     }
     
     convenience init?(_ wallet: WalletModel?) {
@@ -25,6 +26,11 @@ class DBWalletModel: DBModel {
         }
         
         self.init(wallet)
+    }
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
     }
 }
 

@@ -11,8 +11,8 @@ import Domain
 class DBCategoryModel: DBModel {
     @objc dynamic var name = ""
     let wallet = LinkingObjects(fromType: DBWalletModel.self, property: "categories")
-//    let subcategories = LinkingObjects(fromType: DBSubcategoryModel.self, property: "category")
-//    let entries = LinkingObjects(fromType: DBWalletEntryModel.self, property: "category")
+    let subcategories = List<DBSubcategoryModel>()
+    let entries = List<DBWalletEntryModel>()
     
     convenience init(_ category: CategoryModel) {
         self.init()
@@ -27,6 +27,11 @@ class DBCategoryModel: DBModel {
         
         self.init(category)
     }
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
 }
 
 extension CategoryModel {
@@ -34,8 +39,8 @@ extension CategoryModel {
         self.init(
             id: category.id,
             name: category.name,
-            wallet: WalletModel(category.wallet.first),
-            subcategories: []) // category.subcategories.map(SubcategoryModel.init))
+            wallet: SimplyWalletModel(category.wallet.first),
+            subcategories: category.subcategories.map(SimplySubcategoryModel.init))
     }
     
     init?(_ category: DBCategoryModel?) {

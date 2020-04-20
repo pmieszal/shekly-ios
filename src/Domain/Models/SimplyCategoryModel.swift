@@ -1,14 +1,13 @@
 //
-//  CategoryModel.swift
+//  SimplyCategoryModel.swift
 //  Domain
 //
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
+//  Created by Patryk Mieszała on 20/04/2020.
 //
 
 import SwiftDate
 
-public struct CategoryModel: Hashable, Equatable {
+public struct SimplyCategoryModel: Hashable, Equatable {
     public let
     id: String?,
     name: String,
@@ -25,11 +24,26 @@ public struct CategoryModel: Hashable, Equatable {
         self.subcategories = subcategories
     }
     
+    public init(category: CategoryModel) {
+        id = category.id
+        name = category.name
+        wallet = category.wallet
+        subcategories = category.subcategories
+    }
+    
+    public init?(category: CategoryModel?) {
+        guard let category = category else {
+            return nil
+        }
+        
+        self.init(category: category)
+    }
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 
-public func == (lhs: CategoryModel, rhs: CategoryModel) -> Bool {
+public func == (lhs: SimplyCategoryModel, rhs: SimplyCategoryModel) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }

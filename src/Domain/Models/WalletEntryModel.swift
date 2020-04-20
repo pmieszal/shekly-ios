@@ -10,13 +10,13 @@ import SwiftDate
 
 public struct WalletEntryModel: Hashable {
     public let
-    id: String,
+    id: String?,
     type: WalletEntryType,
     text: String,
     amount: Double,
-    wallet: WalletModel?,
-    category: CategoryModel?,
-    subcategory: SubcategoryModel?,
+    wallet: SimplyWalletModel?,
+    category: SimplyCategoryModel?,
+    subcategory: SimplySubcategoryModel?,
     date: Date,
     dateString: String
     
@@ -33,10 +33,10 @@ public struct WalletEntryModel: Hashable {
                 text: String,
                 date: Date,
                 amount: Double,
-                wallet: WalletModel?,
-                category: CategoryModel?,
-                subcategory: SubcategoryModel?) {
-        self.id = id ?? NSUUID().uuidString
+                wallet: SimplyWalletModel?,
+                category: SimplyCategoryModel?,
+                subcategory: SimplySubcategoryModel?) {
+        self.id = id
         self.type = type
         self.text = text
         self.amount = amount
@@ -54,7 +54,7 @@ public struct WalletEntryModel: Hashable {
     }
     
     public init() {
-        id = NSUUID().uuidString
+        id = nil
         type = .income
         text = ""
         amount = 0
@@ -66,7 +66,7 @@ public struct WalletEntryModel: Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(id ?? "empty")
     }
 
     public static func == (lhs: WalletEntryModel, rhs: WalletEntryModel) -> Bool {

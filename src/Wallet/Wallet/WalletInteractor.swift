@@ -108,13 +108,12 @@ extension WalletInteractor {
 
 private extension WalletInteractor {
     func reloadWallets() {
-        let wallets: [WalletModel] = walletRepository.getWallets()
-        //TODO: emptymodel should be logic in UI
+        let wallets = walletRepository.getWallets()
         let emptyModel = WalletModel(id: nil, name: nil, entries: [])
 
         self.wallets = wallets + [emptyModel]
         
-        presenter.reload(wallets: wallets)
+        presenter.reload(wallets: self.wallets)
     }
     
     func reloadEntries() {

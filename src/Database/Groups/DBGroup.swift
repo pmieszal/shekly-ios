@@ -10,36 +10,28 @@ import RealmSwift
 class DBGroup<TObject: DBModel> {
     let realm: Realm
     
-    required init(realm: Realm) {
+    init(realm: Realm) {
         self.realm = realm
     }
     
-    func get(id: String) -> TObject? {
-        do {
-            let realm = try Realm()
-            let object = realm.object(ofType: TObject.self, forPrimaryKey: id)
-            
-            return object
-        } catch {
-            assertionFailure("Fix your code")
-            print(error)
-            
+    func get(id: String?) -> TObject? {
+        guard let id = id else {
             return nil
         }
+        
+        return get(id: id)
+    }
+    
+    func get(id: String) -> TObject? {
+        let object = realm.object(ofType: TObject.self, forPrimaryKey: id)
+        
+        return object
     }
     
     func list(filter: NSPredicate = NSPredicate(value: true)) -> [TObject] {
-        do {
-            let realm = try Realm()
-            let objects = realm.objects(TObject.self).filter(filter)
-            
-            return Array(objects)
-        } catch {
-            assertionFailure("Fix your code")
-            print(error)
-            
-            return []
-        }
+        let objects = realm.objects(TObject.self).filter(filter)
+        
+        return Array(objects)
     }
     
     func save(object: TObject) {
@@ -65,8 +57,6 @@ class DBGroup<TObject: DBModel> {
 extension DBGroup {
     func execute(transaction: ((Realm) -> ())) {
         do {
-            let realm = try Realm()
-            
             try realm.write {
                 transaction(realm)
             }

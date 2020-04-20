@@ -17,7 +17,7 @@ public struct WalletModel: Equatable, Hashable {
     public init(id: String?,
                 name: String?,
                 entries: [WalletEntryModel]) {
-                    self.id = id
+        self.id = id
         self.name = name
         self.entries = entries
     }

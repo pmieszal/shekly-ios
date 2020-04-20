@@ -1,11 +1,11 @@
 //
-//  SubcategoryModel.swift
+//  SimplySubcategoryModel.swift
 //  Domain
 //
-//  Created by Patryk Mieszała on 14/04/2020.
+//  Created by Patryk Mieszała on 20/04/2020.
 //
 
-public struct SubcategoryModel {
+public struct SimplySubcategoryModel {
     public let
     id: String?,
     name: String,
@@ -20,5 +20,12 @@ public struct SubcategoryModel {
         self.name = name
         self.wallet = wallet
         self.category = category
+    }
+    
+    public init(subcategory: SubcategoryModel) {
+        id = subcategory.id
+        name = subcategory.name
+        wallet = subcategory.wallet
+        category = subcategory.category
     }
 }
