@@ -14,7 +14,7 @@ import CommonUI
 import CleanArchitectureHelpers
 
 protocol WalletViewControllerLogic: ViewControllerLogic {
-    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryModel>)
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryCellModel>)
     func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>)
 }
 
@@ -26,30 +26,7 @@ final class WalletViewController: SheklyViewController {
     var interactor: WalletInteractorLogic?
     var router: WalletRouterType?
     
-    lazy var dataSource: WalletEntriesDataSource = WalletEntriesDataSource(
-        tableView: tableView,
-        cellProvider: { (tableView, indexPath, model) -> UITableViewCell in
-            guard model.id?.isEmpty == false else {
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
-                    for: indexPath) else {
-                        assertionFailure("Cell can't be nil")
-                        return UITableViewCell()
-                }
-                
-                return cell
-            }
-            
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: R.reuseIdentifier.walletEntryCell,
-                for: indexPath) else {
-                    assertionFailure("Cell can't be nil")
-                    return UITableViewCell()
-            }
-            cell.setup(with: model)
-            
-            return cell
-    })
+    lazy var dataSource = WalletEntriesDataSource(tableView: tableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +41,7 @@ final class WalletViewController: SheklyViewController {
 }
 
 extension WalletViewController: WalletViewControllerLogic {
-    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryModel>) {
+    func reloadEntries(snapshot: NSDiffableDataSourceSnapshot<String, WalletEntryCellModel>) {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
@@ -128,10 +105,9 @@ extension WalletViewController: UITableViewDelegate {
                     style: .actionSheet)
                 let actions: [UIAlertAction] = .defaultDeleteActions(
                     okHandler: { [unowned self] (_) in
-                        let success = self.interactor?.deleteEntry(atIndexPath: indexPath) ?? false
-                        
-                        completion(success)
-                    }, cancelHandler: { _ in
+                        self.interactor?.deleteEntry(atIndexPath: indexPath, completion: completion)
+                    },
+                    cancelHandler: { _ in
                         completion(false)
                 })
                 

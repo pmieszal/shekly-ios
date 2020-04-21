@@ -43,9 +43,11 @@ final class NewEntryViewController: SheklyViewController {
     @IBOutlet private weak var saveButton: UIButton!
     
     lazy var categoryDataSource = NewEntryCollectionDataSource(collectionView: categoryCollectionView)
+    //swiftlint:disable:next weak_delegate
     lazy var categoryDelegate = NewEntryCollectionDelegate(dataSource: categoryDataSource)
     
     lazy var subcategoryDataSource = NewEntryCollectionDataSource(collectionView: subcategoryCollectionView)
+    //swiftlint:disable:next weak_delegate
     lazy var subcategoryDelegate = NewEntryCollectionDelegate(dataSource: subcategoryDataSource)
     
     var interactor: NewEntryInteractorLogic?

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import SwiftDate
+import Foundation
 
 public struct WalletEntryModel: Hashable {
     public let
@@ -17,16 +17,7 @@ public struct WalletEntryModel: Hashable {
     wallet: SimplyWalletModel?,
     category: SimplyCategoryModel?,
     subcategory: SimplySubcategoryModel?,
-    date: Date,
-    dateString: String
-    
-    public var categoryAndComment: String? {
-        guard let category = category?.name else {
-            return text
-        }
-        
-        return category + " - " + text
-    }
+    date: Date
     
     public init(id: String?,
                 type: WalletEntryType,
@@ -44,13 +35,6 @@ public struct WalletEntryModel: Hashable {
         self.wallet = wallet
         self.category = category
         self.subcategory = subcategory
-        
-//        amountText = type
-//            .textPrefix
-//            .appending(" ")
-//            .appending(formatter.getCurrencyString(fromNumber: amount) ?? "")
-        
-        dateString = date.toString(DateToStringStyles.date(DateFormatter.Style.long))
     }
     
     public init() {
@@ -62,7 +46,6 @@ public struct WalletEntryModel: Hashable {
         wallet = nil
         category = nil
         subcategory = nil
-        dateString = ""
     }
     
     public func hash(into hasher: inout Hasher) {

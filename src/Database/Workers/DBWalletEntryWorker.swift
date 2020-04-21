@@ -25,24 +25,16 @@ class DBWalletEntryWorker: DBGroup<DBWalletEntryModel> {
 }
 
 extension DBWalletEntryWorker: WalletEntriesRepository {
-    func getWalletEntries(forWallet wallet: WalletModel) -> [WalletEntryModel] {
-        guard let walletId = wallet.id else {
-            return []
-        }
-        
+    func getWalletEntries(forWalletId walletId: String) -> [WalletEntryModel] {
         let filter = NSPredicate(format: "%K == %@", [#keyPath(DBWalletEntryModel.id), walletId])
         let entries = list(filter: filter)
         
         return entries.map(WalletEntryModel.init)
     }
     
-    func getWalletEntries(forWallet wallet: WalletModel, date: Date) -> [WalletEntryModel] {
-        guard let walletId = wallet.id else {
-            return []
-        }
-        
-        let from: Date = date.dateAtStartOf(.month)
-        let to: Date = date.dateAtEndOf(.month)
+    func getWalletEntries(forWalletId walletId: String, monthDate: Date) -> [WalletEntryModel] {
+        let from: Date = monthDate.dateAtStartOf(.month)
+        let to: Date = monthDate.dateAtEndOf(.month)
 
         let walletFilter = NSPredicate(
             format: "ANY wallet.id == %@",
@@ -65,7 +57,7 @@ extension DBWalletEntryWorker: WalletEntriesRepository {
         return entries.map(WalletEntryModel.init)
     }
     
-    func save(entry: WalletEntryModel) -> WalletEntryModel {
+    func save(entry: WalletEntryModel) {
         let dbEntry = DBWalletEntryModel(entry)
         
         let dbWallet = walletWorker.get(id: entry.wallet?.id) ?? DBWalletModel(name: entry.wallet?.name ?? "Unknown")
@@ -92,8 +84,6 @@ extension DBWalletEntryWorker: WalletEntriesRepository {
                 dbSubcategory.entries.append(dbEntry)
             }
         }
-        
-        return WalletEntryModel(dbEntry)
     }
     
     func delete(entry: WalletEntryModel) -> Bool {

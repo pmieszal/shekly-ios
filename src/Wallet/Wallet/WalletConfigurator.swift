@@ -23,11 +23,12 @@ final class WalletConfigurator: Configurator, WalletConfiguratorProtocol {
 
         let presenter = WalletPresenter(viewController: viewController)
         let interactor = WalletInteractor(presenter: presenter,
-                                          walletRepository: container.forceResolve(),
-                                          walletEntriesRepository: container.forceResolve(),
-                                          differ: container.forceResolve(),
-                                          currencyFormatter: container.forceResolve(),
-                                          userProvider: container.forceResolve())
+                                          getWalletsUseCase: container.forceResolve(),
+                                          saveWalletUseCase: container.forceResolve(),
+                                          getEntriesUseCase: container.forceResolve(),
+                                          deleteWalletEntryUseCase: container.forceResolve(),
+                                          setSessionWalletUseCase: container.forceResolve(),
+                                          currencyFormatter: container.forceResolve())
         let router = WalletRouter(viewController: viewController, dataStore: interactor)
 
         viewController.interactor = interactor

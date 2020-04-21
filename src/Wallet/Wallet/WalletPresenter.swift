@@ -12,7 +12,7 @@ import Domain
 
 protocol WalletPresenterLogic: PresenterLogic {
     func reload(wallets: [WalletModel])
-    func reload(entries: [WalletEntryModel])
+    func reload(entries: [WalletEntryCellModel])
 }
 
 final class WalletPresenter {
@@ -38,8 +38,8 @@ extension WalletPresenter: WalletPresenterLogic {
         viewController?.reloadWallets(snapshot: snapshot)
     }
     
-    func reload(entries: [WalletEntryModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<String, WalletEntryModel>()
+    func reload(entries: [WalletEntryCellModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<String, WalletEntryCellModel>()
         snapshot.appendSections(["entries"])
         snapshot.appendItems(entries)
         

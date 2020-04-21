@@ -17,14 +17,20 @@ opt_in_rules:
   - redundant-type-annotation
 
 included:
- - Shekly
- - UI
- - Domain
- - Database
- - User
- - Common
- - SHTokenField
- - SheklyShare
+  - Shekly
+  - Vendors
+  - Common
+  - Domain
+  - Database
+  - User
+  - SHTokenField
+  - CleanArchitectureHelpers
+  - CommonUI
+  - Main
+  - Tabs
+  - NewEntry
+  - Wallet
+  - Plan
  
 excluded:
   - ./*/*/R.generated.swift

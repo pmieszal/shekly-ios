@@ -20,6 +20,14 @@ extension DBWalletWorker: WalletRepository {
         return wallets.map(WalletModel.init)
     }
     
+    func getWallet(id: String) -> WalletModel? {
+        guard let object = get(id: id) else {
+            return nil
+        }
+        
+        return WalletModel(object)
+    }
+    
     func save(wallet: WalletModel) -> WalletModel {
         let model = DBWalletModel(wallet)
         save(object: model)

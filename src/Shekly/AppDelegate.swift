@@ -67,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension DependencyContainer {
     static func configureApp() -> DependencyContainer {
         let container = DependencyContainer()
+            .configureDomain()
             .configureDatabase()
             .configureUser()
             .configureCommon()

@@ -6,9 +6,8 @@
 //  Copyright © 2019 Patryk Mieszała. All rights reserved.
 //
 
-import Combine
-import SwiftDate
 import Common
+import Domain
 
 extension Encodable {
     func toJSONString() -> String {
@@ -25,8 +24,7 @@ extension Encodable {
     }
 }
 
-class UserProvider: UserManaging {
-    
+class UserProvider {
     private enum Keys {
         static let user: String = "shekly::user"
     }
@@ -50,14 +48,18 @@ class UserProvider: UserManaging {
         return user.accessToken
     }
     
+    init() { }
+}
+
+extension UserProvider: UserManaging {}
+
+extension UserProvider: SessionRepository {
     var selectedWalletId: String? {
         return user.selectedWalletId
     }
     
-    init() { }
-    
-    func set(wallet id: String?) {
-        user.selectedWalletId = id
+    func set(walletId: String?) {
+        user.selectedWalletId = walletId
         save()
     }
 }

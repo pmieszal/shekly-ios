@@ -15,7 +15,8 @@ protocol WalletInteractorLogic: InteractorLogic {
     func monthCollectionViewDidScroll(toDate date: Date)
     func walletCollectionViewDidScroll(toItemAt indexPath: IndexPath)
     func addWallet(named name: String)
-    func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool
+    func deleteEntry(atIndexPath indexPath: IndexPath,
+                     completion: ((Bool) -> Void)?)
 }
 
 protocol WalletDataStore {}
@@ -29,41 +30,38 @@ final class WalletInteractor: WalletDataStore {
     private var wallets: [WalletModel] = []
     private var entries: [WalletEntryModel] = []
     
-    private let walletRepository: WalletRepository
-    private let walletEntriesRepository: WalletEntriesRepository
+    private let getWalletsUseCase: GetWalletsUseCase
+    private let getEntriesUseCase: GetWalletEntriesUseCase
+    private let saveWalletUseCase: SaveWalletUseCase
+    private let deleteWalletEntryUseCase: DeleteWalletEntryUseCase
+    private let setSessionWalletUseCase: SetSessionWalletUseCase
     
     private var presenter: WalletPresenterLogic
     private let currencyFormatter: SheklyCurrencyFormatter
-    private let differ: Differ
-    private let userProvider: UserManaging
     
     // MARK: - Initializers
     init(presenter: WalletPresenterLogic,
-         walletRepository: WalletRepository,
-         walletEntriesRepository: WalletEntriesRepository,
-         differ: Differ,
-         currencyFormatter: SheklyCurrencyFormatter,
-         userProvider: UserManaging) {
+         getWalletsUseCase: GetWalletsUseCase,
+         saveWalletUseCase: SaveWalletUseCase,
+         getEntriesUseCase: GetWalletEntriesUseCase,
+         deleteWalletEntryUseCase: DeleteWalletEntryUseCase,
+         setSessionWalletUseCase: SetSessionWalletUseCase,
+         currencyFormatter: SheklyCurrencyFormatter) {
         self.presenter = presenter
-        self.walletRepository = walletRepository
-        self.walletEntriesRepository = walletEntriesRepository
-        self.differ = differ
+        self.getWalletsUseCase = getWalletsUseCase
+        self.saveWalletUseCase = saveWalletUseCase
+        self.getEntriesUseCase = getEntriesUseCase
+        self.deleteWalletEntryUseCase = deleteWalletEntryUseCase
+        self.setSessionWalletUseCase = setSessionWalletUseCase
         self.currencyFormatter = currencyFormatter
-        self.userProvider = userProvider
         
         self.selectedMonthDate = Date()
-        
-        //TODO: this
-        let wallets = walletRepository.getWallets()
-        let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
-        self.selectedWallet = selectedWallet ?? wallets.first
     }
 }
 
 extension WalletInteractor: WalletInteractorLogic {
     func viewWillAppear() {
-        reloadEntries()
-        reloadWallets()
+        reload()
     }
 }
 
@@ -81,53 +79,83 @@ extension WalletInteractor {
         }
         
         selectedWallet = wallet
-        userProvider.set(wallet: wallet.id)
+        setSessionWalletUseCase.set(walletId: wallet.id)
         reloadEntries()
     }
     
-    func deleteEntry(atIndexPath indexPath: IndexPath) -> Bool {
+    func deleteEntry(atIndexPath indexPath: IndexPath,
+                     completion: ((Bool) -> Void)?) {
         guard let entry = entries[safe: indexPath.row] else {
-            return false
+            completion?(false)
+            return
         }
         
-        let success = walletEntriesRepository.delete(entry: entry)
-        reloadEntries()
-        
-        return success
+        deleteWalletEntryUseCase.delete(
+            entry: entry,
+            success: { success in
+                self.reload()
+                completion?(success)
+            },
+            failure: presenter.show(error:))
     }
     
     func addWallet(named name: String) {
         let wallet = WalletModel(id: nil, name: name, entries: [])
-        let savedWallet = walletRepository.save(wallet: wallet)
         
-        selectedWallet = savedWallet
-        reloadWallets()
-        reloadEntries()
+        saveWalletUseCase.save(
+            wallet: wallet,
+            success: { (saved) in
+                self.selectedWallet = saved
+                self.reload()
+            },
+            failure: presenter.show(error:))
     }
 }
 
 private extension WalletInteractor {
-    func reloadWallets() {
-        let wallets = walletRepository.getWallets()
-        let emptyModel = WalletModel(id: nil, name: nil, entries: [])
-
-        self.wallets = wallets + [emptyModel]
-        
-        presenter.reload(wallets: self.wallets)
+    func reload() {
+        reloadCurrentWallet {
+            self.reloadWallets(completion: self.reloadEntries)
+        }
+    }
+    
+    func reloadCurrentWallet(completion: (() -> Void)?) {
+        getWalletsUseCase.getCurrentWallet(
+            success: { [weak self] (currentWallet) in
+                self?.selectedWallet = currentWallet
+                completion?()
+            },
+            failure: presenter.show(error:))
+    }
+    
+    func reloadWallets(completion: (() -> Void)?) {
+        getWalletsUseCase.getWallets(
+            success: { (wallets) in
+                let emptyModel = WalletModel(id: nil, name: nil, entries: [])
+                let wallets = wallets + [emptyModel]
+                self.wallets = wallets + [emptyModel]
+                
+                self.presenter.reload(wallets: wallets)
+                completion?()
+            },
+            failure: presenter.show(error:))
     }
     
     func reloadEntries() {
-        //TODO: this
-        guard let selectedWallet = selectedWallet, let date = selectedMonthDate else {
+        guard let wallet = selectedWallet, let date = selectedMonthDate else {
             return
         }
-
-        let entries = walletEntriesRepository.getWalletEntries(forWallet: selectedWallet, date: date)
-        let entryModels = entries.sorted()
-
-        let models = entries.isEmpty ? [WalletEntryModel()] : entryModels
-        self.entries = models
-
-        presenter.reload(entries: models)
+        
+        getEntriesUseCase.getEntries(
+            wallet: wallet,
+            monthDate: date,
+            success: { (entries) in
+                let models = entries.isEmpty ? [WalletEntryModel()] : entries
+                self.entries = models
+                
+                let cells = models.map { WalletEntryCellModel(entry: $0, currencyFormatter: self.currencyFormatter) }
+                self.presenter.reload(entries: cells)
+            },
+            failure: presenter.show(error:))
     }
 }
