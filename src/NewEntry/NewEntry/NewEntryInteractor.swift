@@ -33,10 +33,10 @@ protocol NewEntryDataStore {
 
 final class NewEntryInteractor: NewEntryDataStore {
     // MARK: - Internal properties
-    var entryType: WalletEntryType = .outcome
+    private var entryType: WalletEntryType = .outcome
     
-    var amountStringRaw: String = ""
-    var amountString: String {
+    private var amountStringRaw: String = ""
+    private var amountString: String {
         guard amountStringRaw.isEmpty == false else {
             return amountStringRaw
         }
@@ -55,7 +55,7 @@ final class NewEntryInteractor: NewEntryDataStore {
         
         return normalPart + "." + decimalPart
     }
-    var amountWithCurrency: String? {
+    private var amountWithCurrency: String? {
         let amount: String = amountString.isEmpty ? "0" : amountString
         
         guard let formattedAmount = currencyFormatter.getCurrencyString(fromString: amount) else {
@@ -64,54 +64,50 @@ final class NewEntryInteractor: NewEntryDataStore {
         
         return entryType.textPrefix + " " + formattedAmount
     }
-    var amountNumber: NSNumber? {
+    private var amountNumber: NSNumber? {
         return numberParser.getNumber(fromString: amountString)
     }
     
-    var date: Date = Date()
-    var dateString: String {
+    private var date: Date = Date()
+    private var dateString: String {
         return date.toString(DateToStringStyles.date(DateFormatter.Style.short))
     }
     
-    var categories: [CategoryModel] = []
-    var subcategories: [SubcategoryModel] = []
+    private var categories: [CategoryModel] = []
+    private var subcategories: [SubcategoryModel] = []
     
-    var selectedCategory: CategoryModel?
-    var selectedSubcategory: SubcategoryModel?
+    private var selectedCategory: CategoryModel?
+    private var selectedSubcategory: SubcategoryModel?
     
-    var comment: String?
+    private var comment: String?
     
-    var wallet: WalletModel?
+    private var wallet: WalletModel?
     
-    var presenter: NewEntryPresenterLogic
-    //let dataController: SheklyDataController
-    let currencyFormatter: SheklyCurrencyFormatter
-    let numberParser: NumberParser
-    let differ: Differ
+    private var presenter: NewEntryPresenterLogic
+    private let currencyFormatter: SheklyCurrencyFormatter
+    private let numberParser: NumberParser
+    
+    private let getWalletsUseCase: GetWalletsUseCase
     
     // MARK: - Constructor
     init(presenter: NewEntryPresenter,
-         //dataController: SheklyDataController,
          currencyFormatter: SheklyCurrencyFormatter,
-         differ: Differ,
          numberParser: NumberParser,
          userProvider: UserManaging) {
         
         self.presenter = presenter
-        //self.dataController = dataController
         self.currencyFormatter = currencyFormatter
         self.numberParser = numberParser
-        self.differ = differ
-        
-        let wallets = [WalletModel]() // dataController.getWallets()
-        let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
-        self.wallet = selectedWallet ?? wallets.first
     }
 }
 
 extension NewEntryInteractor: NewEntryInteractorLogic {
     var walletListDelegate: WalletListDelegate { self }
     var datePickerDelegate: DatePickerDelegate { self }
+    
+    func viewDidLoad() {
+        reload()
+    }
     
     func didSelectSegmentedControl(itemAtIndex index: Int) {
         guard let entryType = WalletEntryType(rawValue: index) else {
@@ -122,7 +118,10 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
         reloadAmount()
     }
     
-    func amountTextField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func amountTextField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String) -> Bool {
         
         if range.length > 0, amountStringRaw.isEmpty == false {
             amountStringRaw.removeLast()
@@ -171,17 +170,18 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
                 return
         }
         
+        let entry = WalletEntryModel(
+            id: nil,
+            type: entryType,
+            text: comment ?? "",
+            date: date,
+            amount: amount,
+            wallet: SimplyWalletModel(wallet: wallet),
+            category: SimplyCategoryModel(category: selectedCategory),
+            subcategory: SimplySubcategoryModel(subcategory: selectedSubcategory))
+
         //TODO: this
-//        let entry = WalletEntryModel(amount: amount,
-//                                     date: date,
-//                                     text: comment,
-//                                     type: entryType,
-//                                     wallet: wallet,
-//                                     category: selectedCategory,
-//                                     subcategory: selectedSubcategory,
-//                                     properties: nil)
-//
-//        dataController.save(entry: entry)
+        //dataController.save(entry: entry)
         
         presenter.dismiss()
     }
@@ -203,6 +203,21 @@ extension NewEntryInteractor: DatePickerDelegate {
 
 // MARK: - Private methods
 private extension NewEntryInteractor {
+    func reload() {
+        reloadCurrentWallet {
+            self.reloadCategories()
+        }
+    }
+    
+    func reloadCurrentWallet(completion: (() -> Void)?) {
+        getWalletsUseCase.getCurrentWallet(
+            success: { [weak self] (currentWallet) in
+                self?.wallet = currentWallet
+                completion?()
+            },
+            failure: presenter.show(error:))
+    }
+    
     func reloadCategories() {
         guard let wallet = self.wallet else {
             return
