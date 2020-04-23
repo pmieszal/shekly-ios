@@ -3,7 +3,7 @@ name: Shekly-generated
 packages:
   Rswift:
     url: https://github.com/mac-cain13/R.swift.Library
-    exactVersion: 5.1.0
+    exactVersion: 5.2.0
   SwiftyBeaver:
     url: https://github.com/SwiftyBeaver/SwiftyBeaver
     exactVersion: 1.8.2
@@ -44,10 +44,7 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: Shekly/Info.plist
-    entitlements:
-      path: Shekly/Shekly.entitlements
-      properties:
-        com.apple.security.application-groups: [group.pl.swiftoletzbrothers.shekly]
+        PRODUCT_BUNDLE_IDENTIFIER: pl.swiftoletzbrothers.shekly
     sources: 
       - Shekly
     dependencies:

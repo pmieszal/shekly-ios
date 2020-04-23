@@ -8,7 +8,7 @@
 import UIKit
 import Domain
 
-class NewEntryCollectionDataSource: UICollectionViewDiffableDataSource<String, String> {
+class NewEntryCollectionDataSource<TModel: NewEntryCellModel>: UICollectionViewDiffableDataSource<String, TModel> {
     init(collectionView: UICollectionView) {
         super.init(
             collectionView: collectionView,
@@ -16,7 +16,7 @@ class NewEntryCollectionDataSource: UICollectionViewDiffableDataSource<String, S
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.newEntryCollectionCell,
                                                               for: indexPath)!
                 
-                cell.text = model
+                cell.text = model.name
                 
                 return cell
         })

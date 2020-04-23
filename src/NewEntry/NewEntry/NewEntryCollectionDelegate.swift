@@ -7,38 +7,37 @@
 
 import UIKit
 
-class NewEntryCollectionDelegate: NSObject, UICollectionViewDelegate {
-    private enum Constants {
-        static let cellWidthOffset: CGFloat = 30
-        static let cellHeight: CGFloat = 27
-    }
+private enum Constants {
+    static let cellWidthOffset: CGFloat = 30
+    static let cellHeight: CGFloat = 27
+}
+
+class NewEntryCollectionDelegate<TModel: NewEntryCellModel>: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let dataSource: NewEntryCollectionDataSource
+    let dataSource: NewEntryCollectionDataSource<TModel>
     
     var didSelectItem: ((String) -> Void)?
     
-    init(dataSource: NewEntryCollectionDataSource) {
+    init(dataSource: NewEntryCollectionDataSource<TModel>,
+         didSelectItem: ((String) -> Void)?) {
         self.dataSource = dataSource
+        self.didSelectItem = didSelectItem
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let item = dataSource.itemIdentifier(for: indexPath) else {
+        guard let id = dataSource.itemIdentifier(for: indexPath)?.id else {
             return
         }
-        
-        didSelectItem?(item)
+        didSelectItem?(id)
     }
-}
-
-extension NewEntryCollectionDelegate: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let title = dataSource.itemIdentifier(for: indexPath)
-        
+        let item = dataSource.itemIdentifier(for: indexPath)
         let atts = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .light)]
         
-        guard let stringSize = title?.size(withAttributes: atts) else {
+        guard let stringSize = item?.name.size(withAttributes: atts) else {
             return .zero
         }
         

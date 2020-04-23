@@ -53,29 +53,29 @@ extension NewEntryPresenter: NewEntryPresenterLogic {
     }
     
     func reload(categories: [CategoryModel]) {
-        var snapshot = NewEntryViewControllerLogic.DataSnapshot()
+        var snapshot = NewEntryViewControllerLogic.CategorySnapshot()
         let sections = NewEntryPresenter.getSectionedList(from: categories)
         
         for (index, section) in sections.enumerated() {
             let sectionName = "section-\(index)"
             snapshot.appendSections([sectionName])
-            
-            let titles = section.map { $0.name }
-            snapshot.appendItems(titles, toSection: sectionName)
+            snapshot.appendItems(section, toSection: sectionName)
         }
+        
+        viewController?.reloadCategories(snapshot: snapshot)
     }
     
     func reload(subcategories: [SubcategoryModel]) {
-        var snapshot = NewEntryViewControllerLogic.DataSnapshot()
+        var snapshot = NewEntryViewControllerLogic.SubcategorySnapshot()
         let sections = NewEntryPresenter.getSectionedList(from: subcategories)
         
         for (index, section) in sections.enumerated() {
             let sectionName = "section-\(index)"
             snapshot.appendSections([sectionName])
-            
-            let titles = section.map { $0.name }
-            snapshot.appendItems(titles, toSection: sectionName)
+            snapshot.appendItems(section, toSection: sectionName)
         }
+        
+        viewController?.reloadSubcategories(snapshot: snapshot)
     }
     
     func dismiss() {

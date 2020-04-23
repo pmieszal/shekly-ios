@@ -25,10 +25,7 @@ class DBSubcategoryWorker: DBGroup<DBSubcategoryModel> {
             return []
         }
         
-        let filter = NSPredicate(format: "ANY category.id == %@", categoryId)
-        let subcategories = list(filter: filter)
-        
-        return subcategories.map(SubcategoryModel.init)
+        return getSubcategories(forCategoryId: categoryId)
     }
     
     func save(subcategory: SubcategoryModel) -> SubcategoryModel {
@@ -51,5 +48,14 @@ class DBSubcategoryWorker: DBGroup<DBSubcategoryModel> {
         }
         
         return SubcategoryModel(dbEntry)
+    }
+}
+
+extension DBSubcategoryWorker: SubcategoryRepository {
+    func getSubcategories(forCategoryId categoryId: String) -> [SubcategoryModel] {
+        let filter = NSPredicate(format: "ANY category.id == %@", categoryId)
+        let subcategories = list(filter: filter)
+        
+        return subcategories.map(SubcategoryModel.init)
     }
 }

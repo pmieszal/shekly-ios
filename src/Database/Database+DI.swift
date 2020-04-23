@@ -30,7 +30,8 @@ public extension DependencyContainer {
                 DBCategoryWorker(
                     realm: container.forceResolve(),
                     walletWorker: container.forceResolve())
-        })
+            })
+            .implements(CategoryRepository.self)
         
         container.register(
             .shared,
@@ -39,7 +40,8 @@ public extension DependencyContainer {
                     realm: container.forceResolve(),
                     walletWorker: container.forceResolve(),
                     categoryWorker: container.forceResolve())
-        })
+            })
+            .implements(SubcategoryRepository.self)
         
         container.register(
             .shared,

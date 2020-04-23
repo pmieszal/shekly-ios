@@ -21,10 +21,7 @@ class DBCategoryWorker: DBGroup<DBCategoryModel> {
             return []
         }
         
-        let filter = NSPredicate(format: "ANY wallet.id = %@", walletId)
-        let categories = list(filter: filter)
-        
-        return categories.map(CategoryModel.init)
+        return getCategories(forWalletId: walletId)
     }
     
     func save(category: CategoryModel) -> CategoryModel {
@@ -38,5 +35,14 @@ class DBCategoryWorker: DBGroup<DBCategoryModel> {
         }
         
         return CategoryModel(dbEntry)
+    }
+}
+
+extension DBCategoryWorker: CategoryRepository {
+    func getCategories(forWalletId walletId: String) -> [CategoryModel] {
+        let filter = NSPredicate(format: "ANY wallet.id = %@", walletId)
+        let categories = list(filter: filter)
+        
+        return categories.map(CategoryModel.init)
     }
 }

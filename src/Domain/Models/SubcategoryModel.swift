@@ -5,7 +5,7 @@
 //  Created by Patryk Mieszała on 14/04/2020.
 //
 
-public struct SubcategoryModel {
+public struct SubcategoryModel: Hashable {
     public let
     id: String?,
     name: String,
@@ -21,4 +21,13 @@ public struct SubcategoryModel {
         self.wallet = wallet
         self.category = category
     }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
+
+public func == (lhs: SubcategoryModel, rhs: SubcategoryModel) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
+

@@ -24,9 +24,11 @@ class NewEntryConfigurator: Configurator, NewEntryConfiguratorProtocol {
         let interactor = NewEntryInteractor(
             presenter: presenter,
             currencyFormatter: container.forceResolve(),
-            differ: container.forceResolve(),
             numberParser: container.forceResolve(),
-            userProvider: container.forceResolve())
+            getWalletsUseCase: container.forceResolve(),
+            saveEntryUseCase: container.forceResolve(),
+            getCategoriesUseCase: container.forceResolve(),
+            getSubcategoriesUseCase: container.forceResolve())
         let router = NewEntryRouter(
             viewController: viewController,
             dataStore: interactor,

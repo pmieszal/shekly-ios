@@ -11,7 +11,7 @@ rm -r Shekly-generated.xcodeproj
 rm -r Shekly-generated.xcworkspace
 
 mint run yonaskolb/XcodeGen@2.13.1 xcodegen
-mint install mac-cain13/R.swift@v5.1.0
+mint install mac-cain13/R.swift@v5.2.0
 mint install realm/SwiftLint@0.39.1
 pod install
 

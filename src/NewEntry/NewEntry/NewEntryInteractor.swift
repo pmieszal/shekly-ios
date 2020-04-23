@@ -88,16 +88,25 @@ final class NewEntryInteractor: NewEntryDataStore {
     private let numberParser: NumberParser
     
     private let getWalletsUseCase: GetWalletsUseCase
+    private let getCategoriesUseCase: GetCategoriesUseCase
+    private let getSubcategoriesUseCase: GetSubcategoriesUseCase
+    private let saveEntryUseCase: SaveWalletEntryUseCase
     
     // MARK: - Constructor
     init(presenter: NewEntryPresenter,
          currencyFormatter: SheklyCurrencyFormatter,
          numberParser: NumberParser,
-         userProvider: UserManaging) {
-        
+         getWalletsUseCase: GetWalletsUseCase,
+         saveEntryUseCase: SaveWalletEntryUseCase,
+         getCategoriesUseCase: GetCategoriesUseCase,
+         getSubcategoriesUseCase: GetSubcategoriesUseCase) {
         self.presenter = presenter
         self.currencyFormatter = currencyFormatter
         self.numberParser = numberParser
+        self.getWalletsUseCase = getWalletsUseCase
+        self.saveEntryUseCase = saveEntryUseCase
+        self.getCategoriesUseCase = getCategoriesUseCase
+        self.getSubcategoriesUseCase = getSubcategoriesUseCase
     }
 }
 
@@ -107,6 +116,7 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
     
     func viewDidLoad() {
         reload()
+        presenter.show(date: dateString)
     }
     
     func didSelectSegmentedControl(itemAtIndex index: Int) {
@@ -180,10 +190,10 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
             category: SimplyCategoryModel(category: selectedCategory),
             subcategory: SimplySubcategoryModel(subcategory: selectedSubcategory))
 
-        //TODO: this
-        //dataController.save(entry: entry)
-        
-        presenter.dismiss()
+        saveEntryUseCase.save(
+            entry: entry,
+            success: presenter.dismiss,
+            failure: presenter.show(error:))
     }
 }
 
@@ -206,6 +216,7 @@ private extension NewEntryInteractor {
     func reload() {
         reloadCurrentWallet {
             self.reloadCategories()
+            self.reloadAmount()
         }
     }
     
@@ -213,43 +224,38 @@ private extension NewEntryInteractor {
         getWalletsUseCase.getCurrentWallet(
             success: { [weak self] (currentWallet) in
                 self?.wallet = currentWallet
+                self?.presenter.show(walletName: currentWallet?.name)
                 completion?()
             },
             failure: presenter.show(error:))
     }
     
     func reloadCategories() {
-        guard let wallet = self.wallet else {
+        guard let walletId = self.wallet?.id else {
             return
         }
         
-        //TODO: this
-//        let categories = dataController.getCategories(forWallet: wallet)
-//
-//        let oldState = self.categories
-//        self.categories = categories
-//
-//        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
-//        let newSections = NewEntryViewModel.getSectionedList(from: categories)
-//        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-//        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
-//
-//        presenter.reloadCategories(changeSet1: changeSet1, changeSet2: changeSet2)
+        getCategoriesUseCase.getCategories(
+            forWalletId: walletId,
+            success: { [weak self] (categories) in
+                self?.categories = categories
+                self?.presenter.reload(categories: categories)
+            },
+            failure: presenter.show(error:))
     }
     
     func reloadSubcategories(forCategory category: CategoryModel) {
-        //TODO: this
-//        let subcategories = self.dataController.getSubcategories(forCategory: category)
-//
-//        let oldState = self.subcategories
-//        self.subcategories = subcategories
-//
-//        let oldSections = NewEntryViewModel.getSectionedList(from: oldState)
-//        let newSections = NewEntryViewModel.getSectionedList(from: subcategories)
-//        let changeSet1 = differ.getDiff(oldState: oldSections[0], newState: newSections[0])
-//        let changeSet2 = differ.getDiff(oldState: oldSections[1], newState: newSections[1])
-//
-//        presenter.reloadSubcategories(changeSet1: changeSet1, changeSet2: changeSet2)
+        guard let categoryId = category.id else {
+            return
+        }
+        
+        getSubcategoriesUseCase.getCategories(
+            forCategoryId: categoryId,
+            success: { [weak self] (subcategories) in
+                self?.subcategories = subcategories
+                self?.presenter.reload(subcategories: subcategories)
+            },
+            failure: presenter.show(error:))
     }
     
     func reloadAmount() {

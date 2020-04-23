@@ -13,14 +13,15 @@ import Common
 import Domain
 
 protocol NewEntryViewControllerLogic: ViewControllerLogic {
-    typealias DataSnapshot = NSDiffableDataSourceSnapshot<String, String>
+    typealias CategorySnapshot = NSDiffableDataSourceSnapshot<String, CategoryModel>
+    typealias SubcategorySnapshot = NSDiffableDataSourceSnapshot<String, SubcategoryModel>
     
     func show(walletName: String?)
     func show(date: String?)
     func show(amount: String, color: UIColor)
     func setSaveButton(enabled: Bool)
-    func reloadCategories(snapshot: DataSnapshot)
-    func reloadSubcategories(snapshot: DataSnapshot)
+    func reloadCategories(snapshot: CategorySnapshot)
+    func reloadSubcategories(snapshot: SubcategorySnapshot)
     func dismiss()
 }
 
@@ -42,13 +43,18 @@ final class NewEntryViewController: SheklyViewController {
     @IBOutlet private weak var commentTextView: UITextView!
     @IBOutlet private weak var saveButton: UIButton!
     
-    lazy var categoryDataSource = NewEntryCollectionDataSource(collectionView: categoryCollectionView)
+    lazy var categoryDataSource = NewEntryCollectionDataSource<CategoryModel>(collectionView: categoryCollectionView)
     //swiftlint:disable:next weak_delegate
-    lazy var categoryDelegate = NewEntryCollectionDelegate(dataSource: categoryDataSource)
+    lazy var categoryDelegate = NewEntryCollectionDelegate(
+        dataSource: categoryDataSource,
+        didSelectItem: interactor?.didSelectCategory(id:))
     
-    lazy var subcategoryDataSource = NewEntryCollectionDataSource(collectionView: subcategoryCollectionView)
+    lazy var subcategoryDataSource = NewEntryCollectionDataSource<SubcategoryModel>(
+        collectionView: subcategoryCollectionView)
     //swiftlint:disable:next weak_delegate
-    lazy var subcategoryDelegate = NewEntryCollectionDelegate(dataSource: subcategoryDataSource)
+    lazy var subcategoryDelegate = NewEntryCollectionDelegate(
+        dataSource: subcategoryDataSource,
+        didSelectItem: interactor?.didSelectSubcategory(id:))
     
     var interactor: NewEntryInteractorLogic?
     var router: NewEntryRouterType?
@@ -57,6 +63,7 @@ final class NewEntryViewController: SheklyViewController {
         super.viewDidLoad()
         
         setup()
+        interactor?.viewDidLoad?()
         amountTextField.becomeFirstResponder()
     }
 }
@@ -79,11 +86,11 @@ extension NewEntryViewController: NewEntryViewControllerLogic {
         saveButton.isEnabled = enabled
     }
     
-    func reloadCategories(snapshot: DataSnapshot) {
+    func reloadCategories(snapshot: CategorySnapshot) {
         categoryDataSource.apply(snapshot)
     }
     
-    func reloadSubcategories(snapshot: DataSnapshot) {
+    func reloadSubcategories(snapshot: SubcategorySnapshot) {
         UIView.animate(withDuration: 0.2) {
             self.subcategoryHeader.isHidden = false
             self.subcategoriesContainer.isHidden = false
@@ -138,9 +145,15 @@ private extension NewEntryViewController {
             action: #selector(router?.presentDatePickerPopover(sourceButton:)),
             for: .touchUpInside)
         
-        entryTypeSegmentedControl.addTarget(self, action: #selector(didChangeSegmentedControl), for: UIControl.Event.valueChanged)
+        entryTypeSegmentedControl.addTarget(
+            self,
+            action: #selector(didChangeSegmentedControl),
+            for: UIControl.Event.valueChanged)
         
-        saveButton.addTarget(interactor, action: #selector(interactor?.save), for: .touchUpInside)
+        saveButton.addTarget(
+            interactor, action:
+            #selector(interactor?.save),
+            for: .touchUpInside)
         
         amountTextField.delegate = self
         commentTextView.delegate = self
@@ -172,4 +185,3 @@ private extension NewEntryViewController {
         interactor?.didSelectSegmentedControl(itemAtIndex: entryTypeSegmentedControl.selectedSegmentIndex)
     }
 }
-

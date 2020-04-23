@@ -9,6 +9,9 @@ public extension DependencyContainer {
         container.register(factory: GetWalletsUseCase.init)
         container.register(factory: SaveWalletUseCase.init)
         container.register(factory: SetSessionWalletUseCase.init)
+        container.register(factory: GetCategoriesUseCase.init)
+        container.register(factory: GetSubcategoriesUseCase.init)
+        container.register(factory: SaveWalletEntryUseCase.init)
         
         return container
     }
