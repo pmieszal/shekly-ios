@@ -132,8 +132,8 @@ extension SheklyMonthCollectionView: UICollectionViewDelegate {
 
 extension SheklyMonthCollectionView: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+                               layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAt indexPath: IndexPath) -> CGSize {
         return SheklyMonthCell.size(forDate: dates[indexPath.row], inCollectionView: collectionView)
     }
 }

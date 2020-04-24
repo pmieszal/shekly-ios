@@ -30,4 +30,3 @@ public struct SubcategoryModel: Hashable {
 public func == (lhs: SubcategoryModel, rhs: SubcategoryModel) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
-
