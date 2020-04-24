@@ -41,6 +41,9 @@ targets:
   Shekly:
     type: application
     platform: iOS
+    attributes:
+      DevelopmentTeam: SATYASXVS5
+      ProvisioningStyle: Manual
     settings:
       base:
         INFOPLIST_FILE: Shekly/Info.plist
