@@ -17,19 +17,16 @@ public class TabConfigurator: Configurator {
         let walletConfigurator: WalletConfiguratorProtocol = container.forceResolve()
         let walletViewController = walletConfigurator.configureWalletModule()
         
-        let planConfigurator: PlanConfigurator = container.forceResolve()
+        let planConfigurator: PlanConfiguratorProtocol = container.forceResolve()
         let planViewController = planConfigurator.configurePlanModule()
         
-        // TODO: move configuration to configurators
         let stats = SheklyViewController()
-        let statsViewModel = SheklyViewModel()
         stats.view.backgroundColor = Colors.brandColor
         stats.tabBarItem.title = "Statystyki"
         stats.tabBarItem.image = CommonUI.R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
         stats.tabBarItem.selectedImage = CommonUI.R.image.tabBarStatsIcon()
         
         let more = SheklyViewController()
-        let moreViewModel = SheklyViewModel()
         more.view.backgroundColor = Colors.brandColor
         more.tabBarItem.title = "Więcej"
         more.tabBarItem.image = CommonUI.R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)

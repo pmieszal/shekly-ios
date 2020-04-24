@@ -1,5 +1,15 @@
-import Domain
+import UIKit
 
-public protocol PlanPresenter: AnyObject {
-    func navigate(to category: CategoryModel)
+protocol PlanPresenterLogic {}
+
+final class PlanPresenter {
+    // MARK: - Private Properties
+    private weak var viewController: PlanViewControllerLogic?
+    
+    // MARK: - Initializers
+    init(viewController: PlanViewControllerLogic?) {
+        self.viewController = viewController
+    }
 }
+
+extension PlanPresenter: PlanPresenterLogic {}

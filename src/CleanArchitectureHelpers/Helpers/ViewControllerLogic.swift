@@ -4,7 +4,7 @@ public protocol ViewControllerLogic: AnyObject {
     func show(error: Error)
 }
 
-public extension UIViewController {
+extension UIViewController {
     @objc open func show(error: Error) {
         DispatchQueue
             .main

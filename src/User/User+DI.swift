@@ -6,7 +6,6 @@ public extension DependencyContainer {
         unowned let container = self
         
         container.register(.singleton, factory: UserProvider.init)
-            .implements(UserManaging.self)
             .implements(SessionRepository.self)
         
         return container

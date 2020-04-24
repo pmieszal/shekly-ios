@@ -43,8 +43,6 @@ class UserProvider {
     init() {}
 }
 
-extension UserProvider: UserManaging {}
-
 extension UserProvider: SessionRepository {
     var selectedWalletId: String? {
         return user.selectedWalletId

@@ -8,31 +8,6 @@ open class SheklyViewController: UIViewController {
         return .lightContent
     }
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-//        viewModel.viewDidLoad()
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        viewModel.viewWillAppear()
-    }
-    
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        viewModel.viewWillDisappear()
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        viewModel.viewDidAppear()
-    }
-    
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-//        viewModel.viewDidDisappear()
-    }
-    
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         let presentationStyle = modalPresentationStyle
         let presentingViewController = self.presentingViewController

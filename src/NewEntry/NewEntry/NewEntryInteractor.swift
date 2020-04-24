@@ -226,7 +226,7 @@ private extension NewEntryInteractor {
     }
     
     func reloadCategories() {
-        guard let walletId = self.wallet?.id else {
+        guard let walletId = wallet?.id else {
             return
         }
         

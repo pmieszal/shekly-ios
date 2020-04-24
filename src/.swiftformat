@@ -21,7 +21,7 @@
 
 --disable andOperator
 --enable anyObjectProtocol
---enable blankLinesAroundMark
+--disable blankLinesAroundMark
 --enable blankLinesAtEndOfScope
 --enable blankLinesAtStartOfScope
 --enable blankLinesBetweenScopes

@@ -2,6 +2,8 @@ disabled_rules:
  - void_return
  - identifier_name
  - trailing_whitespace
+ - trailing_comma
+
 opt_in_rules:
   - anyobject_protocol
   - closure_spacing

@@ -15,7 +15,6 @@ final class WalletViewController: SheklyViewController {
     @IBOutlet private weak var headerView: WalletHeaderView!
     
     // MARK: - Public Properties
-    
     var interactor: WalletInteractorLogic?
     var router: WalletRouterType?
     
@@ -40,12 +39,6 @@ extension WalletViewController: WalletViewControllerLogic {
     
     func reloadWallets(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>) {
         headerView.reload(snapshot: snapshot)
-    }
-}
-
-extension WalletViewController: ReloadableViewController {
-    var reloadableView: ReloadableView? {
-        return tableView
     }
 }
 
