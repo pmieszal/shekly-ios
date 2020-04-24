@@ -1,4 +1,5 @@
 import CleanArchitectureHelpers
+import CommonUI
 import Domain
 import UIKit
 
@@ -18,6 +19,10 @@ class PlanConfigurator: Configurator, PlanConfiguratorProtocol {
         
         viewController.interactor = interactor
         viewController.router = router
+        
+        viewController.tabBarItem.title = "Plan"
+        viewController.tabBarItem.image = CommonUI.R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysOriginal)
+        viewController.tabBarItem.selectedImage = CommonUI.R.image.tabBarPlanIcon()
         
         return viewController
     }
