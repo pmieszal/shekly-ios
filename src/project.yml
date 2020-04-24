@@ -3,10 +3,7 @@ name: Shekly-generated
 packages:
   Rswift:
     url: https://github.com/mac-cain13/R.swift.Library
-    exactVersion: 5.1.0
-  rswift:
-    url: https://github.com/mac-cain13/R.swift
-    exactVersion: 5.1.0
+    exactVersion: 5.2.0
   SwiftyBeaver:
     url: https://github.com/SwiftyBeaver/SwiftyBeaver
     exactVersion: 1.8.2
@@ -21,7 +18,7 @@ packages:
     exactVersion: 7.1.1
 
 options:
-  bundleIdPrefix: pl.patryk.mieszala
+  bundleIdPrefix: pl.swiftoletzbrothers
   minimumXcodeGenVersion: 2.13.1
   groupSortPosition: top
   generateEmptyDirectories: true
@@ -47,25 +44,23 @@ targets:
     settings:
       base:
         INFOPLIST_FILE: Shekly/Info.plist
-    entitlements:
-      path: Shekly/Shekly.entitlements
-      properties:
-        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+        PRODUCT_BUNDLE_IDENTIFIER: pl.swiftoletzbrothers.shekly
     sources: 
       - Shekly
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftyBeaver
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: Vendors
       - target: Common
-      - target: UI
       - target: Domain
       - target: Database
       - target: User
       - target: SHTokenField
+      - target: CleanArchitectureHelpers
+      - target: CommonUI
+      - target: Main
+      - target: Tabs
+      - target: NewEntry
+      - target: Wallet
+      - target: Plan
     preBuildScripts:
       - script: 'mint run R.swift rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
         name: R.swift
@@ -82,38 +77,97 @@ targets:
     platform: iOS
     sources: SheklyShare
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: pl.patryk.mieszala.Shekly.SheklyShare
+      PRODUCT_BUNDLE_IDENTIFIER: pl.swiftoletzbrothers.shekly.sheklyShare
     entitlements:
       path: SheklyShare/SheklyShare.entitlements
       properties:
-        com.apple.security.application-groups: [group.pl.patryk.mieszala.Shekly]
+        com.apple.security.application-groups: [group.pl.swiftoletzbrothers.shekly]
     dependencies:
       - package: Dip
       - target: Database
 
-  UI:
+  Vendors:
+    type: framework
+    platform: iOS
+    dependencies:
+      - package: Rswift
+      - package: SwiftDate
+      - package: DynamicColor
+      - package: Dip
+      - package: SwiftyBeaver
+    configVariants:
+      - Debug
+      - Release
+    sources:
+      - Vendors
+
+  CleanArchitectureHelpers:
     templates: 
       - Framework
     dependencies:
       - target: Common
+
+  Common:
+    templates: 
+      - Framework
+    dependencies:
       - target: Domain
+
+  Main:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Tabs
+
+  Tabs:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+      - target: NewEntry
+      - target: Wallet
+      - target: Plan
+
+  NewEntry:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
       - target: User
-      - target: SHTokenField
+
+  Wallet:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
+
+  Plan:
+    templates: 
+      - Framework
+    dependencies:
+      - target: Domain
+      - target: CleanArchitectureHelpers
+      - target: Common
+      - target: CommonUI
+      - target: User
 
   Domain:
     templates: 
       - Framework
-    dependencies:
-      - target: Common
-      - target: Database
-      - target: SHTokenField
-      - target: User
 
   Database:
     templates: 
       - Framework
     dependencies:
       - target: Common
+      - target: Domain
 
   User:
     templates: 
@@ -127,42 +181,34 @@ targets:
     dependencies:
       - target: Common
 
-  Common:
+  CommonUI:
     type: framework
     platform: iOS
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftyBeaver
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: Vendors
+      - target: Domain
+      - target: CleanArchitectureHelpers
     configVariants:
       - Debug
       - Release
     sources:
-      - Common
-      - path: Common/Generated
+      - CommonUI
+      - path: CommonUI/Generated
         optional: true
     preBuildScripts:
-      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/Common/Generated/R.generated.swift"'
+      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/CommonUI/Generated/R.generated.swift"'
         name: R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
-          - $SRCROOT/Common/Generated/R.generated.swift
+          - $SRCROOT/CommonUI/Generated/R.generated.swift
 
 targetTemplates:
   Framework:
     type: framework
     platform: iOS
     dependencies:
-      - package: Rswift
-      - package: rswift
-      - package: SwiftyBeaver
-      - package: SwiftDate
-      - package: DynamicColor
-      - package: Dip
+      - target: Vendors
     configVariants:
       - Debug
       - Release

@@ -1,23 +1,19 @@
-//
-//  AppDelegate.swift
-//  Shekly
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Dip
+import UIKit
 
-import UI
 import Common
-import User
-import Domain
+import CommonUI
 import Database
+import Domain
+import Main
+import NewEntry
+import Plan
+import Tabs
+import User
+import Wallet
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var mainRouter: MainRouter?
     
@@ -25,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
         Bootstrap.tabBarItemAppearance()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -34,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainRouter = mainConfigurator.configureMainModule(with: window)
         self.window = window
         
-        //Temporary hack for database init on fresh install
+        // Temporary hack for database init on fresh install
         if UserDefaults.standard.string(forKey: "App.Version") == nil {
             let url = Bundle.main.url(forResource: "ExpensesJSON", withExtension: "shekly")!
             let importer: SheklyJSONImporter = container.forceResolve()
@@ -50,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
-        //Disable 3rd party keyboards
+        // Disable 3rd party keyboards
         if extensionPointIdentifier == UIApplication.ExtensionPointIdentifier.keyboard {
             return false
         }
@@ -62,12 +57,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension DependencyContainer {
     static func configureApp() -> DependencyContainer {
         let container = DependencyContainer()
-            .configureUI()
             .configureDomain()
             .configureDatabase()
             .configureUser()
             .configureCommon()
-
+            .configureCommonUI()
+            .configureMain()
+            .configureTabs()
+            .configurePlan()
+            .configureWallet()
+            .configureNewEntry()
+        
         try? container.bootstrap()
         
         return container

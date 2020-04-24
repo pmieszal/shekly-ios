@@ -1,94 +1,17 @@
-//
-//  Domain+DI.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 11/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Dip
-import Database
-import User
-import Common
-
-public enum ContainerCustomName: String, DependencyTagConvertible {
-    case emptyViewModel
-}
 
 public extension DependencyContainer {
-    //swiftlint:disable:next function_body_length
     func configureDomain() -> DependencyContainer {
         unowned let container = self
         
-        container.register(.unique,
-                           tag: ContainerCustomName.emptyViewModel,
-                           factory: { SheklyViewModel() })
-        
-        container.register(.unique,
-                           factory: { presenter in
-                            WalletViewModel(presenter: presenter,
-                                            dataController: container.forceResolve(),
-                                            differ: container.forceResolve(),
-                                            currencyFormatter: container.forceResolve(),
-                                            userProvider: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { presenter, delegate in
-                            WalletListViewModel(presenter: presenter,
-                                                delegate: delegate,
-                                                dataController: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { presenter in
-                            PlanViewModel(presenter: presenter,
-                                          dataController: container.forceResolve(),
-                                          tokenFormatter: container.forceResolve(),
-                                          userProvider: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { category in
-                            CategoryViewModel(category: category,
-                                              dataController: container.forceResolve(),
-                                              currencyFormatter: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { presenter in
-                            NewEntryViewModel(presenter: presenter,
-                                              dataController: container.forceResolve(),
-                                              currencyFormatter: container.forceResolve(),
-                                              differ: container.forceResolve(),
-                                              userProvider: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { delegate in
-                            DatePickerViewModel(delegate: delegate)
-        })
-        
-        // MARK: - Helpers
-        container.register(.unique,
-                           factory: {
-                            WalletTokenFieldInputHelper(formatter: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: {
-                            SheklyTokenFormatter(localeProvider: container.forceResolve(),
-                                                 numberParser: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: {
-                            SheklyCurrencyFormatter(localeProvider: container.forceResolve(),
-                                                    numberParser: container.forceResolve())
-        })
-        
-        container.register(.unique,
-                           factory: { Differ() })
+        container.register(factory: DeleteWalletEntryUseCase.init)
+        container.register(factory: GetWalletEntriesUseCase.init)
+        container.register(factory: GetWalletsUseCase.init)
+        container.register(factory: SaveWalletUseCase.init)
+        container.register(factory: SetSessionWalletUseCase.init)
+        container.register(factory: GetCategoriesUseCase.init)
+        container.register(factory: GetSubcategoriesUseCase.init)
+        container.register(factory: SaveWalletEntryUseCase.init)
         
         return container
     }

@@ -1,14 +1,5 @@
-//
-//  UserProvider.swift
-//  User
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Combine
-import SwiftDate
 import Common
+import Domain
 
 extension Encodable {
     func toJSONString() -> String {
@@ -17,22 +8,21 @@ extension Encodable {
         
         guard let data = try? encoder.encode(self),
             let jsonString = String(data: data, encoding: .utf8)
-            else {
-                fatalError("Fix your data")
+        else {
+            fatalError("Fix your data")
         }
         
         return jsonString
     }
 }
 
-class UserProvider: UserManaging {
-    
+class UserProvider {
     private enum Keys {
         static let user: String = "shekly::user"
     }
     
     private var user: StoredUserModel = {
-        return StoredUserModel.restore(withKey: Keys.user)
+        StoredUserModel.restore(withKey: Keys.user)
     }() {
         didSet {
             do {
@@ -40,7 +30,7 @@ class UserProvider: UserManaging {
                 UserDefaults.standard.set(data, forKey: Keys.user)
                 log.info("Saving stored user")
                 log.debug(user.toJSONString())
-            } catch let error {
+            } catch {
                 log.error(error)
             }
         }
@@ -50,18 +40,20 @@ class UserProvider: UserManaging {
         return user.accessToken
     }
     
+    init() {}
+}
+
+extension UserProvider: SessionRepository {
     var selectedWalletId: String? {
         return user.selectedWalletId
     }
     
-    init() { }
-    
-    func set(wallet id: String?) {
-        user.selectedWalletId = id
+    func set(walletId: String?) {
+        user.selectedWalletId = walletId
         save()
     }
 }
-    
+
 private extension UserProvider {
     func save() {
         let tmp = user

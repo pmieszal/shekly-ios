@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.pl.patryk.mieszala.Shekly</string>
+		<string>group.pl.swiftoletzbrothers.shekly</string>
 	</array>
 </dict>
 </plist>

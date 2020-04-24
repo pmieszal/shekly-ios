@@ -1,60 +1,78 @@
-//
-//  SheklyJSONDataController.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 02/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
+import Domain
 
-import Foundation
-
-public class SheklyJSONDataController: SheklyDataController {
+public class SheklyJSONDataController {
+    let walletWorker: DBWalletWorker
+    let categoryWorker: DBCategoryWorker
+    let subcategoryWorker: DBSubcategoryWorker
+    let entryWorker: DBWalletEntryWorker
     
-    func save(wallet: WalletJSONModel, completionHandler: () -> ()) {
+    init(walletWorker: DBWalletWorker,
+         categoryWorker: DBCategoryWorker,
+         subcategoryWorker: DBSubcategoryWorker,
+         entryWorker: DBWalletEntryWorker) {
+        self.walletWorker = walletWorker
+        self.categoryWorker = categoryWorker
+        self.subcategoryWorker = subcategoryWorker
+        self.entryWorker = entryWorker
+    }
+    
+    func save(wallet: WalletJSONModel, completionHandler: () -> Void) {
         let entries = wallet.expenses
         
-        let walletModelToSave = WalletModel(name: wallet.name, properties: nil)
-        let walletModel = save(wallet: walletModelToSave)
+        let walletModelToSave = WalletModel(id: nil, name: wallet.name, entries: [])
+        let walletModel = walletWorker.save(wallet: walletModelToSave)
         
         for entry in entries {
-            
             let categoryName: String = entry.category.lowercased()
             let subcategoryName: String = entry.subcategory.lowercased()
             let amount: Double = entry.amount
             let date: Date = entry.date
             
-            let categories: [CategoryModel] = getCategories(forWallet: walletModel)
+            let categories = categoryWorker.getCategories(forWallet: walletModel)
             
-            let categoryOptional: CategoryModel? = categories.filter { $0.name == categoryName }.first
+            let categoryOptional = categories.filter { $0.name == categoryName }.first
             let category: CategoryModel
             
             if let categoryFromDatabase = categoryOptional {
                 category = categoryFromDatabase
             } else {
-                category = CategoryModel(name: categoryName, walletId: walletModel.id, properties: nil)
+                let categoryModel = CategoryModel(
+                    id: nil,
+                    name: categoryName,
+                    wallet: SimplyWalletModel(wallet: walletModel),
+                    subcategories: [])
+                
+                category = categoryWorker.save(category: categoryModel)
             }
             
-            let subcategories: [SubcategoryModel] = getSubcategories(forCategory: category)
+            let subcategories = subcategoryWorker.getSubcategories(forCategory: category)
             
-            let subcategoryOptional: SubcategoryModel? = subcategories.filter { $0.name == subcategoryName }.first
+            let subcategoryOptional = subcategories.filter { $0.name == subcategoryName }.first
             let subcategory: SubcategoryModel
             
             if let subcategoryFromDatabase = subcategoryOptional {
                 subcategory = subcategoryFromDatabase
             } else {
-                subcategory = SubcategoryModel(name: subcategoryName, category: category, properties: nil)
+                let subcategoryModel = SubcategoryModel(
+                    id: nil,
+                    name: subcategoryName,
+                    wallet: SimplyWalletModel(wallet: walletModel),
+                    category: SimplyCategoryModel(category: category))
+                
+                subcategory = subcategoryWorker.save(subcategory: subcategoryModel)
             }
             
-            let entry: WalletEntryModel = WalletEntryModel(amount: amount,
-                                                           date: date,
-                                                           text: nil,
-                                                           type: .outcome,
-                                                           wallet: walletModel,
-                                                           category: category,
-                                                           subcategory: subcategory,
-                                                           properties: nil)
+            let entry = WalletEntryModel(
+                id: nil,
+                type: .outcome,
+                text: "",
+                date: date,
+                amount: amount,
+                wallet: SimplyWalletModel(wallet: walletModel),
+                category: SimplyCategoryModel(category: category),
+                subcategory: SimplySubcategoryModel(subcategory: subcategory))
             
-            self.save(entry: entry)
+            _ = entryWorker.save(entry: entry)
         }
         
         completionHandler()
