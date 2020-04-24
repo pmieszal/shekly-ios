@@ -1,10 +1,3 @@
-//
-//  GetWalletsUseCase.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 21/04/2020.
-//
-
 import Foundation
 
 public final class GetWalletsUseCase {
@@ -27,7 +20,7 @@ public extension GetWalletsUseCase {
     }
     
     func getCurrentWallet(success: ((WalletModel?) -> Void)?,
-                          failure: ((SheklyError) -> Void?)) {
+                          failure: (SheklyError) -> Void?) {
         let wallets = repository.getWallets()
         let wallet = wallets
             .first(where: { $0.id == session.selectedWalletId })

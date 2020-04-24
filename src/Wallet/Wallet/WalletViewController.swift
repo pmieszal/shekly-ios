@@ -1,15 +1,7 @@
-//
-//  WalletViewController.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
-import Domain
 import Common
 import CommonUI
+import Domain
+import UIKit
 
 import CleanArchitectureHelpers
 
@@ -23,6 +15,7 @@ final class WalletViewController: SheklyViewController {
     @IBOutlet private weak var headerView: WalletHeaderView!
     
     // MARK: - Public Properties
+    
     var interactor: WalletInteractorLogic?
     var router: WalletRouterType?
     
@@ -30,7 +23,7 @@ final class WalletViewController: SheklyViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
     }
     
@@ -75,7 +68,7 @@ extension WalletViewController: WalletCollectionViewDelegate {
         let addAction = UIAlertAction(
             title: "Dodaj",
             style: .default,
-            handler: { [weak self] (_) in
+            handler: { [weak self] _ in
                 guard let name = alert.textFields?.first?.text else {
                     return
                 }
@@ -98,13 +91,13 @@ extension WalletViewController: UITableViewDelegate {
         let deleteAction = UIContextualAction(
             style: .destructive,
             title: nil,
-            handler: { [unowned self] (_, _, completion) in
+            handler: { [unowned self] _, _, completion in
                 let alertInput = AlertControllerInput(
                     title: "Czy na pewno chcesz usunąć wpis?",
                     message: nil,
                     style: .actionSheet)
                 let actions: [UIAlertAction] = .defaultDeleteActions(
-                    okHandler: { [unowned self] (_) in
+                    okHandler: { [unowned self] _ in
                         self.interactor?.deleteEntry(atIndexPath: indexPath, completion: completion)
                     },
                     cancelHandler: { _ in

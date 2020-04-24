@@ -1,14 +1,7 @@
-//
-//  SimplyWalletModel.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 20/04/2020.
-//
-
 public struct SimplyWalletModel: Equatable, Hashable {
     public let
-    id: String?,
-    name: String?
+        id: String?,
+        name: String?
     
     public var isEmpty: Bool { id == nil }
     

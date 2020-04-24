@@ -1,13 +1,5 @@
-//
-//  WalletEntryCell.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 13/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Domain
+import UIKit
 
 class WalletEntryCell: UITableViewCell {
     @IBOutlet private weak var entryView: UIView!

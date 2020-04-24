@@ -1,15 +1,6 @@
-//
-//  DependencyContainer+forceResolve.swift
-//  Shared
-//
-//  Created by Patryk Mieszała on 14/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Dip
 
 public extension DependencyContainer {
-    
     func forceResolve<T>() -> T {
         do {
             return try self.resolve() as T

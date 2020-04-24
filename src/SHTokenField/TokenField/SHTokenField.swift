@@ -1,15 +1,6 @@
-//
-//  SHTokenField.swift
-//  SHTokenField
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import UIKit
 
 open class SHTokenField: UIView, UITextFieldDelegate {
-    
     open var contentInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet {
             scrollView.contentInset = contentInset
@@ -77,12 +68,12 @@ open class SHTokenField: UIView, UITextFieldDelegate {
             .arrangedSubviews
             .forEach { view in
                 guard view != textField else {
-            return
-        }
+                    return
+                }
                 
                 stackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
-        }
+            }
         
         guard let dataSource = dataSource else {
             stackView.addArrangedSubview(textField)
@@ -92,7 +83,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
         
         let numberOfTokens = dataSource.numberOfTokensInTokenField(tokenField: self)
         
-        for index in 0..<numberOfTokens {
+        for index in 0 ..< numberOfTokens {
             let view = dataSource.tokenField(tokenField: self, viewForTokenAtIndex: index)
             view.setContentHuggingPriority(.required, for: .horizontal)
             view.setTapGesture(target: self, action: #selector(didTapOnTokenView(gesture:)))
@@ -116,7 +107,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
             .forEach { view in
                 suggestionsStackView.removeArrangedSubview(view)
                 view.removeFromSuperview()
-        }
+            }
         
         guard let dataSource = dataSource else {
             return
@@ -124,7 +115,7 @@ open class SHTokenField: UIView, UITextFieldDelegate {
         
         let numberOfSuggestions = dataSource.numberOfTokenSuggestions(tokenField: self)
         
-        for index in 0..<numberOfSuggestions {
+        for index in 0 ..< numberOfSuggestions {
             let view = dataSource.tokenField(tokenField: self, viewForTokenSuggestionAtIndex: index)
             view.setContentHuggingPriority(.required, for: .horizontal)
             view.setTapGesture(target: self, action: #selector(didTapOnSuggestionTokenView(gesture:)))
@@ -134,10 +125,11 @@ open class SHTokenField: UIView, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
+    
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         scrollToTextFieldRect(animated: false)
         
-        if textField.text?.count == 0, string == " " {
+        if textField.text?.isEmpty == true, string == " " {
             return false
         }
         
@@ -145,13 +137,12 @@ open class SHTokenField: UIView, UITextFieldDelegate {
             currentText: textField.text ?? "",
             stringChange: string,
             range: range,
-            keyboardType: textField.keyboardType
-        )
+            keyboardType: textField.keyboardType)
         
         delegate?.tokenField(
             tokenField: self,
             decideTokenPolicyForTextFieldAction: action,
-            decisionHandler: { [weak self] (policy) in
+            decisionHandler: { [weak self] policy in
                 self?.resolveToken(policy: policy)
         })
         
@@ -166,8 +157,8 @@ open class SHTokenField: UIView, UITextFieldDelegate {
 }
 
 // MARK: - private extension
+
 private extension SHTokenField {
-    
     func setup() {
         backgroundColor = .clear
         
@@ -181,9 +172,8 @@ private extension SHTokenField {
                 self.textField.text?.isEmpty == true,
                 let index: Int = self.dataSource?.numberOfTokensInTokenField(tokenField: self),
                 index > 0
-                else {
-                    
-                    return
+            else {
+                return
             }
             
             let deleteIndex = index - 1
@@ -209,7 +199,6 @@ private extension SHTokenField {
     }
     
     func setupSuggestions() {
-        
         let inputAccessoryView = shInputAccessoryView
         inputAccessoryView.translatesAutoresizingMaskIntoConstraints = false
         inputAccessoryView.backgroundColor = .white
@@ -262,7 +251,7 @@ private extension SHTokenField {
                     return
                 }
                 self.scrollView.scrollRectToVisible(self.textField.frame, animated: animated)
-        }
+            }
     }
     
     func addToken() {
@@ -273,7 +262,7 @@ private extension SHTokenField {
                 .main
                 .asyncAfter(deadline: .now() + 0.01) { [weak self] in
                     self?.reload()
-            }
+                }
         }
     }
     
@@ -307,7 +296,7 @@ private extension SHTokenField {
         guard
             let tokenView = gesture.view as? SHTokenView,
             let index = stackView.arrangedSubviews.firstIndex(of: tokenView)
-            else {
+        else {
             return
         }
         
@@ -318,7 +307,7 @@ private extension SHTokenField {
         guard
             let tokenView = gesture.view as? SHTokenView,
             let index = shInputAccessoryView.stackView.arrangedSubviews.firstIndex(of: tokenView)
-            else {
+        else {
             return
         }
         

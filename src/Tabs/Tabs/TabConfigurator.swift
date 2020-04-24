@@ -1,18 +1,10 @@
-//
-//  TabConfigurator.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 15/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Wallet
-import Plan
-import NewEntry
-import Domain
+import CleanArchitectureHelpers
 import Common
 import CommonUI
-import CleanArchitectureHelpers
+import Domain
+import NewEntry
+import Plan
+import Wallet
 
 public class TabConfigurator: Configurator {
     public func configureTabModule() -> UIViewController {
@@ -28,20 +20,16 @@ public class TabConfigurator: Configurator {
         let planConfigurator: PlanConfigurator = container.forceResolve()
         let planViewController = planConfigurator.configurePlanModule()
         
-        class TempViewController: GenericSheklyViewController<SheklyViewModel> { }
-        
-        //TODO: move configuration to configurators
-        let stats = TempViewController()
+        // TODO: move configuration to configurators
+        let stats = SheklyViewController()
         let statsViewModel = SheklyViewModel()
-        stats.set(viewModel: statsViewModel)
         stats.view.backgroundColor = Colors.brandColor
         stats.tabBarItem.title = "Statystyki"
         stats.tabBarItem.image = CommonUI.R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
         stats.tabBarItem.selectedImage = CommonUI.R.image.tabBarStatsIcon()
         
-        let more = TempViewController()
+        let more = SheklyViewController()
         let moreViewModel = SheklyViewModel()
-        more.set(viewModel: moreViewModel)
         more.view.backgroundColor = Colors.brandColor
         more.tabBarItem.title = "Więcej"
         more.tabBarItem.image = CommonUI.R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)

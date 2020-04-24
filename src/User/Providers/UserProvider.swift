@@ -1,11 +1,3 @@
-//
-//  UserProvider.swift
-//  User
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Common
 import Domain
 
@@ -16,8 +8,8 @@ extension Encodable {
         
         guard let data = try? encoder.encode(self),
             let jsonString = String(data: data, encoding: .utf8)
-            else {
-                fatalError("Fix your data")
+        else {
+            fatalError("Fix your data")
         }
         
         return jsonString
@@ -30,7 +22,7 @@ class UserProvider {
     }
     
     private var user: StoredUserModel = {
-        return StoredUserModel.restore(withKey: Keys.user)
+        StoredUserModel.restore(withKey: Keys.user)
     }() {
         didSet {
             do {
@@ -38,7 +30,7 @@ class UserProvider {
                 UserDefaults.standard.set(data, forKey: Keys.user)
                 log.info("Saving stored user")
                 log.debug(user.toJSONString())
-            } catch let error {
+            } catch {
                 log.error(error)
             }
         }
@@ -48,7 +40,7 @@ class UserProvider {
         return user.accessToken
     }
     
-    init() { }
+    init() {}
 }
 
 extension UserProvider: UserManaging {}
@@ -63,7 +55,7 @@ extension UserProvider: SessionRepository {
         save()
     }
 }
-    
+
 private extension UserProvider {
     func save() {
         let tmp = user

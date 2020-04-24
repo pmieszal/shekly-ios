@@ -1,11 +1,3 @@
-//
-//  KeyboardLayoutConstraint.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 07/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import UIKit
 
 class KeyboardLayoutConstraint: NSLayoutConstraint {
@@ -19,17 +11,19 @@ class KeyboardLayoutConstraint: NSLayoutConstraint {
         
         NotificationCenter
             .default
-            .addObserver(self,
-                         selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)),
-                         name: UIResponder.keyboardWillShowNotification,
-                         object: nil)
+            .addObserver(
+                self,
+                selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)),
+                name: UIResponder.keyboardWillShowNotification,
+                object: nil)
         
         NotificationCenter
             .default
-            .addObserver(self,
-                         selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)),
-                         name: UIResponder.keyboardWillHideNotification,
-                         object: nil)
+            .addObserver(
+                self,
+                selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)),
+                name: UIResponder.keyboardWillHideNotification,
+                object: nil)
     }
     
     deinit {
@@ -37,6 +31,7 @@ class KeyboardLayoutConstraint: NSLayoutConstraint {
     }
     
     // MARK: Notification
+    
     @objc func keyboardWillShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {

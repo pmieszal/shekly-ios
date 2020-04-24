@@ -1,15 +1,7 @@
-//
-//  PlanViewController.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
-import Domain
 import Common
 import CommonUI
+import Domain
+import UIKit
 
 class PlanViewController: GenericSheklyViewController<PlanViewModel> {
     @IBOutlet private weak var tableView: UITableView!
@@ -30,8 +22,7 @@ class PlanViewController: GenericSheklyViewController<PlanViewModel> {
 }
 
 extension PlanViewController: PlanPresenter {
-    func navigate(to category: CategoryModel) {
-    }
+    func navigate(to category: CategoryModel) {}
 }
 
 extension PlanViewController: UITableViewDataSource {

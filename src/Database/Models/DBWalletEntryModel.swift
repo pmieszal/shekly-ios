@@ -1,12 +1,5 @@
-//
-//  DBWalletEntryModel.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 19/04/2020.
-//
-
-import RealmSwift
 import Domain
+import RealmSwift
 
 class DBWalletEntryModel: DBModel {
     @objc dynamic var text = ""

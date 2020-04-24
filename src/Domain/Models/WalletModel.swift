@@ -1,16 +1,8 @@
-//
-//  WalletModel.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 23/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 public struct WalletModel: Equatable, Hashable {
     public let
-    id: String?,
-    name: String?,
-    entries: [WalletEntryModel]
+        id: String?,
+        name: String?,
+        entries: [WalletEntryModel]
     
     public var isEmpty: Bool { id == nil }
     

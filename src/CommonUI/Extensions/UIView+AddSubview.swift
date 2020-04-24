@@ -1,18 +1,8 @@
-//
-//  UIView+AddSubview.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 20/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import UIKit
 
 public extension UIView {
-    func addSubviewWithMatchingConstraints(
-        _ view: UIView,
-        insets: UIEdgeInsets = .zero
-        ) {
+    func addSubviewWithMatchingConstraints(_ view: UIView,
+                                           insets: UIEdgeInsets = .zero) {
         view.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(view)

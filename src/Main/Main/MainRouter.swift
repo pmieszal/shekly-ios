@@ -1,15 +1,7 @@
-//
-//  MainRouter.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import CleanArchitectureHelpers
 import CommonUI
 import Tabs
+import UIKit
 
 public final class MainRouter {
     weak var navigationController: UINavigationController?

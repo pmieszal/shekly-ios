@@ -1,11 +1,3 @@
-//
-//  Colors.swift
-//  Shared
-//
-//  Created by Patryk Mieszała on 04/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import DynamicColor
 
 public enum Colors {

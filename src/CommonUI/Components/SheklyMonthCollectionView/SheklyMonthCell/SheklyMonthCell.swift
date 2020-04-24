@@ -1,14 +1,6 @@
-//
-//  SheklyMonthCell.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 19/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
-import SwiftDate
 import Common
+import SwiftDate
+import UIKit
 
 private enum CellConsts {
     static let font: UIFont = UIFont.systemFont(ofSize: 20, weight: .regular)
@@ -26,7 +18,7 @@ public class SheklyMonthCell: UICollectionViewCell {
         }
     }
     
-    override public func prepareForReuse() {
+    public override func prepareForReuse() {
         super.prepareForReuse()
         monthLabel.text = nil
     }
@@ -37,7 +29,7 @@ public class SheklyMonthCell: UICollectionViewCell {
         let diffX: CGFloat = abs(centerX - parentCenterX)
         
         let width: CGFloat = frame.width / 2
-        let scale: CGFloat = width/diffX
+        let scale: CGFloat = width / diffX
         let scaleNormalized: CGFloat = max(min(scale, 1), 0.7)
         
         monthLabel.transform = CGAffineTransform(scaleX: scaleNormalized, y: scaleNormalized)
@@ -46,21 +38,21 @@ public class SheklyMonthCell: UICollectionViewCell {
         
         let color = CellConsts
             .inactiveColor
-            .mixed(withColor: CellConsts.defaultColor,
-                   weight: colorWeight,
-                   inColorSpace: .rgb)
+            .mixed(
+                withColor: CellConsts.defaultColor,
+                weight: colorWeight,
+                inColorSpace: .rgb)
         
         monthLabel.textColor = color
     }
     
     class func size(forDate date: Date, inCollectionView collectionView: UICollectionView) -> CGSize {
-        
         let style = SheklyMonthCell.style(forDate: date)
         let string = date.toString(style)
         let nsString = NSString(string: string)
         
         let atts: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: CellConsts.font
+            NSAttributedString.Key.font: CellConsts.font,
         ]
         let size = nsString.size(withAttributes: atts)
         
@@ -75,6 +67,5 @@ public class SheklyMonthCell: UICollectionViewCell {
         }
         
         return DateToStringStyles.custom("MMMM yyyy")
-        
     }
 }

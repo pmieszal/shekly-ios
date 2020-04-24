@@ -1,13 +1,5 @@
-//
-//  CurrencyFormatter.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 23/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Foundation
 import Domain
+import Foundation
 
 class CurrencyFormatter: SheklyCurrencyFormatter {
     let localeProvider: LocaleProvider

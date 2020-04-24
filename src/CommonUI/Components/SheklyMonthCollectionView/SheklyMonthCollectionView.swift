@@ -1,14 +1,6 @@
-//
-//  SheklyMonthCollectionView.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 20/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
-import SwiftDate
 import DynamicColor
+import SwiftDate
+import UIKit
 
 public protocol SheklyMonthCollectionViewDelegate: AnyObject {
     func monthCollectionViewDidScroll(toDate date: Date)
@@ -53,17 +45,17 @@ public class SheklyMonthCollectionView: UIView {
     public weak var delegate: SheklyMonthCollectionViewDelegate?
     var didMadeInitialLayout = false
     
-    convenience public init() {
+    public convenience init() {
         self.init(frame: .zero)
     }
     
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
@@ -86,8 +78,9 @@ extension SheklyMonthCollectionView: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.sheklyMonthCell,
-                                                            for: indexPath) else {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: R.reuseIdentifier.sheklyMonthCell,
+            for: indexPath) else {
             return UICollectionViewCell()
         }
         
@@ -95,7 +88,6 @@ extension SheklyMonthCollectionView: UICollectionViewDataSource {
         
         return cell
     }
-    
 }
 
 extension SheklyMonthCollectionView: UICollectionViewDelegate {
@@ -125,8 +117,8 @@ extension SheklyMonthCollectionView: UICollectionViewDelegate {
                     .main
                     .asyncAfter(deadline: .now() + 0.01) { [weak self] in
                         self?.scrollViewDidScroll(collectionView)
-                }
-        }
+                    }
+            }
     }
 }
 
@@ -143,10 +135,10 @@ extension SheklyMonthCollectionView: UIScrollViewDelegate {
         let visibleCells: [SheklyMonthCell] = collectionView.visibleCells as? [SheklyMonthCell] ?? []
         
         visibleCells
-            .forEach { (cell) in
+            .forEach { cell in
                 let center = convert(cell.center, from: scrollView)
                 cell.updateLayout(forCenter: center, parentSize: scrollView.frame.size)
-        }
+            }
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -196,11 +188,11 @@ private extension SheklyMonthCollectionView {
                 let rightDiff = abs(center.x - centerRight.x)
                 
                 return leftDiff < rightDiff
-        }
+            }
         
         guard let firstCell = sorted.first,
             let indexPath = collectionView.indexPath(for: firstCell)
-            else {
+        else {
             return nil
         }
         

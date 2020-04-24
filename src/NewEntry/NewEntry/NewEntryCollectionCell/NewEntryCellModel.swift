@@ -1,12 +1,5 @@
-//
-//  NewEntryCellModel.swift
-//  NewEntry
-//
-//  Created by Patryk Mieszała on 23/04/2020.
-//
-
-import Foundation
 import Domain
+import Foundation
 
 protocol NewEntryCellModel: Hashable {
     var id: String? { get }

@@ -1,10 +1,3 @@
-//
-//  PresenterLogic.swift
-//  CleanArchitectureHelpers
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//
-
 import UIKit
 
 public protocol PresenterLogic: AnyObject {

@@ -1,16 +1,7 @@
-//
-//  SheklyWalletCell.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 21/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Domain
+import UIKit
 
 public class SheklyWalletCell: UICollectionViewCell {
-    
     @IBOutlet private weak var contentStackView: UIStackView!
     
     @IBOutlet private weak var nameLabel: UILabel!
@@ -21,23 +12,23 @@ public class SheklyWalletCell: UICollectionViewCell {
     
     @IBOutlet private weak var realIncomeLabel: UILabel!
     @IBOutlet private weak var realOutcomeLabel: UILabel!
-
+    
     @IBOutlet private weak var emptyView: UIView!
     @IBOutlet private weak var addButton: UIButton!
     
-    override public func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         layoutAddButton()
     }
     
-    override public func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         layoutAddButton()
     }
     
-    override public func layoutIfNeeded() {
+    public override func layoutIfNeeded() {
         super.layoutSubviews()
         
         layoutAddButton()
@@ -56,7 +47,6 @@ public class SheklyWalletCell: UICollectionViewCell {
 }
 
 private extension SheklyWalletCell {
-    
     func layoutAddButton() {
         addButton.layer.cornerRadius = addButton.frame.height / 2
         addButton.layer.borderColor = UIColor.white.cgColor

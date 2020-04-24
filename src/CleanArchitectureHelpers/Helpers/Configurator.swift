@@ -1,11 +1,3 @@
-//
-//  Configurator.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 15/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Dip
 
 open class Configurator: Resolvable {
@@ -19,11 +11,11 @@ open class Configurator: Resolvable {
         return container
     }
     
-    public init() { }
+    public init() {}
     
     public func resolveDependencies(_ container: DependencyContainer) {
         injectedContainer = container
     }
     
-    public func didResolveDependencies() { }
+    public func didResolveDependencies() {}
 }

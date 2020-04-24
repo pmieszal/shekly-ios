@@ -1,10 +1,3 @@
-//
-//  DB+SimplyModels.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 20/04/2020.
-//
-
 import Domain
 
 extension SimplyWalletModel {
@@ -26,7 +19,7 @@ extension SimplyCategoryModel {
         self.init(
             id: category.id,
             name: category.name,
-            wallet: nil, //category.wallet,
+            wallet: nil, // category.wallet,
             subcategories: []) // category.subcategories)
     }
     

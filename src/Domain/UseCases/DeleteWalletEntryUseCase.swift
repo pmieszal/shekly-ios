@@ -1,10 +1,3 @@
-//
-//  DeleteWalletEntryUseCase.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 21/04/2020.
-//
-
 import Foundation
 
 public final class DeleteWalletEntryUseCase {

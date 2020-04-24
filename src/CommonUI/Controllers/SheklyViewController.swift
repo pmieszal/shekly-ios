@@ -1,50 +1,43 @@
-//
-//  SheklyViewController.swift
-//  CommonUI
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//
-
-import UIKit
+import CleanArchitectureHelpers
 import Common
 import Domain
-import CleanArchitectureHelpers
+import UIKit
 
 open class SheklyViewController: UIViewController {
-    override open var preferredStatusBarStyle: UIStatusBarStyle {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 //        viewModel.viewDidLoad()
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        viewModel.viewWillAppear()
     }
     
-    override open func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        viewModel.viewWillDisappear()
     }
     
-    override open func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        viewModel.viewDidAppear()
     }
     
-    override open func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 //        viewModel.viewDidDisappear()
     }
     
-    override open func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         let presentationStyle = modalPresentationStyle
         let presentingViewController = self.presentingViewController
         
-        //Workaround for new iOS 13 modals
+        // Workaround for new iOS 13 modals
         if presentationStyle == .pageSheet {
             presentingViewController?.viewWillAppear(true)
         }
@@ -66,18 +59,15 @@ open class SheklyViewController: UIViewController {
     }
     
     @discardableResult
-    public func showAlert(
-        input: AlertControllerInput,
-        actions: [UIAlertAction],
-        completion: (() -> Void)? = nil
-        ) -> UIAlertController {
-        
+    public func showAlert(input: AlertControllerInput,
+                          actions: [UIAlertAction],
+                          completion: (() -> Void)? = nil) -> UIAlertController {
         let alert = UIAlertController(title: input.title, message: input.message, preferredStyle: input.style)
         
         actions
-            .forEach { (action) in
+            .forEach { action in
                 alert.addAction(action)
-        }
+            }
         
         present(alert, animated: true, completion: completion)
         
@@ -87,9 +77,9 @@ open class SheklyViewController: UIViewController {
 
 public struct AlertControllerInput {
     let
-    title: String?,
-    message: String?,
-    style: UIAlertController.Style
+        title: String?,
+        message: String?,
+        style: UIAlertController.Style
     
     public init(title: String?,
                 message: String?,
@@ -102,7 +92,6 @@ public struct AlertControllerInput {
 
 public extension Array where Element == UIAlertAction {
     static func defaultDeleteActions(okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)?) -> [Element] {
-        
         let ok = UIAlertAction(title: "OK", style: .destructive, handler: okHandler)
         let cancel = UIAlertAction(title: "Anuluj", style: .cancel, handler: cancelHandler)
         

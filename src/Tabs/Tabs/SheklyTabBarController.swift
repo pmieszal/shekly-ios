@@ -1,14 +1,6 @@
-//
-//  SheklyTabBarController.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 18/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Common
 import CommonUI
+import UIKit
 
 class SheklyTabBarController: UITabBarController {
     private lazy var addButton: UIButton = {
@@ -27,7 +19,7 @@ class SheklyTabBarController: UITabBarController {
     }()
     
     private lazy var addButtonCenterYConstraint: NSLayoutConstraint = {
-        return addButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor)
+        addButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor)
     }()
     
     var router: TabRouter?
@@ -42,16 +34,16 @@ class SheklyTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Setting up add button target on will appear,
-        //since tab bar is "special" type of ViewController,
-        //and it calls viewDidLoad on super.init
+        // Setting up add button target on will appear,
+        // since tab bar is "special" type of ViewController,
+        // and it calls viewDidLoad on super.init
         setupAddButtonTarget()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom/2
+        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom / 2
         
         tabBar.bringSubviewToFront(addButton)
     }
@@ -59,7 +51,7 @@ class SheklyTabBarController: UITabBarController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom/2
+        addButtonCenterYConstraint.constant = -5 - view.safeAreaInsets.bottom / 2
         
         tabBar.bringSubviewToFront(addButton)
     }

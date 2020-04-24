@@ -1,15 +1,6 @@
-//
-//  SHInputAccessoryView.swift
-//  SHTokenField
-//
-//  Created by Patryk Mieszała on 06/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import UIKit
 
 class SHInputAccessoryView: UIView {
-    
     lazy var scrollView: UIScrollView = {
         let scrollView: UIScrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false

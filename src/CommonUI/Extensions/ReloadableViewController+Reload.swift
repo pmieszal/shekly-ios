@@ -1,13 +1,5 @@
-//
-//  ReloadableViewController+Reload.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 04/04/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Common
 import CleanArchitectureHelpers
+import Common
 
 public protocol ReloadableViewController: ReloadablePresenter {
     var reloadableView: ReloadableView? { get }
@@ -41,7 +33,7 @@ extension UICollectionView: ReloadableView {
 }
 
 public extension ReloadableViewController {
-    func reload(changeSet: ChangeSet, setData: (() -> ())?) {
+    func reload(changeSet: ChangeSet, setData: (() -> Void)?) {
         reloadableView?.performBatchUpdates({ [weak self] in
             setData?()
             self?.reloadableView?.deleteRows(at: changeSet.deleted, with: .fade)
@@ -56,7 +48,6 @@ public extension ReloadableViewController {
     
     func reload(changeSet: ChangeSet, reloadableView: ReloadableView) {
         reloadableView.performBatchUpdates({
-            
             reloadableView.deleteRows(at: changeSet.deleted, with: .fade)
             reloadableView.insertRows(at: changeSet.inserted, with: .fade)
             reloadableView.reloadRows(at: changeSet.updated, with: .none)

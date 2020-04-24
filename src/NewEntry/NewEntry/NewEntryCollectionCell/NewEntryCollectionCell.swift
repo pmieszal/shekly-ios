@@ -1,13 +1,5 @@
-//
-//  NewEntryCollectionCell.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 05/04/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Common
+import UIKit
 
 class NewEntryCollectionCell: UICollectionViewCell {
     @IBOutlet private weak var containerView: UIView!
@@ -53,7 +45,7 @@ class NewEntryCollectionCell: UICollectionViewCell {
 
 private extension NewEntryCollectionCell {
     func setupContainerViewBorder() {
-        containerView.layer.cornerRadius = contentView.bounds.height/2
+        containerView.layer.cornerRadius = contentView.bounds.height / 2
         containerView.layer.borderColor = UIColor.white.cgColor
         containerView.layer.borderWidth = 1
         containerView.clipsToBounds = true

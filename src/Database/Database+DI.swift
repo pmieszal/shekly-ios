@@ -1,14 +1,6 @@
-//
-//  Database+DI.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 11/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
+import Common
 import Dip
 import Domain
-import Common
 import RealmSwift
 
 public extension DependencyContainer {

@@ -1,14 +1,6 @@
-//
-//  PlanRouter.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
+import CleanArchitectureHelpers
 import Domain
 import User
-import CleanArchitectureHelpers
 
 public final class PlanRouter {
     private weak var viewController: PlanViewController?
@@ -18,5 +10,4 @@ public final class PlanRouter {
     }
 }
 
-extension PlanRouter {
-}
+extension PlanRouter {}

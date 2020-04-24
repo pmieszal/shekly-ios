@@ -1,10 +1,3 @@
-//
-//  DBSubcategoryWorker.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 19/04/2020.
-//
-
 import Domain
 import RealmSwift
 

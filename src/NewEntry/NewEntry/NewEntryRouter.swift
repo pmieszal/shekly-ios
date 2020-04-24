@@ -1,15 +1,7 @@
-//
-//  NewEntryRouter.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
-import Domain
 import CleanArchitectureHelpers
 import CommonUI
+import Domain
+import UIKit
 
 typealias NewEntryRouterType = NewEntryRouterProtocol & NewEntryDataPassing
 
@@ -25,6 +17,7 @@ protocol NewEntryDataPassing {
 
 final class NewEntryRouter: NewEntryDataPassing {
     // MARK: - Public Properties
+    
     weak var viewController: NewEntryViewController?
     var dataStore: NewEntryDataStore
     
@@ -32,6 +25,7 @@ final class NewEntryRouter: NewEntryDataPassing {
     let datePickerConfigurator: DatePickerConfiguratorProtocol
     
     // MARK: - Initializers
+    
     init(viewController: NewEntryViewController?,
          dataStore: NewEntryDataStore,
          walletConfigurator: WalletListConfiguratorProtocol,
@@ -49,7 +43,7 @@ extension NewEntryRouter: NewEntryRouterProtocol {
         
         viewController?.presentAsPopover(vc: walletList, sourceView: sourceButton, preferredContentSize: CGSize(width: 200, height: 300))
     }
-
+    
     func presentDatePickerPopover(sourceButton: UIButton) {
         let datePicker = datePickerConfigurator.configureDatePickerModule(with: dataStore.datePickerDelegate)
         

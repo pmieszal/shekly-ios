@@ -1,10 +1,3 @@
-//
-//  DBGroup.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 19/04/2020.
-//
-
 import RealmSwift
 
 class DBGroup<TObject: DBModel> {
@@ -35,18 +28,18 @@ class DBGroup<TObject: DBModel> {
     }
     
     func save(object: TObject) {
-        execute(transaction: { (realm) in
+        execute(transaction: { realm in
             realm.add(object, update: .modified)
         })
     }
     
     func remove(object: TObject) {
-        execute(transaction: { (realm) in
+        execute(transaction: { realm in
             guard let objectToDelete = realm.object(
                 ofType: TObject.self,
                 forPrimaryKey: object.id) else {
-                    assertionFailure("No record found")
-                    return
+                assertionFailure("No record found")
+                return
             }
             
             realm.delete(objectToDelete)
@@ -55,7 +48,7 @@ class DBGroup<TObject: DBModel> {
 }
 
 extension DBGroup {
-    func execute(transaction: ((Realm) -> ())) {
+    func execute(transaction: (Realm) -> Void) {
         do {
             try realm.write {
                 transaction(realm)

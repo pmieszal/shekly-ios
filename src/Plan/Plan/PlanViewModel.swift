@@ -1,45 +1,41 @@
-//
-//  PlanViewModel.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import User
+import CleanArchitectureHelpers
 import Common
 import Domain
-import CleanArchitectureHelpers
+import User
 
 public final class PlanViewModel: ViewModel {
-    public typealias CategorySelectionHandler = (CategoryModel) -> ()
+    public typealias CategorySelectionHandler = (CategoryModel) -> Void
     
     // MARK: - Public properties
+    
     public private(set) var categories: [CategoryModel] = []
     
     // MARK: - Internal properties
-    //let dataController: SheklyDataController
+    
+    // let dataController: SheklyDataController
     let userProvider: UserManaging
     
     weak var presenter: PlanPresenter?
     
     private var selectedWallet: WalletModel? {
-        let wallets = [WalletModel]()// dataController.getWallets()
+        let wallets = [WalletModel]() // dataController.getWallets()
         let selectedWallet = wallets.filter { $0.id == userProvider.selectedWalletId }.first
         
         return selectedWallet ?? wallets.first
     }
     
     // MARK: - Constructor
+    
     init(presenter: PlanPresenter,
-         //dataController: SheklyDataController,
+         // dataController: SheklyDataController,
          userProvider: UserManaging) {
         self.presenter = presenter
-        //self.dataController = dataController
+        // self.dataController = dataController
         self.userProvider = userProvider
     }
     
     // MARK: - Public methods
+    
     public func viewWillAppear() {
         reload()
     }
@@ -54,6 +50,7 @@ public final class PlanViewModel: ViewModel {
 }
 
 // MARK: - Internal methods
+
 extension PlanViewModel {
     func reload() {
         guard let wallet = selectedWallet else {
@@ -61,7 +58,7 @@ extension PlanViewModel {
         }
         
         let categories: [CategoryModel] = []
-        //TODO: this
+        // TODO: this
         
         self.categories = categories
     }

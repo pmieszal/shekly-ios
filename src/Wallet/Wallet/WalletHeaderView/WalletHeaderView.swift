@@ -1,15 +1,7 @@
-//
-//  WalletHeaderView.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 19/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Common
 import CommonUI
 import Domain
+import UIKit
 
 class WalletHeaderView: UIView {
     private lazy var walletCollectionView: SheklyWalletCollectionView = {

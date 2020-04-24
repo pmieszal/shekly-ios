@@ -1,28 +1,19 @@
-//
-//  AppDelegate.swift
-//  Shekly
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
 import Dip
+import UIKit
 
 import Common
 import CommonUI
-import User
-import Domain
 import Database
+import Domain
 import Main
-import Tabs
 import NewEntry
-import Wallet
 import Plan
+import Tabs
+import User
+import Wallet
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var mainRouter: MainRouter?
     
@@ -30,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
         Bootstrap.tabBarItemAppearance()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -39,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainRouter = mainConfigurator.configureMainModule(with: window)
         self.window = window
         
-        //Temporary hack for database init on fresh install
+        // Temporary hack for database init on fresh install
         if UserDefaults.standard.string(forKey: "App.Version") == nil {
             let url = Bundle.main.url(forResource: "ExpensesJSON", withExtension: "shekly")!
             let importer: SheklyJSONImporter = container.forceResolve()
@@ -55,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
-        //Disable 3rd party keyboards
+        // Disable 3rd party keyboards
         if extensionPointIdentifier == UIApplication.ExtensionPointIdentifier.keyboard {
             return false
         }
@@ -77,7 +67,7 @@ private extension DependencyContainer {
             .configurePlan()
             .configureWallet()
             .configureNewEntry()
-
+        
         try? container.bootstrap()
         
         return container

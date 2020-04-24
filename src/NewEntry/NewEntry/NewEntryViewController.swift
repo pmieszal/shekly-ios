@@ -1,16 +1,8 @@
-//
-//  NewEntryViewController.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
 import CleanArchitectureHelpers
-import CommonUI
 import Common
+import CommonUI
 import Domain
+import UIKit
 
 protocol NewEntryViewControllerLogic: ViewControllerLogic {
     typealias CategorySnapshot = NSDiffableDataSourceSnapshot<String, CategoryModel>
@@ -44,14 +36,14 @@ final class NewEntryViewController: SheklyViewController {
     @IBOutlet private weak var saveButton: UIButton!
     
     lazy var categoryDataSource = NewEntryCollectionDataSource<CategoryModel>(collectionView: categoryCollectionView)
-    //swiftlint:disable:next weak_delegate
+    // swiftlint:disable:next weak_delegate
     lazy var categoryDelegate = NewEntryCollectionDelegate(
         dataSource: categoryDataSource,
         didSelectItem: interactor?.didSelectCategory(id:))
     
     lazy var subcategoryDataSource = NewEntryCollectionDataSource<SubcategoryModel>(
         collectionView: subcategoryCollectionView)
-    //swiftlint:disable:next weak_delegate
+    // swiftlint:disable:next weak_delegate
     lazy var subcategoryDelegate = NewEntryCollectionDelegate(
         dataSource: subcategoryDataSource,
         didSelectItem: interactor?.didSelectSubcategory(id:))
@@ -106,6 +98,7 @@ extension NewEntryViewController: NewEntryViewControllerLogic {
 
 extension NewEntryViewController: UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -169,10 +162,9 @@ private extension NewEntryViewController {
         entryTypeSegmentedControl
             .setTitleTextAttributes(
                 [
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: .regular)
+                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: .regular),
                 ],
-                for: .normal
-        )
+                for: .normal)
         
         cancelButton.addTarget(
             router,

@@ -1,11 +1,3 @@
-//
-//  SheklyJSONDataController.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 02/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Domain
 
 public class SheklyJSONDataController {
@@ -24,7 +16,7 @@ public class SheklyJSONDataController {
         self.entryWorker = entryWorker
     }
     
-    func save(wallet: WalletJSONModel, completionHandler: () -> ()) {
+    func save(wallet: WalletJSONModel, completionHandler: () -> Void) {
         let entries = wallet.expenses
         
         let walletModelToSave = WalletModel(id: nil, name: wallet.name, entries: [])

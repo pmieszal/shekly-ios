@@ -1,15 +1,7 @@
-//
-//  NewEntryPresenter.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
 import CleanArchitectureHelpers
 import Common
 import Domain
+import UIKit
 
 protocol NewEntryPresenterLogic: PresenterLogic {
     func show(walletName: String?)
@@ -23,9 +15,11 @@ protocol NewEntryPresenterLogic: PresenterLogic {
 
 final class NewEntryPresenter {
     // MARK: - Private Properties
+    
     private weak var viewController: NewEntryViewControllerLogic?
-
+    
     // MARK: - Initializers
+    
     init(viewController: NewEntryViewControllerLogic?) {
         self.viewController = viewController
     }

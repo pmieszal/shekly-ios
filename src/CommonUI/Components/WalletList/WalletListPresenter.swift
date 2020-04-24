@@ -1,14 +1,6 @@
-//
-//  WalletListPresenter.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 18/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
-import Domain
 import CleanArchitectureHelpers
+import Domain
+import UIKit
 
 protocol WalletListPresenterLogic: PresenterLogic {
     func reload(wallets: [WalletModel])
@@ -16,9 +8,11 @@ protocol WalletListPresenterLogic: PresenterLogic {
 
 final class WalletListPresenter {
     // MARK: - Private Properties
+    
     private weak var viewController: WalletListViewControllerLogic?
-
+    
     // MARK: - Initializers
+    
     init(viewController: WalletListViewControllerLogic?) {
         self.viewController = viewController
     }

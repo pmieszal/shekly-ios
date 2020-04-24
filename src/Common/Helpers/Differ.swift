@@ -1,16 +1,7 @@
-//
-//  Differ.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 22/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Foundation
 
 public class Differ {
     public func getDiff<T: Hashable & Equatable>(oldState: [T], newState: [T]) -> ChangeSet {
-        
         let oldStateWithIndexSet: Set<State<T>> = Set(
             oldState
                 .enumerated()
@@ -35,8 +26,8 @@ public class Differ {
         for updatedItem in updated {
             guard let oldItemIndex = oldState.firstIndex(of: updatedItem.element),
                 let newItemIndex = newState.firstIndex(of: updatedItem.element)
-                else {
-                    break
+            else {
+                break
             }
             
             if oldItemIndex == newItemIndex {
@@ -53,12 +44,11 @@ public class Differ {
     }
     
     public func getDiff<T: Hashable & Equatable>(oldState: [[T]], newState: [[T]]) -> ChangeSet {
-        
         let oldStateWithIndexSet: Set<State<T>> = Set(
             oldState
                 .enumerated()
                 .map { section in
-                    return section
+                    section
                         .element
                         .enumerated()
                         .map { State(row: $0.offset, section: section.offset, element: $0.element) }
@@ -70,7 +60,7 @@ public class Differ {
             newState
                 .enumerated()
                 .map { section in
-                    return section
+                    section
                         .element
                         .enumerated()
                         .map { State(row: $0.offset, section: section.offset, element: $0.element) }
@@ -92,8 +82,8 @@ public class Differ {
         for updatedItem in updated {
             guard let oldItemIndex = oldState[updatedItem.section].firstIndex(of: updatedItem.element),
                 let newItemIndex = newState[updatedItem.section].firstIndex(of: updatedItem.element)
-                else {
-                    break
+            else {
+                break
             }
             
             if oldItemIndex == newItemIndex {

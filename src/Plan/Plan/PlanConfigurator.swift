@@ -1,14 +1,6 @@
-//
-//  PlanConfigurator.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 15/10/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Domain
 import CleanArchitectureHelpers
 import CommonUI
+import Domain
 
 public final class PlanConfigurator: Configurator {
     public func configurePlanModule() -> UIViewController {

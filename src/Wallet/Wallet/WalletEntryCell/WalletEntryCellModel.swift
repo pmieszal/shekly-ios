@@ -1,12 +1,5 @@
-//
-//  WalletEntryCellModel.swift
-//  Wallet
-//
-//  Created by Patryk Mieszała on 21/04/2020.
-//
-
-import SwiftDate
 import Domain
+import SwiftDate
 
 final class WalletEntryCellModel: Hashable {
     let entry: WalletEntryModel
@@ -43,7 +36,7 @@ final class WalletEntryCellModel: Hashable {
     func hash(into hasher: inout Hasher) {
         entry.hash(into: &hasher)
     }
-
+    
     public static func == (lhs: WalletEntryCellModel, rhs: WalletEntryCellModel) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }

@@ -1,12 +1,5 @@
-//
-//  SheklyWalletCollectionViewDataSource.swift
-//  CommonUI
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//
-
-import UIKit
 import Domain
+import UIKit
 
 class SheklyWalletCollectionViewDataSource: UICollectionViewDiffableDataSource<String, WalletModel> {
     override init(collectionView: UICollectionView,

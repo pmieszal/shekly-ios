@@ -1,16 +1,8 @@
-//
-//  TabRouter.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import Domain
-import User
-import Common
-import NewEntry
 import CleanArchitectureHelpers
+import Common
+import Domain
+import NewEntry
+import User
 
 final class TabRouter {
     weak var viewController: SheklyTabBarController?

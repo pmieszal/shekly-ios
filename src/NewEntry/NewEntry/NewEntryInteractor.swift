@@ -1,18 +1,10 @@
-//
-//  NewEntryInteractor.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
-import SwiftDate
 import CleanArchitectureHelpers
-import User
 import Common
 import CommonUI
 import Domain
+import SwiftDate
+import UIKit
+import User
 
 @objc
 protocol NewEntryInteractorLogic: InteractorLogic {
@@ -33,6 +25,7 @@ protocol NewEntryDataStore {
 
 final class NewEntryInteractor: NewEntryDataStore {
     // MARK: - Internal properties
+    
     private var entryType: WalletEntryType = .outcome
     
     private var amountStringRaw: String = ""
@@ -55,6 +48,7 @@ final class NewEntryInteractor: NewEntryDataStore {
         
         return normalPart + "." + decimalPart
     }
+    
     private var amountWithCurrency: String? {
         let amount: String = amountString.isEmpty ? "0" : amountString
         
@@ -64,6 +58,7 @@ final class NewEntryInteractor: NewEntryDataStore {
         
         return entryType.textPrefix + " " + formattedAmount
     }
+    
     private var amountNumber: NSNumber? {
         return numberParser.getNumber(fromString: amountString)
     }
@@ -93,6 +88,7 @@ final class NewEntryInteractor: NewEntryDataStore {
     private let saveEntryUseCase: SaveWalletEntryUseCase
     
     // MARK: - Constructor
+    
     init(presenter: NewEntryPresenter,
          currencyFormatter: SheklyCurrencyFormatter,
          numberParser: NumberParser,
@@ -128,11 +124,9 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
         reloadAmount()
     }
     
-    func amountTextField(
-        _ textField: UITextField,
-        shouldChangeCharactersIn range: NSRange,
-        replacementString string: String) -> Bool {
-        
+    func amountTextField(_ textField: UITextField,
+                         shouldChangeCharactersIn range: NSRange,
+                         replacementString string: String) -> Bool {
         if range.length > 0, amountStringRaw.isEmpty == false {
             amountStringRaw.removeLast()
         } else if range.length == 0 {
@@ -176,8 +170,8 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
             amount > 0,
             let selectedCategory = self.selectedCategory,
             let selectedSubcategory = self.selectedSubcategory
-            else {
-                return
+        else {
+            return
         }
         
         let entry = WalletEntryModel(
@@ -189,7 +183,7 @@ extension NewEntryInteractor: NewEntryInteractorLogic {
             wallet: SimplyWalletModel(wallet: wallet),
             category: SimplyCategoryModel(category: selectedCategory),
             subcategory: SimplySubcategoryModel(subcategory: selectedSubcategory))
-
+        
         saveEntryUseCase.save(
             entry: entry,
             success: presenter.dismiss,
@@ -212,6 +206,7 @@ extension NewEntryInteractor: DatePickerDelegate {
 }
 
 // MARK: - Private methods
+
 private extension NewEntryInteractor {
     func reload() {
         reloadCurrentWallet {
@@ -222,7 +217,7 @@ private extension NewEntryInteractor {
     
     func reloadCurrentWallet(completion: (() -> Void)?) {
         getWalletsUseCase.getCurrentWallet(
-            success: { [weak self] (currentWallet) in
+            success: { [weak self] currentWallet in
                 self?.wallet = currentWallet
                 self?.presenter.show(walletName: currentWallet?.name)
                 completion?()
@@ -237,7 +232,7 @@ private extension NewEntryInteractor {
         
         getCategoriesUseCase.getCategories(
             forWalletId: walletId,
-            success: { [weak self] (categories) in
+            success: { [weak self] categories in
                 self?.categories = categories
                 self?.presenter.reload(categories: categories)
             },
@@ -251,7 +246,7 @@ private extension NewEntryInteractor {
         
         getSubcategoriesUseCase.getCategories(
             forCategoryId: categoryId,
-            success: { [weak self] (subcategories) in
+            success: { [weak self] subcategories in
                 self?.subcategories = subcategories
                 self?.presenter.reload(subcategories: subcategories)
             },
@@ -267,9 +262,9 @@ private extension NewEntryInteractor {
             amount > 0,
             selectedCategory != nil,
             selectedSubcategory != nil
-            else {
-                presenter.setSaveButton(enabled: false)
-                return
+        else {
+            presenter.setSaveButton(enabled: false)
+            return
         }
         
         presenter.setSaveButton(enabled: true)

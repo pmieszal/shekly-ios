@@ -1,11 +1,3 @@
-//
-//  GradientView.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 02/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import UIKit
 
 class GradientView: UIView {
@@ -19,7 +11,7 @@ class GradientView: UIView {
     @IBInspectable
     var endPoint: CGPoint = CGPoint(x: 0, y: 1)
     
-    override open class var layerClass: AnyClass {
+    open override class var layerClass: AnyClass {
         return CAGradientLayer.classForCoder()
     }
     

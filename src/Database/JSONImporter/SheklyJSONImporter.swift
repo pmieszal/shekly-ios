@@ -1,11 +1,3 @@
-//
-//  SheklyJSONImporter.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 02/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import Foundation
 
 public class SheklyJSONImporter {
@@ -22,13 +14,13 @@ public class SheklyJSONImporter {
         self.dataController = dataController
     }
     
-    public func importData(fromJSONUrl url: URL, completionHandler: () -> ()) {
+    public func importData(fromJSONUrl url: URL, completionHandler: () -> Void) {
         do {
             let jsonData: Data = try Data(contentsOf: url)
             let wallet: WalletJSONModel = try decoder.decode(WalletJSONModel.self, from: jsonData)
             
             dataController.save(wallet: wallet, completionHandler: completionHandler)
-        } catch let error {
+        } catch {
             print(error)
         }
     }

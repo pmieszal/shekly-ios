@@ -1,10 +1,3 @@
-//
-//  NewEntryCollectionDelegate.swift
-//  NewEntry
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//
-
 import UIKit
 
 private enum Constants {
@@ -13,7 +6,6 @@ private enum Constants {
 }
 
 class NewEntryCollectionDelegate<TModel: NewEntryCellModel>: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
     let dataSource: NewEntryCollectionDataSource<TModel>
     
     var didSelectItem: ((String) -> Void)?

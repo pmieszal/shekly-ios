@@ -1,15 +1,7 @@
-//
-//  WalletInteractor.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//  Copyright (c) 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import User
-import Common
 import CleanArchitectureHelpers
+import Common
 import Domain
+import User
 
 protocol WalletInteractorLogic: InteractorLogic {
     func monthCollectionViewDidScroll(toDate date: Date)
@@ -23,10 +15,12 @@ protocol WalletDataStore {}
 
 final class WalletInteractor: WalletDataStore {
     // MARK: - Internal properties
+    
     var selectedMonthDate: Date?
     var selectedWallet: WalletModel?
     
     // MARK: - Private properties
+    
     private var wallets: [WalletModel] = []
     private var entries: [WalletEntryModel] = []
     
@@ -40,6 +34,7 @@ final class WalletInteractor: WalletDataStore {
     private let currencyFormatter: SheklyCurrencyFormatter
     
     // MARK: - Initializers
+    
     init(presenter: WalletPresenterLogic,
          getWalletsUseCase: GetWalletsUseCase,
          saveWalletUseCase: SaveWalletUseCase,
@@ -104,7 +99,7 @@ extension WalletInteractor {
         
         saveWalletUseCase.save(
             wallet: wallet,
-            success: { (saved) in
+            success: { saved in
                 self.selectedWallet = saved
                 self.reload()
             },
@@ -121,7 +116,7 @@ private extension WalletInteractor {
     
     func reloadCurrentWallet(completion: (() -> Void)?) {
         getWalletsUseCase.getCurrentWallet(
-            success: { [weak self] (currentWallet) in
+            success: { [weak self] currentWallet in
                 self?.selectedWallet = currentWallet
                 completion?()
             },
@@ -130,7 +125,7 @@ private extension WalletInteractor {
     
     func reloadWallets(completion: (() -> Void)?) {
         getWalletsUseCase.getWallets(
-            success: { (wallets) in
+            success: { wallets in
                 let emptyModel = WalletModel(id: nil, name: nil, entries: [])
                 let wallets = wallets + [emptyModel]
                 self.wallets = wallets + [emptyModel]
@@ -149,7 +144,7 @@ private extension WalletInteractor {
         getEntriesUseCase.getEntries(
             wallet: wallet,
             monthDate: date,
-            success: { (entries) in
+            success: { entries in
                 let models = entries.isEmpty ? [WalletEntryModel()] : entries
                 self.entries = models
                 

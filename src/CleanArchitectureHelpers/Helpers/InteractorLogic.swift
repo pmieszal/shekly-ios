@@ -1,10 +1,3 @@
-//
-//  InteractorLogic.swift
-//  CleanArchitectureHelpers
-//
-//  Created by Patryk Mieszała on 16/04/2020.
-//
-
 @objc
 public protocol InteractorLogic: AnyObject {
     @objc optional func viewDidLoad()

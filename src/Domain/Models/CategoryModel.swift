@@ -1,19 +1,11 @@
-//
-//  CategoryModel.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 14/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
 import SwiftDate
 
 public struct CategoryModel: Hashable, Equatable {
     public let
-    id: String?,
-    name: String,
-    wallet: SimplyWalletModel?,
-    subcategories: [SimplySubcategoryModel]
+        id: String?,
+        name: String,
+        wallet: SimplyWalletModel?,
+        subcategories: [SimplySubcategoryModel]
     
     public init(id: String?,
                 name: String,

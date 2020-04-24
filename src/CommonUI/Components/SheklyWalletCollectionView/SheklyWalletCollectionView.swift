@@ -1,14 +1,6 @@
-//
-//  SheklyWalletCollectionView.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 21/03/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
-import Domain
 import Common
+import Domain
+import UIKit
 
 @objc
 public protocol WalletCollectionViewDelegate: AnyObject {
@@ -59,7 +51,7 @@ public class SheklyWalletCollectionView: UIView {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: R.reuseIdentifier.sheklyWalletCell,
                 for: indexPath) else {
-                    return UICollectionViewCell()
+                return UICollectionViewCell()
             }
             
             cell.setup(with: model)
@@ -73,29 +65,29 @@ public class SheklyWalletCollectionView: UIView {
     
     public weak var delegate: WalletCollectionViewDelegate?
     
-    convenience public init() {
+    public convenience init() {
         self.init(frame: .zero)
     }
     
-    override public init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
     }
     
-    override public func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         
         setup()
     }
     
-    override public func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)

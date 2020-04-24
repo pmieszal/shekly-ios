@@ -1,14 +1,6 @@
-//
-//  NewEntryConfigurator.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 17/04/2020.
-//  Copyright © 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
-import UIKit
 import CleanArchitectureHelpers
 import Domain
+import UIKit
 
 public protocol NewEntryConfiguratorProtocol {
     func configureNewEntryModule() -> UIViewController
@@ -34,10 +26,10 @@ class NewEntryConfigurator: Configurator, NewEntryConfiguratorProtocol {
             dataStore: interactor,
             walletConfigurator: container.forceResolve(),
             datePickerConfigurator: container.forceResolve())
-
+        
         viewController.interactor = interactor
         viewController.router = router
-
+        
         return viewController
     }
 }

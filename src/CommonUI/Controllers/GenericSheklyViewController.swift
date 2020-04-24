@@ -1,15 +1,7 @@
-//
-//  GenericSheklyViewController.swift
-//  UI
-//
-//  Created by Patryk Mieszała on 03/02/2019.
-//  Copyright © 2019 Patryk Mieszała. All rights reserved.
-//
-
-import UIKit
+import CleanArchitectureHelpers
 import Common
 import Domain
-import CleanArchitectureHelpers
+import UIKit
 
 open class GenericSheklyViewController<TViewModel: ViewModel>: SheklyViewController {
     private var factory: (() -> TViewModel)!
@@ -29,36 +21,36 @@ open class GenericSheklyViewController<TViewModel: ViewModel>: SheklyViewControl
         self.factory = viewModel
     }
     
-    open func bind(viewModel: TViewModel) { }
+    open func bind(viewModel: TViewModel) {}
     
-    override open func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         if _viewModel == nil {
             _viewModel = factory?()
-            factory = nil //Delete factory to prevent memory leaks.
+            factory = nil // Delete factory to prevent memory leaks.
         }
         
         bind(viewModel: viewModel)
         viewModel.viewDidLoad()
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewWillAppear()
     }
     
-    override open func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewWillDisappear()
     }
     
-    override open func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.viewDidAppear()
     }
     
-    override open func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         viewModel.viewDidDisappear()
     }

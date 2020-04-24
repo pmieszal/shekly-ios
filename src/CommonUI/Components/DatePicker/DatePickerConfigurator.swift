@@ -1,11 +1,3 @@
-//
-//  DatePickerConfigurator.swift
-//  Shekly-generated
-//
-//  Created by Patryk Mieszała on 18/04/2020.
-//  Copyright © 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
 import CleanArchitectureHelpers
 import Domain
 
@@ -18,7 +10,7 @@ class DatePickerConfigurator: Configurator, DatePickerConfiguratorProtocol {
         guard let viewController = R.storyboard.datePicker.datePickerViewController() else {
             fatalError("VC can't be nil")
         }
-
+        
         let presenter = DatePickerPresenter(viewController: viewController)
         let interactor = DatePickerInteractor(
             presenter: presenter,
@@ -26,10 +18,10 @@ class DatePickerConfigurator: Configurator, DatePickerConfiguratorProtocol {
         let router = DatePickerRouter(
             viewController: viewController,
             dataStore: interactor)
-
+        
         viewController.interactor = interactor
         viewController.router = router
-
+        
         return viewController
     }
 }

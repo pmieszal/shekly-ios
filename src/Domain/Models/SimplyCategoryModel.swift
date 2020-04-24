@@ -1,18 +1,11 @@
-//
-//  SimplyCategoryModel.swift
-//  Domain
-//
-//  Created by Patryk Mieszała on 20/04/2020.
-//
-
 import SwiftDate
 
 public struct SimplyCategoryModel: Hashable, Equatable {
     public let
-    id: String?,
-    name: String,
-    wallet: SimplyWalletModel?,
-    subcategories: [SimplySubcategoryModel]
+        id: String?,
+        name: String,
+        wallet: SimplyWalletModel?,
+        subcategories: [SimplySubcategoryModel]
     
     public init(id: String?,
                 name: String,

@@ -1,12 +1,5 @@
-//
-//  DBWalletEntryWorker.swift
-//  Database
-//
-//  Created by Patryk Mieszała on 19/04/2020.
-//
-
-import RealmSwift
 import Domain
+import RealmSwift
 
 class DBWalletEntryWorker: DBGroup<DBWalletEntryModel> {
     let walletWorker: DBWalletWorker
@@ -35,25 +28,25 @@ extension DBWalletEntryWorker: WalletEntriesRepository {
     func getWalletEntries(forWalletId walletId: String, monthDate: Date) -> [WalletEntryModel] {
         let from: Date = monthDate.dateAtStartOf(.month)
         let to: Date = monthDate.dateAtEndOf(.month)
-
+        
         let walletFilter = NSPredicate(
             format: "ANY wallet.id == %@",
             argumentArray: [
-                walletId
-        ])
-
+                walletId,
+            ])
+        
         let dateFilter = NSPredicate(
             format: "date BETWEEN {%@, %@}",
             argumentArray: [
                 from,
-                to
-        ])
+                to,
+            ])
         
         let entries = realm
             .objects(DBWalletEntryModel.self)
             .filter(walletFilter)
             .filter(dateFilter)
-            
+        
         return entries.map(WalletEntryModel.init)
     }
     
