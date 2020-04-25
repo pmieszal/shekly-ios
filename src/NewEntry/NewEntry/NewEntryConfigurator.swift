@@ -2,12 +2,8 @@ import CleanArchitectureHelpers
 import Domain
 import UIKit
 
-public protocol NewEntryConfiguratorProtocol {
-    func configureNewEntryModule() -> UIViewController
-}
-
-class NewEntryConfigurator: Configurator, NewEntryConfiguratorProtocol {
-    func configureNewEntryModule() -> UIViewController {
+class NewEntryConfigurator: Configurator {
+    override func configureModule(withDependencies dependencies: [String: Any] = [:]) -> UIViewController {
         guard let viewController = R.storyboard.newEntry.newEntryViewController() else {
             fatalError("VC can't be nil")
         }

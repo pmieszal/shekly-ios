@@ -3,12 +3,8 @@ import CommonUI
 import Domain
 import UIKit
 
-public protocol PlanConfiguratorProtocol {
-    func configurePlanModule() -> UIViewController
-}
-
-class PlanConfigurator: Configurator, PlanConfiguratorProtocol {
-    func configurePlanModule() -> UIViewController {
+class PlanConfigurator: Configurator {
+    override func configureModule(withDependencies dependencies: [String: Any] = [:]) -> UIViewController {
         guard let viewController = R.storyboard.plan.planViewController() else {
             fatalError("VC can't be nil")
         }

@@ -2,23 +2,21 @@ import CleanArchitectureHelpers
 import Common
 import CommonUI
 import Domain
-import NewEntry
-import Plan
-import Wallet
+import AppRoutes
 
-public class TabConfigurator: Configurator {
-    public func configureTabModule() -> UIViewController {
+class TabConfigurator: Configurator {
+    override func configureModule(withDependencies dependencies: [String: Any] = [:]) -> UIViewController {
         let tabController = SheklyTabBarController()
         let tabRouter = TabRouter(
             viewController: tabController,
-            newEntryConfigurator: container.forceResolve())
+            newEntryConfigurator: container.forceResolve(tag: AppRoutes.newEntry))
         tabController.router = tabRouter
         
-        let walletConfigurator: WalletConfiguratorProtocol = container.forceResolve()
-        let walletViewController = walletConfigurator.configureWalletModule()
+        let walletConfigurator: Configurator = container.forceResolve(tag: AppRoutes.wallet)
+        let walletViewController = walletConfigurator.configureModule()
         
-        let planConfigurator: PlanConfiguratorProtocol = container.forceResolve()
-        let planViewController = planConfigurator.configurePlanModule()
+        let planConfigurator: Configurator = container.forceResolve(tag: AppRoutes.plan)
+        let planViewController = planConfigurator.configureModule()
         
         let stats = SheklyViewController()
         stats.view.backgroundColor = Colors.brandColor
