@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Temporary hack for database init on fresh install
         if UserDefaults.standard.string(forKey: "App.Version") == nil {
-            let url = Bundle.main.url(forResource: "ExpensesJSON", withExtension: "shekly")!
+            let url = R.file.expensesJson()!
             let importer: SheklyJSONImporter = container.forceResolve()
             
             importer.importData(fromJSONUrl: url) {
