@@ -5,7 +5,7 @@ public extension DependencyContainer {
         do {
             return try self.resolve() as T
         } catch {
-            log.error("\(error)")
+            log.error(error)
             fatalError()
         }
     }
@@ -14,7 +14,7 @@ public extension DependencyContainer {
         do {
             return try self.resolve(arguments: arg1) as T
         } catch {
-            log.error("\(error)")
+            log.error(error)
             fatalError()
         }
     }
@@ -23,7 +23,7 @@ public extension DependencyContainer {
         do {
             return try self.resolve(arguments: arg1, arg2) as T
         } catch {
-            log.error("\(error)")
+            log.error(error)
             fatalError()
         }
     }
@@ -32,7 +32,7 @@ public extension DependencyContainer {
         do {
             return try self.resolve(arguments: arg1, arg2, arg3) as T
         } catch {
-            log.error("\(error)")
+            log.error(error)
             fatalError()
         }
     }
@@ -41,7 +41,7 @@ public extension DependencyContainer {
         do {
             return try self.resolve(tag: tag) as T
         } catch {
-            log.error("\(error)")
+            log.error(error)
             fatalError()
         }
     }

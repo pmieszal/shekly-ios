@@ -1,0 +1,14 @@
+"common_error_title" = "Error";
+"common_error_ok_action" = "OK";
+
+"common_error_delete_ok_action" = "OK";
+"common_error_delete_cancel_action" = "Cancel";
+
+"wallet_tab_title" = "Wallet";
+"wallet_empty_entry_cell_text" = "No entries/n/nUse bottom + button to create new entry";
+"wallet_entry_delete_title" = "Do you really want to delete this entry?";
+
+"new_wallet_alert_title" = "Create new wallet";
+"new_wallet_alert_create_action" = "Create";
+
+"plan_tab_title" = "Plan";

@@ -2,13 +2,20 @@ import AppRoutes
 import CleanArchitectureHelpers
 import UIKit
 
-public final class MainConfigurator: Configurator {
-    public func configureMainModule(with window: UIWindow) -> MainRouter {
+public enum MainDependency: String {
+    case window
+}
+
+final class MainConfigurator: Configurator {
+    override func configureModule(withDependencies dependencies: [String : Any] = [:]) -> UIViewController {
+        guard let window = dependencies[MainDependency.window.rawValue] as? UIWindow else {
+            fatalError("Provide window")
+        }
+        
         let router = MainRouter(
             window: window,
             viewConfigurator: container.forceResolve(tag: AppRoutes.wallet))
-        router.showTabs()
         
-        return router
+        return router.start()
     }
 }

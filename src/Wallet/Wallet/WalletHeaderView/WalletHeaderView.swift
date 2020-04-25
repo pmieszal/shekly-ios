@@ -4,44 +4,24 @@ import Domain
 import UIKit
 
 class WalletHeaderView: UIView {
-    private lazy var walletCollectionView: SheklyWalletCollectionView = {
-        let view = SheklyWalletCollectionView()
+    private lazy var monthView: WalletMonthCollectionView = {
+        let view = WalletMonthCollectionView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(view)
         
-        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
-        return view
-    }()
-    
-    private lazy var monthView: SheklyMonthCollectionView = {
-        let view = SheklyMonthCollectionView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(view)
-        
-        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 42).isActive = true
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor),
+            view.topAnchor.constraint(equalTo: topAnchor),
+        ])
         
         return view
         
     }()
     
-    weak var walletDelegate: WalletCollectionViewDelegate? {
-        get {
-            return walletCollectionView.delegate
-        }
-        set {
-            walletCollectionView.delegate = newValue
-        }
-    }
-    
-    weak var monthCollectionDelegate: SheklyMonthCollectionViewDelegate? {
+    weak var monthCollectionDelegate: WalletMonthCollectionViewDelegate? {
         get {
             return monthView.delegate
         }
@@ -55,23 +35,14 @@ class WalletHeaderView: UIView {
         
         setup()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
-    }
-    
-    func reload(snapshot: NSDiffableDataSourceSnapshot<String, WalletModel>) {
-        walletCollectionView.reload(snapshot: snapshot)
-    }
 }
 
 private extension WalletHeaderView {
     func setup() {
-        backgroundColor = Colors.brand2Color
-        
-        walletCollectionView.bottomAnchor.constraint(equalTo: monthView.topAnchor).isActive = true
-        monthView.topAnchor.constraint(equalTo: walletCollectionView.bottomAnchor).isActive = true
+        backgroundColor = .systemBackground
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowRadius = 2
+        layer.shadowOffset = .zero
     }
 }

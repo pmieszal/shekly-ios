@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,24 +10,25 @@
         <!--Wallet View Controller-->
         <scene sceneID="uKj-jz-PIb">
             <objects>
-                <viewController storyboardIdentifier="WalletViewController" id="nTR-KQ-DwS" customClass="WalletViewController" customModule="UI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalletViewController" id="nTR-KQ-DwS" customClass="WalletViewController" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s9h-aS-VhZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GZ7-Iy-Fzo">
-                                <rect key="frame" x="0.0" y="172" width="600" height="428"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzZ-ah-lLs" customClass="WalletHeaderView" customModule="UI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="172"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzZ-ah-lLs" customClass="WalletHeaderView" customModule="Wallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="5Hr-C4-4gi"/>
+                                    <constraint firstAttribute="height" constant="100" id="5Hr-C4-4gi"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="GZ7-Iy-Fzo" firstAttribute="leading" secondItem="WRm-KQ-yZj" secondAttribute="leading" id="JAO-Nj-mBT"/>
                             <constraint firstItem="GZ7-Iy-Fzo" firstAttribute="top" secondItem="YzZ-ah-lLs" secondAttribute="bottom" id="bN7-Po-pmu"/>
@@ -34,7 +36,7 @@
                             <constraint firstItem="YzZ-ah-lLs" firstAttribute="trailing" secondItem="WRm-KQ-yZj" secondAttribute="trailing" id="iMn-SL-kAa"/>
                             <constraint firstItem="YzZ-ah-lLs" firstAttribute="leading" secondItem="WRm-KQ-yZj" secondAttribute="leading" id="qmB-IC-1aS"/>
                             <constraint firstItem="YzZ-ah-lLs" firstAttribute="top" secondItem="WRm-KQ-yZj" secondAttribute="top" id="rK3-Hl-5wz"/>
-                            <constraint firstItem="GZ7-Iy-Fzo" firstAttribute="bottom" secondItem="WRm-KQ-yZj" secondAttribute="bottom" id="ssy-LM-Ftp"/>
+                            <constraint firstItem="GZ7-Iy-Fzo" firstAttribute="bottom" secondItem="s9h-aS-VhZ" secondAttribute="bottom" id="ssy-LM-Ftp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WRm-KQ-yZj"/>
                     </view>

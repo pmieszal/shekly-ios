@@ -90,7 +90,7 @@ public class SheklyWalletCollectionView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        roundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
+        maskRoundCorners(corners: [.bottomLeft, .bottomRight], radius: 3)
     }
 }
 

@@ -7,7 +7,7 @@ class WalletEntriesDataSource: UITableViewDiffableDataSource<String, WalletEntry
         super.init(tableView: tableView, cellProvider: { (tableView, indexPath, model) -> UITableViewCell in
             guard model.id?.isEmpty == false else {
                 guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: CommonUI.R.reuseIdentifier.sheklyWalletEntryEmptyCell,
+                    withIdentifier: R.reuseIdentifier.walletEntryEmptyCell,
                     for: indexPath) else {
                     assertionFailure("Cell can't be nil")
                     return UITableViewCell()

@@ -3,6 +3,7 @@ import Domain
 import UIKit
 
 protocol WalletPresenterLogic: PresenterLogic {
+    func display(wallet: WalletModel?)
     func reload(wallets: [WalletModel])
     func reload(entries: [WalletEntryCellModel])
 }
@@ -22,6 +23,10 @@ final class WalletPresenter {
 extension WalletPresenter: WalletPresenterLogic {
     var viewControllerLogic: ViewControllerLogic? {
         viewController
+    }
+    
+    func display(wallet: WalletModel?) {
+        viewController?.display(walletName: wallet?.name)
     }
     
     func reload(wallets: [WalletModel]) {

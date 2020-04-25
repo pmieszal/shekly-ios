@@ -16,7 +16,7 @@ public final class MainRouter {
 }
 
 extension MainRouter {
-    func showTabs() {
+    func start() -> UIViewController {
         let navigation = SheklyNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
         
@@ -25,5 +25,7 @@ extension MainRouter {
         window.rootViewController = view
         window.makeKeyAndVisible()
         viewController = view
+        
+        return view
     }
 }

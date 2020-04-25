@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UIView {
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    func maskRoundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,

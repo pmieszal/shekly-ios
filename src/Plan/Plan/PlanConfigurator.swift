@@ -16,7 +16,7 @@ class PlanConfigurator: Configurator {
         viewController.interactor = interactor
         viewController.router = router
         
-        viewController.tabBarItem.title = "Plan"
+        viewController.tabBarItem.title = CommonUI.R.string.localizable.plan_tab_title()
         viewController.tabBarItem.image = CommonUI.R.image.tabBarPlanIcon()?.withRenderingMode(.alwaysOriginal)
         viewController.tabBarItem.selectedImage = CommonUI.R.image.tabBarPlanIcon()
         

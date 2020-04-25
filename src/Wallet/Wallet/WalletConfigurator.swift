@@ -3,6 +3,10 @@ import CommonUI
 import Domain
 import UIKit
 
+public enum WalletDependency: String {
+    case delegate
+}
+
 final class WalletConfigurator: Configurator {
     override func configureModule(withDependencies dependencies: [String: Any] = [:]) -> UIViewController {
         guard let viewController = R.storyboard.wallet.walletViewController() else {
@@ -22,13 +26,12 @@ final class WalletConfigurator: Configurator {
         
         viewController.interactor = interactor
         viewController.router = router
-        viewController.tabBarItem.title = "Portfel"
+        viewController.tabBarItem.title = CommonUI.R.string.localizable.wallet_tab_title()
         viewController.tabBarItem.image = CommonUI.R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysOriginal)
         viewController.tabBarItem.selectedImage = CommonUI.R.image.tabBarWalletIcon()
         
         let walletNavigation = SheklyNavigationController(rootViewController: viewController)
         walletNavigation.setViewControllers([viewController], animated: false)
-        walletNavigation.setNavigationBarHidden(true, animated: false)
         
         return walletNavigation
     }

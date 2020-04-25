@@ -20,13 +20,13 @@ class TabConfigurator: Configurator {
         
         let stats = SheklyViewController()
         stats.view.backgroundColor = Colors.brandColor
-        stats.tabBarItem.title = "Statystyki"
+        stats.tabBarItem.title = "Stats"
         stats.tabBarItem.image = CommonUI.R.image.tabBarStatsIcon()?.withRenderingMode(.alwaysOriginal)
         stats.tabBarItem.selectedImage = CommonUI.R.image.tabBarStatsIcon()
         
         let more = SheklyViewController()
         more.view.backgroundColor = Colors.brandColor
-        more.tabBarItem.title = "Więcej"
+        more.tabBarItem.title = "More"
         more.tabBarItem.image = CommonUI.R.image.tabBarMoreIcon()?.withRenderingMode(.alwaysOriginal)
         more.tabBarItem.selectedImage = CommonUI.R.image.tabBarMoreIcon()
         

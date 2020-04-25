@@ -11,7 +11,6 @@ public extension DependencyContainer {
             .implements(Configurator.self,
                         tag: AppRoutes.wallet)
         
-        
         return container
     }
 }

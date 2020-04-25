@@ -1,6 +1,8 @@
 import Dip
 import UIKit
 
+import AppRoutes
+import CleanArchitectureHelpers
 import Common
 import CommonUI
 import Database
@@ -15,7 +17,7 @@ import Wallet
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var mainRouter: MainRouter?
+    var mainView: UIViewController?
     
     let container = DependencyContainer.configureApp()
     
@@ -25,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mainConfigurator: MainConfigurator = container.forceResolve()
-        mainRouter = mainConfigurator.configureMainModule(with: window)
+        let mainConfigurator: Configurator = container.forceResolve(tag: AppRoutes.main)
+        mainView = mainConfigurator.configureModule(withDependencies: [MainDependency.window.rawValue: window])
         self.window = window
         
         // Temporary hack for database init on fresh install

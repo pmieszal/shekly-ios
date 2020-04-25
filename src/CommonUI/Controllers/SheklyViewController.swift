@@ -5,7 +5,7 @@ import UIKit
 
 open class SheklyViewController: UIViewController {
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .darkContent
     }
     
     deinit {
@@ -71,8 +71,14 @@ public struct AlertControllerInput {
 
 public extension Array where Element == UIAlertAction {
     static func defaultDeleteActions(okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)?) -> [Element] {
-        let ok = UIAlertAction(title: "OK", style: .destructive, handler: okHandler)
-        let cancel = UIAlertAction(title: "Anuluj", style: .cancel, handler: cancelHandler)
+        let ok = UIAlertAction(
+            title: R.string.localizable.common_error_delete_ok_action(),
+            style: .destructive,
+            handler: okHandler)
+        let cancel = UIAlertAction(
+            title: R.string.localizable.common_error_delete_cancel_action(),
+            style: .cancel,
+            handler: cancelHandler)
         
         return [ok, cancel]
     }

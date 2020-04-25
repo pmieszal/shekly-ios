@@ -11,28 +11,27 @@ class WalletEntryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
-    }
-    
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
-        
-        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
+        setup()
     }
     
     func setup(with model: WalletEntryCellModel) {
-        entryView.roundCorners(corners: [.topRight, .bottomRight], radius: 6)
-        
         categoryAndCommentLabel.text = model.categoryAndComment
         subcategoryLabel.text = model.subcategoryName
         amountLabel.text = model.amountText
         amountLabel.textColor = model.amountColor
         dateLabel.text = model.dateString
+    }
+}
+
+private extension WalletEntryCell {
+    func setup() {
+        entryView.backgroundColor = .systemBackground
+        entryView.layer.cornerRadius = 6
+        entryView.layer.shadowColor = UIColor.black.cgColor
+        entryView.layer.shadowOpacity = 0.1
+        entryView.layer.shadowRadius = 2
+        entryView.layer.shadowOffset = .zero
+        
+        subcategoryLabel.textColor = .label
     }
 }

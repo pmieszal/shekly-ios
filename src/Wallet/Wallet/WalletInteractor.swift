@@ -118,6 +118,7 @@ private extension WalletInteractor {
         getWalletsUseCase.getCurrentWallet(
             success: { [weak self] currentWallet in
                 self?.selectedWallet = currentWallet
+                self?.presenter.display(wallet: currentWallet)
                 completion?()
             },
             failure: presenter.show(error:))
