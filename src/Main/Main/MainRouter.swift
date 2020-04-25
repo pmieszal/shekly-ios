@@ -3,15 +3,15 @@ import CommonUI
 import UIKit
 
 public final class MainRouter {
-    weak var navigationController: UINavigationController?
+    weak var viewController: UIViewController?
     
     let window: UIWindow
-    let tabConfigurator: Configurator
+    let viewConfigurator: Configurator
     
     init(window: UIWindow,
-         tabConfigurator: Configurator) {
+         viewConfigurator: Configurator) {
         self.window = window
-        self.tabConfigurator = tabConfigurator
+        self.viewConfigurator = viewConfigurator
     }
 }
 
@@ -20,11 +20,10 @@ extension MainRouter {
         let navigation = SheklyNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
         
-        let tabs = tabConfigurator.configureModule()
-        navigation.setViewControllers([tabs], animated: false)
+        let view = viewConfigurator.configureModule()
         
-        window.rootViewController = navigation
+        window.rootViewController = view
         window.makeKeyAndVisible()
-        navigationController = navigation
+        viewController = view
     }
 }

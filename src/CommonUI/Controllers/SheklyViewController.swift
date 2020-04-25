@@ -9,7 +9,7 @@ open class SheklyViewController: UIViewController {
     }
     
     deinit {
-        log.debug("deinit")
+        log.debug("\(type(of: self)) deinit")
     }
     
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
