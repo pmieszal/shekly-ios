@@ -52,6 +52,7 @@ targets:
       - Shekly
     dependencies:
       - target: Vendors
+      - target: AppRoutes
       - target: Common
       - target: Domain
       - target: Database
@@ -104,6 +105,10 @@ targets:
     sources:
       - Vendors
 
+  AppRoutes:
+    templates: 
+      - Framework
+
   CleanArchitectureHelpers:
     templates: 
       - Framework
@@ -120,16 +125,21 @@ targets:
     templates: 
       - Framework
     dependencies:
-      - target: Tabs
+      - target: Domain
+      - target: Common
+      - target: CommonUI
+      - target: CleanArchitectureHelpers
+      - target: AppRoutes
 
   Tabs:
     templates: 
       - Framework
     dependencies:
       - target: Domain
-      - target: NewEntry
-      - target: Wallet
-      - target: Plan
+      - target: Common
+      - target: CommonUI
+      - target: CleanArchitectureHelpers
+      - target: AppRoutes
 
   NewEntry:
     templates: 
@@ -139,7 +149,6 @@ targets:
       - target: CleanArchitectureHelpers
       - target: Common
       - target: CommonUI
-      - target: User
 
   Wallet:
     templates: 
@@ -149,7 +158,6 @@ targets:
       - target: CleanArchitectureHelpers
       - target: Common
       - target: CommonUI
-      - target: User
 
   Plan:
     templates: 
@@ -159,7 +167,6 @@ targets:
       - target: CleanArchitectureHelpers
       - target: Common
       - target: CommonUI
-      - target: User
 
   Domain:
     templates: 

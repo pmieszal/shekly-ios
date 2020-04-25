@@ -1,16 +1,14 @@
 import CleanArchitectureHelpers
 import Common
 import Domain
-import NewEntry
-import User
 
 final class TabRouter {
     weak var viewController: SheklyTabBarController?
     
-    let newEntryConfigurator: NewEntryConfiguratorProtocol
+    let newEntryConfigurator: Configurator
     
     init(viewController: SheklyTabBarController,
-         newEntryConfigurator: NewEntryConfiguratorProtocol) {
+         newEntryConfigurator: Configurator) {
         self.viewController = viewController
         self.newEntryConfigurator = newEntryConfigurator
     }
@@ -19,7 +17,7 @@ final class TabRouter {
 extension TabRouter {
     @objc
     func navigateToNewEntry() {
-        let newEntry = newEntryConfigurator.configureNewEntryModule()
+        let newEntry = newEntryConfigurator.configureModule()
         newEntry.presentationController?.delegate = viewController?.selectedViewController
         
         viewController?.present(newEntry, animated: true, completion: nil)

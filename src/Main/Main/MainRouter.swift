@@ -1,16 +1,15 @@
 import CleanArchitectureHelpers
 import CommonUI
-import Tabs
 import UIKit
 
 public final class MainRouter {
     weak var navigationController: UINavigationController?
     
     let window: UIWindow
-    let tabConfigurator: TabConfigurator
+    let tabConfigurator: Configurator
     
     init(window: UIWindow,
-         tabConfigurator: TabConfigurator) {
+         tabConfigurator: Configurator) {
         self.window = window
         self.tabConfigurator = tabConfigurator
     }
@@ -21,7 +20,7 @@ extension MainRouter {
         let navigation = SheklyNavigationController()
         navigation.setNavigationBarHidden(true, animated: false)
         
-        let tabs = tabConfigurator.configureTabModule()
+        let tabs = tabConfigurator.configureModule()
         navigation.setViewControllers([tabs], animated: false)
         
         window.rootViewController = navigation

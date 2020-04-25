@@ -1,4 +1,5 @@
 import Dip
+import UIKit
 
 open class Configurator: Resolvable {
     private var injectedContainer: DependencyContainer?
@@ -12,6 +13,10 @@ open class Configurator: Resolvable {
     }
     
     public init() {}
+    
+    open func configureModule(withDependencies dependencies: [String: Any] = [:]) -> UIViewController {
+        return UIViewController()
+    }
     
     public func resolveDependencies(_ container: DependencyContainer) {
         injectedContainer = container

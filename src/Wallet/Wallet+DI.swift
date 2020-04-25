@@ -1,4 +1,6 @@
 import Dip
+import AppRoutes
+import CleanArchitectureHelpers
 
 public extension DependencyContainer {
     func configureWallet() -> DependencyContainer {
@@ -6,7 +8,9 @@ public extension DependencyContainer {
         
         container
             .register(factory: { WalletConfigurator() })
-            .implements(WalletConfiguratorProtocol.self)
+            .implements(Configurator.self,
+                        tag: AppRoutes.wallet)
+        
         
         return container
     }
