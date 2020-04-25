@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DhF-NG-4Z2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="539"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0C-Nh-wBG" userLabel="Spacer">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="14"/>
@@ -72,7 +72,7 @@
                                                         <rect key="frame" x="20" y="0.0" width="374" height="50"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" red="0.96760028600692749" green="0.11198229342699051" blue="0.30684241652488708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                 </subviews>
@@ -94,7 +94,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8Z-qu-eqt" userLabel="WalletAndDate">
                                                 <rect key="frame" x="0.0" y="137" width="414" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5h-5H-Qz3" customClass="SheklyButton" customModule="NewEntry" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5h-5H-Qz3" customClass="SheklyButton" customModule="CommonUI">
                                                         <rect key="frame" x="210" y="0.0" width="81" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,7 +115,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37D-W7-Sws" customClass="SheklyButton" customModule="NewEntry" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37D-W7-Sws" customClass="SheklyButton" customModule="CommonUI">
                                                         <rect key="frame" x="113" y="0.5" width="91" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +154,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhn-Ec-Dma" userLabel="CategoryHeader">
-                                                <rect key="frame" x="0.0" y="180" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="180" width="414" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DV2-le-1tw">
                                                         <rect key="frame" x="178.5" y="0.0" width="57" height="1"/>
@@ -165,7 +165,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kategoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKS-u4-K83">
-                                                        <rect key="frame" x="172" y="15.5" width="70.5" height="20.5"/>
+                                                        <rect key="frame" x="172" y="8" width="70.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -175,16 +175,16 @@
                                                 <constraints>
                                                     <constraint firstItem="DV2-le-1tw" firstAttribute="centerX" secondItem="Xhn-Ec-Dma" secondAttribute="centerX" id="8QP-7g-1bU"/>
                                                     <constraint firstItem="KKS-u4-K83" firstAttribute="centerX" secondItem="Xhn-Ec-Dma" secondAttribute="centerX" id="LTp-oo-kcW"/>
-                                                    <constraint firstAttribute="height" constant="55" id="Z78-PL-iCW"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Z78-PL-iCW"/>
                                                     <constraint firstItem="KKS-u4-K83" firstAttribute="centerY" secondItem="Xhn-Ec-Dma" secondAttribute="centerY" constant="-2" id="jVt-mN-VMb"/>
                                                     <constraint firstItem="DV2-le-1tw" firstAttribute="top" secondItem="Xhn-Ec-Dma" secondAttribute="top" id="wkk-6S-PvE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NDn-g6-OiK" userLabel="Categories">
-                                                <rect key="frame" x="0.0" y="235" width="414" height="62"/>
+                                                <rect key="frame" x="0.0" y="220" width="414" height="31"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-zf-Nab">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="K0R-gT-85x">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -197,7 +197,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="62" id="AQD-yz-e8l"/>
+                                                    <constraint firstAttribute="height" constant="31" id="AQD-yz-e8l"/>
                                                     <constraint firstAttribute="trailing" secondItem="7nY-zf-Nab" secondAttribute="trailing" id="Dr2-UZ-e15"/>
                                                     <constraint firstAttribute="bottom" secondItem="7nY-zf-Nab" secondAttribute="bottom" id="FFh-8z-v3j"/>
                                                     <constraint firstItem="7nY-zf-Nab" firstAttribute="top" secondItem="NDn-g6-OiK" secondAttribute="top" id="KUE-7d-k27"/>
@@ -205,14 +205,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syn-yV-pTn" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="297" width="414" height="13"/>
+                                                <rect key="frame" x="0.0" y="251" width="414" height="13"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13" id="qna-vG-4OH"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51U-yh-zZy" userLabel="SubcategoryHeader">
-                                                <rect key="frame" x="0.0" y="310" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="264" width="414" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dg3-V5-wfK">
                                                         <rect key="frame" x="178.5" y="0.0" width="57" height="1"/>
@@ -223,7 +223,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="podkategoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnI-98-LxH">
-                                                        <rect key="frame" x="157" y="15.5" width="100" height="20.5"/>
+                                                        <rect key="frame" x="157" y="8" width="100" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -233,16 +233,16 @@
                                                 <constraints>
                                                     <constraint firstItem="dg3-V5-wfK" firstAttribute="centerX" secondItem="51U-yh-zZy" secondAttribute="centerX" id="5Mu-ae-3aG"/>
                                                     <constraint firstItem="dg3-V5-wfK" firstAttribute="top" secondItem="51U-yh-zZy" secondAttribute="top" id="F3q-Kw-vbM"/>
-                                                    <constraint firstAttribute="height" constant="55" id="Ogu-BD-Rfi"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Ogu-BD-Rfi"/>
                                                     <constraint firstItem="xnI-98-LxH" firstAttribute="centerX" secondItem="51U-yh-zZy" secondAttribute="centerX" id="bO4-Nm-c8k"/>
                                                     <constraint firstItem="xnI-98-LxH" firstAttribute="centerY" secondItem="51U-yh-zZy" secondAttribute="centerY" constant="-2" id="pMc-Ve-a7w"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scZ-uZ-Xxa" userLabel="Subcategories">
-                                                <rect key="frame" x="0.0" y="365" width="414" height="62"/>
+                                                <rect key="frame" x="0.0" y="304" width="414" height="93"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NON-K8-BdS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="ZN7-Wq-YMk">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -257,20 +257,20 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="NON-K8-BdS" secondAttribute="trailing" id="3Zt-Kg-SYU"/>
                                                     <constraint firstAttribute="bottom" secondItem="NON-K8-BdS" secondAttribute="bottom" id="8WE-jz-RzO"/>
-                                                    <constraint firstAttribute="height" constant="62" id="UT4-Sn-DJB"/>
+                                                    <constraint firstAttribute="height" constant="93" id="UT4-Sn-DJB"/>
                                                     <constraint firstItem="NON-K8-BdS" firstAttribute="leading" secondItem="scZ-uZ-Xxa" secondAttribute="leading" id="aIN-Wf-SWe"/>
                                                     <constraint firstItem="NON-K8-BdS" firstAttribute="top" secondItem="scZ-uZ-Xxa" secondAttribute="top" id="fYz-rv-hSG"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZC-Z5-VlV" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="427" width="414" height="13"/>
+                                                <rect key="frame" x="0.0" y="397" width="414" height="13"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13" id="KZN-3n-bkB"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H67-V1-4ze" userLabel="CommentHeader">
-                                                <rect key="frame" x="0.0" y="440" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="410" width="414" height="55"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2n-d8-4RS">
                                                         <rect key="frame" x="178.5" y="0.0" width="57" height="1"/>
@@ -297,7 +297,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNH-xX-FX9" userLabel="Comment">
-                                                <rect key="frame" x="0.0" y="495" width="414" height="74"/>
+                                                <rect key="frame" x="0.0" y="465" width="414" height="74"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GHa-XT-I2G">
                                                         <rect key="frame" x="8" y="8" width="398" height="58"/>
@@ -374,7 +374,7 @@
                             <constraint firstItem="ucQ-6K-ntx" firstAttribute="top" secondItem="agc-wn-d1h" secondAttribute="top" id="WOF-ZT-zbs"/>
                             <constraint firstItem="ucQ-6K-ntx" firstAttribute="leading" secondItem="agc-wn-d1h" secondAttribute="leading" id="cKn-Un-EJX"/>
                             <constraint firstItem="agc-wn-d1h" firstAttribute="trailing" secondItem="Ild-mE-eZ0" secondAttribute="trailing" id="eDM-7X-7Vc"/>
-                            <constraint firstItem="agc-wn-d1h" firstAttribute="bottom" secondItem="u3t-Hm-MPo" secondAttribute="bottom" id="lcR-or-u8A" customClass="KeyboardLayoutConstraint" customModule="NewEntry" customModuleProvider="target"/>
+                            <constraint firstItem="agc-wn-d1h" firstAttribute="bottom" secondItem="u3t-Hm-MPo" secondAttribute="bottom" id="lcR-or-u8A" customClass="KeyboardLayoutConstraint" customModule="CommonUI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agc-wn-d1h"/>
                     </view>
@@ -382,12 +382,14 @@
                         <outlet property="amountTextField" destination="lqy-Te-dQK" id="2T4-Sh-jKe"/>
                         <outlet property="cancelButton" destination="qXJ-x6-wid" id="sdv-lC-9dR"/>
                         <outlet property="categoryCollectionView" destination="7nY-zf-Nab" id="wqo-fb-IMN"/>
+                        <outlet property="categoryCollectionViewHeight" destination="AQD-yz-e8l" id="PcO-7e-zWW"/>
                         <outlet property="commentTextView" destination="GHa-XT-I2G" id="4NX-cJ-J3t"/>
                         <outlet property="dateButton" destination="D5h-5H-Qz3" id="do1-VP-Pes"/>
                         <outlet property="entryTypeSegmentedControl" destination="fHm-0M-TpE" id="LK0-uY-23b"/>
                         <outlet property="saveButton" destination="D0q-zT-VWN" id="CUE-Tf-S02"/>
                         <outlet property="subcategoriesContainer" destination="scZ-uZ-Xxa" id="kB9-A3-Rmw"/>
                         <outlet property="subcategoryCollectionView" destination="NON-K8-BdS" id="Jcn-r2-IQk"/>
+                        <outlet property="subcategoryCollectionViewHeight" destination="UT4-Sn-DJB" id="GFw-zp-NCs"/>
                         <outlet property="subcategoryHeader" destination="51U-yh-zZy" id="RJe-mj-8gY"/>
                         <outlet property="walletButton" destination="37D-W7-Sws" id="MR7-cy-NRw"/>
                     </connections>

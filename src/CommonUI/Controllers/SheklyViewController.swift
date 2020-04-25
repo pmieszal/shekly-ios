@@ -8,6 +8,10 @@ open class SheklyViewController: UIViewController {
         return .lightContent
     }
     
+    deinit {
+        log.debug("deinit")
+    }
+    
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         let presentationStyle = modalPresentationStyle
         let presentingViewController = self.presentingViewController

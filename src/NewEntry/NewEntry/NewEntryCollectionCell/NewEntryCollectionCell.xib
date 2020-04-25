@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="82" height="27"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wt-0p-PZ8">
-                                <rect key="frame" x="13" y="5" width="56.5" height="17"/>
+                                <rect key="frame" x="13" y="5" width="56" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -27,8 +27,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2Wt-0p-PZ8" firstAttribute="centerY" secondItem="rls-Ef-ySE" secondAttribute="centerY" id="A07-3q-SYM"/>
-                            <constraint firstItem="2Wt-0p-PZ8" firstAttribute="centerX" secondItem="rls-Ef-ySE" secondAttribute="centerX" id="Ldl-b8-EZ4"/>
+                            <constraint firstAttribute="bottom" secondItem="2Wt-0p-PZ8" secondAttribute="bottom" constant="5" id="9JY-Nx-vNJ"/>
+                            <constraint firstItem="2Wt-0p-PZ8" firstAttribute="leading" secondItem="rls-Ef-ySE" secondAttribute="leading" constant="13" id="FQy-0G-NOt"/>
+                            <constraint firstAttribute="trailing" secondItem="2Wt-0p-PZ8" secondAttribute="trailing" constant="13" id="Uev-MG-4xd"/>
+                            <constraint firstItem="2Wt-0p-PZ8" firstAttribute="top" secondItem="rls-Ef-ySE" secondAttribute="top" constant="5" id="Vd8-Dc-YRV"/>
                         </constraints>
                     </view>
                 </subviews>

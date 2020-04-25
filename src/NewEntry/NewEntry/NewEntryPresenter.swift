@@ -48,43 +48,21 @@ extension NewEntryPresenter: NewEntryPresenterLogic {
     
     func reload(categories: [CategoryModel]) {
         var snapshot = NewEntryViewControllerLogic.CategorySnapshot()
-        let sections = NewEntryPresenter.getSectionedList(from: categories)
-        
-        for (index, section) in sections.enumerated() {
-            let sectionName = "section-\(index)"
-            snapshot.appendSections([sectionName])
-            snapshot.appendItems(section, toSection: sectionName)
-        }
+        snapshot.appendSections(["categories"])
+        snapshot.appendItems(categories)
         
         viewController?.reloadCategories(snapshot: snapshot)
     }
     
     func reload(subcategories: [SubcategoryModel]) {
         var snapshot = NewEntryViewControllerLogic.SubcategorySnapshot()
-        let sections = NewEntryPresenter.getSectionedList(from: subcategories)
-        
-        for (index, section) in sections.enumerated() {
-            let sectionName = "section-\(index)"
-            snapshot.appendSections([sectionName])
-            snapshot.appendItems(section, toSection: sectionName)
-        }
+        snapshot.appendSections(["subcategories"])
+        snapshot.appendItems(subcategories)
         
         viewController?.reloadSubcategories(snapshot: snapshot)
     }
     
     func dismiss() {
         viewController?.dismiss()
-    }
-}
-
-private extension NewEntryPresenter {
-    class func getSectionedList<T>(from list: [T]) -> [[T]] {
-        let middleIndexDouble = Double(list.count) / 2
-        let middleIndex: Int = Int(middleIndexDouble.rounded(.up))
-        
-        let section1: [T] = Array(list.prefix(upTo: middleIndex))
-        let section2: [T] = Array(list.suffix(from: middleIndex))
-        
-        return [section1, section2]
     }
 }

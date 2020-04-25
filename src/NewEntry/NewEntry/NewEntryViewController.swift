@@ -27,10 +27,12 @@ final class NewEntryViewController: SheklyViewController {
     @IBOutlet private weak var dateButton: UIButton!
     
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
+    @IBOutlet private weak var categoryCollectionViewHeight: NSLayoutConstraint!
     
     @IBOutlet private weak var subcategoryHeader: UIView!
     @IBOutlet private weak var subcategoriesContainer: UIView!
     @IBOutlet private weak var subcategoryCollectionView: UICollectionView!
+    @IBOutlet private weak var subcategoryCollectionViewHeight: NSLayoutConstraint!
     
     @IBOutlet private weak var commentTextView: UITextView!
     @IBOutlet private weak var saveButton: UIButton!
@@ -79,7 +81,14 @@ extension NewEntryViewController: NewEntryViewControllerLogic {
     }
     
     func reloadCategories(snapshot: CategorySnapshot) {
-        categoryDataSource.apply(snapshot)
+        categoryDataSource.apply(
+            snapshot,
+            completion: {
+                self.categoryCollectionViewHeight.constant = self.categoryCollectionView.contentSize.height
+                UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+                }
+        })
     }
     
     func reloadSubcategories(snapshot: SubcategorySnapshot) {
@@ -88,7 +97,15 @@ extension NewEntryViewController: NewEntryViewControllerLogic {
             self.subcategoriesContainer.isHidden = false
         }
         
-        subcategoryDataSource.apply(snapshot)
+        subcategoryDataSource.apply(
+            snapshot,
+            animatingDifferences: false,
+            completion: {
+                self.subcategoryCollectionViewHeight.constant = self.subcategoryCollectionView.contentSize.height
+                UIView.animate(withDuration: 0.2) {
+                    self.view.layoutIfNeeded()
+                }
+        })
     }
     
     func dismiss() {
@@ -152,7 +169,10 @@ private extension NewEntryViewController {
         commentTextView.delegate = self
         
         categoryCollectionView.delegate = categoryDelegate
+        categoryCollectionView.setCollectionViewLayout(NewEntryCollectionLayout.layout(), animated: false)
+        
         subcategoryCollectionView.delegate = subcategoryDelegate
+        subcategoryCollectionView.setCollectionViewLayout(NewEntryCollectionLayout.layout(), animated: false)
         
         commentTextView.layer.cornerRadius = 4
         commentTextView.layer.borderWidth = 1
