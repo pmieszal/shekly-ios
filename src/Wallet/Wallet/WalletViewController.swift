@@ -111,6 +111,27 @@ extension WalletViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 11, weight: .light)
+        label.textColor = .systemGray
+        
+        let title = dataSource.snapshot().sectionIdentifiers[safe: section]
+        label.text = title
+        
+        let spacer = UIView()
+        spacer.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        
+        let hStack = UIStackView(arrangedSubviews: [spacer, label])
+        hStack.axis = .horizontal
+        
+        return hStack
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
 }
 
 private extension WalletViewController {
@@ -118,10 +139,6 @@ private extension WalletViewController {
         navigationItem.titleView = navigationTitleView
         
         headerView.monthCollectionDelegate = self
-        headerView.layer.shadowColor = Colors.brandColor.cgColor
-        headerView.layer.shadowOpacity = 0.5
-        headerView.layer.shadowRadius = 2
-        headerView.layer.shadowOffset.height = 2
         
         tableView.delegate = self
         tableView.register(R.nib.walletEntryCell)

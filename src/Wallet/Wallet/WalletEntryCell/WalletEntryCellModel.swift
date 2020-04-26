@@ -10,6 +10,7 @@ final class WalletEntryCellModel: Hashable {
     let categoryAndComment: String?
     let subcategoryName: String?
     let dateString: String
+    let date: Date
     
     init(entry: WalletEntryModel,
          currencyFormatter: SheklyCurrencyFormatter) {
@@ -31,6 +32,7 @@ final class WalletEntryCellModel: Hashable {
         
         subcategoryName = entry.subcategory?.name
         dateString = entry.date.toString(DateToStringStyles.date(DateFormatter.Style.long))
+        date = entry.date
     }
     
     func hash(into hasher: inout Hasher) {

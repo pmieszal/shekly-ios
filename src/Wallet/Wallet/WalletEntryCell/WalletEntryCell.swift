@@ -25,11 +25,14 @@ class WalletEntryCell: UITableViewCell {
 
 private extension WalletEntryCell {
     func setup() {
+        clipsToBounds = false
+        contentView.clipsToBounds = false
+        
         entryView.backgroundColor = .systemBackground
         entryView.layer.cornerRadius = 6
         entryView.layer.shadowColor = UIColor.black.cgColor
-        entryView.layer.shadowOpacity = 0.1
-        entryView.layer.shadowRadius = 2
+        entryView.layer.shadowOpacity = 0.2
+        entryView.layer.shadowRadius = 5
         entryView.layer.shadowOffset = .zero
         
         subcategoryLabel.textColor = .label

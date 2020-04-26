@@ -66,7 +66,7 @@ targets:
       - target: Wallet
       - target: Plan
     preBuildScripts:
-      - script: 'mint run R.swift rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
+      - script: 'mint run mac-cain13/R.swift@v5.2.0 rswift generate "$SRCROOT/Shekly/Generated/R.generated.swift"'
         name: R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
@@ -206,7 +206,7 @@ targets:
       - path: CommonUI/Generated
         optional: true
     preBuildScripts:
-      - script: 'mint run R.swift rswift generate --accessLevel public "$SRCROOT/CommonUI/Generated/R.generated.swift"'
+      - script: 'mint run mac-cain13/R.swift@v5.2.0 rswift generate --accessLevel public "$SRCROOT/CommonUI/Generated/R.generated.swift"'
         name: R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
@@ -227,7 +227,7 @@ targetTemplates:
       - path: ${target_name}/Generated
         optional: true
     preBuildScripts:
-      - script: 'mint run R.swift rswift generate "$SRCROOT/${target_name}/Generated/R.generated.swift"'
+      - script: 'mint run mac-cain13/R.swift@v5.2.0 rswift generate "$SRCROOT/${target_name}/Generated/R.generated.swift"'
         name: R.swift
         inputFiles:
           - $TEMP_DIR/rswift-lastrun

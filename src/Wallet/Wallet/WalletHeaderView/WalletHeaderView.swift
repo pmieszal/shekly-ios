@@ -40,9 +40,9 @@ class WalletHeaderView: UIView {
 private extension WalletHeaderView {
     func setup() {
         backgroundColor = .systemBackground
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
-        layer.shadowRadius = 2
+        layer.shadowRadius = 4
         layer.shadowOffset = .zero
     }
 }

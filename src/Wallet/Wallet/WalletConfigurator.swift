@@ -30,9 +30,11 @@ final class WalletConfigurator: Configurator {
         viewController.tabBarItem.image = CommonUI.R.image.tabBarWalletIcon()?.withRenderingMode(.alwaysOriginal)
         viewController.tabBarItem.selectedImage = CommonUI.R.image.tabBarWalletIcon()
         
-        let walletNavigation = SheklyNavigationController(rootViewController: viewController)
-        walletNavigation.setViewControllers([viewController], animated: false)
+        let navigation = SheklyNavigationController(rootViewController: viewController)
+        navigation.navigationBar.barTintColor = .systemBackground
+        navigation.navigationBar.shadowImage = UIImage()
+        navigation.setViewControllers([viewController], animated: false)
         
-        return walletNavigation
+        return navigation
     }
 }
