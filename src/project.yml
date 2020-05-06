@@ -73,7 +73,7 @@ targets:
         outputFiles:
           - $SRCROOT/Shekly/Generated/R.generated.swift
     postCompileScripts:
-      - script: mint run SwiftLint swiftlint
+      - script: mint run realm/SwiftLint@0.39.1 swiftlint
         name: Swiftlint
 
   SheklyShare:
