@@ -5,7 +5,7 @@
 "common_error_delete_cancel_action" = "Anuluj";
 
 "wallet_tab_title" = "Portfel";
-"wallet_empty_entry_cell_text" = "Brak wpisów/n/nUżyj przycisku + w dole ekranu";
+"wallet_empty_entry_cell_text" = "Brak wpisów\n\nUżyj przycisku + w dole ekranu";
 "wallet_entry_delete_title" = "Czy na pewno chcesz usunąć wpis?";
 
 "new_wallet_alert_title" = "Dodaj nowy portfel";
